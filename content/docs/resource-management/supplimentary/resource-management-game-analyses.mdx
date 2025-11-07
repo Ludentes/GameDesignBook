@@ -1,0 +1,1338 @@
+---
+title: resource-management-game-analyses
+---
+# Resource Management: Game System Analyses
+
+## Purpose of This Document
+
+This document contains detailed analyses of game systems examined to understand resource management patterns and their relationship to aesthetic goals. Each game was selected to reveal specific aspects of how resources create player experiences.
+
+**Analysis framework:**
+
+* What resources exist in the system
+* How scarcity/abundance is managed
+* What depletion/recovery patterns exist
+* What aesthetic experience the resources create
+* What design lessons we can extract
+
+***
+
+## 1. Blades in the Dark (2017)
+
+**Designer:** John Harper\
+**Type:** Tabletop RPG (PbtA-influenced)\
+**Why analyzed:** Innovative separation of immediate cost (stress) vs. lasting consequences (harm), plus multiple resource types serving different purposes
+
+### Resources in Blades
+
+#### Stress (0-9 track, personal)
+
+**Type:** Buffer/protection resource\
+**Scarcity:** Limited per character, refreshes between scores (jobs)\
+**Mechanics:**
+
+* Spend to resist consequences (roll to reduce/avoid harm)
+* Spend to push yourself (extra die, special ability use)
+* At 9 stress: Suffer trauma (permanent character mark)
+* At 4 trauma: Character retires (unplayable)
+
+**What it creates:**
+
+* Active choice in face of danger: "Do I take this hit or pay stress to avoid it?"
+* Push-your-luck gameplay: Can keep going but costs accumulate
+* Professional competence: "I can handle this" (spend stress = skill/determination)
+* Episodic pacing: Stress clears between jobs (fresh start each score)
+
+#### Harm (specific conditions)
+
+**Type:** Consequence/impairment resource\
+**Levels:** Lesser (1-segment), Moderate (2-segment), Severe (3-segment), Fatal\
+**Examples:** Battered, Exhausted, Broken Leg, Impaled, Terrified, Corrupted
+
+**Scarcity:** Slow to recover\
+**Mechanics:**
+
+* Descriptive AND mechanical (broken leg = can't run effectively)
+* Creates ongoing fictional constraints
+* Heals slowly (downtime action) or costs coin
+* Can push through harm (take Devil's Bargain, spend stress)
+
+**What it creates:**
+
+* Lasting consequences: "I'm still injured from last job"
+* Character history: Veteran criminals accumulate scars/trauma
+* Narrative momentum: Can't just "rest to full HP"
+* Asymmetric recovery from stress: Stress clears fast, harm lingers
+
+#### The Innovation: Buffer vs. Consequence Separation
+
+**Traditional HP systems (D\&D):**
+
+* HP represents BOTH your ability to avoid harm AND your health state
+* Lose HP gradually until 0 = unconscious/death
+* Functional until 0 HP (no impairment from damage)
+
+**Blades' separation:**
+
+* Stress = ability to avoid harm (buffer, renewable)
+* Harm = actual injury/trauma (consequence, persistent)
+* Different recovery rates create different play patterns
+* Agency: YOU choose whether to take stress or accept harm
+
+**Design lesson:** Can separate "protection capacity" from "actual damage" to create different strategic and narrative experiences.
+
+#### Coin (crew resource)
+
+**Type:** Economic resource\
+**Scarcity:** Earned from scores, spent on various needs\
+**Uses:**
+
+* Crew upgrades (better hideout, special abilities)
+* Faster healing (reduce harm recovery time)
+* Reduce heat (buy off attention from law)
+* Acquire assets (special equipment, contacts)
+
+**What it creates:**
+
+* Crew-level decisions: "What do we prioritize?"
+* Success metric: Getting rich is victory condition
+* Trade-offs: Spend on safety vs. capability vs. laying low
+
+#### Rep (Reputation, 0-12 track)
+
+**Type:** Progression resource (accumulation only)\
+**Scarcity:** Gained slowly from successful scores\
+**Mechanics:**
+
+* Can't be spent, only accumulated
+* Unlocks higher-tier jobs (more dangerous, better rewards)
+* Makes crew more famous (affects how NPCs react)
+
+**What it creates:**
+
+* Progression arc: Small-time → major players
+* Prestige: Recognition of accomplishments
+* Escalation: Must take bigger risks to advance
+
+#### Heat (attention from law, 0-9 track)
+
+**Type:** Pressure resource\
+**Scarcity:** Accumulates from noisy/violent scores\
+**Mechanics:**
+
+* Gained automatically based on job notoriety
+* Can be reduced by spending coin or laying low
+* At maximum: Entanglements (complications, investigations)
+* Creates tension with Rep (being famous = being noticed)
+
+**What it creates:**
+
+* Risk/reward: Big scores get attention
+* Consequences for playstyle: Violence has costs
+* Strategic choice: When to lay low vs. push forward
+
+#### Downtime Actions (limited slots between jobs)
+
+**Type:** Time/action resource\
+**Scarcity:** Usually 2-4 actions per downtime phase\
+**Uses:**
+
+* Recover stress (indulge vice)
+* Heal harm (medical attention)
+* Work on long-term projects
+* Acquire assets or train skills
+
+**What it creates:**
+
+* Forced prioritization: "What matters most to my character?"
+* Character development through choices
+* Can't do everything: Must pick between recovery and advancement
+
+#### Load (gear preparation)
+
+**Type:** Capacity resource with retroactive declaration\
+**Scarcity:** Choose light/normal/heavy before job (affects action rating)\
+**Mechanics:**
+
+* Determines what you CAN have, not what you DO have
+* Declare specific items when needed (flashback: "I brought this")
+* Heavier load = more options but penalties
+
+**What it creates:**
+
+* Criminal competence fantasy: "I prepared for this"
+* Eliminates tedious pre-planning sessions
+* Still has cost (load rating affects stealth/mobility)
+
+### Overall Aesthetic Created
+
+**Experience:** "Desperate criminals pushing their luck, competent but always one mistake from disaster"
+
+**Key patterns:**
+
+1. **Multiple resource types serve different purposes:**
+   * Stress: Immediate tactical resource (per-session)
+   * Harm: Long-term consequence (across sessions)
+   * Coin: Economic investment (crew building)
+   * Rep: Progression metric (campaign arc)
+   * Heat: External pressure (escalation)
+
+2. **Different recovery cycles create rhythm:**
+   * Stress: Fast (between scores) → episodic play
+   * Harm: Slow (needs downtime/coin) → lasting stakes
+   * Creates: "I'm recovered mentally but still injured physically"
+
+3. **Personal vs. crew resources:**
+   * Stress/Harm: Personal (your character's state)
+   * Coin/Rep/Heat: Crew (shared success/problems)
+   * Creates: Tension between individual cost and crew goals
+
+4. **Forced spending through constraints:**
+   * Limited downtime actions: Can't recover everything
+   * Trauma at 4: Must retire (can't hoard stress forever)
+   * Heat entanglements: Can't ignore accumulation
+
+### Design Lessons from Blades
+
+**L-Blades-1: Buffer/Consequence separation creates agency**
+
+* Players choose whether to pay immediate cost (stress) or accept lasting harm
+* Different from HP where damage just happens
+* Creates active decision-making in face of danger
+
+**L-Blades-2: Asymmetric recovery rates create different strategic layers**
+
+* Fast recovery (stress): Enables aggressive play per session
+* Slow recovery (harm): Creates campaign-level consequences
+* Same game, different time scales
+
+**L-Blades-3: Personal cost for crew success creates drama**
+
+* "I'll take stress/harm to complete the score"
+* Individual sacrifice for collective goal
+* Mechanical expression of protagonist themes
+
+**L-Blades-4: Retroactive resource declaration (Load) solves preparation problem**
+
+* Don't spend hours planning what to bring
+* "I prepared for this" maintains competence fantasy
+* Still has cost (load rating) so not unlimited
+
+**L-Blades-5: Resources tell story of character arc**
+
+* Fresh character: Low trauma, high stress capacity
+* Veteran: Multiple traumas, showing wear
+* System mechanically expresses "one more job" through trauma accumulation
+
+***
+
+## 2. Heroes of Might and Magic III (1999)
+
+**Designer:** New World Computing\
+**Type:** Turn-based strategy (4X lite)\
+**Why analyzed:** Permanent resource loss creates high stakes, weekly production creates rhythm, resource chains enable empire building
+
+### Resources in HoMM3
+
+#### Army Units (count × HP per unit)
+
+**Type:** THE primary resource - everything else supports this\
+**Scarcity:** Limited by weekly recruitment and building investments\
+**Mechanics:**
+
+* Recruited at towns (weekly production caps)
+* Lost permanently in combat (dead units stay dead)
+* Each unit type has recruitment building requirement
+* Can combine stacks (merge units of same type)
+* Different tiers (1-7) with vastly different power levels
+
+**What it creates:**
+
+* **High stakes combat:** Losing units HURTS, can't just resummon
+* **Attrition warfare:** Each battle weakens you even if you win
+* **Strategic positioning:** Avoid unfavorable fights, choose battles carefully
+* **Risk assessment:** "Can I win without losing too many units?"
+* **Growth pacing:** Army strength increases weekly but slowly
+
+#### Building Resources (Gold, Wood, Ore, Crystal, Gems, Mercury, Sulfur)
+
+**Type:** Economic/construction resources\
+**Scarcity:** Map-dependent (mines, limited sources) + time-dependent (daily production)\
+**Mechanics:**
+
+* Gold: Universal currency, used for everything
+* Wood/Ore: Basic materials (common)
+* Crystal/Gems/Mercury/Sulfur: Rare materials (specific creature types, high-level buildings)
+* Mines generate resources automatically each day (if controlled)
+* One-time pickups scattered on map
+
+**What it creates:**
+
+* **Territory control matters:** Must capture and defend mines
+* **Strategic expansion:** "Which mines do I need for my strategy?"
+* **Production chains:** Need building X to recruit unit Y
+* **4X strategy layer:** Optimize resource production for goals
+
+#### Movement Points (per hero, daily refresh)
+
+**Type:** Time/action resource\
+**Scarcity:** Fixed amount per day based on hero speed and terrain\
+**Mechanics:**
+
+* Each terrain type costs different movement
+* Roads reduce cost, rough terrain increases
+* Artifacts can increase movement
+* Runs out during turn, resets next day
+
+**What it creates:**
+
+* **Turn-based tempo:** Can't do everything in one turn
+* **Positioning strategy:** Where to end turn matters (safe vs. aggressive)
+* **Efficiency optimization:** Plan routes to maximize actions
+* **Time pressure:** "Can I reach that target before opponent?"
+
+#### Spell Points (per hero, limited restoration)
+
+**Type:** Magical resource\
+**Scarcity:** Limited pool per hero, restores at town or magic well\
+**Mechanics:**
+
+* Spent to cast spells (combat and adventure map)
+* Maximum based on hero knowledge skill
+* Restores slowly at wells (rare) or fully at town
+* Most powerful spells cost many points
+
+**What it creates:**
+
+* **Tactical decisions:** When to use powerful spells vs. conserve
+* **Logistics:** Need to return to town or find wells
+* **Hero specialization:** Magic heroes vs. combat heroes
+* **Decisive moments:** Big spells can turn battles
+
+#### Hero Experience/Levels
+
+**Type:** Progression resource (accumulation only)\
+**Scarcity:** Gained from battles and objects, no cap\
+**Mechanics:**
+
+* Heroes gain XP, level up, choose skills
+* Never lost (heroes can be defeated but respawn at town)
+* Permanent investment in hero capabilities
+* Compound: Higher level → more effective → gains XP faster
+
+**What it creates:**
+
+* **Long-term investment:** Heroes become more valuable over time
+* **Attachment:** Named heroes develop identity
+* **Risk/reward:** High-level hero death hurts (time to resurrect/recover)
+* **Power fantasy:** "My hero is now unstoppable"
+
+### Recovery Patterns
+
+**Fast/Automatic:**
+
+* Movement points (daily)
+* Building resources (daily mine production)
+* Spell points (at town/well)
+
+**Slow/Limited:**
+
+* Army recruitment (weekly caps)
+* Hero leveling (requires successful battles)
+
+**None (permanent loss):**
+
+* **Army units in combat:** Dead = gone forever
+* This is THE key tension creator
+
+### Aesthetic Created
+
+**Experience:** "Building an empire through careful expansion and decisive battles, where every army loss is permanent"
+
+**Key patterns:**
+
+1. **Permanent loss creates stakes:**
+   * Unlike most games where resources regenerate
+   * Each battle has lasting consequences
+   * Victory means: "Did I win efficiently enough?"
+
+2. **Weekly rhythm creates pacing:**
+   * Plan around recruitment day
+   * Week 1: Build up, Week 2: Expand, etc.
+   * Natural campaign structure
+
+3. **Resource chains create strategic layer:**
+   * Need mine → to get resource → to build structure → to recruit unit
+   * Long-term planning required
+   * Territory control = capability
+
+4. **Hero growth provides progress narrative:**
+   * Army is expendable, heroes are permanent
+   * "My hero is getting legendary"
+   * Counterbalances army losses
+
+### Design Lessons from HoMM3
+
+**L-HoMM-1: Permanent resource loss creates meaningful stakes**
+
+* If armies respawned, battles would be meaningless
+* The resource that CAN'T be easily recovered creates the tension
+* Everything else (gold, resources) is preparing for moment you risk army
+
+**L-HoMM-2: Weekly production cycles create campaign rhythm**
+
+* Not continuous (unlike RTS with constant production)
+* Creates natural turn structure: "Monday is recruitment day"
+* Players plan around production cycle
+
+**L-HoMM-3: Distinction between consumable and persistent resources**
+
+* Consumable: Army units, spell points (spent in use)
+* Persistent: Hero levels, town buildings (permanent investment)
+* Creates two strategic layers: What to spend now vs. what to build for future
+
+**L-HoMM-4: Multiple resource types create optimization puzzle**
+
+* Not just "get more gold"
+* Must balance: Which rare resources? Which mines? Which units?
+* Strategic depth through resource diversity
+
+**L-HoMM-5: Spatial resource distribution (mines on map) creates territorial gameplay**
+
+* Resources aren't abstract accumulation
+* Must control territory to access production
+* Links economy to military (must defend mines)
+
+***
+
+## 3. Settlers of Catan (1995)
+
+**Designer:** Klaus Teuber\
+**Type:** Board game (resource management, trading, territory control)\
+**Why analyzed:** Trading as core mechanic, probabilistic production, forced spending through hand limits, rubber-band mechanics
+
+### Resources in Catan
+
+#### Basic Resources (Brick, Lumber, Wool, Grain, Ore)
+
+**Type:** Building materials\
+**Scarcity:** Probabilistic (dice rolls) + positional (settlement placement)\
+**Mechanics:**
+
+* Produced when dice roll matches hex number
+* You get resources from ALL hexes adjacent to your settlements/cities
+* Cities produce 2× resources (vs settlements 1×)
+* Held in hand as cards (visible count, hidden types)
+
+**Production probability:**
+
+* 2 and 12: Rare (one combination each)
+* 6 and 8: Common (five combinations each)
+* Settlement placement = betting on probabilities
+
+**What it creates:**
+
+* **Turn-by-turn variance:** Might get nothing, might get 5 resources
+* **Position-based strategy:** "I need to be on good numbers"
+* **Risk/reward placement:** Better numbers are contested
+* **Luck balancer:** Even bad positions sometimes produce
+
+#### Trading (with players and bank)
+
+**Type:** Exchange/negotiation resource\
+**Scarcity:** Must have resources to trade, need willing partners\
+**Mechanics:**
+
+* **Player trading:** Any ratio, any resources, fully negotiated
+  * "I'll give you brick for wheat"
+  * "I'll give you two ore if you promise not to build there"
+  * "Anyone have sheep? I'm desperate!"
+* **Bank trading:** 4:1 ratio (any 4 resources → 1 of your choice)
+* **Port trading:** 3:1 or 2:1 if you control specific port
+
+**What it creates:**
+
+* **Social dynamics:** Negotiation is core gameplay
+* **Information leakage:** Asking reveals your strategy
+* **Temporary alliances:** "Trade with me now, I'll help you later"
+* **Supply and demand:** Scarcity creates trading opportunities
+
+#### Hand Limit + Robber (7-roll mechanic)
+
+**Type:** Anti-hoarding pressure resource\
+**Scarcity:** Anyone with 8+ cards when 7 rolled = discard half\
+**Mechanics:**
+
+* Rolling 7 triggers:
+  1. Anyone with 8+ cards discards half (rounded down)
+  2. Robber moves to new hex (blocks production)
+  3. Active player steals 1 card from adjacent player
+* Robber stays until next 7 (or knight card played)
+
+**What it creates:**
+
+* **Forced spending:** Can't safely hoard above 7 cards
+* **Leader targeting:** Rich players are vulnerable
+* **"Kingmaker" dynamics:** Who to rob affects game balance
+* **Tension on every roll:** "Please don't roll 7!"
+
+#### Victory Points (accumulation to 10)
+
+**Type:** Victory condition (not truly a spendable resource)\
+**Scarcity:** Limited by what's available on board\
+**Sources:**
+
+* Settlements: 1 VP each (public)
+* Cities: 2 VP each (public)
+* Longest Road: 2 VP (public, contested)
+* Largest Army: 2 VP (public, contested)
+* Development cards: 1 VP each (hidden until revealed)
+
+**What it creates:**
+
+* **Multiple paths to victory:** Roads vs. cities vs. development cards
+* **Hidden information:** Don't know exact scores
+* **Race condition:** First to 10 wins
+* **Comeback possibility:** Can catch up if ahead player gets robbed
+
+### Building Costs (resource signatures)
+
+**Type:** Resource sinks that create strategic choices
+
+* **Road:** Brick + Lumber (2 resources)
+* **Settlement:** Brick + Lumber + Wool + Grain (4 resources, diverse)
+* **City:** 3 Ore + 2 Grain (5 resources, specialized)
+* **Development Card:** Ore + Wool + Grain (3 resources, diverse)
+
+**What it creates:**
+
+* **Resource type specialization:**
+  * Brick/Lumber player → expansion strategy (roads, settlements)
+  * Ore/Grain player → development strategy (cities, cards)
+* **Trading motivation:** Usually have surplus of one type, shortage of another
+* **Multiple viable strategies:** Not one optimal path
+
+### Recovery Patterns
+
+**Every turn:** New production (dice roll)
+**No recovery:** Resources only flow in, never regenerate after spending
+**Use-it-or-lose-it:** Hand limit forces circulation
+
+**Result:** Resources flow constantly, creating dynamic game state
+
+### Aesthetic Created
+
+**Experience:** "Economic competition and negotiation, with luck creating variance and opportunity"
+
+**Key patterns:**
+
+1. **Probabilistic production prevents perfect optimization:**
+   * Can't guarantee resources even with perfect placement
+   * Creates variance that demands adaptation
+   * "Unlucky rolls" become conversation topics
+
+2. **Trading creates social gameplay:**
+   * Must interact with other players
+   * Negotiation skills matter as much as strategy
+   * Temporary alliances form and break
+
+3. **Hand limit prevents runaway leader:**
+   * Rich players lose resources to 7-rolls
+   * Robber targets leader's production
+   * Rubber-band mechanic keeps game competitive
+
+4. **Multiple resource types create interdependence:**
+   * Can't get everything from your own territory
+   * Must trade or have balanced placement
+   * Creates natural trading opportunities
+
+### Design Lessons from Catan
+
+**L-Catan-1: Forced spending prevents hoarding and runaway leaders**
+
+* Hand limit + robber creates "use it or lose it" pressure
+* Prevents: "I'll save up 20 resources then buy everything at once"
+* Keeps game flowing, prevents stagnation
+
+**L-Catan-2: Probabilistic production balances luck and strategy**
+
+* Good placement helps but doesn't guarantee success
+* Bad luck can be compensated through trading
+* Creates narrative: "I got no resources but traded my way to victory"
+
+**L-Catan-3: Trading as core mechanic requires simple resource system**
+
+* Only 5 resource types (can hold in head while negotiating)
+* Clear costs (don't need calculator)
+* Brainspace available for social interaction, not optimization
+
+**L-Catan-4: Different resource signatures create specialization**
+
+* Road strategy needs brick/lumber
+* City strategy needs ore/grain
+* Creates: "I'm the ore player, you're the brick player"
+* Trading emerges naturally from specialization
+
+**L-Catan-5: Visible board state enables social dynamics**
+
+* Everyone sees who has what, who's winning
+* Creates informed negotiation: "I see you need ore"
+* Transparency enables social gameplay
+
+**L-Catan-6: Rubber-band mechanics (robber, hand limit) maintain competitiveness**
+
+* Leader is most vulnerable (most cards, robber target)
+* Prevents game being decided early
+* "Everyone gang up on the leader" is viable strategy
+
+***
+
+## 4. World of Warcraft (2004-present)
+
+**Developer:** Blizzard Entertainment\
+**Type:** MMORPG\
+**Why analyzed:** Time-gated resources, social dependencies, multiple parallel progression systems, evolution toward accessibility
+
+### Resources in WoW
+
+#### Health Points (HP)
+
+**Type:** Survival resource\
+**Scarcity:** Depletes in combat, regenerates out of combat\
+**Mechanics:**
+
+* Lost when taking damage
+* Regenerates quickly out of combat (modern WoW)
+* Can be healed by abilities (healer classes) or consumables (potions, food)
+* Death = return to graveyard, must run back to corpse
+
+**Evolution:**
+
+* Classic: Slow regeneration, frequent deaths
+* Modern: Fast regeneration, death less punishing
+* Trend: More forgiving over time
+
+**What it creates:**
+
+* **Survival pressure in combat** (immediate threat)
+* **Minimal downtime** (fast recovery enables continuous play)
+* **Healer dependency** (group content requires healing)
+
+#### Mana/Energy/Rage (class-specific resources)
+
+**Type:** Ability resource\
+**Scarcity:** Spent to use abilities, regenerates during combat\
+**Mechanics:**
+
+* Different classes use different systems:
+  * Mana: Large pool, slow regen (casters)
+  * Energy: Small pool, fast regen (rogues, monks)
+  * Rage: Generated by taking/dealing damage (warriors)
+  * Focus: Medium pool, steady regen (hunters)
+* Creates different gameplay rhythms per class
+
+**What it creates:**
+
+* **Rotation gameplay:** "What's my optimal ability sequence?"
+* **Resource management within fight:** Don't run out at wrong time
+* **Class identity:** Different resources feel different to play
+
+#### Cooldowns (ability-specific timers)
+
+**Type:** Time-gated ability resource\
+**Scarcity:** Can't be spent or saved beyond their refresh\
+**Mechanics:**
+
+* Strong abilities have cooldown periods (30s, 2min, 5min, etc.)
+* Use ability → starts timer → can't use until timer expires
+* Some are global (shared across abilities), others specific
+
+**What it creates:**
+
+* **Timing decisions:** "When is optimal time to use big cooldown?"
+* **Rotation complexity:** Weaving cooldowns into ability usage
+* **Burst windows:** Stack cooldowns for maximum damage
+* **Distinct from resources:** Can't "save up" cooldowns, just use when available
+
+#### Gold (universal currency)
+
+**Type:** Economic resource\
+**Scarcity:** Earned through gameplay, capped by time investment\
+**Mechanics:**
+
+* Earned from: Quests, looting, selling items, professions
+* Spent on: Gear, mounts, consumables, repairs, auction house
+* Transferable between players (trade, auction house)
+* Inflates over time (each expansion adds more)
+
+**What it creates:**
+
+* **Universal exchange medium:** Can buy most things eventually
+* **Time investment reward:** Play more = earn more
+* **Economic gameplay:** Auction house trading, flipping
+* **Barrier removal:** Can buy catch-up gear
+
+#### Badges/Tokens/Currencies (parallel progression systems)
+
+**Type:** Specific-purpose currencies\
+**Scarcity:** Time-gated (weekly caps) or content-gated\
+**Examples:**
+
+* Valor Points (capped per week, buy gear)
+* Justice Points (uncapped, buy lower-tier gear)
+* Conquest Points (PvP, weekly cap)
+* Tier tokens (raid bosses, specific class sets)
+* Reputation tokens (faction-specific)
+
+**What it creates:**
+
+* **Parallel progression paths:** Multiple goals simultaneously
+* **FOMO through caps:** "Must cap this week or fall behind"
+* **Deterministic rewards:** Unlike RNG loot, guaranteed progress
+* **Complexity:** Many currencies to track (criticized in some expansions)
+
+#### Inventory Space (bag slots)
+
+**Type:** Capacity resource\
+**Scarcity:** Limited slots, can be expanded\
+**Mechanics:**
+
+* Start with small bags (16 slots)
+* Can buy/craft bigger bags (up to 30+ slots per bag)
+* Bank storage separate (also expandable)
+* Different item types (gear, consumables, crafting materials, quest items)
+
+**What it creates:**
+
+* **Forced prioritization:** "What do I keep? What do I sell?"
+* **Gold sink:** Bigger bags cost significant gold
+* **Tedium:** Constant inventory management
+* **Less important in modern WoW:** Many quality-of-life improvements
+
+#### Time-Gated Resources (daily/weekly lockouts)
+
+**Type:** Real-time gated progression\
+**Scarcity:** Can only earn/attempt once per day or week\
+**Examples:**
+
+* Daily quests (limited number per day)
+* Weekly raid lockouts (bosses drop loot once per week)
+* Daily dungeon bonuses
+* Weekly PvP conquest cap
+* Seasonal/event content (limited-time availability)
+
+**What it creates:**
+
+* **Login incentives:** "Must do dailies or fall behind"
+* **FOMO anxiety:** Missing days = lost progress
+* **Progression control:** Prevents rushing through content
+* **Obligation feeling:** Game feels like job
+* **Social coordination:** "Raid night is Tuesday"
+
+### Social Resource Dependencies
+
+**Group Content Requirements:**
+
+* Dungeons: Need tank, healer, 3 DPS (role dependencies)
+* Raids: 10-30 players with specific compositions
+* PvP: Battlegrounds, arenas (team coordination)
+
+**What it creates:**
+
+* **Forced socialization:** Can't solo everything
+* **Role specialization:** Tank/heal/DPS identities
+* **Scheduling challenges:** Coordinating many players
+* **Social bonds:** Repeated grouping creates friendships
+* **But also:** Toxicity, waiting for groups, elitism
+
+### Evolution Trend: Accessibility
+
+**Classic WoW (2004-2006):**
+
+* Slow leveling (weeks/months to max)
+* Attunements (must complete quest chains to enter raids)
+* 40-player raids (huge coordination requirement)
+* Limited fast travel (lots of running)
+* Harsh death penalties
+
+**Modern WoW (2020+):**
+
+* Fast leveling (days to max)
+* Flexible difficulty (LFR/Normal/Heroic/Mythic)
+* Smaller groups (10-30 player raids, flexible)
+* Dungeon finder (automatic group formation)
+* Fast travel everywhere
+* Forgiving death (minimal penalty)
+
+**Why the change:** Reducing barriers to entry, respecting player time
+
+### Aesthetic Created
+
+**Classic aesthetic:** "Persistent character progression in demanding social world"
+
+* High time investment required
+* Social coordination essential
+* Prestige from achievements
+
+**Modern aesthetic:** "Accessible character progression with optional hardcore challenges"
+
+* Casual-friendly (can progress solo/casually)
+* Hardcore still available (Mythic+, high-end raiding)
+* Respect player time (less grinding)
+
+### Design Lessons from WoW
+
+**L-WoW-1: Fast HP recovery enables continuous play**
+
+* Contrast to old D\&D (rest after every fight)
+* Minimizes downtime, keeps players engaged
+* Modern design trend: Reduce friction, maximize playtime
+
+**L-WoW-2: Time-gated resources control progression speed**
+
+* Weekly lockouts prevent "no-life" rushing
+* Creates daily/weekly login incentives
+* But also creates FOMO and obligation
+
+**L-WoW-3: Multiple parallel progression systems create diverse goals**
+
+* Not just "get stronger" but "unlock this faction, earn these tokens"
+* Keeps players engaged with variety
+* But can become overwhelming (too many currencies)
+
+**L-WoW-4: Social dependencies create both engagement and friction**
+
+* Forced grouping creates community
+* But also: Waiting for groups, toxic behavior, scheduling challenges
+* Design tension: Solo accessibility vs. social bonds
+
+**L-WoW-5: Evolution toward accessibility shows design priorities shift**
+
+* Early: Prestige through difficulty and time investment
+* Later: Broader appeal, respect player time, optional challenge
+* Neither is "better" - different aesthetics for different audiences
+
+**L-WoW-6: Deterministic (tokens) vs. RNG (loot drops) creates different psychological effects**
+
+* RNG: Exciting when you win, frustrating when you don't
+* Tokens: Guaranteed progress, but less exciting
+* Modern WoW uses both (bad luck protection)
+
+***
+
+## 5. Slay the Spire (2017)
+
+**Developer:** MegaCrit\
+**Type:** Roguelike deckbuilding\
+**Why analyzed:** Composition as resource, no persistence between runs, risk/reward routing, scalable cognitive complexity
+
+### Resources in Slay the Spire
+
+#### Health Points (HP)
+
+**Type:** Survival resource (permanent within run)\
+**Scarcity:** Depletes in combat, very limited recovery\
+**Mechanics:**
+
+* Lost when taking damage
+* Does NOT regenerate naturally
+* Can be restored at: Campfires (limited uses), certain relics, rare events
+* Death = run ends (permadeath)
+* Carries across all fights in run
+
+**What it creates:**
+
+* **Attrition pressure:** Each fight costs HP, even if you win
+* **Risk/reward routing:** "Can I afford the elite fight?"
+* **Campfire decisions:** Rest (heal HP) vs. upgrade card (improve deck)
+* **Permanent consequences:** Bad fight early hurts all run
+
+#### Energy (3 per turn, default)
+
+**Type:** Per-turn action resource\
+**Scarcity:** Fixed amount per turn, resets each turn\
+**Mechanics:**
+
+* Starts at 3 energy per turn (can be increased by relics)
+* Each card costs energy (0-3 typically)
+* Spent energy returns next turn
+* Careful: Can't save energy between turns
+
+**What it creates:**
+
+* **Turn optimization:** "What's the best use of 3 energy?"
+* **Combo planning:** Need cards that work well together within energy limit
+* **Relic value:** +1 energy is extremely powerful
+
+#### Deck Composition (cards in deck)
+
+**Type:** THE primary resource - what you can do\
+**Scarcity:** Start with basic deck, must carefully curate\
+**Mechanics:**
+
+* Begin run with starter deck (basic attacks/defenses)
+* After each combat: Choose 1 of 3 cards to add (or skip)
+* Remove cards at shops (costs gold)
+* Upgrade cards at campfires (improves single card)
+* Deck size matters: Thin deck = see best cards more often
+
+**What it creates:**
+
+* **Composition over accumulation:** Not "more cards = better"
+* **Synergy building:** Cards that work together > powerful cards alone
+* **Curation is skill:** Knowing WHEN to skip cards
+* **"Less is more" strategy:** Often want to remove starting cards
+
+**This is fundamentally different from other resources:**
+
+* Not "spend to use" but "what tools do you have?"
+* Quality AND quantity both matter
+* Bad composition can be worse than no resources
+
+#### Gold
+
+**Type:** Economic resource (within run only)\
+**Scarcity:** Earned from fights, limited by route choices\
+**Mechanics:**
+
+* Gained from: Combat rewards, events, selling relics
+* Spent on: Card removal, relics, potions, shop cards
+* Does NOT carry between runs
+* Limited opportunities to earn (finite fights)
+
+**What it creates:**
+
+* **Opportunity cost:** "Card removal or buy relic?"
+* **Route planning:** High-gold route vs. high-reward route
+* **Risk/reward:** Elite fights give more gold but cost HP
+
+#### Relics (permanent passive effects)
+
+**Type:** Accumulation resource (modifier collection)\
+**Scarcity:** Limited acquisition opportunities per run\
+**Mechanics:**
+
+* Gained from: Elite fights, bosses, shops, events
+* No limit (accumulate throughout run)
+* Powerful passive effects (draw more cards, +energy, damage bonuses)
+* Synergies between relics can be game-changing
+
+**What it creates:**
+
+* **Power accumulation:** Getting stronger throughout run
+* **Synergy hunting:** "This relic works perfectly with my deck!"
+* **Build diversity:** Different relics enable different strategies
+* **Permanent within run:** Can't lose relics once gained
+
+#### Potions (consumable, limited slots)
+
+**Type:** Consumable resource with capacity limit\
+**Scarcity:** Limited to 3 potion slots (default)\
+**Mechanics:**
+
+* Found during run (combat rewards, events)
+* Powerful one-time effects (burst damage, draw cards, gain energy)
+* Must use or discard to pick up new ones
+* Classic "too valuable to use" problem
+
+**What it creates:**
+
+* **Hoarding temptation:** "Save for boss fight"
+* **Opportunity cost:** Slot management when slots full
+* **Clutch plays:** Using potion to survive difficult fight
+
+#### Draw/Discard/Exhaust Piles (per-combat state)
+
+**Type:** Information resource (card position tracking)\
+**Scarcity:** Fixed deck size, cards move between piles\
+**Mechanics:**
+
+* Draw pile → Hand (draw 5 cards per turn)
+* Played cards → Discard pile
+* Discard reshuffles into draw when empty
+* Exhaust = removed for rest of combat
+* Some cards manipulate piles (draw more, add to hand, exhaust)
+
+**What it creates:**
+
+* **Counting skill:** "3 cards left in draw, 2 are Strikes"
+* **Probability calculation:** "Odds of drawing attack next turn?"
+* **Setup turns:** Exhaust bad cards to improve future draws
+* **Expert play:** Tracking exact deck state for optimal decisions
+
+### No Persistence Between Runs
+
+**Critical design choice:** Every run starts completely fresh
+
+* No HP carries over
+* No gold carries over
+* No deck carries over
+* Only meta-progression: Unlocked cards/relics for future runs
+
+**What it creates:**
+
+* **Experimentation encouraged:** Can try crazy builds, failure is cheap
+* **Fresh start feel:** Each run is own story
+* **No grinding:** Can't accumulate advantage over time
+* **Replayability:** Different starting points, different routes, different builds
+
+### Risk/Reward Routing
+
+**Map structure:** Choose path through branching routes\
+**Node types:**
+
+* Combat (normal): Guaranteed gold, card reward, low danger
+* Elite combat: Better rewards (relic, more gold) but hard fight
+* Shop: Spend gold
+* Campfire: Rest (heal) or upgrade card
+* Treasure: Random relic
+* Event: Unknown (can help or hurt)
+
+**Route planning:**
+
+* Safe route: Avoid elites, prioritize campfires
+* Greedy route: Fight all elites, get relics
+* Balanced route: Mix based on deck strength
+
+**What it creates:**
+
+* **Strategic layer beyond combat:** "Which path serves my deck?"
+* **Risk assessment:** "Can I handle elite with current HP?"
+* **Adaptation:** Route choices depend on current run state
+
+### Scalable Cognitive Complexity
+
+**Beginner play (low cognitive load):**
+
+* Play cards that look good
+* Take cards that seem powerful
+* Basic strategy works on lower difficulties
+
+**Expert play (high cognitive load):**
+
+* Calculate exact draw pile contents
+* Plan 2-3 turns ahead
+* Optimize energy usage to exact lethal
+* Recognize synergy patterns
+* Know when to skip seemingly good cards
+
+**Same game, different cognitive demands based on player engagement level**
+
+This is turn-based (infinite thinking time) but creates complexity through:
+
+* Multiple interacting systems (deck, relics, potions, energy)
+* Probabilistic draws (must calculate odds)
+* Long-term planning (deck composition for later fights)
+
+### Aesthetic Created
+
+**Experience:** "Incremental optimization of a synergistic system under pressure, with permanent consequences and fresh starts"
+
+**Key patterns:**
+
+1. **Composition beats accumulation:**
+   * 20-card synergistic deck > 40-card powerful deck
+   * Quality of combination matters more than quantity
+   * "More" is not always better
+
+2. **Permanent consequences within run, clean slate between runs:**
+   * HP loss matters for rest of run
+   * But next run is fresh start
+   * Creates: "This run is doomed, but I learned something"
+
+3. **Escalating challenge:**
+   * Enemies get harder each act
+   * Must improve deck fast enough to keep up
+   * Creates pressure to take risks (elite fights for relics)
+
+4. **Turn-based but cognitively demanding:**
+   * Can think as long as you want
+   * But expert play requires complex calculations
+   * Scalable: Casual play works, expert play rewarded
+
+### Design Lessons from Slay the Spire
+
+**L-StS-1: Composition as resource creates different strategic space**
+
+* Not "accumulate more" but "curate better"
+* Deck building requires addition AND subtraction
+* "When to skip" is as important as "what to take"
+
+**L-StS-2: No persistence between runs enables experimentation**
+
+* Failure is cheap (just start new run)
+* Encourages trying weird builds
+* Removes grinding incentive (can't slowly accumulate)
+
+**L-StS-3: Permanent HP (no regen) creates attrition pressure**
+
+* Unlike most games where HP restores
+* Every fight has cost even if you win
+* Creates strategic layer: "Can I afford this path?"
+
+**L-StS-4: Campfire choice (rest vs. upgrade) is elegant forced prioritization**
+
+* Limited campfires per run
+* Must choose: Survival (rest) vs. power (upgrade)
+* Simple mechanic, meaningful decision
+
+**L-StS-5: Risk/reward routing adds strategic layer beyond combat**
+
+* Path choice matters as much as deck building
+* "How greedy can I be?" is constant question
+* Safe route = weaker deck, risky route = stronger deck (if you survive)
+
+**L-StS-6: Scalable complexity through turn-based + depth**
+
+* No time pressure (turn-based)
+* But rewards calculation and planning
+* Beginners can play casually, experts optimize deeply
+* Same game serves multiple skill levels
+
+**L-StS-7: Relics (passive effects) create emergent synergies**
+
+* Unlike active resources (must spend/manage)
+* Just accumulate and interact automatically
+* Creates "build discovery" moments
+* Low cognitive load (don't need to remember to use them)
+
+***
+
+## Cross-Game Patterns Observed
+
+### 1. Recovery Cycles Create Different Play Rhythms
+
+**Fast recovery (Catan, modern WoW):**
+
+* Resources refresh constantly
+* Enables aggressive play
+* Low downtime, high tempo
+* Mistakes less costly
+
+**Slow recovery (HoMM3, Slay the Spire):**
+
+* Resources persist across long timeframes
+* Encourages conservative play
+* Strategic planning required
+* Mistakes have lasting consequences
+
+**Mixed recovery (Blades):**
+
+* Stress: Fast (between scores)
+* Harm: Slow (across campaign)
+* Different strategic layers at different time scales
+
+**Design principle:** Recovery speed shapes risk tolerance and playstyle
+
+### 2. Buffer vs. Consequence Resources
+
+**Traditional HP (D\&D, WoW):**
+
+* Single resource represents both protection and health
+* Depletion is gradual
+
+**Separated systems (Blades):**
+
+* Stress: Buffer/protection (renewable)
+* Harm: Consequence/injury (persistent)
+* Different recovery rates
+* Player agency in choosing which to accept
+
+**Design principle:** Separating buffer and consequence creates different strategic choices and narrative arcs
+
+### 3. Forced Spending vs. Hoarding
+
+**Systems that punish hoarding:**
+
+* Catan: Hand limit + robber
+* Blades: Trauma at max stress
+* WoW: Time-gated resources (use it or it resets)
+
+**Systems that allow hoarding:**
+
+* Slay the Spire: Potions often saved "for boss"
+* HoMM3: Can stockpile resources
+
+**Design principle:** If you want resources to flow, create "use it or lose it" pressure
+
+### 4. Permanent vs. Temporary Loss
+
+**Permanent loss creates stakes:**
+
+* HoMM3: Dead units stay dead
+* Slay the Spire: HP loss persists entire run
+
+**Temporary loss enables experimentation:**
+
+* WoW: Death = run back to corpse (minor inconvenience)
+* Catan: Resources constantly refresh
+
+**Design principle:** Permanence of loss determines risk tolerance
+
+### 5. Composition vs. Accumulation
+
+**Accumulation games (most RPGs):**
+
+* More = better
+* Collect everything
+* Power through quantity
+
+**Composition games (Slay the Spire, deck builders):**
+
+* Quality > quantity
+* Curation is skill
+* "More" can make you weaker
+
+**Design principle:** Composition creates different optimization challenge than accumulation
+
+### 6. Personal vs. Shared Resources
+
+**Personal (Blades stress, Slay the Spire deck):**
+
+* Individual decisions
+* Personal optimization
+
+**Shared (Blades crew coin, WoW raid DPS):**
+
+* Group decisions
+* Social dynamics
+
+**Mixed systems create tension:**
+
+* Blades: Personal stress for crew goals
+* WoW: Personal loot from shared boss kill
+
+**Design principle:** Resource ownership affects social dynamics
+
+### 7. Time-Gating as Progression Control
+
+**Real-time gates (WoW):**
+
+* Weekly raid lockouts
+* Daily quests
+* Creates obligation, FOMO
+
+**Content gates (HoMM3):**
+
+* Weekly recruitment
+* Natural pacing from gameplay
+
+**No gates (Slay the Spire):**
+
+* Progress as fast as you want
+* No persistence anyway
+
+**Design principle:** Time-gating controls progression speed but can create obligation
+
+### 8. Multiple Resource Types Create Specialization
+
+**Catan:**
+
+* 5 resource types with different uses
+* Creates: "I'm the ore player"
+
+**HoMM3:**
+
+* 7 building resources for different strategies
+* Creates: Territory control for specific goals
+
+**Blades:**
+
+* Different resource types for different purposes
+* Stress/harm/coin/rep each serve distinct function
+
+**Design principle:** Resource diversity enables strategic specialization and creates trading/interdependence
+
+***
+
+## What We Learned Overall
+
+### Resources Are Tools for Creating Specific Experiences
+
+**Not:** "What resources should we have?"\
+**But:** "What experience do we want, and what resources serve it?"
+
+**Examples:**
+
+* HoMM3: Permanent army loss creates "every battle matters" tension
+* Blades: Stress/harm separation creates "grizzled veteran" arc
+* Catan: Simple resources + trading creates social negotiation
+* Slay the Spire: Composition focus creates curation skill
+
+### Different Aesthetics Require Different Resource Designs
+
+**Challenge aesthetic (HoMM3, Slay the Spire):**
+
+* High stakes, permanent consequences
+* Slow/no recovery
+* Optimization is the point
+
+**Fellowship aesthetic (Catan):**
+
+* Simple resources (brainspace for socializing)
+* Forced interaction (trading)
+* Rubber-band mechanics (keep everyone in game)
+
+**Narrative aesthetic (Blades):**
+
+* Resources create story (trauma accumulation)
+* Different recovery rates create character arcs
+* Mechanics fade into fiction
+
+**Accessibility aesthetic (modern WoW):**
+
+* Fast recovery (minimal downtime)
+* Multiple paths (something for everyone)
+* Optional challenge (hardcore still available)
+
+### Recovery Patterns Are Fundamental
+
+**The speed and mechanism of recovery shapes everything:**
+
+* Fast: Aggressive play, high tempo, forgiving
+* Slow: Conservative play, strategic planning, high stakes
+* None: Maximum tension, permanent consequences
+
+**This affects:**
+
+* Risk tolerance
+* Decision-making timeframe
+* Emotional experience
+* Pacing and rhythm
+
+### Key Design Questions Identified
+
+1. **Should this thing be a resource at all?**
+   * Does tracking it serve the aesthetic?
+   * Or does it just add bookkeeping?
+
+2. **What happens when players run out?**
+   * Dead stop (bad for most games)
+   * Interesting problem (can work)
+   * Forced rest (creates rhythm)
+
+3. **How fast should it recover?**
+   * Matches desired play tempo
+   * Creates strategic layer
+
+4. **Should it be personal or shared?**
+   * Affects social dynamics
+   * Creates different optimization challenges
+
+5. **Should loss be permanent or temporary?**
+   * Determines risk tolerance
+   * Shapes emotional stakes
+
+***
+
+## Next Steps
+
+These analyses provide the foundation for extracting design principles and creating a framework for resource management in game systems. The patterns we've observed across these five games reveal how resources serve aesthetic goals and create specific player experiences.
+
+**To formalize:**
+
+1. Extract design principles (turn patterns into actionable guidelines)
+2. Create decision frameworks (how to choose resource designs for specific aesthetics)
+3. Identify anti-patterns (when resource designs fail)
+4. Connect to MDA aesthetics explicitly
+5. Consider LLM implications (what becomes possible/practical)

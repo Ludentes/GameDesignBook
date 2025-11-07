@@ -1,0 +1,777 @@
+---
+title: resource-management-04-scarcity
+---
+# Resource Management in Game Systems
+
+## Document 4: Scarcity and Abundance
+
+***
+
+## The Core Dynamic of Resource Management
+
+Resource management exists because of scarcity. Abundant resources require no management. Strategic choices emerge from constraint.
+
+**This document explores:**
+
+* How scarcity creates meaningful decisions
+* What happens when resources are abundant
+* Finding the right scarcity level for your aesthetic
+* Dynamic scarcity (changing over time)
+
+***
+
+## High-Level Principle: Scarcity Creates Strategic Filtering
+
+✅ **Validated across all analyzed games**
+
+**Principle:** When resources are scarce, players must prioritize. This prioritization IS the strategic gameplay. Remove scarcity, remove decisions. Create too much scarcity, remove options.
+
+**The continuum:**
+
+* **Abundant:** No choices needed (everything possible)
+* **Moderate scarcity:** Interesting choices (must prioritize)
+* **Severe scarcity:** Few options (constrained)
+* **None:** Blocked entirely (no agency)
+
+**Implication:** Design scarcity level to match desired decision complexity.
+
+***
+
+## Understanding Scarcity
+
+### What Makes a Resource Scarce?
+
+**Four factors create scarcity:**
+
+1. **Limited supply** (can't get more easily)
+2. **Multiple demands** (many uses for same resource)
+3. **Opportunity cost** (choosing one prevents another)
+4. **Time pressure** (can't wait forever)
+
+**All four together:** Maximum scarcity
+**Any one alone:** Moderate scarcity
+**None:** Abundance (no scarcity)
+
+### Example: Army Units in HoMM3
+
+**Limited supply:** Weekly recruitment caps
+**Multiple demands:** Need units for attack, defense, exploration
+**Opportunity cost:** Units used in one battle unavailable for another
+**Time pressure:** Opponent is also building army
+
+**Result:** High scarcity creates high-stakes decisions
+
+### Example: Energy in Slay the Spire
+
+**Limited supply:** 3 energy per turn (fixed)
+**Multiple demands:** Multiple cards to play
+**Opportunity cost:** Play this card, can't play that one
+**Time pressure:** Must decide this turn
+
+**Result:** Tactical optimization puzzle
+
+### Example: Gold in Late-Game RPG
+
+**Limited supply:** ❌ (earning is easy)
+**Multiple demands:** ❌ (can afford everything)
+**Opportunity cost:** ❌ (no meaningful trade-offs)
+**Time pressure:** ❌ (no urgency)
+
+**Result:** Gold becomes meaningless (false scarcity)
+
+> **Note:** Even "scarce" resources become abundant if acquisition outpaces spending. Late-game wealth is common problem.
+
+***
+
+## The Scarcity Spectrum
+
+### Level 1: Abundance (No Scarcity)
+
+**Characteristics:**
+
+* Resources freely available
+* No need to choose between options
+* Can do everything
+
+**Strategic impact:** None (no decisions)
+
+**When to use:**
+
+* Resources you DON'T want players thinking about
+* Things that should be automatic
+* Removing barriers to intended gameplay
+
+**Examples:**
+
+* Unlimited movement in exploration-focused game (movement not the challenge)
+* Infinite mana in power fantasy game (want ability spam)
+* Modern WoW healing (keeps players in combat, not resting)
+
+**Aesthetic alignment:**
+
+* ✓ Submission (no stress from scarcity)
+* ✓ Fantasy (if scarcity would break immersion)
+* ✗ Challenge (no optimization possible)
+
+### Level 2: Gentle Scarcity
+
+**Characteristics:**
+
+* Resources sufficient for core needs
+* Must choose between bonus/optional goals
+* Rarely run out completely
+
+**Strategic impact:** Mild (comfort zone with occasional choices)
+
+**When to use:**
+
+* Want accessibility without trivialization
+* Core gameplay should flow, extras are choices
+* Forgiving experience
+
+**Examples:**
+
+* Catan resources (production is regular, but must choose which building)
+* D\&D 5e spell slots (enough for normal encounters, must conserve for hard days)
+* Many puzzle games (moves sufficient if playing reasonably)
+
+**Aesthetic alignment:**
+
+* ✓ Fellowship (simple enough for socializing)
+* ✓ Discovery (can explore without constant resource stress)
+* \~ Challenge (light optimization)
+
+### Level 3: Moderate Scarcity
+
+**Characteristics:**
+
+* Resources sufficient for EITHER this OR that, not both
+* Constant meaningful choices
+* Running out is possible but avoidable with skill
+
+**Strategic impact:** High (the sweet spot for many games)
+
+**When to use:**
+
+* Challenge/Mastery aesthetic
+* Want optimization without overwhelming
+* Meaningful trade-offs
+
+**Examples:**
+
+* Slay the Spire energy (can play some cards, must choose which)
+* Blades downtime actions (can recover OR advance, not both)
+* Catan trades (must negotiate to get what you need)
+
+**Aesthetic alignment:**
+
+* ✓ Challenge (meaningful optimization)
+* ✓ Mastery (rewards efficiency)
+* ✓ Tension (pressure without overwhelming)
+
+**This is the "default" scarcity level for most strategy games.**
+
+### Level 4: Severe Scarcity
+
+**Characteristics:**
+
+* Resources barely sufficient
+* Can afford only most essential
+* Running out is common threat
+
+**Strategic impact:** Intense (every choice critical)
+
+**When to use:**
+
+* High-tension gameplay
+* Survival aesthetics
+* Punishing strategic depth
+
+**Examples:**
+
+* HoMM3 army units (permanent loss, must be very careful)
+* Old-school D\&D HP (healing rare, must retreat often)
+* Slay the Spire HP on high difficulties (every hit hurts)
+
+**Aesthetic alignment:**
+
+* ✓ Tension (constant pressure)
+* ✓ Challenge (unforgiving optimization)
+* ✗ Submission (too stressful)
+* ✗ Fellowship (if individual, too much pressure for social play)
+
+### Level 5: Critical Scarcity (Blockage)
+
+**Characteristics:**
+
+* Resources insufficient for progress
+* Running out blocks gameplay
+* Must grind or restart
+
+**Strategic impact:** Negative (frustration, not challenge)
+
+**When to use:**
+
+* **Never for critical path**
+* Only for optional challenges
+
+**Examples (all anti-patterns):**
+
+* Required item used up, can't progress (bad adventure game design)
+* Investigation system where failed check blocks mystery (bad mystery design)
+* Boss requires specific consumable you might not have (bad difficulty spike)
+
+**Aesthetic alignment:**
+
+* ✗ ALL aesthetics (blockage is not gameplay)
+
+> **Anti-Pattern: Critical Path Blockage**
+> Never let resource depletion block core progress. Players should fail challenges, not be blocked from attempting them.
+
+***
+
+## Finding Your Scarcity Sweet Spot
+
+### Design Process
+
+**Step 1: Define your aesthetic goal**
+
+* What experience do you want players to have?
+* Which aesthetic(s) are you serving?
+
+**Step 2: Determine desired decision frequency**
+
+* Constant choices? (high scarcity)
+* Occasional choices? (moderate scarcity)
+* Rare choices? (gentle scarcity)
+* No choices? (abundance)
+
+**Step 3: Set scarcity level**
+
+* Based on Steps 1 and 2
+* Start conservative (less scarce), tune up
+
+**Step 4: Test failure modes**
+
+* What happens if players run out?
+* Is it interesting problem or dead end?
+* Can players recover or must restart?
+
+**Step 5: Iterate**
+
+* Too easy? Increase scarcity
+* Too frustrating? Decrease scarcity
+* Wrong type of challenge? Rethink resource
+
+### Example: Tuning Investigation Points (Gumshoe)
+
+**Aesthetic goal:** Mystery investigation (interpretation challenge, not resource management)
+
+**Desired decision frequency:** Occasional (when to investigate deeply)
+
+**Scarcity level:** Gentle
+
+* Enough points for reasonable investigation
+* Must choose where to spend for depth
+* Never blocks core clues
+
+**Failure mode:** Running out means less detail, not stuck
+
+**Result:** Scarcity creates depth choices without blocking progress
+
+### Example: Tuning Army Units (HoMM3)
+
+**Aesthetic goal:** Strategic warfare (high-stakes battles)
+
+**Desired decision frequency:** Constant (every battle is decision)
+
+**Scarcity level:** Severe
+
+* Weekly recruitment (limited supply)
+* Permanent loss (no recovery)
+* Multiple fronts (multiple demands)
+
+**Failure mode:** Running out means must retreat, rebuild (interesting problem)
+
+**Result:** Scarcity creates meaningful stakes for every engagement
+
+***
+
+## Multiple Demands: Creating Opportunity Cost
+
+**Scarcity alone isn't enough.** Resource must have multiple valuable uses.
+
+### Single Use Resource (No Opportunity Cost)
+
+**Example:** Currency that only buys one thing
+
+* Have gold, can only buy swords
+* No decision: "Do I have enough?" not "What should I buy?"
+* No strategic depth
+
+### Multiple Use Resource (Opportunity Cost)
+
+**Example:** Gold buys multiple item types
+
+* Have 100 gold
+* Can buy: Sword (100g) OR Armor (80g) + Potions (20g)
+* Decision: Offense or defense?
+* Strategic depth
+
+**The principle:** More valuable uses = more interesting scarcity
+
+### Example: Energy in Slay the Spire
+
+**Multiple demands on 3 energy:**
+
+* Play attack cards (deal damage)
+* Play defense cards (block damage)
+* Play skill cards (special effects)
+* Each turn: Different optimal combination
+
+**What creates depth:**
+
+* Can't do everything
+* Must prioritize based on situation
+* No single "best" answer
+
+### Example: Downtime Actions in Blades
+
+**Multiple demands on 2-4 actions:**
+
+* Recover stress (survival)
+* Heal harm (recovery)
+* Work on project (advancement)
+* Train ability (growth)
+* Indulge vice (stress relief + risk)
+
+**What creates depth:**
+
+* Can't do all
+* Different characters have different priorities
+* Reveals player values
+
+***
+
+## Dynamic Scarcity: Changing Over Time
+
+**Static scarcity:** Same throughout game
+**Dynamic scarcity:** Changes based on game state
+
+### Types of Dynamic Scarcity
+
+#### 1. Progression-Based (Abundance Increases)
+
+**Pattern:** Start scarce, become abundant
+
+**Examples:**
+
+* RPG gold (scarce early, abundant late)
+* Character abilities (few early, many late)
+* Building resources in strategy games
+
+**What it creates:**
+
+* Early game: Tough choices (scarcity)
+* Late game: Power fantasy (abundance)
+* Sense of progression
+
+**Problem:** Late game can become trivial if too abundant
+
+**Fix:** Scale demands with supply (bigger challenges need more resources)
+
+#### 2. Attrition-Based (Scarcity Increases)
+
+**Pattern:** Start abundant, become scarce
+
+**Examples:**
+
+* HP in dungeon crawl (depletes over time)
+* Limited healing in survival game
+* Dwindling supplies
+
+**What it creates:**
+
+* Early game: Comfortable (can afford mistakes)
+* Late game: Tense (every resource precious)
+* Mounting pressure
+
+**Problem:** Can become frustrating if too punishing
+
+**Fix:** Provide replenishment opportunities, or make scarcity the point (survival aesthetic)
+
+#### 3. Cyclical (Alternating)
+
+**Pattern:** Periods of scarcity and abundance alternate
+
+**Examples:**
+
+* Catan production (feast or famine based on dice)
+* Quest rewards in RPGs (scarce during quest, abundant after)
+* Seasonal resources
+
+**What it creates:**
+
+* Varied pacing
+* Planning around cycles
+* Adaptation to changing conditions
+
+**Good for:** Long-form games needing pacing variation
+
+#### 4. Crisis-Based (Sudden Scarcity)
+
+**Pattern:** Normal abundance disrupted by events
+
+**Examples:**
+
+* Catan robber (suddenly blocks production)
+* Resource denial in competitive games
+* Boss phases that limit resources
+
+**What it creates:**
+
+* Adaptation challenge
+* Disruption of routine
+* Heightened tension
+
+**Good for:** Creating memorable moments, forcing strategic shifts
+
+### Designing Dynamic Scarcity
+
+**Question:** "Should scarcity change over time?"
+
+**Consider:**
+
+* **Progression aesthetic:** Yes (start scarce → abundant feels like growth)
+* **Tension aesthetic:** Yes (start abundant → scarce creates mounting pressure)
+* **Challenge aesthetic:** Maybe (if want difficulty curve)
+* **Fellowship aesthetic:** Maybe not (consistency enables social focus)
+
+**If yes, consider:**
+
+* Direction (more or less scarce?)
+* Rate of change (gradual or sudden?)
+* Player control (can they influence?)
+* Recovery mechanisms (can reverse?)
+
+***
+
+## Scarcity and Player Psychology
+
+### The Hoarding Problem
+
+**Observation:** Players hoard consumables "for emergencies" that never come.
+
+**Why it happens:**
+
+* Loss aversion (spent resource can't be recovered)
+* Uncertainty (don't know what's coming)
+* Optimization mindset (want perfect use)
+
+**Examples:**
+
+* Potions in Skyrim (saved until game is over)
+* Elixirs in Final Fantasy (never used)
+* Powerful consumables everywhere
+
+**What creates hoarding:**
+
+* One-time use (pressure to use "correctly")
+* Limited availability (can't get more)
+* Unclear future needs (might need later)
+* Harsh difficulty (can't afford waste)
+
+**Solutions to hoarding:**
+
+**Solution 1: Use-it-or-lose-it pressure**
+
+* Example: Catan hand limit (can't hoard safely)
+* Forces spending before accumulation
+* Creates flow instead of hoarding
+
+**Solution 2: Renewable resources**
+
+* Example: Blades stress (recovers between scores)
+* Safe to spend (will get more)
+* Encourages use over hoarding
+
+**Solution 3: Degradation over time**
+
+* Example: Food spoils, potions expire
+* Must use before lost anyway
+* Incentivizes consumption
+
+**Solution 4: Abundant enough to experiment**
+
+* Example: Modern games with generous consumables
+* Players feel safe trying things
+* Removes anxiety around spending
+
+✅ **Validated:** Hoarding correlates with harsh scarcity + one-time use
+
+### The FOMO Problem
+
+**FOMO:** Fear Of Missing Out
+
+**When resources create FOMO:**
+
+* Time-limited availability (must act now)
+* Unknown optimal choice (might pick wrong)
+* Irreversible decisions (can't change later)
+* Hidden information (don't know all options)
+
+**Example - WoW Daily Quests:**
+
+* Must complete today or miss rewards
+* Falls behind who did complete
+* Creates obligation, not excitement
+
+**Example - Skill Trees:**
+
+* Must commit points
+* Don't know if choice is good
+* Can't respec (or costs heavily)
+* Paralysis from fear of wrong choice
+
+**Solutions to FOMO:**
+
+**Solution 1: Transparency**
+
+* Show what options exist
+* Explain consequences clearly
+* Let players make informed choices
+
+**Solution 2: Reversibility**
+
+* Allow respec/rewind
+* Reduce commitment weight
+* Enable experimentation
+
+**Solution 3: Multiple paths work**
+
+* No "trap" choices
+* All options viable
+* Removes optimization pressure
+
+**Solution 4: Remove time pressure**
+
+* No daily/weekly lockouts for critical progress
+* Let players engage at their pace
+
+⚠️ **Hypothesis:** FOMO from scarcity can drive engagement (games-as-service) but often feels manipulative
+
+### The Wealth Problem
+
+**Observation:** Late-game wealth trivializes strategic choices.
+
+**Why it happens:**
+
+* Income accumulates faster than spending
+* Costs don't scale with wealth
+* No meaningful money sinks
+
+**Example - RPG gold:**
+
+* Early: 100g is meaningful, must choose purchases
+* Late: 100,000g, buy everything without thought
+* Gold becomes meaningless
+
+**Solutions:**
+
+**Solution 1: Scaling costs**
+
+* Late-game items cost proportionally more
+* Maintains relative scarcity
+
+**Solution 2: Money sinks**
+
+* Ongoing expenses (upkeep, taxes)
+* Prestige purchases (cosmetics)
+* Competitive expenses (outbid others)
+
+**Solution 3: Conversion to other resources**
+
+* Gold → buy time (hire help)
+* Gold → buy power (permanent upgrades)
+* Creates continued utility
+
+**Solution 4: Accept it**
+
+* Late game power fantasy INCLUDES wealth
+* Let players feel rich
+* Not everything needs to be challenging
+
+✅ **Validated:** Wealth accumulation is common challenge in long-form games with economic systems
+
+***
+
+## Scarcity in Competitive vs Cooperative Games
+
+### Competitive Scarcity (Zero-Sum)
+
+**Characteristic:** Your resource gain is opponent's loss (or vice versa)
+
+**Examples:**
+
+* Catan: Limited board space, robber steals from others
+* Territory control: Control this mine OR opponent does, not both
+* Auction games: Outbid others for limited goods
+
+**What it creates:**
+
+* Direct competition
+* Denial strategies (prevent opponent access)
+* Tension from conflict
+
+**Aesthetic alignment:**
+
+* ✓ Challenge (optimize against opposition)
+* ✓ Tension (conflict)
+* \~ Fellowship (competitive socializing, not cooperative)
+
+### Cooperative Scarcity (Shared Challenge)
+
+**Characteristic:** All players face same scarcity, must work together
+
+**Examples:**
+
+* Pandemic: Limited actions to stop diseases
+* Blades crew resources: Shared coin, shared problems
+* Co-op survival: Limited supplies for whole team
+
+**What it creates:**
+
+* Collaborative problem-solving
+* Shared triumph/defeat
+* Social bonding through challenge
+
+**Aesthetic alignment:**
+
+* ✓ Fellowship (cooperation)
+* ✓ Challenge (overcome together)
+* ✓ Narrative (shared story)
+
+### Mixed Scarcity (Cooperative with Competition)
+
+**Characteristic:** Cooperate against challenge, compete for rewards
+
+**Examples:**
+
+* WoW raiding: Work together to kill boss, compete for loot drops
+* Board games with shared threat + individual victory
+
+**What it creates:**
+
+* Complex social dynamics
+* Tension between cooperation and self-interest
+* Can breed toxicity if poorly designed
+
+**Aesthetic alignment:**
+
+* \~ Mixed (depends on balance)
+* ⚠️ Risk of conflict
+
+> **Warning:** Mixed scarcity can create toxic dynamics if cooperation is essential but rewards are competitive. Players resent helping others who get better rewards.
+
+***
+
+## Common Mistakes
+
+### Mistake 1: False Scarcity
+
+> **Anti-Pattern: Theoretical Limits That Never Bind**
+> Resource appears scarce in design but is abundant in practice.
+
+**Example:** Mana bar that never runs empty
+
+* Nominally limited resource
+* Actually always sufficient
+* Players learn to ignore it
+
+**Fix:** Either make scarcity real or remove the resource
+
+### Mistake 2: Runaway Abundance
+
+> **Anti-Pattern: Accumulation Without Sinks**
+> Resources accumulate faster than spent, becomes meaningless.
+
+**Example:** Late-game RPG wealth
+
+* Gold piles up
+* Nothing worth buying
+* Strategic depth evaporates
+
+**Fix:** Scale costs, add sinks, or accept power fantasy
+
+### Mistake 3: Critical Path Blockage
+
+> **Anti-Pattern: Can't Progress Due to Resource Depletion**
+> Spent resources thinking they were optional, now can't proceed.
+
+**Example:** Used key item earlier, needed for final boss
+
+* Player stuck
+* Must restart or grind
+* Feels like punishment for playing
+
+**Fix:** Never gate critical path with consumable resources
+
+### Mistake 4: Whiplash Scarcity
+
+> **Anti-Pattern: Scarcity Level Changes Too Dramatically**
+> Resource goes from abundant to scarce (or vice versa) too quickly.
+
+**Example:** Game is generous with resources, then sudden spike of difficulty
+
+* Players weren't conserving (no need to before)
+* Suddenly can't progress (unprepared)
+* Feels unfair (rules changed mid-game)
+
+**Fix:** Gradual scarcity changes, or telegraph changes clearly
+
+***
+
+## Summary: Designing Scarcity
+
+**The scarcity spectrum:**
+
+1. Abundance → No decisions
+2. Gentle → Occasional choices
+3. Moderate → Constant choices (sweet spot for many games)
+4. Severe → Every choice critical
+5. Critical → Blockage (avoid for critical path)
+
+**Scarcity created by:**
+
+* Limited supply
+* Multiple demands
+* Opportunity cost
+* Time pressure
+
+**Choose scarcity level based on:**
+
+* Aesthetic goals
+* Desired decision frequency
+* Acceptable failure modes
+
+**Dynamic scarcity patterns:**
+
+* Progression (scarce → abundant)
+* Attrition (abundant → scarce)
+* Cyclical (alternating)
+* Crisis (sudden changes)
+
+**Avoid:**
+
+* False scarcity (theoretical only)
+* Critical path blockage (can't progress)
+* Runaway abundance (becomes meaningless)
+* Whiplash changes (too sudden)
+
+**The fundamental test:** "Does this scarcity level create the strategic experience I want?"
+
+***
+
+**Next:** Document 5 - Recovery Patterns
+
+How resources replenish shapes play rhythm, risk tolerance, and strategic timeframes.

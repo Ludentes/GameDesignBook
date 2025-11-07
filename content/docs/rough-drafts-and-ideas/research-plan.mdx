@@ -1,0 +1,806 @@
+---
+title: Research-Plan
+---
+# Research Plan: From Scenarios to Framework
+
+## The Big Picture
+
+### What We're Actually Doing
+
+We're not just "building LLM tools for TTRPGs." We're developing a framework for designing purpose-driven game systems where LLMs enable experiences that were previously impossible or impractical.
+
+**The research question:** How do we design game systems that preserve experiential goals while leveraging LLM capabilities for adaptation and emergence?
+
+**Our approach:**
+
+1. Use concrete scenarios as design drivers (not abstract theory)
+2. Analyze what makes each scenario work (system design principles)
+3. Extract generalizable patterns (the framework)
+4. Validate through implementation and testing
+
+### Why Scenarios Come First
+
+**Traditional approach (abstract → concrete):**
+
+* Define what LLMs can do
+* Theorize about game design
+* Try to find applications
+* **Problem:** Solutions looking for problems, "space coffee"
+
+**Our approach (concrete → abstract):**
+
+* Start with real problems (scenarios)
+* Understand what makes each work
+* Extract common patterns
+* Build framework from patterns
+* **Advantage:** Framework grounded in real needs
+
+**The scenarios are not just examples - they're design probes.** Each scenario tests different aspects of the design space and reveals different requirements.
+
+## What We Have (Current State)
+
+### Documents Created
+
+1. **Core concept:** Games as purpose-built experiential scaffolds
+2. **System analysis:** Why different mechanics create different experiences
+3. **Six scenarios:** Real problems with TTRPG and cross-medium analysis
+4. **Thesis framing:** How to position this research
+
+### Student Deliverables (Coming)
+
+* Understanding of game systems
+* Analysis of 2-3 scenarios
+* 1-2 original scenarios they created
+* Decision on what interests them
+
+### What We Don't Have Yet
+
+* Formal framework for system design
+* Design patterns and principles
+* Implementation architecture
+* Evaluation methodology
+* Deep dive on foundational concepts (game systems, worldbuilding, balance)
+
+## What We Need Next
+
+### Phase 1: Foundational Concepts (This Document Bootstraps)
+
+Before we can build frameworks, we need to deeply understand:
+
+**1. What is a game system?**
+
+* Beyond "rules" - what makes a system coherent?
+* Relationship between mechanics, dynamics, aesthetics (MDA)
+* **Resource management as core component** (in-game resources: HP, stress, ammo, social capital)
+* System as constraint vs system as enabler
+* When to have rules vs when to have principles
+
+**2. What is resource management?** (Dedicated deep dive after initial system understanding)
+
+* **Critical distinction:** In-game resources vs scenario constraints
+  * In-game: HP, ammo, spell slots, stress, reputation (managed by game system)
+  * Scenario: Player time, attention, emotional safety, session length (external constraints on play)
+  * Tools for each are different - don't conflate
+* What can be a resource? (tangible, abstract, meta)
+* Resource scarcity as design tool
+* Recovery cycles and pacing
+* LLM opportunities: What becomes trackable that wasn't before?
+
+**3. What is worldbuilding?**
+
+* Setting vs world (static description vs dynamic space)
+* Worldbuilding for different purposes (exploration vs backdrop)
+* Consistency vs flexibility
+* How LLMs change worldbuilding constraints
+
+**4. What is balance?**
+
+* Balance for what purpose? (fairness? challenge? pacing?)
+* Different types of balance (symmetric, asymmetric, dynamic)
+* When balance matters vs when it doesn't
+* Balance in emergent vs authored systems
+
+**5. What is emergence and adaptation?**
+
+* Designed emergence vs accidental chaos
+* Rules that create interesting possibilities
+* When emergence serves purpose vs when it derails
+* Reactive (respond to player) vs proactive (anticipate)
+* Micro-adaptation (moment-to-moment) vs macro-adaptation (across sessions)
+* Adaptation that preserves purpose vs adaptation that drifts
+
+### Phase 2: Scenario Deep Dives
+
+For each scenario (or subset we focus on), analyze:
+
+**System Design Requirements:**
+
+* What mechanics are needed?
+* What needs to be explicit vs implicit?
+* What needs consistency vs what benefits from variation?
+* How do players interact with the system?
+
+**Worldbuilding Requirements:**
+
+* What aspects of world need detail?
+* What can be abstracted?
+* How does world respond to player actions?
+* What maintains coherence?
+
+**Balance Considerations:**
+
+* What needs to be balanced and why?
+* What type of balance serves the purpose?
+* How do you detect imbalance?
+* How do you correct without disrupting?
+
+**LLM Role:**
+
+* What does LLM handle vs what's pre-authored?
+* Where does LLM add value?
+* What are failure modes?
+* How do you constrain appropriately?
+
+### Phase 3: Pattern Extraction
+
+After analyzing scenarios, identify:
+
+**Design Patterns:**
+
+* Recurring solutions to recurring problems
+* When to use each pattern
+* Trade-offs of each approach
+
+**Anti-Patterns:**
+
+* Common mistakes
+* Why they fail
+* How to avoid them
+
+**Design Principles:**
+
+* General guidelines that apply across scenarios
+* When principles conflict (and how to resolve)
+
+### Phase 4: Framework Development
+
+Synthesize into:
+
+**Decision Framework:**
+
+* Given experiential goal, how do you choose system approach?
+* Given technical constraints, what's feasible?
+* How do you evaluate if design serves purpose?
+
+**Design Process:**
+
+* Steps from concept to implementation
+* Validation at each stage
+* Iteration and refinement
+
+**Implementation Patterns:**
+
+* Technical architectures for common needs
+* How to structure LLM interactions
+* State management approaches
+* Evaluation methodologies
+
+## Bootstrapping the Foundational Concepts
+
+### Starting Point: What is a Game System?
+
+This is where we need to begin our deep dive. A game system is more than just "the rules."
+
+**Initial questions to explore:**
+
+1. **What makes a system vs just a collection of rules?**
+
+   * Is D\&D a system or a toolkit?
+   * What's the difference between coherent and incoherent systems?
+   * When do more rules make system better vs worse?
+2. **What are the components of a game system?**
+
+   * Resolution mechanics (how do we determine outcomes?)
+   * **Resource management (in-game):** What gets tracked and why? HP, stress, ammo, reputation, favors
+   * Pacing mechanisms (what controls rhythm of play?)
+   * Feedback loops (how do actions create consequences?)
+   * Constraint systems (what's possible/impossible?)
+3. **What's the relationship between system and fiction?**
+
+   * Do mechanics serve fiction or vice versa?
+   * When should mechanics fade into background vs be prominent?
+   * How does system encode theme/tone?
+4. **What makes a system good for a specific purpose?**
+
+   * System for tactical challenge (D\&D combat)
+   * System for social drama (Monsterhearts)
+   * System for exploration (OSR minimalism)
+   * System for moral choices (Dogs in the Vineyard)
+5. **How do systems scale?**
+
+   * Simple → complex (when to add mechanics?)
+   * Few players → many players
+   * One-shot → campaign
+   * Tight → emergent
+
+**Approach:**
+
+* Study existing system design (D\&D, PbtA, Blades, OSR, story games)
+* For each: What is the system optimizing for? What resources are tracked and why?
+* Map: Purpose → System Architecture → Specific Mechanics (including resources)
+* Identify: What would be different with LLM support?
+
+### Second Focus: Resource Management (Dedicated Deep Dive)
+
+**After understanding game systems generally, focus specifically on resource management as a design tool.**
+
+**CRITICAL DISTINCTION:**
+
+* **In-game resources:** HP, ammo, spell slots, stress, reputation, favors, time-in-fiction
+  * These are managed BY the game system
+  * Players make strategic decisions about them
+  * They create meaningful choices and pacing
+* **Scenario constraints:** Player real-time, session length, player attention, emotional safety
+  * These are constraints ON the game
+  * Designer must work within them
+  * Different tools and approaches needed
+
+**Don't conflate these. They require different frameworks.**
+
+**Initial questions (in-game resources only):**
+
+1. **What makes something a resource?**
+
+   * Trackable (can be measured)
+   * Scarce (limited in some way)
+   * Meaningful (spending it matters)
+   * Recoverable (or permanently lost - both valid)
+2. **What can be a resource?**
+
+   * Tangible: HP, ammo, gold, equipment
+   * Abstract: Stress, sanity, corruption, heat
+   * Social: Reputation, favors owed, trust, influence
+   * Knowledge: Information as currency
+   * Meta: Fate points, luck, narrative control
+3. **Why manage resources?**
+
+   * Create scarcity → force decisions
+   * Represent fictional constraints (running out of bullets)
+   * Control pacing (depletion creates pressure)
+   * Encode theme (what's tracked = what matters)
+   * Create feedback loops (using resources has consequences)
+4. **How are resources managed?**
+
+   * Depletion models (spend until empty, then rest)
+   * Refresh models (reset each scene/session)
+   * Exchange models (trade one resource for another)
+   * Risk/reward models (gamble resources for outcomes)
+   * Dynamic models (resources change based on fiction)
+5. **What's the recovery cycle?**
+
+   * No recovery (permanent loss, high stakes)
+   * Scene/encounter refresh (tactical resource)
+   * Session refresh (strategic resource)
+   * Campaign milestone (rare resource)
+   * Varies by fiction (heal when you rest, recover stress when you downtime)
+6. **How does scarcity level affect experience?**
+
+   * Abundant resources → exploration, creativity, low stress
+   * Moderate scarcity → tactical decisions, strategy
+   * Severe scarcity → survival pressure, desperation
+   * No resources → pure narrative, focus on story not mechanics
+7. **What LLMs enable for resource management?**
+
+   * Track complex resource webs (NPC resources, faction economies, reputation networks)
+   * Natural language resources ("cash in favor" without explicit tracking)
+   * Dynamic resource adjustment (detect starvation/abundance, adjust)
+   * Emergent resource systems (relationships as trackable resources)
+   * Resources too complex for human tracking become feasible
+
+**Approach:**
+
+* Study resource management across game types
+  * D\&D: HP/spell slots (depletion + rest)
+  * Blades: Stress/load (multiple resources interact)
+  * Fate: Fate points (player narrative control)
+  * Dogs: Dice pools (escalation as resource spend)
+* For each: What resources? Why those? How do they create intended experience?
+* Identify: What resources would be valuable but too complex to track manually?
+* Consider: How do LLMs change what's feasible?
+
+**Initial questions:**
+
+1. **What is worldbuilding in game context?**
+
+   * Not "describe setting" - what does the world DO?
+   * Active world vs passive backdrop
+   * Player-facing vs GM-only information
+   * Established canon vs emergent details
+2. **How detailed should worldbuilding be?**
+
+   * Fractal worldbuilding (detail where players look)
+   * Minimal viable world (just enough to play)
+   * When detail adds vs when it constrains
+   * How LLMs change the detail/constraint trade-off
+3. **How does world serve purpose?**
+
+   * World for exploration (mysteries to uncover)
+   * World for immersion (sensory detail)
+   * World for challenge (hostile environment)
+   * World for theme (reinforces message)
+4. **What maintains world consistency?**
+
+   * Internal logic (magic system rules, physics, society)
+   * Tone consistency (grimdark vs heroic vs absurdist)
+   * Canon tracking (what's true? what's established?)
+   * Contradiction management (when to bend vs break)
+5. **How do players interact with world?**
+
+   * Interrogative (players ask questions, world answers)
+   * Reactive (world responds to actions)
+   * Collaborative (players contribute to world)
+   * Pre-authored (world is fixed)
+
+**Approach:**
+
+* Case studies: Successful game worlds (Glorantha, Eberron, Burning Wheel's Burning, Blades' Doskvol)
+* For each: What makes world serve the game?
+* Analyze: What's pre-authored vs emergent?
+* Consider: How would LLM change worldbuilding workflow?
+
+### Fourth Focus: Balance
+
+**Note on scenario constraints:** While analyzing balance, we'll also encounter scenario constraints (player time, session length, attention). These are NOT in-game resources and require different analytical tools. We'll identify where scenario constraints appear but develop separate frameworks for handling them.
+
+**Initial questions:**
+
+1. **Balance for what?**
+
+   * Fairness (all players equal power)
+   * Challenge (difficulty curve)
+   * Pacing (tension and release)
+   * Spotlight (everyone gets moments)
+   * Verisimilitude (world feels real)
+2. **What types of balance exist?**
+
+   * Symmetric (all same options) vs Asymmetric (different but equal)
+   * Static (balanced at design) vs Dynamic (balanced through play)
+   * Competitive (zero-sum) vs Cooperative (everyone succeeds or fails together)
+   * Internal (game mechanics) vs External (player skill)
+3. **When does balance matter?**
+
+   * PvP games (critical)
+   * Tactical challenges (important)
+   * Story games (less important, or different kind)
+   * Exploration games (might be intentionally unbalanced)
+4. **How do you detect imbalance?**
+
+   * Dominant strategies (one approach always wins)
+   * Player frustration (feels unfair)
+   * Lack of tension (too easy or too hard)
+   * Spotlight imbalance (some players irrelevant)
+5. **How do LLMs affect balance?**
+
+   * Dynamic difficulty adjustment
+   * Personalized challenges
+   * Detecting and correcting imbalance in real-time
+   * Risk: LLM creates accidental imbalance
+
+**Approach:**
+
+* Study balance in different game types (MTG vs D\&D vs PbtA vs party games)
+* Identify: What's being balanced and why?
+* Analyze: How is balance achieved (design vs play vs meta)?
+* Consider: What could LLMs balance dynamically?
+
+## The Research Process
+
+### How We'll Use This
+
+**Step 1: Deep dive on concept** (e.g., "What is a game system?")
+
+* Study existing theory and practice
+* Analyze examples across different game types
+* Identify patterns and anti-patterns
+* Document findings
+
+**Step 2: Apply to scenarios**
+
+* For each scenario, ask: "What does this scenario need from \[game systems/worldbuilding/balance]?"
+* Document requirements
+* Identify commonalities and differences
+
+**Step 3: Extract patterns**
+
+* What approaches work across scenarios?
+* What's scenario-specific vs generalizable?
+* Where do LLMs add value?
+
+**Step 4: Build framework**
+
+* Decision trees (given X, choose Y)
+* Design patterns (solutions to recurring problems)
+* Evaluation criteria (how to know if it works)
+
+**Step 5: Validate**
+
+* Implement prototypes
+* Test with real users
+* Refine based on results
+
+### Iterative, Not Linear
+
+We won't complete all of "game systems" before moving to "worldbuilding." Instead:
+
+* Start with one concept
+* Apply to one scenario
+* Learn what we need to know next
+* Iterate
+
+The scenarios drive what we need to understand, not abstract completeness.
+
+## Critical Distinction: In-Game Resources vs Scenario Constraints
+
+This is easy to conflate but doing so leads to confused frameworks. They require different tools.
+
+### In-Game Resources
+
+**Definition:** Elements tracked and managed WITHIN the game system that players make strategic decisions about.
+
+**Examples:**
+
+* **Tangible:** HP, ammo, gold, equipment durability
+* **Abstract:** Stress, sanity, corruption, heat, momentum
+* **Social:** Reputation, favors owed, NPC trust, influence, relationships
+* **Knowledge:** Information as currency, secrets known
+* **Meta:** Fate points, luck tokens, narrative control points
+
+**Characteristics:**
+
+* Tracked by the system (mechanically represented)
+* Players make choices about spending/conserving
+* Scarcity creates meaningful decisions
+* Part of the fiction (represented in game world)
+* Designed intentionally to create specific experiences
+
+**Design questions:**
+
+* What should be a resource for this purpose?
+* How scarce should it be?
+* What's the recovery cycle?
+* How does it create the intended experience?
+
+**Tools:**
+
+* Mechanics design (how to track, spend, recover)
+* Balance analysis (is scarcity appropriate?)
+* Feedback loops (consequences of use)
+* LLMs can track complex resource webs
+
+### Scenario Constraints
+
+**Definition:** External limitations ON the game that designers must work WITHIN, not managed by players through gameplay.
+
+**Examples:**
+
+* **Time:** Session length (2 hours), meeting frequency (monthly), campaign duration (12 sessions)
+* **Attention:** Player cognitive load, how much complexity they can handle
+* **Emotional:** Player safety, comfort with difficult content, trauma triggers
+* **Social:** Number of players, group dynamics, player experience levels
+* **Physical:** Play environment, tools available, accessibility needs
+
+**Characteristics:**
+
+* External to game system (not tracked mechanically)
+* Not player choices (constraints they operate within)
+* Real-world limitations (not fictional)
+* Designer must accommodate, can't just "balance"
+* Often non-negotiable (players truly do have 2 hours, not more)
+
+**Design questions:**
+
+* What constraints exist for this scenario?
+* How do I design within them?
+* What's negotiable vs fixed?
+* How do constraints affect system design?
+
+**Tools:**
+
+* Scenario analysis (identify constraints)
+* Adaptive design (work within limitations)
+* Pacing systems (fit content to time)
+* Safety tools (respect emotional boundaries)
+* LLMs can adapt to constraints dynamically
+
+### Why the Distinction Matters
+
+**Conflating them leads to:**
+
+* Trying to "balance" player time (nonsensical - you can't make players have more time)
+* Treating emotional safety as tradeable resource (dangerous and unethical)
+* Managing attention as in-game mechanic (category error)
+
+**Keeping them separate leads to:**
+
+* Clear thinking about what you're designing (mechanics vs accommodations)
+* Right tools for right problems (balance vs adaptation)
+* Better frameworks (in-game design vs scenario design)
+
+**Example: Scenario 1 (Busy Adults)**
+
+**Scenario constraints:**
+
+* 2 hours per session (fixed, non-negotiable)
+* Monthly frequency (fixed)
+* Limited player memory across gaps (real limitation)
+
+**Design response:**
+
+* Episodic structure (accommodate time constraint)
+* Strong recap system (accommodate memory limitation)
+* Complete arcs per session (respect time commitment)
+
+**Not a response:**
+
+* "Balance" time (you can't)
+* Make time an in-game resource (wrong category)
+* Ignore constraints (players won't engage)
+
+**In-game resources in this scenario:**
+
+* HP, abilities, equipment (whatever system uses)
+* Might be different BECAUSE of scenario constraints (simpler tracking due to time limits)
+* But still in-game, not scenario-level
+
+### How to Handle Each
+
+**For in-game resources:**
+
+1. Identify what should be resources for this purpose
+2. Design tracking and management mechanics
+3. Balance scarcity levels
+4. Create recovery cycles
+5. Test if resources create intended experience
+
+**For scenario constraints:**
+
+1. Identify constraints early (fixed vs negotiable)
+2. Design system to work within constraints
+3. Build adaptive mechanisms where needed
+4. Test if design respects constraints
+5. Document constraints for users
+
+**Framework development:**
+
+* Separate chapters/sections for each
+* Different analytical tools for each
+* Clear when discussing one vs the other
+* Show how they interact (constraints affect resource design)
+
+## Concrete Next Actions
+
+### Immediate (Next Conversation)
+
+**Starting point decided:**
+
+* **Concept:** Game Systems (including resource management as component)
+* **Test scenario:** Scenario 3 (Mystery Investigation) - clearest requirements, good for understanding resources
+* **Approach:** Deep enough to extract patterns, then apply to another scenario
+
+**Why this starting point:**
+
+* Game systems are most fundamental (everything else builds on system)
+* Mystery has concrete requirements (clue tracking, NPC state, interrogation, investigation resources)
+* Easy to compare across implementations (Gumshoe vs D\&D vs custom)
+* Clear success criteria (did players solve mystery?)
+* Good test case for resource management (investigation points, NPC patience, time pressure)
+
+**Next session goals:**
+
+1. Deep dive: What is a game system?
+2. Analyze: How do different systems handle mystery-solving?
+3. Focus on: What resources matter for mystery games and why?
+4. Identify: What would LLM enable?
+
+### Short-term (Next Few Sessions)
+
+1. **Deep dive: Game Systems**
+
+   * What makes a system coherent?
+   * What components are essential?
+   * What role do in-game resources play?
+   * Map purpose → system architecture
+   * Apply to Scenario 3 (Mystery)
+2. **Deep dive: Resource Management**
+
+   * What resources matter for mystery-solving? (investigation points, NPC patience, time)
+   * How does resource scarcity create decisions?
+   * What resources would be valuable but too complex to track?
+   * How do LLMs change what's feasible?
+   * Distinguish: In-game resources vs scenario constraints
+3. **Deep dive: Worldbuilding for Mystery**
+
+   * What world details matter for mystery?
+   * How do NPCs need to be modeled?
+   * What consistency requirements exist?
+   * How does LLM change what's possible?
+4. **Deep dive: Balance in Mystery**
+
+   * What needs to be balanced? (difficulty? pacing?)
+   * How do you ensure fair play?
+   * How do you prevent trivial solutions?
+5. **Synthesize: Mystery System Framework**
+
+   * Design patterns for mystery games
+   * Resource management patterns
+   * LLM architecture requirements
+   * Evaluation criteria
+   * Separate notes on scenario constraints (player time, attention)
+
+### Medium-term (After First Scenario)
+
+Repeat process for 2-3 more scenarios:
+
+* Each reveals different requirements
+* Each tests different aspects of framework
+* Each adds to pattern library
+
+Then synthesize across scenarios:
+
+* What's universal?
+* What's scenario-specific?
+* What's the general framework?
+
+## Questions to Answer Along the Way
+
+### About Game Systems
+
+* When should mechanics be explicit vs implicit?
+* How granular should resolution be?
+* What should be automated vs player-driven?
+* How do you handle edge cases?
+
+### About Worldbuilding
+
+* How much should be pre-authored vs emergent?
+* How do you maintain consistency at scale?
+* When should world be fixed vs responsive?
+* How do you balance detail vs playability?
+
+### About Balance
+
+* What's the right difficulty curve?
+* How do you balance across player skill levels?
+* When should challenges be symmetric vs asymmetric?
+* How do you prevent dominant strategies?
+
+### About LLMs
+
+* What should LLMs handle vs pre-authored content?
+* How do you constrain LLM output appropriately?
+* How do you detect and correct LLM mistakes?
+* What's the human oversight model?
+
+### About Evaluation
+
+* How do you know if system serves its purpose?
+* What metrics matter? (engagement? satisfaction? learning?)
+* How do you test at scale?
+* What's the validation process?
+
+## Success Criteria for This Phase
+
+**We'll know we're making progress when:**
+
+1. **We can articulate design principles**
+
+   * "For mystery games, you should..."
+   * "When building world for exploration, consider..."
+   * "Balance matters for X but not for Y because..."
+2. **We can analyze existing systems**
+
+   * Take any TTRPG, explain why it works (or doesn't) for its purpose
+   * Identify what would need to change for different purpose
+   * Predict how LLM would improve it
+3. **We can design from scenarios**
+
+   * Given new scenario, outline system requirements
+   * Propose worldbuilding approach
+   * Identify balance considerations
+   * Describe LLM role
+4. **We can extract patterns**
+
+   * "This pattern works for scenarios X, Y, Z"
+   * "This anti-pattern fails because..."
+   * "This trade-off requires choosing between A and B"
+5. **We have concrete artifacts**
+
+   * Design frameworks (decision trees, pattern catalogs)
+   * Implementation architectures (technical designs)
+   * Evaluation methodologies (how to test)
+   * Case studies (detailed scenario analyses)
+
+## Why This Approach Works
+
+### Grounded in Reality
+
+* Scenarios are real problems, not theoretical exercises
+* Solutions must actually work, not just sound good
+* Framework emerges from practice, not pure theory
+
+### Iterative and Adaptive
+
+* Don't need to solve everything before starting
+* Learn what matters through doing
+* Refine based on what we discover
+
+### Generalizable but Concrete
+
+* Scenarios are specific (concrete)
+* Patterns extracted are general (transferable)
+* Framework bridges specific and general
+
+### Student-Friendly
+
+* Student works on scenarios that interest them
+* Deep dives are focused and purposeful
+* Clear deliverables at each stage
+* Building toward thesis contribution
+
+### Defensible for Committee
+
+* Technical challenges are real and documented
+* Solutions are validated through implementation
+* Contributions are clearly articulated
+* Generalization is demonstrated, not assumed
+
+## Document Structure We're Building Toward
+
+**Final Framework (Thesis) Structure:**
+
+1. **Introduction:** Purpose-preserving adaptation in LLM-mediated game systems
+2. **Foundations:** Game systems, worldbuilding, balance, emergence, adaptation
+3. **Scenario Analysis:** Deep dives on 2-3 scenarios (requirements, solutions, patterns)
+4. **Framework:** Design principles, patterns, architectures, evaluation
+5. **Implementation:** Prototypes and validation
+6. **Cross-Domain:** How lessons transfer (TTRPGs → video games → education)
+7. **Conclusion:** Contributions, limitations, future work
+
+**This document (bootstrapping) covers:** Getting from where we are (scenarios + concepts) to where we need to be (foundations + framework).
+
+## Ready to Begin
+
+**We've decided:**
+
+1. **Starting concept:** Game Systems (with integrated resource management)
+2. **Test scenario:** Mystery Investigation (Scenario 3)
+3. **Depth approach:** Deep enough to extract patterns, then validate with second scenario
+
+**Your confirmation needed:**
+
+* Does this approach make sense?
+* Any adjustments before we dive into "What is a Game System?"
+* Ready to start the deep dive?
+
+***
+
+## Meta: What This Document Is
+
+This is a **research plan** and **navigation guide**. It:
+
+* Explains why we're using scenarios (design probes, not just examples)
+* Identifies what we need to understand (game systems, worldbuilding, balance)
+* Outlines how we'll extract framework from scenarios (analyze → pattern → framework)
+* Provides structure for next phase of work
+* Sets success criteria (how we know we're making progress)
+
+**Use this document to:**
+
+* Orient yourself when diving into specific concepts
+* Remember why we're doing deep dives (not abstract interest, but scenario requirements)
+* Track progress (are we answering the questions we need to answer?)
+* Make decisions (which concept next? how deep? which scenario?)
+
+**This is a living document.** As we learn, we'll refine the questions, adjust the approach, and update the plan.
+
+Let's build this framework together.

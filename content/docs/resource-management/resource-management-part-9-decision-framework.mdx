@@ -1,0 +1,1662 @@
+---
+title: resource-management-part-9-decision-framework
+---
+# Resource Management in Game Systems
+
+## Part 9: Decision Framework and Practical Guide
+
+***
+
+## Overview
+
+This section synthesizes all previous parts into a practical framework for resource design. It provides:
+
+1. **Sequential Decision Guide** - Step-by-step process for designing resources
+2. **Aesthetic-to-Resource Mapping** - Which resource patterns serve which experiences
+3. **Quick Reference Checklists** - Diagnostic tools for evaluating designs
+4. **Worked Examples** - Applying framework to hypothetical scenarios
+5. **Connections to Other Topics** - How resources relate to balance, cognitive load, etc.
+
+This is meant as a practical tool for designers, not comprehensive theory. Use it as a guide, not a rigid rulebook.
+
+***
+
+## Part 1: Sequential Decision Guide
+
+### The Core Question
+
+**Before designing any resource system, ask:**
+
+"What experience do I want players to have, and what resources would create that experience?"
+
+Not: "What resources should my game have?"
+
+### Step 1: Define Aesthetic Goal
+
+**Identify primary aesthetics using MDA + extensions:**
+
+**MDA's 8 Aesthetics:**
+
+* Sensation (sensory pleasure)
+* Fantasy (make-believe)
+* Narrative (drama/story)
+* Challenge (obstacle course)
+* Fellowship (social framework)
+* Discovery (exploration)
+* Expression (self-discovery/creativity)
+* Submission (pastime)
+
+**Additional Aesthetic Goals:**
+
+* Mastery (system understanding, optimization)
+* Tension (time pressure, stakes, adrenaline)
+* Progression (growth, becoming stronger)
+
+> **Note on MDA Limitations:**
+>
+> MDA's framework is foundational but incomplete. We've identified additional aesthetic goals (Mastery, Tension, Progression) that don't fit neatly into MDA's categories. Use MDA as base but recognize it doesn't capture everything.
+>
+> For deeper aesthetic theory, see \[reference other frameworks as they develop].
+
+**Action item:** Write down 1-3 primary aesthetics for your game
+
+* Example: "Challenge (tactical decisions) + Mastery (system optimization)"
+* Example: "Fellowship (social play) + Narrative (dramatic stories)"
+
+### Step 2: Should This Thing Be A Resource?
+
+**For each potential resource, ask:**
+
+#### Question 2.1: Does tracking this create interesting decisions?
+
+**If YES → Might be worth tracking**
+
+* Example: HP creates "how much risk can I take?" decisions
+* Example: Gold creates "what should I buy?" decisions
+
+**If NO → Don't track it**
+
+* Example: Tracking exact water consumption (tedious, not interesting)
+* Example: Counting arrows (unless survival game where it matters)
+
+#### Question 2.2: Does tracking this serve the aesthetic?
+
+**Check against aesthetic goals:**
+
+**Challenge aesthetic:**
+
+* ✓ Resources that create strategic choices
+* ✓ Scarcity that forces prioritization
+* ✗ Bookkeeping that doesn't create decisions
+
+**Fellowship aesthetic:**
+
+* ✓ Shared resources that create coordination
+* ✓ Trading resources that drive interaction
+* ✗ Complex tracking that reduces social time
+
+**Narrative aesthetic:**
+
+* ✓ Resources that create story (stress, trauma, relationships)
+* ✗ Abstract numbers that break fiction
+
+**Mastery aesthetic:**
+
+* ✓ Resources that enable optimization
+* ✓ Complex interactions that reward understanding
+* ✗ Simplistic resources without depth
+
+**If resource doesn't serve aesthetic → Don't include it**
+
+#### Question 2.3: Is this critical for progress?
+
+**If YES → Be very careful**
+
+* Don't make critical resources depletable/missable
+* Example: Investigation clues should be automatic, not gated
+* Exception: If interesting failure state exists
+
+**If NO → Scarcity can work**
+
+* Optional resources create interesting choices
+* Example: Investigation points for optional depth (Gumshoe)
+
+#### Question 2.4: Will tracking this be tedious?
+
+**Playtest check:**
+
+* Do players groan when updating this?
+* Does it interrupt flow of play?
+* Are decisions interesting or just busywork?
+
+**If tedious → Remove, simplify, or automate**
+
+**Decision point:**
+
+* ✓ Include resource if: Interesting decisions + serves aesthetic + not critical-path + not tedious
+* ✗ Exclude otherwise
+
+### Step 3: What Type of Resource?
+
+**If including resource, classify its type:**
+
+#### Type 3.1: Consumable Resources
+
+**Definition:** Spent when used, depletes over time
+
+**Examples:** HP, spell slots, gold, ammunition
+
+**Best for:**
+
+* Challenge aesthetic (scarcity creates decisions)
+* Tension aesthetic (running low creates pressure)
+* Attrition gameplay (resources drain over campaign)
+
+**Characteristics:**
+
+* Creates pacing through depletion
+* Recovery patterns matter greatly
+* Spending creates tension
+
+**Design considerations:**
+
+* How quickly depletes?
+* How recovers?
+* What happens at zero?
+
+#### Type 3.2: Buffer Resources
+
+**Definition:** Protects from consequences, renewable
+
+**Examples:** Blades stress (protects from harm), shield points, armor durability
+
+**Best for:**
+
+* Challenge aesthetic (tactical resource management)
+* Tension aesthetic (buffer running low creates stakes)
+* Narrative aesthetic (can separate competence from injury)
+
+**Characteristics:**
+
+* Separates immediate protection from lasting consequence
+* Often recovers faster than consequence resources
+* Creates active choice ("spend buffer or accept consequence?")
+
+**Design considerations:**
+
+* What does buffer protect against?
+* How quickly recovers?
+* What happens when exhausted?
+
+**Innovation:** Blades' separation of stress (buffer) and harm (consequence) creates different strategic layer
+
+#### Type 3.3: Accumulation Resources
+
+**Definition:** Collected over time, measures progression
+
+**Examples:** XP, gold savings, collection items, reputation
+
+**Best for:**
+
+* Progression aesthetic (growth over time)
+* Mastery aesthetic (accumulation through skill)
+* Expression aesthetic (collection reflects choices)
+
+**Characteristics:**
+
+* Rarely depletes (accumulates toward goal)
+* Milestones create satisfaction
+* Can become meaningless grind if not tied to choices
+
+**Design considerations:**
+
+* What does accumulation represent?
+* Are there meaningful milestones?
+* Does accumulation reflect player choices or just time?
+
+**Caveat:** Ensure accumulation isn't just time investment (see Anti-Pattern 2.2: Meaningless Accumulation)
+
+#### Type 3.4: Composition Resources
+
+**Definition:** Quality of combination matters more than quantity
+
+**Examples:** Slay the Spire deck, item builds, team composition
+
+**Best for:**
+
+* Mastery aesthetic (optimization puzzle)
+* Expression aesthetic (unique builds)
+* Challenge aesthetic (synergy discovery)
+
+**Characteristics:**
+
+* "More" isn't always better
+* Curation is skill (when to add, when to remove)
+* Synergies create depth
+
+**Design considerations:**
+
+* How do elements interact?
+* Can players remove/change elements?
+* Are multiple compositions viable?
+
+**Key insight:** Composition creates different optimization challenge than accumulation
+
+#### Type 3.5: Capacity Resources
+
+**Definition:** Limits what's possible, not what's used
+
+**Examples:** Inventory slots, hand size, load capacity
+
+**Best for:**
+
+* Challenge aesthetic (constraint creates decisions)
+* Expression aesthetic (loadout choices)
+
+**Characteristics:**
+
+* Creates opportunity costs
+* Forces prioritization
+* Often static (doesn't deplete)
+
+**Design considerations:**
+
+* What does capacity limit?
+* Can capacity be expanded?
+* Do limits create interesting choices?
+
+### Step 4: How Scarce Should It Be?
+
+**Scarcity spectrum:**
+
+#### 4.1: Abundant (No Real Scarcity)
+
+**When to use:**
+
+* Resource isn't meant to create decisions
+* Want players to use freely without anxiety
+* Serves as enabler, not challenge
+
+**Examples:**
+
+* Modern D\&D cantrips (unlimited weak spells)
+* Tutorial-level resources
+* Base abilities that define class
+
+**Serves:** Fantasy, Expression (use your signature abilities freely)
+
+#### 4.2: Moderate Scarcity (Strategic Choices)
+
+**When to use:**
+
+* Want meaningful decisions about allocation
+* Scarcity creates challenge without frustration
+* Sweet spot for most resources
+
+**Examples:**
+
+* Modern D\&D spell slots (limited but ample)
+* Slay the Spire energy (3 per turn)
+* Catan resources (probabilistic but regular)
+
+**Serves:** Challenge, Mastery
+
+**Design note:** This is the "default" for most resources in most games
+
+#### 4.3: High Scarcity (Precious Resources)
+
+**When to use:**
+
+* Want resources to feel valuable
+* Using resource is significant decision
+* Creates tension and careful play
+
+**Examples:**
+
+* HoMM3 armies (permanent loss)
+* Slay the Spire potions (limited slots)
+* Boss-fight consumables
+
+**Serves:** Challenge, Tension
+
+**Caveat:** High scarcity can create hoarding behavior (see Part 7: Greed)
+
+#### 4.4: Critical Scarcity (Near-Starvation)
+
+**When to use:**
+
+* Survival horror aesthetic
+* Desperation is the point
+* Very specific genres
+
+**Examples:**
+
+* Resident Evil early game (ammo scarce)
+* Survival games (food/water critical)
+
+**Serves:** Tension (extreme stakes)
+
+**Warning:** Can create frustration if not carefully balanced
+
+**Decision factors:**
+
+* What aesthetic does scarcity level create?
+* Will players hoard or spend?
+* What happens if they run out?
+
+### Step 5: How Should It Recover?
+
+**Recovery patterns create different play rhythms:**
+
+#### 5.1: No Recovery (Permanent Loss)
+
+**When to use:**
+
+* Want maximum stakes
+* Loss creates lasting consequences
+* Short timeframes or fresh starts
+
+**Examples:**
+
+* HoMM3 army units (permanent loss creates strategic caution)
+* Slay the Spire HP (loss persists through run, but runs are short)
+* Roguelike permadeath
+
+**Creates:**
+
+* Conservative play
+* High-stakes decisions
+* Risk assessment paramount
+
+**Serves:** Challenge, Tension
+
+**Caveat:** Only works if:
+
+* Timeframe is short (roguelikes), OR
+* Loss is recoverable indirectly (recruit new armies), OR
+* Failure is accepted part of experience
+
+#### 5.2: Slow Recovery (Session/Campaign Scale)
+
+**When to use:**
+
+* Want lasting consequences
+* Attrition over multiple sessions
+* Strategic resource management
+
+**Examples:**
+
+* Blades harm (heals slowly or costs coin)
+* Old-school D\&D HP (hard to recover)
+* Reputation damage
+
+**Creates:**
+
+* Campaign-level strategy
+* "We need to rest/recover" decision points
+* Resource accumulation importance
+
+**Serves:** Challenge, Narrative (consequences persist)
+
+#### 5.3: Moderate Recovery (Per-Encounter/Per-Scene)
+
+**When to use:**
+
+* Want fresh start for each major challenge
+* Episodic play structure
+* Tactical resource management within scene
+
+**Examples:**
+
+* Blades stress (recovers between scores)
+* Modern D\&D spell slots (recover on long rest)
+* Slay the Spire energy (3 per turn)
+
+**Creates:**
+
+* Tactical optimization within encounter
+* "Push hard in this fight" viable
+* Aggressive playstyle enabled
+
+**Serves:** Challenge (tactical), Fellowship (everyone resets together)
+
+#### 5.4: Fast Recovery (Constant Regeneration)
+
+**When to use:**
+
+* Want constant action
+* Resource isn't meant to create scarcity pressure
+* Forgiveness for mistakes
+
+**Examples:**
+
+* WoW HP (regenerates out of combat)
+* Catan resources (new production each turn)
+* Auto-regenerating shields
+
+**Creates:**
+
+* High tempo
+* Forgiving gameplay
+* Encourages experimentation
+
+**Serves:** Fellowship (minimal downtime), Discovery (safe to experiment)
+
+#### 5.5: Mixed Recovery (Different Rates for Different Resources)
+
+**When to use:**
+
+* Want multiple strategic layers
+* Different resources create different pacing
+
+**Example: Blades in the Dark**
+
+* Stress: Fast recovery (between scores) → episodic aggressive play
+* Harm: Slow recovery (downtime/coin) → campaign-level caution
+* Different layers of decision-making
+
+**Creates:**
+
+* Complexity in strategic planning
+* Rich decision space
+* Different timeframe considerations
+
+**Serves:** Challenge (depth), Narrative (different consequences)
+
+**Design note:** This is advanced; ensure not too complex
+
+**Decision guide:**
+
+* What play rhythm do you want?
+* How forgiving should mistakes be?
+* What timeframe for strategic planning?
+
+### Step 6: How Is It Spent/Used?
+
+**Spending mechanics create agency:**
+
+#### 6.1: Active Spending (Player Chooses When)
+
+**When to use:**
+
+* Want strategic decisions
+* Player agency is important
+* Resources are "tools" to use
+
+**Examples:**
+
+* Spell slots (choose when to cast)
+* Gold (choose when to buy)
+* Blades stress (choose when to resist)
+
+**Creates:**
+
+* Strategic depth
+* Timing decisions
+* Player control
+
+**Serves:** Challenge, Mastery
+
+#### 6.2: Passive Depletion (Automatic Use)
+
+**When to use:**
+
+* Want pressure without decision paralysis
+* Resource represents constraint, not tool
+* Automatic systems
+
+**Examples:**
+
+* Time limits (depletes automatically)
+* HP in environmental hazard
+* Oxygen in survival game
+
+**Creates:**
+
+* Urgency
+* Pressure without choice paralysis
+* Background constraint
+
+**Serves:** Tension
+
+#### 6.3: Reactive Spending (Triggered by Events)
+
+**When to use:**
+
+* Want decisions in response to challenges
+* Resource is defensive, not offensive
+* Agency in face of danger
+
+**Examples:**
+
+* Blades stress (spend to resist consequence)
+* Shields/armor (depletes when hit)
+* Saving throws (spend resource to avoid effect)
+
+**Creates:**
+
+* Active defense
+* "How much do I care?" decisions
+* Risk management
+
+**Serves:** Challenge, Narrative (choose what matters)
+
+#### 6.4: Investment Spending (Long-term Commitment)
+
+**When to use:**
+
+* Want long-term planning
+* Character/build customization
+* Irreversible (or costly to reverse) choices
+
+**Examples:**
+
+* Skill points (permanent build choices)
+* Slay the Spire card adds (shape deck over run)
+* Base building investments
+
+**Creates:**
+
+* Build diversity
+* Long-term strategy
+* Commitment decisions
+
+**Serves:** Expression, Mastery
+
+**Caveat:** Can create FOMO if choices irreversible (see Part 7)
+
+**Decision factors:**
+
+* How much agency do players have?
+* When do spending decisions happen?
+* Are they reversible?
+
+### Step 7: Personal or Shared?
+
+**Resource ownership affects social dynamics:**
+
+#### 7.1: Fully Personal
+
+**When to use:**
+
+* Individual optimization important
+* Want distinct character identities
+* Competitive contexts
+
+**Examples:**
+
+* Personal HP, skills, inventory
+* Slay the Spire (solo game)
+* Character builds
+
+**Creates:**
+
+* Individual decision-making
+* Personal optimization
+* Distinct identities
+
+**Serves:** Challenge, Expression, Mastery
+
+#### 7.2: Fully Shared
+
+**When to use:**
+
+* Group coordination important
+* Want collective decision-making
+* Fellowship is primary aesthetic
+
+**Examples:**
+
+* Blades crew resources (coin, rep)
+* Pandemic cards (team pool)
+* Base/town shared by all
+
+**Creates:**
+
+* Group negotiation
+* Collective strategy
+* Shared success/failure
+
+**Serves:** Fellowship
+
+**Caveat:** Can create "quarterbacking" (one player decides for all)
+
+#### 7.3: Mixed (Some Personal, Some Shared)
+
+**When to use:**
+
+* Want both individual and group layers
+* Balance personal and collective
+
+**Examples:**
+
+* Blades: Stress/harm personal, coin/rep shared
+* MMO: Personal gear, guild bank
+* Party composition: Individual characters, team resources
+
+**Creates:**
+
+* Tension between personal and collective
+* Negotiation about priorities
+* Rich decision space
+
+**Serves:** Challenge, Fellowship
+
+**Design note:** This is common pattern, but ensure clarity about what's personal vs. shared
+
+#### 7.4: Competitive (Zero-Sum Between Players)
+
+**When to use:**
+
+* Competitive aesthetic intended
+* PvP contexts
+* Strategic opposition
+
+**Examples:**
+
+* Catan resources (limited, competitive)
+* Competitive map control
+* Auction/bidding resources
+
+**Creates:**
+
+* Direct opposition
+* Strategic denial
+* Competitive tension
+
+**Serves:** Challenge (competitive), Tension
+
+**Warning:** Don't use in cooperative contexts (creates toxicity)
+
+**Decision guide:**
+
+* Is game cooperative or competitive?
+* Should resources create collaboration or competition?
+* How does ownership affect social dynamics?
+
+### Step 8: Validate Against Psychological Effects
+
+**Check for unintended psychological impacts (see Part 7):**
+
+#### 8.1: Possession Check
+
+**Question:** "What does having this resource feel like?"
+
+**Desired experiences:**
+
+* Security (can survive challenges)
+* Identity (this is my character)
+* Potential (can handle situations)
+* Achievement (earned this)
+* Power (capable and strong)
+
+**If possession feeling doesn't match aesthetic → Redesign**
+
+#### 8.2: Greed Check
+
+**Question:** "Will players hoard this resource? Should they?"
+
+**If hoarding is unintended:**
+
+* Add use-it-or-lose-it pressure (Catan hand limit)
+* Reward spending (positive feedback)
+* Make future needs opaque (can't optimize perfectly)
+* Create clear "use now" moments
+
+**If hoarding is intended:**
+
+* Make accumulation the goal (collection aesthetic)
+* Reward stockpiling (security through reserves)
+* Enable unlimited accumulation
+
+#### 8.3: FOMO Check
+
+**Question:** "Does missing this resource create anxiety?"
+
+**Productive FOMO (serves aesthetic):**
+
+* Meaningful choices with consequences
+* Multiple viable paths
+* Easy to try different options
+* Bounded timeframes
+
+**Unproductive FOMO (harms experience):**
+
+* Time-limited exclusive content
+* Real-time pressure to log in
+* Irreversible "wrong" choices
+* Falling behind other players
+
+**If unproductive FOMO present → Redesign**
+
+### Step 9: Anti-Pattern Check
+
+**Review against common pitfalls (see Part 8):**
+
+#### Progress Blockers?
+
+* ✗ Critical path gated by depletable resource?
+* ✗ Death spiral with no recovery?
+* ✗ Starvation preventing engagement with mechanics?
+
+#### Experience Underminders?
+
+* ✗ System selection error (wrong mechanics for aesthetic)?
+* ✗ Meaningless accumulation (no decisions)?
+* ✗ Complexity overload (too many resources)?
+
+#### Engagement Killers?
+
+* ✗ Tedious bookkeeping?
+* ✗ Unintended grinding required?
+* ✗ Waiting as gate?
+
+#### Social Toxicity?
+
+* ✗ Hoarding prevents cooperation (in co-op game)?
+* ✗ Gatekeeping through requirements?
+* ✗ Zero-sum competition (in co-op context)?
+
+#### Manipulative Design?
+
+* ✗ Artificial FOMO for retention?
+* ✗ Pay-to-skip scarcity?
+* ✗ Gambling mechanics?
+
+**If any check fails → Fix or remove resource**
+
+***
+
+## Part 2: Aesthetic-to-Resource Mapping
+
+### Quick Reference: Which Resources Serve Which Aesthetics
+
+#### Challenge Aesthetic
+
+**Wants:** Strategic decisions, meaningful choices, optimization
+
+**Resource patterns:**
+
+* ✓ Moderate scarcity (creates choices without frustration)
+* ✓ Clear trade-offs (spend now vs. save for later)
+* ✓ Multiple resource types (optimization puzzle)
+* ✓ Moderate recovery (per-encounter refresh)
+* ✓ Active spending (player controls timing)
+
+**Examples:**
+
+* Slay the Spire energy (3 per turn, clear optimization)
+* HoMM3 army units (careful resource management)
+* Modern D\&D spell slots (tactical choices)
+
+**Avoid:**
+
+* Too abundant (no decisions)
+* Too scarce (frustration, not challenge)
+* Automatic/passive (no player agency)
+
+#### Fellowship Aesthetic
+
+**Wants:** Social interaction, cooperation, shared experiences
+
+**Resource patterns:**
+
+* ✓ Simple resources (brainspace for socializing)
+* ✓ Trading/negotiation mechanics (interaction required)
+* ✓ Shared resources (group coordination)
+* ✓ Fast recovery (minimal downtime)
+* ✗ Avoid zero-sum competition (creates toxicity)
+
+**Examples:**
+
+* Catan resources (simple, trading core mechanic)
+* Blades crew resources (shared coin/rep)
+* Pandemic action cards (team pooling)
+
+**Avoid:**
+
+* Complex tracking (reduces social time)
+* Individual hoarding incentives (prevents cooperation)
+* Gatekeeping mechanics (excludes players)
+
+#### Narrative Aesthetic
+
+**Wants:** Story flow, dramatic consequences, character development
+
+**Resource patterns:**
+
+* ✓ Resources that create story (stress, relationships, reputation)
+* ✓ Slow recovery (consequences persist)
+* ✓ Descriptive resources (broken leg, not -2 DEX)
+* ✓ Visible character history (trauma marks)
+* ✗ Avoid breaking fiction with math
+
+**Examples:**
+
+* Blades stress/harm (creates character arc)
+* Reputation systems (social consequences)
+* Wound systems (specific injuries, not HP)
+
+**Avoid:**
+
+* Abstract numbers that break immersion
+* Complex calculation interrupting flow
+* Mechanical optimization focus
+
+#### Mastery Aesthetic
+
+**Wants:** System understanding, optimization, "solving" the game
+
+**Resource patterns:**
+
+* ✓ Complex interactions (rewards understanding)
+* ✓ Multiple resource types (optimization puzzle)
+* ✓ Composition matters (synergy discovery)
+* ✓ Transparent mechanics (can calculate optimal)
+
+**Examples:**
+
+* Slay the Spire deck building (synergy optimization)
+* Character build systems (min-maxing)
+* Economic strategy (resource chains)
+
+**Avoid:**
+
+* Too much randomness (can't optimize)
+* Opaque systems (can't understand)
+* Too simple (nothing to master)
+
+#### Discovery Aesthetic
+
+**Wants:** Exploration, revelation, finding new things
+
+**Resource patterns:**
+
+* ✓ Fast recovery (safe to experiment)
+* ✓ Abundant resources (encourages trying things)
+* ✓ Optional resources (not punished for missing)
+* ✗ Avoid punishing exploration
+
+**Examples:**
+
+* Exploration resources that enable reach
+* Optional collectibles
+* Discovery tokens/rewards
+
+**Avoid:**
+
+* Scarcity that punishes exploration
+* Irreversible choices that create FOMO
+* Critical resources you might miss
+
+#### Expression Aesthetic
+
+**Wants:** Self-discovery, creativity, personal style
+
+**Resource patterns:**
+
+* ✓ Multiple viable builds (no "correct" choice)
+* ✓ Composition resources (unique combinations)
+* ✓ Respec options (can experiment)
+* ✓ Cosmetic collections (personal style)
+
+**Examples:**
+
+* Character customization systems
+* Build variety (Slay the Spire)
+* Cosmetic collections
+
+**Avoid:**
+
+* Single optimal build (reduces to optimization)
+* Irreversible choices creating anxiety
+* Gatekeeping "wrong" choices
+
+#### Progression Aesthetic
+
+**Wants:** Growth, becoming stronger, visible advancement
+
+**Resource patterns:**
+
+* ✓ Accumulation resources (XP, levels, gear)
+* ✓ Permanent gains (don't lose progress)
+* ✓ Milestones (clear progression markers)
+* ✓ Status markers (show achievement)
+
+**Examples:**
+
+* XP and leveling systems
+* Gear progression
+* Achievement collections
+
+**Avoid:**
+
+* Loss of progress (unless roguelike)
+* Invisible progression
+* Meaningless accumulation (just time, not choices)
+
+#### Tension Aesthetic
+
+**Wants:** Time pressure, stakes, adrenaline, urgency
+
+**Resource patterns:**
+
+* ✓ Real-time depletion (time limits)
+* ✓ High scarcity (running low creates pressure)
+* ✓ No/slow recovery (mistakes compound)
+* ✓ Clear stakes (know what's at risk)
+
+**Examples:**
+
+* StarCraft APM pressure
+* Oxygen meters in survival
+* They Are Billions competitive mode
+
+**Avoid:**
+
+* Generous recovery (reduces stakes)
+* Abundance (no pressure)
+* Pause options (removes time pressure)
+
+#### Submission Aesthetic
+
+**Wants:** Relaxation, mindless fun, low cognitive load
+
+**Resource patterns:**
+
+* ✓ Abundant resources (no scarcity stress)
+* ✓ Simple systems (minimal tracking)
+* ✓ Automatic management (low effort)
+* ✗ Avoid complex decisions
+
+**Examples:**
+
+* Idle game resources (accumulate automatically)
+* Casual mobile game energy (abundant)
+* Power fantasy late-game (overwhelming resources)
+
+**Avoid:**
+
+* Scarcity creating stress
+* Complex optimization
+* Punishing mistakes
+
+***
+
+## Part 3: Quick Reference Checklists
+
+### Checklist 1: Initial Design
+
+**Before implementing any resource:**
+
+* [ ] I know what aesthetic this serves
+* [ ] Tracking this creates interesting decisions
+* [ ] This isn't critical for progress (or has interesting failure state)
+* [ ] This won't be tedious to track
+* [ ] I've checked it against anti-patterns
+* [ ] I understand what psychological effects it will create
+
+**If all checked → Proceed with design**
+
+### Checklist 2: Resource Type Selection
+
+**I've chosen resource type(s):**
+
+* [ ] Consumable (depletes with use)
+* [ ] Buffer (protects from consequences)
+* [ ] Accumulation (collects over time)
+* [ ] Composition (quality > quantity)
+* [ ] Capacity (limits possibilities)
+
+**And this matches aesthetic because:** \[explain]
+
+### Checklist 3: Scarcity and Recovery
+
+**Scarcity level chosen:**
+
+* [ ] Abundant (freely available)
+* [ ] Moderate (strategic choices)
+* [ ] High (precious, careful use)
+* [ ] Critical (near-starvation)
+
+**Recovery pattern chosen:**
+
+* [ ] No recovery (permanent)
+* [ ] Slow (session/campaign scale)
+* [ ] Moderate (per-encounter)
+* [ ] Fast (constant regeneration)
+* [ ] Mixed (different rates)
+
+**This creates experience:** \[describe]
+
+### Checklist 4: Social Dynamics
+
+**Resource ownership:**
+
+* [ ] Personal (individual optimization)
+* [ ] Shared (group coordination)
+* [ ] Mixed (some personal, some shared)
+* [ ] Competitive (zero-sum)
+
+**In multiplayer context:**
+
+* [ ] Encourages cooperation (if co-op)
+* [ ] Doesn't create toxicity
+* [ ] Clear who owns what
+* [ ] Appropriate for game's social structure
+
+### Checklist 5: Psychological Check
+
+**Possession:**
+
+* [ ] "Having this" creates desired feeling
+* [ ] Accumulation serves aesthetic
+
+**Greed:**
+
+* [ ] Hoarding behavior is intentional or prevented
+* [ ] Spending is encouraged if that's desired
+
+**FOMO:**
+
+* [ ] Any anxiety created is productive (meaningful choices)
+* [ ] No manipulative time-gating
+* [ ] Multiple viable paths available
+
+### Checklist 6: Playtest Validation
+
+**During playtesting, observe:**
+
+* [ ] Players making interesting decisions (not just obvious ones)
+* [ ] Players engaging with mechanic (not ignoring it)
+* [ ] Players understanding purpose (not confused)
+* [ ] Flow not interrupted (tracking isn't tedious)
+* [ ] Aesthetic goal achieved (creates intended experience)
+
+**Red flags to watch for:**
+
+* [ ] Players hoarding when should spend
+* [ ] Players confused about purpose
+* [ ] Players groaning at tracking
+* [ ] Mechanic being ignored
+* [ ] Creating unintended social tension
+
+***
+
+## Part 4: Worked Examples
+
+### Example 1: Designing Resources for Heist Game
+
+**Aesthetic goals:** Challenge (tactical planning) + Tension (time pressure) + Fellowship (crew coordination)
+
+**Step 1: What resources?**
+
+Potential resources:
+
+* Time (heist has time limit)
+* Crew stress (pushing hard has cost)
+* Equipment (tools for different approaches)
+* Heat (attention from authorities)
+* Information (intel about target)
+
+**Step 2: Should these be resources?**
+
+**Time:**
+
+* ✓ Creates interesting decisions (speed vs. thoroughness)
+* ✓ Serves Tension aesthetic (time pressure)
+* ✓ Not critical-path (can work within time limit)
+* → Include as consumable resource
+
+**Crew stress:**
+
+* ✓ Creates decisions (push hard vs. play safe)
+* ✓ Serves Challenge aesthetic (risk management)
+* ✓ Serves Fellowship (group discusses who takes stress)
+* → Include as buffer resource
+
+**Equipment:**
+
+* ✓ Creates decisions (what to bring)
+* ✓ Serves Challenge aesthetic (loadout choices)
+* But: Could be tedious to track exact inventory
+* → Include as capacity resource (slots, not exact items)
+
+**Heat:**
+
+* ✓ Creates consequences (noisy heists get attention)
+* ✓ Serves Tension aesthetic (stakes)
+* → Include as accumulation resource
+
+**Information:**
+
+* Critical for heist to work
+* ⚠️ Gating info could block progress
+* → Make core info automatic, optional info cost resources (Gumshoe model)
+
+**Step 3: Design specifics**
+
+**Time:**
+
+* Type: Consumable (depletes during heist)
+* Scarcity: Moderate (enough time if efficient, pressure if not)
+* Recovery: None within heist (starts fresh each heist)
+* Spending: Passive (ticks down), but players control pacing
+* Ownership: Shared (crew works on same clock)
+
+**Crew Stress:**
+
+* Type: Buffer (protects from complications)
+* Scarcity: Moderate (can push hard, but has limits)
+* Recovery: Fast (between heists)
+* Spending: Active/Reactive (choose to spend when problems arise)
+* Ownership: Personal (each crew member has own stress)
+
+**Equipment:**
+
+* Type: Capacity (limited loadout slots)
+* Scarcity: High (must choose carefully)
+* Recovery: N/A (choose before heist)
+* Spending: Declarative (reveal what you brought when needed)
+* Ownership: Personal (each crew member has loadout)
+
+**Heat:**
+
+* Type: Accumulation (builds over time)
+* Scarcity: Starts none, accumulates with notoriety
+* Recovery: Slow (must lay low or spend resources to reduce)
+* Spending: N/A (accumulates, not spent)
+* Ownership: Shared (crew's collective heat)
+
+**Step 4: Validate**
+
+**Aesthetic alignment:**
+
+* ✓ Challenge: Multiple resources create optimization puzzle
+* ✓ Tension: Time pressure and stress create urgency
+* ✓ Fellowship: Mix of personal/shared resources creates coordination
+
+**Psychological check:**
+
+* Possession: Having low stress = security (can push if needed)
+* Greed: Heat accumulation could cause "never do risky job" behavior
+  * Solution: Add pressure to do jobs (need money, story advancement)
+* FOMO: No time-gating, no exclusive content
+
+**Anti-pattern check:**
+
+* ✓ Not blocking progress (core info automatic)
+* ✓ Not death spiral (stress recovers between heists)
+* ✓ Not tedious (simple tracking)
+* ✓ Not socially toxic (personal stress, shared heat balance)
+
+**Result:** Solid resource design for heist game
+
+### Example 2: Designing Resources for Detective RPG
+
+**Aesthetic goals:** Discovery (investigation) + Narrative (story-driven) + Mastery (deduction puzzle)
+
+**Step 1: What resources?**
+
+Potential:
+
+* Investigation points (how deeply can investigate)
+* Clues/information (what you've learned)
+* Time (how long until case goes cold)
+* Relationships (NPC cooperation)
+* Reputation (standing in community)
+
+**Step 2: Critical insight from D\&D failure**
+
+**Clues/Information:**
+
+* ⚠️ CRITICAL FOR PROGRESS
+* If gated, can block mystery solving (D\&D problem)
+* → Core clues must be automatic (Gumshoe principle)
+* → Optional clues can cost investigation points
+
+**Step 3: Design specifics**
+
+**Clues:**
+
+* Type: Not a spendable resource! (information is state, not resource)
+* Acquisition: Core clues automatic, optional clues cost investigation points
+* Storage: Track what's known (not capacity-limited)
+
+**Investigation Points:**
+
+* Type: Consumable (spent for optional depth)
+* Scarcity: Moderate (can dig deep in some areas)
+* Recovery: Per scene (fresh points each location)
+* Spending: Active (choose where to dig deep)
+* Ownership: Personal (each detective has points)
+* Purpose: Creates decisions about thoroughness, not access to core info
+
+**Time:**
+
+* Type: Passive pressure (not tracked precisely)
+* Purpose: Creates urgency (case gets harder if delayed)
+* Implementation: GM escalates if players take too long
+* Not a resource in mechanical sense (more story pressure)
+
+**Relationships:**
+
+* Type: Accumulation (builds through play)
+* Purpose: NPCs more helpful if good relationship
+* Not depletable (don't "spend" relationships)
+* Creates narrative throughline
+
+**Step 4: Validate**
+
+**Aesthetic alignment:**
+
+* ✓ Discovery: Core clues automatic (can always progress)
+* ✓ Narrative: Relationships create story
+* ✓ Mastery: Optional clues create optimization puzzle
+
+**Avoids anti-patterns:**
+
+* ✓ Core path not gated (learned from D\&D)
+* ✓ Not death spiral (investigation points refresh)
+* ✓ Not tedious (minimal tracking)
+
+**Psychological check:**
+
+* No hoarding issues (points refresh)
+* No problematic FOMO (multiple paths to solution)
+* Possession: Having points = can investigate deeply
+
+**Result:** Mystery system that avoids D\&D pitfalls
+
+### Example 3: Fixing Problematic Design
+
+**Scenario:** RPG has consumable crafting materials. Players complain about grinding.
+
+**Diagnosis:**
+
+**The problem:**
+
+* Powerful items require rare materials
+* Materials drop from specific enemies
+* Optimal play: Farm enemies repeatedly for drops
+* Players feel obligated to grind
+
+**This is Anti-Pattern 3.2: Unintended Grinding**
+
+**Analysis:**
+
+* Resource scarcity + requirement = grind incentive
+* Aesthetic goal: Challenge (combat), Progression (gear)
+* Actual experience: Tedium (farming)
+
+**Solutions to consider:**
+
+**Option 1: Make materials abundant**
+
+* Increase drop rates significantly
+* No need to farm (get materials through normal play)
+* Maintains crafting system without grind
+
+**Option 2: Remove material requirement**
+
+* Make powerful items earned through challenge, not farming
+* Boss drops specific items (no RNG farming)
+* Crafting uses common materials (no grind)
+
+**Option 3: Make farming engaging**
+
+* If players will farm anyway, make it fun
+* Variable enemies, different challenges
+* But: This is harder to fix properly
+
+**Option 4: Cap farming efficiency**
+
+* Diminishing returns (first kill = good drops, repeats = poor)
+* Prevents infinite farming
+* Encourages progression, not grinding
+
+**Recommendation:** Option 1 or 2
+
+* Option 1: If crafting is important to aesthetic
+* Option 2: If crafting is just inherited from genre
+
+**The principle:** If optimal play is boring, change optimal play
+
+***
+
+## Part 5: Connections to Other Topics
+
+### Resources and Cognitive Load
+
+**Key insight:** Complex resource systems increase cognitive load (see separate Cognitive Load document)
+
+**Guidelines:**
+
+**For Challenge/Mastery aesthetics:**
+
+* Can handle more complex resources (optimization is the point)
+* Example: Slay the Spire's deck tracking
+
+**For Fellowship aesthetics:**
+
+* Keep resources simple (brainspace for socializing)
+* Example: Catan's 5 simple resource types
+
+**For Narrative aesthetics:**
+
+* Resources should fade into background (don't break fiction)
+* Example: Blades' descriptive harm over HP numbers
+
+**When to add complexity:**
+
+* Creates meaningful decisions
+* Serves aesthetic goal
+* Players can manage it
+
+**When to simplify:**
+
+* Tracking is tedious
+* Interrupts flow
+* Doesn't create decisions
+
+**Connection:** Cognitive load is a CONSTRAINT on resource design, not a resource itself
+
+### Resources and Balance
+
+**Key insight:** Balance is about parameter optimization, not resource design itself (see separate Balance document)
+
+**Questions that bridge topics:**
+
+**Resource design asks:** "What resources should exist?"
+**Balance asks:** "How much of each resource?"
+
+**Example: Spell slot balance**
+
+* Resource design: "Wizards should have spell slots (consumable resource)"
+* Balance: "How many slots per level?"
+
+**The relationship:**
+
+* Resource design creates the system structure
+* Balance tunes the parameters
+* Both must serve aesthetic goals
+
+**Common mistake:** Trying to "balance" fundamentally wrong resource design
+
+* Example: D\&D investigation with rolls
+* No amount of balance (DC values, skill modifiers) fixes core problem
+* Wrong resource type for aesthetic
+
+**Principle:** Get resource design right first, then balance parameters
+
+### Resources and System Functions
+
+**Key insight:** Resources enable specific System Functions (see What is a Game System document)
+
+**Function 1: Resolution** (how outcomes determined)
+
+* Resources can be spent to affect outcomes
+* Example: Blades stress for better rolls
+
+**Function 2: Information Management** (what players know)
+
+* Resources can gate information
+* Critical: Don't gate core information (D\&D lesson)
+
+**Function 3: Progression** (character growth)
+
+* Accumulation resources (XP, skills)
+* Unlock new capabilities
+
+**Function 4: Pacing** (rhythm of play)
+
+* Recovery patterns create pacing
+* Depletion/refresh cycles
+
+**Function 5: Social Dynamics** (player interaction)
+
+* Shared resources create coordination
+* Competitive resources create tension
+
+**Function 6: Risk Management** (handling uncertainty)
+
+* Buffer resources enable risk-taking
+* Scarcity creates risk/reward decisions
+
+**Function 7: Aesthetic Reinforcement** (supporting experience)
+
+* Resources should reinforce, not contradict, intended aesthetic
+
+**Connection:** Resources are tools for implementing system functions
+
+### Why Brainspace Is NOT a Resource
+
+**Common confusion:** Calling player attention/cognitive load a "resource"
+
+**Why this is wrong:**
+
+**Resources are:**
+
+* In-game mechanical entities
+* Tracked by system
+* Can be spent, recovered, traded
+* Create strategic choices through explicit mechanics
+* Part of game state
+
+**Cognitive load is:**
+
+* Player capacity/constraint
+* External to game state
+* Can't be spent or recovered (within game)
+* Design constraint, not game mechanic
+* Like session length, emotional safety
+
+**The distinction:**
+
+**Resource (HP):**
+
+* Tracked in game
+* Player spends/manages it
+* Depletes and recovers according to game rules
+
+**Constraint (attention):**
+
+* Player mental capacity
+* Can't "spend" it in game sense
+* Designer accommodates it in design
+
+**Why it matters:**
+
+* Tools for resources (scarcity, recovery, spending) don't apply to constraints
+* Constraints shape what resource designs are feasible
+* Calling everything a "resource" creates confusion
+
+**Example:**
+
+* "I'm tracking HP (resource) and stress (resource)"
+* "I have limited attention (constraint) to track multiple resources"
+* Solution: Reduce number of resources, simplify tracking (respecting constraint)
+* NOT: "Attention is a resource I need to manage"
+
+**See:** Separate Cognitive Load document for details
+
+### Resources and LLM Implications
+
+**Key insight:** LLMs change what's feasible to track, not what should be tracked
+
+**What LLMs enable:**
+
+**Complex state tracking:**
+
+* Can track many resources automatically
+* Frees player from bookkeeping
+* Example: Track exact NPC relationships, inventory contents
+
+**Natural language interaction:**
+
+* Don't need to "spend 2 investigation points"
+* Just say "I investigate thoroughly"
+* LLM translates to mechanical effects
+
+**Adaptive scarcity:**
+
+* Can adjust resource availability based on player behavior
+* Prevent starvation or excess
+* Example: Ensure players have resources to engage with mechanics
+
+**What LLMs DON'T change:**
+
+**Fundamental design principles:**
+
+* Still need to choose what to track
+* Still need resources to serve aesthetic
+* Still need to avoid anti-patterns
+
+**Player psychology:**
+
+* Loss aversion still creates hoarding
+* FOMO still emerges from scarcity + uncertainty
+* Greed still happens
+
+**Cognitive load:**
+
+* Complexity still has cost
+* Even if automated, players need to understand
+* Can offload tracking, can't offload understanding
+
+**Design implications:**
+
+**Can enable:**
+
+* More complex resource interactions (compute-intensive)
+* Perfect state consistency (no tracking errors)
+* Dynamic adjustment (responsive to play)
+
+**Should still avoid:**
+
+* Resources that don't serve aesthetic
+* Progress-blocking resources
+* Manipulative FOMO
+* Social toxicity
+
+**Principle:** LLMs expand feasible design space, but same aesthetic goals apply
+
+**See:** Separate LLM implications document (future)
+
+***
+
+## Part 6: Summary and Final Checklist
+
+### The Core Process
+
+1. **Define aesthetic goal** (what experience?)
+2. **Choose resources that serve it** (which resources create that experience?)
+3. **Design resource properties** (type, scarcity, recovery, spending, ownership)
+4. **Validate against psychology** (possession, greed, FOMO)
+5. **Check anti-patterns** (avoid known pitfalls)
+6. **Playtest and iterate** (does it work in practice?)
+
+### Master Checklist
+
+**Before implementing resource system:**
+
+#### Aesthetic Alignment
+
+* [ ] I know exactly what experience I want to create
+* [ ] Each resource serves that aesthetic
+* [ ] I'm not including resources just because "games have X"
+
+#### Design Decisions
+
+* [ ] I've chosen type (consumable, buffer, accumulation, composition, capacity)
+* [ ] I've chosen scarcity level (abundant, moderate, high, critical)
+* [ ] I've chosen recovery pattern (none, slow, moderate, fast, mixed)
+* [ ] I've chosen spending mechanics (active, passive, reactive, investment)
+* [ ] I've chosen ownership (personal, shared, mixed, competitive)
+
+#### Validation
+
+* [ ] Resources create interesting decisions
+* [ ] Tracking isn't tedious
+* [ ] Critical path isn't gated
+* [ ] Psychological effects are intentional
+* [ ] No anti-patterns present
+
+#### Social Dynamics (if multiplayer)
+
+* [ ] Ownership is clear
+* [ ] Cooperation is encouraged (if co-op)
+* [ ] No toxicity created
+* [ ] Appropriate for game's social structure
+
+#### Playtesting
+
+* [ ] Players make interesting decisions
+* [ ] Players engage with mechanic
+* [ ] Players understand purpose
+* [ ] Flow isn't interrupted
+* [ ] Aesthetic goal achieved
+
+**If all checked → Good resource design**
+
+### When to Revise
+
+**Red flags during playtesting:**
+
+* Players hoarding when should spend → Add use-it-or-lose-it pressure
+* Players confused about purpose → Clarify communication or remove
+* Players groaning at tracking → Simplify or automate
+* Mechanic being ignored → Remove (not serving purpose)
+* Creating unintended social tension → Redesign ownership
+* Progress blocked → Make critical resources non-depletable
+* Death spiral → Add recovery or comeback mechanics
+* Grinding required → Change acquisition or abundance
+
+**The principle:** If resource isn't serving aesthetic, fix or remove it
+
+***
+
+## Conclusion
+
+Resource design is fundamentally about creating experiences through scarcity, abundance, and flow. Every resource should serve aesthetic goals. If a resource doesn't create the intended experience, it shouldn't exist.
+
+**The framework in one sentence:**
+"Start with the experience you want, choose resources that create it, design their properties to serve it, validate they work, and iterate."
+
+**This is not a rigid rulebook** - it's a guide for thinking systematically about resource design. Break rules when you understand why. But if you follow this framework, you'll avoid most common pitfalls and create resources that serve your game's aesthetic goals.
+
+***
+
+## References and Further Reading
+
+**Parts of this resource management chapter:**
+
+* Part 1: Should This Be A Resource?
+* Part 2: Types of Resources
+* Part 3: Scarcity and Abundance
+* Part 4: Recovery Patterns
+* Part 5: Spending and Agency
+* Part 6: Ownership (Personal vs Shared)
+* Part 7: Psychological Effects
+* Part 8: Common Pitfalls
+* Part 9: Decision Framework (this document)
+
+**Related documents:**
+
+* Game Analyses (5 games examined)
+* What is a Game System (framework foundation)
+* System Evolution Lessons (historical patterns)
+* Cognitive Load (separate document, future)
+* Balance and Parameter Optimization (separate document, future)
+
+**Key games referenced:**
+
+* Blades in the Dark (stress/harm separation)
+* Heroes of Might and Magic III (permanent loss)
+* Settlers of Catan (forced spending)
+* World of Warcraft (time-gating, social dynamics)
+* Slay the Spire (composition resources)
+
+***
+
+*This is Part 9 of 10 in the Resource Management chapter. This part synthesizes all previous parts into practical framework. Part 10 (if needed) would be appendices and extended examples.*

@@ -1,0 +1,14 @@
+{
+  "title": "General Analysis of Game Systems",
+  "pages": [    
+    
+    "./system-evolution-civilization",
+    "./system-evolution-dnd",    
+    "./system-evolution-pbta",
+    "./system-evolution-xcom",    
+    "./system-evolution-lessons-summary",
+    "./fate-confirmation-bias-test",
+    "./cultist-simulator"
+
+  ]
+}

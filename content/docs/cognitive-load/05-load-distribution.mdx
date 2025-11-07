@@ -1,0 +1,832 @@
+---
+title: 05-load-distribution
+---
+# Part 5: Load Distribution and Social Play
+
+## Introduction
+
+In single-player games, cognitive load is concentrated on one player. That player must track everything, decide everything, and manage all complexity. But multiplayer games introduce a fundamentally different possibility: **distributing cognitive load across multiple players**.
+
+This distribution isn't just about making games easier—it enables entirely new experiences. A group can collectively manage complexity that would overwhelm any individual. Different players can specialize in different cognitive tasks. And the social dynamics of coordinating distributed cognition become part of the game itself.
+
+This chapter explores how cognitive load works in multiplayer contexts, when distribution helps vs. hinders, and how to design systems that leverage collective intelligence.
+
+***
+
+## Distributed Cognitive Load
+
+### What Is Load Distribution?
+
+**Distributed cognitive load** occurs when the total cognitive demands of a game are spread across multiple players rather than concentrated on one.
+
+**Example: Pandemic (cooperative board game)**
+
+* **Total tracking load:** Disease cubes in \~48 cities, 4 disease types, outbreak chain reactions, research stations, player deck state, infection deck state
+* **If solo:** One player tracks everything (overwhelming)
+* **Distributed:** Each player focuses on subset—"I'll watch Asia, you watch Americas," or "I track diseases, you track cards"
+
+**Key insight:** The TOTAL cognitive load can be higher than any individual could manage, because it's distributed.
+
+### Mechanisms of Distribution
+
+**1. Information Specialization**
+
+* Different players track different aspects of game state
+* Each becomes "expert" in their domain
+* Group pools knowledge when making decisions
+
+**Example: Keep Talking and Nobody Explodes**
+
+* Bomb defuser: Sees bomb, limited time, high pressure
+* Manual readers: Have all information, but can't see bomb
+* Load is COMPLETELY separated—each has different cognitive task
+* Coordination is the game
+
+**2. Temporal Distribution**
+
+* Players take turns, giving each processing time
+* While one player acts, others can think ahead or rest
+* Cognitive load spikes for active player, lower for others
+
+**Example: Traditional board games (Chess, Go when played 1v1)**
+
+* Actually NOT very distributed (each player handles similar load)
+* But turn structure gives processing time
+* Contrast: Real-time team games have simultaneous load
+
+**3. Role Specialization**
+
+* Different players have different responsibilities
+* Each optimizes for their role's cognitive demands
+* Reduces individual load by narrowing focus
+
+**Example: MMO raids (World of Warcraft)**
+
+* Tank: Position management, threat tracking (spatial load)
+* Healer: Health monitoring, resource management (tracking load)
+* DPS: Rotation optimization, threat avoidance (calculation + pattern)
+* Raid leader: Strategy, calling mechanics (decision + communication load)
+
+**4. Collective Problem-Solving**
+
+* Group discusses and decides together
+* Multiple perspectives reduce individual decision burden
+* "Hivemind" effect—group is smarter than individuals
+
+**Example: Escape room games**
+
+* Puzzles designed to require multiple people
+* Different players notice different clues
+* Discussion surfaces connections no one saw individually
+
+### When Distribution Works Well
+
+**Conditions for effective distribution:**
+
+**1. Clear domains of responsibility**
+
+* Players know what THEY need to track
+* Minimal overlap/duplication of effort
+* Example: "You watch the north, I watch the south" (clear division)
+
+**2. Communication is possible and low-cost**
+
+* Players can share information easily
+* Talking doesn't interrupt gameplay significantly
+* Example: Co-op board games allow discussion; real-time games may not
+
+**3. Individual loads are manageable**
+
+* Even distributed, each player's share isn't overwhelming
+* Example: Pandemic with 4 players is manageable; with 2 players might be too much per person
+
+**4. Coordination has value**
+
+* Working together produces better outcomes than solo play
+* Mechanics reward sharing information and joint decisions
+* Example: Pandemic's cooperative win condition incentivizes coordination
+
+**5. Social interaction is desired**
+
+* Players WANT to talk and collaborate
+* Fellowship aesthetic is enhanced by distribution
+* Example: Party games where socializing is the point
+
+### When Distribution Fails
+
+**Anti-patterns:**
+
+**1. Unequal distribution (one player carries burden)**
+
+* "Quarterback" problem—one expert makes all decisions
+* Other players become passive/disengaged
+* Example: Pandemic with one experienced player telling everyone what to do
+
+**2. Communication overhead too high**
+
+* Sharing information takes longer than just tracking it individually
+* Coordination cost exceeds distribution benefit
+* Example: Complex games where explaining your knowledge takes minutes
+
+**3. Unclear ownership**
+
+* No one knows who's responsible for what
+* Duplication of effort or gaps in coverage
+* Example: Party games where everyone assumes someone else is tracking victory points
+
+**4. Forced cooperation when unwanted**
+
+* Players want individual challenge, not group work
+* Distribution feels like interference, not support
+* Example: Forced co-op in games designed for solo play
+
+**5. Fragmented experience**
+
+* Players only see their piece, don't understand whole
+* No sense of overall game state or strategy
+* Example: Assembly-line games where each player does one rote task
+
+***
+
+## Asymmetric Load in Multiplayer Games
+
+### What Is Asymmetric Load?
+
+**Asymmetric load** occurs when different players face fundamentally different cognitive demands—not just different domains of the same type, but different TYPES of load entirely.
+
+**Contrast:**
+
+* **Symmetric distribution:** All players track different aspects of same game (Pandemic—everyone tracks diseases, but different regions)
+* **Asymmetric distribution:** Different players engage with completely different cognitive tasks (Among Us—Crewmates investigate, Impostor deceives)
+
+### Sources of Asymmetry
+
+**1. Role-Based Asymmetry**
+
+Different roles = different cognitive profiles.
+
+**Example: Among Us**
+
+* **Crewmates:**
+  * Low mechanical load (simple tasks)
+  * High memory load (who was where, who said what)
+  * High social deduction load (detecting lies)
+  * Medium decision load (who to vote for)
+
+* **Impostor:**
+  * Low mechanical load (fake tasks)
+  * VERY HIGH memory load (remember lies, alibis, fake task knowledge)
+  * VERY HIGH social load (construct believable narrative, read suspicion)
+  * High decision load (who to kill, when to sabotage, how to deflect)
+  * HIGH stress (being suspected is cognitively demanding)
+
+**Key difference:** Impostor has MUCH higher total load than Crewmate. This is intentional—the challenge of Impostor role is managing that cognitive burden while appearing casual.
+
+**2. Information Asymmetry**
+
+Different players know different things.
+
+**Example: Poker**
+
+* Each player knows their own cards (private information)
+* Must infer opponents' hands from betting patterns
+* High memory load (tracking betting history)
+* High calculation load (pot odds, expected value)
+* High social load (reading tells, bluffing)
+
+**Asymmetry:** Player with strong hand has easier decision (bet big), player with weak hand has complex decision (fold? bluff? how much?). Information asymmetry creates cognitive asymmetry.
+
+**3. Experience/Skill Asymmetry**
+
+Experts and novices face different cognitive demands in the SAME game.
+
+**Example: Chess**
+
+* **Novice:**
+  * High decision load (don't know which moves are good)
+  * High calculation load (must count material explicitly)
+  * Low pattern recognition (don't see tactics coming)
+
+* **Expert:**
+  * Medium decision load (narrow candidate moves quickly)
+  * Low calculation load (intuition replaces explicit calculation)
+  * High pattern recognition (see board in chunks, not pieces)
+
+**Key insight:** Same game, same rules, but cognitive experience is COMPLETELY different based on expertise. This is actually GOOD—it means the game serves multiple skill levels.
+
+**4. Temporal Asymmetry**
+
+Different players have different cognitive demands at different times.
+
+**Example: Dead by Daylight (asymmetric horror)**
+
+* **Survivors early game:** Low load (repair generators, hide)
+* **Survivors late game:** HIGH load (coordinate escape, save teammates, manage resources)
+* **Killer early game:** HIGH load (find survivors, learn their patterns, patrol gens)
+* **Killer late game:** Low load (survivors are wounded/hooked, pressure is on them)
+
+**Design effect:** Load shifts between players across game, keeping everyone engaged at different times.
+
+### Designing for Asymmetric Load
+
+**When asymmetry works:**
+
+**1. Asymmetry matches role fantasy**
+
+* High-load roles feel appropriately challenging
+* Low-load roles feel appropriately relaxed
+* Example: Among Us Impostor SHOULD feel stressful—it's being the villain
+
+**2. Players choose their asymmetry**
+
+* Can opt into high-load roles if desired
+* Can avoid overwhelming roles if not ready
+* Example: MMO raids—players select tank/healer/DPS based on preference
+
+**3. Asymmetry creates interesting dynamics**
+
+* Different cognitive profiles create gameplay variety
+* Social interactions emerge from different perspectives
+* Example: Werewolf/Mafia—villagers deduce, werewolves deceive
+
+**4. Asymmetry is balanced overall**
+
+* High-load roles have advantages (information, power)
+* Low-load roles aren't boring (still meaningful decisions)
+* Example: Impostor works harder but also has kill power
+
+**When asymmetry fails:**
+
+**1. Mandatory high-load role no one wants**
+
+* Can't opt out of overwhelming role
+* Game stalls because no one wants to be GM, tank, etc.
+* Solution: Rotate roles, or make high-load role more rewarding
+
+**2. Low-load role is boring**
+
+* Players feel like spectators, not participants
+* Disengagement from "easy" role
+* Solution: Add meaningful decisions even to simple roles
+
+**3. Asymmetry feels unfair**
+
+* One role is both harder AND weaker
+* Cognitive burden without compensating power
+* Solution: Balance difficulty with capability
+
+**4. No warning about load difference**
+
+* Players pick high-load role unprepared
+* Overwhelmed and frustrated
+* Solution: Clearly communicate role complexity upfront
+
+***
+
+## Social Cognitive Load
+
+### What Is Social Cognitive Load?
+
+**Social cognitive load** is the mental effort required to manage interpersonal dynamics during play. This includes:
+
+* **Deception and detection** (lying, reading tells, tracking stories)
+* **Coordination** (aligning strategies, communicating plans)
+* **Negotiation** (trading, alliances, promises)
+* **Reputation management** (maintaining image, building trust)
+* **Conflict resolution** (disputes, kingmaking, table dynamics)
+
+**Key insight:** Social load is SEPARATE from mechanical load. A game can have simple mechanics but high social load (Werewolf), or complex mechanics but low social load (single-player puzzle games).
+
+### Types of Social Load
+
+**1. Deception Load (Lying/Bluffing)**
+
+**Cognitive demands:**
+
+* Constructing believable false narrative
+* Remembering lies told (can't contradict yourself)
+* Performing casual affect while lying (managing tells)
+* Reading others' suspicion (adjusting story)
+
+**Example: The Resistance / Avalon**
+
+* Spies must vote to fail missions without being obvious
+* Must explain votes in discussion without revealing role
+* Must coordinate with other spies subtly
+* High load: track lies, read room, perform innocence
+
+**Design considerations:**
+
+* How much deception is required vs. optional?
+* Can players opt out of deception roles?
+* Is deception the POINT (social deduction) or a tactic (negotiation games)?
+
+**2. Detection Load (Social Deduction)**
+
+**Cognitive demands:**
+
+* Tracking behavior patterns (who did what, when)
+* Noticing inconsistencies (did their story change?)
+* Reading non-verbal cues (tone, hesitation, tells)
+* Building mental models of others (what would innocent/guilty player do?)
+
+**Example: Among Us discussion phase**
+
+* Must remember who claimed to be where
+* Must evaluate alibis (does this make sense?)
+* Must read tone (nervous because guilty, or accused?)
+* Must synthesize information from multiple players
+
+**Design considerations:**
+
+* How much information can players track?
+* Is detection optional (game works if players ignore it) or required (game breaks if no one deduces)?
+* What tools help detection (voting history, visual timelines)?
+
+**3. Coordination Load (Teamwork)**
+
+**Cognitive demands:**
+
+* Communicating plans clearly
+* Understanding others' intentions
+* Aligning strategies (avoiding conflicting actions)
+* Timing joint actions
+* Adapting to others' unexpected moves
+
+**Example: Pandemic during planning phase**
+
+* Discussing who goes where
+* Explaining why "I should do X, then you do Y"
+* Adjusting when someone sees better plan
+* Reaching consensus despite different preferences
+
+**Design considerations:**
+
+* Is coordination required (forced co-op) or beneficial (loose cooperation)?
+* How much communication is possible (real-time discussion vs. limited messaging)?
+* Do mechanics reward coordination explicitly (bonuses for teamwork)?
+
+**4. Negotiation Load (Bargaining)**
+
+**Cognitive demands:**
+
+* Evaluating offers (is this trade good for me?)
+* Predicting others' valuations (what do they want?)
+* Constructing counter-offers
+* Maintaining reputation (keeping promises vs. betraying)
+* Managing multiple simultaneous negotiations
+
+**Example: Catan trading phase**
+
+* "I'll give you wheat for ore"
+* "Will anyone give me sheep?"
+* Deciding: Do I trade now, or hold out for better offer?
+* Tracking: Who needs what (for future trades)?
+
+**Design considerations:**
+
+* Is negotiation open (public bargaining) or hidden (secret deals)?
+* Can players break deals (reputation matters) or are deals binding (no social load)?
+* How much time do negotiations take (might dominate game)?
+
+**5. Reputation Load (Social Capital)**
+
+**Cognitive demands:**
+
+* Maintaining consistent persona across games
+* Predicting how others perceive you
+* Managing grudges and alliances
+* Deciding when to cash in trust vs. build more
+
+**Example: Repeated Werewolf/Mafia games**
+
+* "Alice always accuses first person she's suspicious of" (pattern known)
+* "Bob betrayed our alliance last game" (grudge affects this game)
+* "I've been villager 5 times in a row, no one trusts me now" (reputation problem)
+
+**Design considerations:**
+
+* Does game support one-shot play (no reputation) or require repeated play?
+* Can reputation be reset (different groups, different contexts)?
+* Is reputation positive (makes game richer) or negative (excludes new players)?
+
+### When Social Load Enhances Games
+
+**Social load is THE POINT when:**
+
+**1. Fellowship aesthetic is primary**
+
+* Mechanics exist to create social interaction
+* Game is excuse to hang out and talk
+* Example: Party games, most card games
+
+**2. Psychological insight is the experience**
+
+* Learning about how people think, lie, cooperate
+* Deception reveals personality
+* Example: Werewolf as social experiment
+
+**3. Emergent stories come from social dynamics**
+
+* Betrayals, alliances, revenge arcs
+* Players remember social moments, not mechanical ones
+* Example: Diplomacy (board game famous for ruining friendships)
+
+**4. Group problem-solving is satisfying**
+
+* Collective intelligence exceeds individual
+* "We figured it out together" feeling
+* Example: Escape rooms, cooperative mysteries
+
+**When social load is BURDEN:**
+
+**1. Mechanics are complex and demand focus**
+
+* Can't socialize because too busy calculating
+* Social load competes with mechanical load
+* Solution: Simplify mechanics OR reduce social demands
+
+**2. Social dynamics are toxic**
+
+* Deception feels mean-spirited, not playful
+* Negotiation becomes bullying
+* Reputation becomes exclusion
+* Solution: Clear social contract, optional roles, referee/moderator
+
+**3. Players want challenge, not socializing**
+
+* Came for strategy/tactics, not social maneuvering
+* Social elements feel like distraction
+* Solution: Minimize negotiation/deception, allow silent play
+
+**4. Unequal social skills create imbalance**
+
+* Charismatic players dominate through personality, not strategy
+* Shy players disadvantaged despite game skill
+* Solution: Limit negotiation, structured communication, anonymous voting
+
+***
+
+## Designing for Load Distribution
+
+### Principles for Distributed Systems
+
+**1. Make domains explicit**
+
+Don't assume players will naturally divide labor—tell them.
+
+**Good:**
+
+* "Player 1 tracks diseases, Player 2 tracks cards, Player 3 tracks outbreaks"
+* Explicit role cards
+* Different player boards/sheets for different responsibilities
+
+**Bad:**
+
+* "Everyone just plays"
+* Assuming experienced players will teach load distribution
+* Hidden optimal distribution strategies
+
+**2. Balance individual loads**
+
+Each player's share should be manageable.
+
+**Check:**
+
+* If one player could theoretically handle their share solo, is it overwhelming?
+* If you remove one player, does someone else get overloaded?
+* Are all players equally engaged (not one doing nothing, one doing everything)?
+
+**3. Reward coordination**
+
+Make working together mechanically beneficial, not just thematic.
+
+**Mechanical rewards:**
+
+* Bonuses for coordinated actions (Pandemic: trading cards is crucial)
+* Advantages when roles synergize (MMO: tank + healer + DPS > solo)
+* Failure states when coordination breaks (Keep Talking: bomb explodes if misaligned)
+
+**4. Provide communication structures**
+
+Don't leave communication to chance—scaffold it.
+
+**Structured communication:**
+
+* Turn order for speaking (not all talking at once)
+* Designated discussion phases (not constant interruption)
+* Communication limits that create challenge (limited vocabulary, timed rounds)
+
+**Example: Hanabi (cooperative card game)**
+
+* Can give hints, but limited number per round
+* Creates communication puzzle (what's most important to say?)
+
+**5. Allow specialization to emerge**
+
+Let players find their roles naturally.
+
+**Emergent specialization:**
+
+* Don't force roles, but allow patterns to develop
+* Experienced players can guide newer players
+* Different sessions might have different distributions
+
+**Example: Pandemic**
+
+* No explicit "You are the disease tracker" role
+* But groups naturally develop these patterns
+* Flexibility allows adaptation to player strengths
+
+### Anti-patterns to Avoid
+
+**1. Forced cooperation in competitive game**
+
+If players have conflicting goals, coordination is awkward.
+
+**Problem example:**
+
+* Competitive game where you must cooperate on some tasks but compete overall
+* Players either ignore cooperation (game breaks) or cooperate too much (game is boring)
+
+**Solution:**
+
+* Make cooperation optional but beneficial (trade in Catan—helps both, but you choose)
+* OR fully commit to cooperative goals (Pandemic—everyone wins or loses together)
+
+**2. Asymmetric information without purpose**
+
+If only one player knows something, they must communicate it—but why is it secret?
+
+**Problem example:**
+
+* One player has crucial information others need
+* But there's no deception/social reason for secrecy
+* Just creates annoying "tell everyone what you know" phase
+
+**Solution:**
+
+* If information needs to be shared, make it public (everyone sees it)
+* If information is secret, make secrecy meaningful (bluffing, hidden roles)
+
+**3. Unequal engagement**
+
+Some players are busy, others are bored.
+
+**Problem example:**
+
+* Downtime-heavy turn structure
+* One player's turn is complex and long, others wait
+* Or one role is active, others are passive
+
+**Solution:**
+
+* Simultaneous actions where possible
+* Quick turns with frequent rotation
+* Give waiting players something to do (plan ahead, manage upkeep)
+
+**4. Coordination impossible**
+
+Game requires coordination but prevents communication.
+
+**Problem example:**
+
+* Real-time game where you must work together
+* But too chaotic to talk or hear each other
+* Or game rules forbid communication when it's needed
+
+**Solution:**
+
+* Slow pace enough to allow communication
+* OR design for silent coordination (visual cues, pre-planned signals)
+* OR make lack of coordination part of the challenge (intentional chaos)
+
+***
+
+## Case Studies: Distribution in Practice
+
+### Case Study 1: Pandemic (Effective Distribution)
+
+**Load distribution:**
+
+* **Tracking:** Diseases spread across board, each player can focus on region
+* **Planning:** Each player evaluates their hand, group discusses optimal moves
+* **Execution:** Players take turns, but planning is collective
+* **Memory:** Infection deck tracking (optional but beneficial)
+
+**Why it works:**
+
+* **Clear domains:** Geographic (Asia, Americas) or functional (disease colors)
+* **Communication encouraged:** Cooperative goal makes sharing info beneficial
+* **Individual load manageable:** Each player's turn is simple (4 actions)
+* **Collective advantage:** Group strategizing beats individual play
+
+**What could fail:**
+
+* **Quarterbacking:** One experienced player tells everyone what to do (social problem, not mechanical)
+* **Analysis paralysis:** Too much discussion trying to find optimal move (timer can help)
+
+### Case Study 2: Among Us (Asymmetric Distribution)
+
+**Load asymmetry:**
+
+**Crewmates:**
+
+* Low mechanical load (simple tasks)
+* High memory load (tracking movements, alibis)
+* High social load (discussion, voting)
+* Can distribute memory across group ("I watched north, you watched south")
+
+**Impostor:**
+
+* Similar mechanical load (fake tasks)
+* MUCH higher memory load (remember lies, fake task knowledge)
+* MUCH higher social load (construct narrative, read suspicion, perform innocence)
+* MUCH higher stress (being suspected is draining)
+* Cannot distribute this load (must maintain individual deception)
+
+**Why it works:**
+
+* **Role fantasy matched:** Impostor SHOULD be harder (you're the villain)
+* **Crewmates can distribute:** Share burden of memory/deduction
+* **Impostor compensated:** Has kill power, can sabotage, outnumbered but powerful
+* **Optional depth:** Casual crewmates can coast, engaged crewmates can sleuth
+
+**What could fail:**
+
+* **Impostor overload:** Some players hate Impostor role (too stressful)
+* **Crewmate boredom:** Passive players don't engage with deduction
+* **Toxic accusations:** Social load becomes social harm if table culture is bad
+
+### Case Study 3: Keep Talking and Nobody Explodes (Total Separation)
+
+**Load distribution:**
+
+* **Defuser:** Sees bomb, describes modules, executes instructions
+  * High stress (timer, mistakes = explosion)
+  * High spatial reasoning (complex bomb modules)
+  * High communication load (describe clearly under pressure)
+
+* **Manual readers:** Have all information, can't see bomb
+  * High information parsing (complex manual with many rules)
+  * High communication load (extract right info, give clear instructions)
+  * Medium stress (timer, but not personally handling bomb)
+
+**Why it works:**
+
+* **Complete separation:** No overlap in tasks (defuser can't see manual, readers can't see bomb)
+* **Forced coordination:** Game impossible without communication
+* **Balanced stress:** Different types (defuser = execution pressure, readers = information pressure)
+* **Accessible:** Simple to teach (each side has clear job)
+
+**What could fail:**
+
+* **Communication breakdown:** If players can't hear/understand each other, game fails (not bad design, just situational)
+* **Skill mismatch:** If one side is much weaker, other side frustrated (but this is co-op, so group learns together)
+
+### Case Study 4: Overcooked (Coordination Chaos)
+
+**Load distribution:**
+
+* **Simultaneously distributed:** All players cook together in real-time
+* **Role emergence:** Players naturally divide tasks (one chops, one cooks, one plates, one delivers)
+* **High coordination load:** Must avoid collisions, pass ingredients, time orders
+
+**Why it works:**
+
+* **Emergent specialization:** No assigned roles, but patterns develop
+* **Visual communication:** Can see what teammates are doing
+* **Manageable chaos:** Stressful but fun (controlled panic)
+* **Immediate feedback:** Clear when coordination succeeds or fails
+
+**What could fail:**
+
+* **Too chaotic for some:** Players who need clear structure overwhelmed
+* **Blame dynamics:** Easy to fault teammates for failures (social toxicity risk)
+* **Unequal contribution:** One skilled player can dominate, others feel useless
+
+***
+
+## Design Questions: Choosing Distribution Strategy
+
+When designing multiplayer systems, ask:
+
+### 1. Should load be distributed at all?
+
+**Distribute when:**
+
+* Total complexity would overwhelm one player
+* Social interaction is desired (fellowship aesthetic)
+* Asymmetric challenges are interesting (different roles)
+* Coordination creates depth
+
+**Don't distribute when:**
+
+* Individual challenge is the point (competitive strategy)
+* Communication overhead exceeds benefit
+* Players want solo focus (parallel play, not teamwork)
+
+### 2. How should load be distributed?
+
+**By information:** Different players know different things (hidden roles, private cards)
+**By domain:** Different players track different aspects (regions, resources, roles)
+**By time:** Players alternate active load (turn-based)
+**By specialization:** Different players have different capabilities (roles, classes)
+
+### 3. Is distribution symmetric or asymmetric?
+
+**Symmetric:** All players face similar cognitive demands (just different content)
+
+* Example: Pandemic—all players track diseases, just different regions
+
+**Asymmetric:** Different players face fundamentally different demands
+
+* Example: Among Us—Impostor vs. Crewmate cognitive profiles completely different
+
+### 4. Can players choose their distribution?
+
+**Choice available:**
+
+* Players select roles based on preference (tank/healer/DPS)
+* Can adapt distribution during play (shift focus as needed)
+* Opt-out available (casual participation allowed)
+
+**Choice unavailable:**
+
+* Roles assigned randomly (social deduction)
+* Fixed by game structure (bomb defuser vs. manual readers)
+* All players must engage equally
+
+### 5. What supports effective distribution?
+
+**Mechanical support:**
+
+* Clear role definitions
+* Communication structures (turn order, discussion phases)
+* Coordination rewards (bonuses for teamwork)
+* Load balancing (each role has manageable demands)
+
+**Social support:**
+
+* Table culture (collaborative vs. competitive)
+* Experience matching (all players similar skill)
+* Safety tools (can opt out of overwhelming roles)
+
+### 6. What happens if distribution fails?
+
+**Failure modes:**
+
+* Quarterbacking (one player dominates)
+* Disengagement (some players passive)
+* Overwhelm (distribution insufficient for complexity)
+* Conflict (blame for failures)
+
+**Mitigation:**
+
+* Encourage equal participation mechanically
+* Balance individual loads carefully
+* Provide fallbacks (if coordination fails, game still works)
+* Clear communication about expectations
+
+***
+
+## Summary: Distribution as Design Tool
+
+**Key insights:**
+
+1. **Distribution enables higher total complexity** than solo play could handle—group intelligence exceeds individual capacity.
+
+2. **Asymmetric distribution creates diverse experiences** in the same game—different roles appeal to different players.
+
+3. **Social load is separate from mechanical load**—deception, coordination, negotiation are their own cognitive demands.
+
+4. **Distribution must be designed, not assumed**—clear domains, balanced loads, communication structures.
+
+5. **Distribution serves specific aesthetics**—fellowship, challenge-through-coordination, emergent social dynamics.
+
+**Design principles:**
+
+* **Match distribution to aesthetic goal** (cooperative games = symmetric distribution; social deduction = asymmetric)
+* **Balance individual loads** (each player's share must be manageable)
+* **Scaffold communication** (structures for coordination, not just "talk it out")
+* **Reward coordination** (mechanical benefits for working together)
+* **Clarify responsibilities** (explicit roles or emergent specialization)
+* **Plan for failure modes** (quarterbacking, disengagement, overwhelm)
+
+**When distribution works best:**
+
+* Total complexity too high for individuals
+* Communication is natural and low-cost
+* Coordination creates interesting decisions
+* Social interaction is desired
+* Asymmetric challenges are appealing
+
+**When to avoid distribution:**
+
+* Individual challenge is the point
+* Communication overhead too high
+* Unclear responsibilities create confusion
+* Social dynamics risk toxicity
+* Players want solo focus
+
+In the next chapter, we'll examine what happens when cognitive load is **inappropriate** for the intended experience—when it's in the wrong place, too high, or creates barriers instead of engagement.

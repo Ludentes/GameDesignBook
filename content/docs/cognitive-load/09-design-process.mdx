@@ -1,0 +1,1718 @@
+---
+title: 09-design-process
+---
+# Part 9: Design Process Framework
+
+## Introduction
+
+This chapter presents a practical, step-by-step framework for designing game systems driven by cognitive load analysis. Rather than starting with mechanics and hoping they create the right experience, we start with the desired experience and derive mechanics that create appropriate cognitive demands.
+
+**The core principle:** Different experiences require different cognitive load profiles. By analyzing load requirements first, we can design systems that serve experience goals rather than work against them.
+
+This framework has been validated through case studies (see Parts 10-11) and produces both known-good solutions (like Fate Accelerated) and novel systems tailored to specific scenarios.
+
+***
+
+## Overview: The Eight-Step Process
+
+**STEP 1: Analyze the Scenario**
+
+* Extract core experience goals
+* Identify constraints and context
+
+**STEP 2: Determine Cognitive Load Requirements**
+
+* Map load types to experience needs
+* Identify what must be high, low, or flexible
+
+**STEP 3: Identify Load Conflicts and Trade-offs**
+
+* Find tensions between requirements
+* Determine resolution strategies
+
+**STEP 4: Design Core Systems**
+
+* Create mechanics that match load profile
+* Support necessary load, remove unnecessary load
+
+**STEP 5: Determine LLM Role**
+
+* Identify where LLMs help vs. hinder
+* Mark systems for LLM integration
+
+**STEP 6: Design Load Support Systems**
+
+* Help players manage necessary load
+* Remove unnecessary load
+* Plan load progression over time
+
+**STEP 7: Validate Against Experience Goals**
+
+* Check alignment with intended feelings
+* Check alignment with intended understanding
+* Check alignment with intended actions
+* Identify mismatches
+
+**STEP 8: Document and Test**
+
+* Create load profile summary
+* Design prototype tests
+* Plan iteration based on results
+
+Each step builds on previous steps, creating a clear path from scenario to playable system.
+
+***
+
+## STEP 1: Analyze the Scenario
+
+Before designing any mechanics, we must understand what experience we're creating and for whom.
+
+### 1.1 What Should Players FEEL?
+
+**Emotional targets:**
+
+* What emotions should players experience? (tension, joy, discovery, dread, triumph, connection)
+* At what intensity? (subtle background vs. overwhelming peaks)
+* With what pacing? (constant, building, episodic, variable)
+
+**Why this matters:** Different emotions require different cognitive states. Tension requires time pressure. Discovery requires mystery plus clarity. Fellowship requires mental space for socializing.
+
+**Example questions:**
+
+* Should players feel relaxed or stressed?
+* Should they feel confused or informed?
+* Should they feel vulnerable or powerful?
+* Should they feel connected to others or individually challenged?
+
+**Common patterns:**
+
+* **Horror/tension:** Uncertainty, time pressure, vulnerable feeling
+* **Fellowship:** Relaxed, space for conversation, shared experiences
+* **Challenge/mastery:** Struggle then triumph, growth feeling
+* **Discovery:** Mystery then revelation, "aha!" moments
+* **Power fantasy:** Competence, effectiveness, escalation
+
+### 1.2 What Should Players UNDERSTAND?
+
+**Intellectual insights:**
+
+* What concepts should emerge from play?
+* What skills or competencies should develop?
+* What perspective shifts should occur?
+
+**Why this matters:** Understanding requires appropriate cognitive load. Too much load obscures patterns. Too little load makes insights trivial. The system must create conditions for learning.
+
+**Example questions:**
+
+* Should players understand complex systems? (high pattern recognition load)
+* Should players develop physical skills? (high execution load)
+* Should players explore moral questions? (high decision load, low calculation)
+* Should players just experience a story? (low mechanical load)
+
+**Common patterns:**
+
+* **Systemic insight:** Players learn how interconnected systems work (requires consistent rules, visible cause-effect)
+* **Skill mastery:** Players develop competence through practice (requires consistent challenges, clear feedback)
+* **Moral exploration:** Players confront ethical questions (requires meaningful choices, visible consequences)
+* **World immersion:** Players understand fictional reality (requires consistent world logic, low mechanical interference)
+
+### 1.3 What Should Players DO?
+
+**Primary actions:**
+
+* What are the moment-to-moment activities? (investigate, fight, negotiate, build, explore)
+* What types of decisions matter? (tactical, strategic, social, creative, moral)
+* What time scale is relevant? (split-second, turn-by-turn, session-to-session, campaign-long)
+
+**Why this matters:** Actions create cognitive demands. Real-time combat requires simultaneity load. Investigation requires tracking load. Social negotiation requires communication load. Match mechanics to intended actions.
+
+**Example questions:**
+
+* Are players reacting in real-time or deliberating in turns?
+* Are they managing multiple concerns simultaneously or focusing sequentially?
+* Are they making reversible choices or committing to consequences?
+* Are they coordinating with others or acting independently?
+
+**Common patterns:**
+
+* **Tactical combat:** Positioning, resource management, timing, threat assessment
+* **Investigation:** Clue tracking, pattern recognition, hypothesis testing
+* **Social interaction:** Reading others, persuasion, deception, coordination
+* **Resource management:** Optimization, planning, adaptation
+* **Creative expression:** Improvisation, authorship, world-building
+
+### 1.4 What Are the Constraints?
+
+**Player constraints:**
+
+* How much time do they have? (session length, frequency, prep time)
+* What's their experience level? (new to games? genre veterans?)
+* What's their cognitive capacity? (tired after work? fully engaged?)
+* How many players? (solo, small group, large group)
+* What's their motivation? (casual fun? deep challenge? social bonding?)
+
+**Content constraints:**
+
+* What setting/genre? (expectations about tone, themes, content)
+* What existing IP or expectations? (if adapting existing material)
+* What themes or messages? (what should the game be "about")
+* What content boundaries? (tone, violence, safety considerations)
+
+**Technical constraints:**
+
+* What tools are available? (LLM access? computer automation? physical components?)
+* What platform? (tabletop? digital? hybrid?)
+* What development resources? (time, skills, budget)
+
+**Why this matters:** Constraints determine what's feasible. Can't design a complex system for casual players with 2-hour monthly sessions. Can't require extensive prep for busy adults. Can't create real-time challenge without appropriate tools.
+
+**Example questions:**
+
+* How much can we expect players to remember between sessions?
+* Can players do homework/prep between sessions?
+* What tools can offload cognitive burden?
+* What must remain player-facing for engagement?
+
+***
+
+## STEP 2: Determine Cognitive Load Requirements
+
+For each type of cognitive load, determine whether it must be HIGH, LOW, or can be FLEXIBLE based on experience goals from Step 1.
+
+### Load Type Analysis Template
+
+For each load type below, ask:
+
+1. **What level does the experience require?** (HIGH / MEDIUM / LOW / FLEXIBLE)
+2. **Why does it need this level?** (How does it serve experience goals?)
+3. **What are the design implications?** (What mechanics create or avoid this load?)
+
+### 2.1 Simultaneity Load
+
+**Definition:** Tracking multiple things happening at once; divided attention; real-time pressure.
+
+**Requires HIGH when:**
+
+* Experience needs tension through time pressure
+* Multiple threats/opportunities must be juggled
+* "More to do than can be done" is the challenge
+* Real-time action is core to experience
+
+**Requires LOW when:**
+
+* Players need time to think and deliberate
+* Social interaction is primary (can't chat while juggling)
+* Confusion would undermine experience
+* Turn-based strategic thinking is the point
+
+**Design considerations:**
+
+* Real-time vs. turn-based (fundamental choice)
+* Number of simultaneous concerns (few focused vs. many chaotic)
+* Pacing (constant pressure vs. peaks and valleys)
+* Can pause to process information?
+
+**Example ratings:**
+
+* StarCraft: **HIGH** (real-time juggling is the challenge)
+* Chess: **LOW** (turn-based allows deep thinking)
+* Among Us: **MEDIUM** (time-limited discussion, but not frantic)
+
+### 2.2 Decision Load
+
+**Definition:** Number and complexity of meaningful choices; depth of decision trees; evaluating options.
+
+**Requires HIGH when:**
+
+* Meaningful choice is core experience
+* Strategy and planning are the challenge
+* Players want agency and consequence
+* "What do I do?" is interesting question
+
+**Requires LOW when:**
+
+* Decisions would distract from other experiences
+* Paralysis would frustrate intended flow
+* Intuition/reflex more important than deliberation
+* Social/narrative focus needs simple choices
+
+**Design considerations:**
+
+* Number of viable options (3-5 vs. dozens)
+* Depth of consequences (immediate vs. far-reaching)
+* Clarity of options (obvious vs. hidden effects)
+* Reversibility (can undo vs. committed)
+
+**Example ratings:**
+
+* Chess: **HIGH** (evaluating moves is the game)
+* Wordle: **LOW** (simple guessing, not complex strategy)
+* Dark Souls: **MEDIUM** (build choices matter, but execution is focus)
+
+### 2.3 Memory/Knowledge Load
+
+**Definition:** What must be remembered; rules knowledge; setting lore; previous events; information recall.
+
+**Requires HIGH when:**
+
+* Mastery through study is intended path
+* Expert knowledge is competitive advantage
+* Deep world immersion requires lore
+* Preparation is part of challenge
+
+**Requires LOW when:**
+
+* Casual accessibility is goal
+* Can't rely on memory between sessions
+* Immersion would break with rules lookup
+* New players should engage quickly
+
+**Design considerations:**
+
+* Rules complexity (pages of rules vs. simple core)
+* Setting depth (rich lore vs. minimal context)
+* Reference materials (must memorize vs. can look up)
+* Session gaps (weekly vs. monthly affects memory)
+
+**Example ratings:**
+
+* Warhammer 40k: **HIGH** (hundreds of rules, must know deeply)
+* Wordle: **MINIMAL** (no persistent knowledge needed)
+* Fate Accelerated: **LOW** (simple rules, minimal system mastery)
+
+### 2.4 Tracking Load
+
+**Definition:** Monitoring game state; resource levels; conditions; positions; what's happening now.
+
+**Requires HIGH when:**
+
+* State management is the challenge
+* Multiple resources create strategic choices
+* Spatial/positional reasoning matters
+* Tracking complexity is skill expression
+
+**Requires LOW when:**
+
+* Bookkeeping would distract from experience
+* Automation can handle tracking
+* Mental space needed for other activities
+* Tracking doesn't create interesting decisions
+
+**Design considerations:**
+
+* Number of things to track (few focused vs. many scattered)
+* Visibility (clear at glance vs. mental calculation)
+* Tools available (automation, visual aids, reference sheets)
+* Frequency of change (constant updates vs. stable)
+
+**Example ratings:**
+
+* Dwarf Fortress: **EXTREME** (hundreds of entities to track)
+* Among Us: **MEDIUM** (mental notes of who-was-where)
+* Cookie Clicker: **MINIMAL** (game tracks everything automatically)
+
+### 2.5 Calculation Load
+
+**Definition:** Mathematical operations; probability estimation; optimization calculations; numerical reasoning.
+
+**Requires HIGH when:**
+
+* Mathematical optimization is the puzzle
+* Precise calculation is skill expression
+* Numbers communicate game state clearly
+* Target audience enjoys math
+
+**Requires LOW when:**
+
+* Math would break immersion/flow
+* Target audience dislikes calculation
+* Intuition more important than precision
+* Automation can handle computation
+
+**Design considerations:**
+
+* Complexity of math (simple addition vs. multi-step)
+* Frequency (occasional vs. every action)
+* Transparency (clear why calculating vs. opaque formulas)
+* Tools (can use calculator vs. must do mentally)
+
+**Example ratings:**
+
+* Traditional wargames: **HIGH** (detailed combat resolution)
+* Fate: **LOW** (simple +/- modifiers or none)
+* Modern D\&D: **MEDIUM** (basic arithmetic, bounded numbers)
+
+### 2.6 Pattern Recognition Load
+
+**Definition:** Learning through repetition; recognizing game states; developing intuition; mastering patterns.
+
+**Requires HIGH when:**
+
+* Mastery through practice is goal
+* "Learning by doing" is intended path
+* Pattern recognition is skill expression
+* Long-term engagement through depth
+
+**Requires LOW when:**
+
+* Immediate accessibility needed
+* Can't rely on practice/repetition
+* One-shot or short campaign
+* Intuition should be immediate, not learned
+
+**Design considerations:**
+
+* Consistency of patterns (reliable vs. random)
+* Learning curve steepness (quick pickup vs. long mastery)
+* Feedback clarity (can you tell what works?)
+* Practice opportunities (repetition available?)
+
+**Example ratings:**
+
+* Dark Souls: **HIGH** (learning enemy patterns through death)
+* Chess: **HIGH** (recognizing positions, tactics, strategies)
+* Party games: **LOW** (immediate fun, no mastery needed)
+
+### 2.7 Social/Communication Load
+
+**Definition:** Coordination with others; reading people; deception; negotiation; group decision-making; interpersonal dynamics.
+
+**Requires HIGH when:**
+
+* Social interaction is core experience
+* Coordination creates challenge
+* Deception/reading people is gameplay
+* Group dynamics are the point
+
+**Requires LOW when:**
+
+* Mechanics compete with socializing
+* Solo experience or minimal interaction
+* Social load would overwhelm other demands
+* Players want to focus elsewhere
+
+**Design considerations:**
+
+* Cooperation required vs. optional (must coordinate vs. parallel play)
+* Communication constraints (time limits, limited vocabulary, hidden info)
+* Conflict vs. cooperation (competitive vs. collaborative)
+* Group size (intimate vs. large group dynamics)
+
+**Example ratings:**
+
+* Among Us: **HIGH** (social deduction is the game)
+* Fate (casual group): **MEDIUM** (supports roleplay, doesn't demand it)
+* Solitaire: **NONE** (solo game)
+
+### 2.8 Overall Load Budget
+
+After analyzing individual load types, assess total cognitive demand:
+
+**Total Load: MINIMAL / LOW / MEDIUM / HIGH / EXTREME**
+
+Consider:
+
+* How many load types are HIGH simultaneously?
+* Do high loads complement or conflict?
+* What's target audience tolerance?
+* What's session length/frequency?
+* Is high load sustainable for intended duration?
+
+**Target Audience Tolerance:**
+
+* **Casual players:** Prefer LOW-MEDIUM total load, mental space for socializing
+* **Engaged hobbyists:** Can handle MEDIUM-HIGH, seek meaningful challenge
+* **Hardcore/competitive:** Seek HIGH-EXTREME, load is the point
+
+**Critical insight:** Players have finite cognitive capacity. High load in multiple dimensions simultaneously can overwhelm even engaged players. Choose where to spend the cognitive budget.
+
+**Priority ranking:** Which load types matter MOST for experience? Spend budget there, minimize elsewhere.
+
+***
+
+## STEP 3: Identify Load Conflicts and Trade-offs
+
+Real scenarios often have competing requirements. This step identifies tensions and determines how to resolve them.
+
+### 3.1 Identifying Conflicts
+
+**Common conflict patterns:**
+
+**A) Experience vs. Accessibility**
+
+* Want deep strategic challenge BUT also want casual accessibility
+* Want rich world lore BUT also want quick onboarding
+* Want meaningful consequences BUT also want forgiving learning curve
+
+**B) Multiple Aesthetics**
+
+* Want tactical challenge BUT also want narrative immersion
+* Want social fellowship BUT also want individual skill expression
+* Want tension/horror BUT also want player agency/control
+
+**C) Session Constraints vs. Complexity**
+
+* Want ongoing campaign BUT players forget between sessions
+* Want deep systems BUT limited session time
+* Want preparation/planning BUT players won't do homework
+
+**D) Theme vs. Playability**
+
+* Want to represent complex reality BUT can't model everything
+* Want philosophical depth BUT need moment-to-moment engagement
+* Want authentic simulation BUT need accessible mechanics
+
+### 3.2 Resolution Strategies
+
+**Strategy 1: Priority Ranking**
+
+Determine which experience goal is PRIMARY, which is SECONDARY.
+
+Example: "We want fellowship (primary) with some tactical challenge (secondary)"
+
+* Resolution: Low mechanical load for socializing, optional tactical depth for engaged players
+* Trade-off: Hardcore tactical players may find it too simple
+
+Example: "We want horror atmosphere (primary) with tactical challenge (secondary)"
+
+* Resolution: High tension and confusion acceptable, tactical clarity needed within that
+* Trade-off: Won't appeal to players who want relaxing experience
+
+**When to use:** Clear hierarchy of goals, willing to sacrifice secondary for primary.
+
+**Strategy 2: Sequential Load**
+
+Different phases have different load profiles.
+
+Example: Blades in the Dark heists
+
+* Planning phase: LOW load (flashbacks remove prep burden)
+* Execution phase: MEDIUM load (choices matter, but streamlined)
+* Downtime phase: LOW load (narrative focus)
+
+Example: Many RPGs
+
+* Combat: HIGH load (tactics, positioning, resources)
+* Exploration: MEDIUM load (decisions, discovery)
+* Social scenes: LOW load (roleplay focus)
+
+**When to use:** Game has natural phase structure, can shift load between phases.
+
+**Strategy 3: Optional Depth**
+
+Core system is LOW load, but deeper engagement is available.
+
+Example: Casual vs. optimization paths
+
+* Casual: Simple decisions, follow intuition, social focus
+* Optimizer: Deep system mastery, competitive edge, optional complexity
+
+Example: Difficulty modes
+
+* Easy: Low load, forgiving, accessible
+* Hard: High load, demanding, for mastery-seekers
+
+**When to use:** Diverse audience with different load tolerances, can create separate paths.
+
+**Strategy 4: Distributed Load**
+
+Share cognitive burden across players or systems.
+
+Example: Co-op games
+
+* Each player handles subset of concerns
+* Collective intelligence exceeds individual capacity
+* Communication becomes the challenge
+
+Example: GM/computer offloading
+
+* System tracks complex state
+* Players focus on decisions and roleplay
+* Automation handles bookkeeping
+
+**When to use:** Multiplayer or computer assistance available, can divide and conquer.
+
+**Strategy 5: Accept Narrower Appeal**
+
+Design for specific audience, accept others won't engage.
+
+Example: Dwarf Fortress
+
+* Extremely high load is intentional
+* Niche audience seeks this challenge
+* Most players bounce off (accepted)
+
+Example: Rules-light narrative games
+
+* Minimal mechanical load is intentional
+* Appeals to story-focused players
+* Tactical gamers find it unsatisfying (accepted)
+
+**When to use:** Clear target audience, not trying to please everyone, unique experience justifies narrow appeal.
+
+### 3.3 Documenting Trade-offs
+
+For each conflict identified, document:
+
+**Conflict:** \[Describe the tension]
+
+**Resolution Strategy:** \[Which strategy from above]
+
+**Specific Resolution:** \[How we're applying it]
+
+**Trade-off Accepted:** \[What we're sacrificing]
+
+**Why This Works:** \[How it serves primary experience goal]
+
+Example:
+
+**Conflict:** Want ongoing campaign continuity BUT players forget details between monthly sessions
+
+**Resolution Strategy:** Distributed Load (system offloading)
+
+**Specific Resolution:** LLM maintains all memory, generates personalized recaps, surfaces relevant information just-in-time
+
+**Trade-off Accepted:** Less player ownership of memory/narrative (system is authoritative source)
+
+**Why This Works:** Enables monthly play without homework, preserves continuity despite forgetting, serves fellowship goal (low cognitive burden for casual play)
+
+***
+
+## STEP 4: Design Core Systems
+
+Now that we know what cognitive load profile we need, design mechanics that create (or avoid) specific loads.
+
+### 4.1 For Each "MUST BE HIGH" Load Type
+
+**Template:**
+
+**Load Type:** \[Simultaneity / Decision / Memory / etc.]
+
+**Why is this load valuable?**
+
+* How does it serve the experience goal?
+* What would be lost without it?
+
+**What system creates this load?**
+
+* Specific mechanics that generate desired complexity
+* How do these mechanics work?
+
+**How do we support it?**
+
+* Tools, UI, reference materials
+* How do we keep it manageable but challenging?
+
+**Example: High Decision Load for Strategic Game**
+
+**Why valuable?** Meaningful choice is the core experience. Players want to feel agency and see consequences.
+
+**System design:**
+
+* Multiple viable strategic paths (no single optimal strategy)
+* Rock-paper-scissors dynamics (choices have counter-strategies)
+* Visible trade-offs (opportunity costs are clear)
+* Long-term consequences (decisions matter across turns/sessions)
+
+**Support:**
+
+* Clear presentation of options (menu, cards, visual aids)
+* "What if?" speculation allowed (can ask about consequences)
+* Undo mechanism for accidental choices (intentional decisions only)
+* Pacing allows deliberation (turn-based, not real-time pressure)
+
+### 4.2 For Each "MUST BE LOW" Load Type
+
+**Template:**
+
+**Load Type:** \[Simultaneity / Decision / Memory / etc.]
+
+**Why must this be minimal?**
+
+* How would this load interfere with experience?
+* What are we preserving mental space for?
+
+**What systems could add unwanted load?**
+
+* Mechanics to avoid
+* Common design patterns that would break this
+
+**How do we minimize it?**
+
+* Automation, simplification, offloading
+* Specific techniques
+
+**Example: Low Calculation Load for Narrative Game**
+
+**Why minimal?** Math breaks immersion. Players should focus on character and story, not arithmetic.
+
+**Systems to avoid:**
+
+* Complex modifiers (+2 -3 +1 for every action)
+* Hit point tracking with damage calculation
+* Resource management with precise accounting
+* Statistical optimization puzzles
+
+**Minimization techniques:**
+
+* Fiction-first resolution (describe action, simple roll, narrate outcome)
+* Binary or simple outcomes (success/failure, no gradations)
+* Automated tracking (computer/LLM handles numbers)
+* Abstract resources ("you have enough" vs. exact quantities)
+
+### 4.3 For Each "FLEXIBLE" Load Type
+
+**Template:**
+
+**Load Type:** \[Simultaneity / Decision / Memory / etc.]
+
+**Who chooses the load level?**
+
+* Designer (difficulty settings)
+* Player (engagement depth)
+* Adaptive system (dynamic adjustment)
+
+**How does it scale?**
+
+* Optional rules (advanced play)
+* Difficulty modes (easy/normal/hard)
+* Natural mastery curve (emergent complexity)
+
+**Example: Flexible Pattern Recognition for Game with Skill Ceiling**
+
+**Who chooses?** Players naturally, through engagement level
+
+**How it scales:**
+
+* Beginners: Explicit tutorial tips, highlighted patterns
+* Intermediate: Tutorials fade, patterns become intuitive
+* Experts: Discover advanced tactics, meta-game knowledge
+* Optional: Competitive modes with higher skill ceilings
+
+**Design:**
+
+* Core mechanics are simple (easy to learn)
+* Interactions create depth (hard to master)
+* Multiple skill expressions (different paths to mastery)
+* Community knowledge sharing (wikis, guides for those who want depth)
+
+### 4.4 Design Principles
+
+**Principle 1: Load Should Serve Experience**
+
+Every point of cognitive load must justify itself:
+
+* Does this create interesting decisions?
+* Does this support the aesthetic goal?
+* Does this enable skill expression?
+
+If load doesn't serve experience, remove it.
+
+**Principle 2: Concentrate Load Intentionally**
+
+Don't spread cognitive budget thin across many mediocre complexities. Choose where complexity matters most and go deep there.
+
+Example: StarCraft concentrates on simultaneity (many things at once) but keeps individual actions simple (click to move, click to attack).
+
+Example: Chess concentrates on decision depth (evaluating moves) but has minimal rules overhead (learn in 5 minutes).
+
+**Principle 3: Make Load Transparent**
+
+Players should understand what they're managing:
+
+* Visible state (can see what's happening)
+* Clear rules (understand cause-effect)
+* Predictable outcomes (can reason about consequences)
+
+Hidden complexity frustrates. Visible complexity challenges.
+
+**Principle 4: Match Load to Time Scale**
+
+* Real-time → minimize per-action load (must be fast)
+* Turn-based → can handle deeper load (time to think)
+* Session gaps → minimize memory load (will forget)
+* Continuous play → can build on previous knowledge
+
+**Principle 5: Support Necessary Load, Remove Unnecessary Load**
+
+See Step 6 for detailed techniques.
+
+***
+
+## STEP 5: Determine LLM Role
+
+Language models offer new capabilities for managing cognitive load. This step identifies where LLMs help versus where explicit systems are needed.
+
+### 5.1 LLM Strengths for Cognitive Load Management
+
+**Where LLMs Excel:**
+
+**1. Maintaining Consistency Across Unpredictable Paths**
+
+* Remember all previous events, character details, world state
+* Generate content that respects established facts
+* Adapt to player choices without breaking continuity
+
+**Use case:** Detective mystery where players investigate in any order—LLM ensures clues don't contradict, mystery stays coherent.
+
+**2. Generating Adaptive Content**
+
+* Create descriptions, NPCs, complications on the fly
+* Adjust tone and difficulty based on context
+* Provide variety without repetition
+
+**Use case:** Sandbox exploration where LLM generates locations, encounters, characters that fit world logic and current story arc.
+
+**3. Managing Hidden Information**
+
+* Track GM-only knowledge (NPC motivations, secret plots, future events)
+* Surface information when relevant without exposing too early
+* Maintain dramatic irony and mystery
+
+**Use case:** Social intrigue game where LLM knows NPC agendas, reveals them through roleplay clues.
+
+**4. Just-in-Time Information Delivery**
+
+* Provide relevant rules, context, reminders when needed
+* Avoid information overload upfront
+* Reduce memory load through timely prompts
+
+**Use case:** Complex system where LLM reminds players of relevant abilities or rules when they become applicable.
+
+**5. Tone and Atmosphere Maintenance**
+
+* Keep consistent genre feel across scenes
+* Escalate or de-escalate tension appropriately
+* Maintain narrative voice and style
+
+**Use case:** Horror game where LLM maintains unsettling atmosphere through descriptions, pacing, NPC behavior.
+
+**6. Natural Language Interface**
+
+* Players describe intentions in plain language
+* LLM interprets and maps to mechanics
+* Reduces need to learn mechanical vocabulary
+
+**Use case:** New player says "I want to intimidate the guard" and LLM handles which roll/stat applies without player needing to know system.
+
+### 5.2 LLM Weaknesses for Cognitive Load
+
+**Where LLMs Struggle:**
+
+**1. Precise Mathematical Operations**
+
+* Can make arithmetic errors
+* Unreliable for complex calculations
+* Shouldn't be trusted with game-critical math
+
+**Solution:** Use explicit systems for calculation, LLM for narration.
+
+**2. Perfect Long-Term Memory**
+
+* May forget details from distant past
+* Can create subtle continuity errors
+* Needs structured data backup for critical facts
+
+**Solution:** Store critical facts in database, LLM accesses for context.
+
+**3. Consistent Rule Adjudication**
+
+* May interpret rules differently across time
+* Can be inconsistent in edge cases
+* Needs explicit constraints to prevent drift
+
+**Solution:** Simple, transparent rules; LLM narrates within rule boundaries.
+
+**4. Real-Time Responsiveness**
+
+* Latency in generation can break flow
+* Not suitable for twitch-reflex gameplay
+* Works better for turn-based, deliberative play
+
+**Solution:** Design for asynchronous interaction, pre-generate when possible.
+
+**5. Player-Facing Transparency**
+
+* Black box decision-making can feel arbitrary
+* Players can't predict outcomes clearly
+* Undermines agency if not careful
+
+**Solution:** LLM generates within clear constraints, outcomes follow from fiction.
+
+### 5.3 Integration Patterns
+
+**\[LLM\_PRIMARY] - LLM is Core System**
+
+LLM handles this functionality as main responsibility:
+
+* NPC embodiment and dialogue
+* World state management and consistency
+* Adaptive content generation
+* Atmosphere and tone maintenance
+
+**When to use:**
+
+* Requires creativity and adaptation
+* Benefits from natural language
+* Consistency is important but not mathematically precise
+* Memory management is burden for humans
+
+**\[LLM\_SUPPORT] - LLM Assists Explicit System**
+
+Explicit system is primary, LLM enhances:
+
+* Rules lookup and clarification
+* Flavor text and narration
+* Suggestion generation (but players choose from clear options)
+* Pacing and scene management
+
+**When to use:**
+
+* Core mechanics are explicit and transparent
+* LLM adds color but isn't authoritative
+* Want best of both (clarity + creativity)
+
+**\[EXPLICIT\_SYSTEM] - No LLM Involvement**
+
+Traditional system design, no LLM:
+
+* Dice mechanics and resolution
+* Combat adjudication
+* Resource tracking (numbers)
+* Win/loss conditions
+
+**When to use:**
+
+* Requires precision and transparency
+* Players need to predict outcomes
+* Mathematical operations involved
+* Real-time or competitive fairness needed
+
+**\[HYBRID] - LLM and System Work Together**
+
+LLM and explicit system share responsibility:
+
+* LLM generates options → System presents them clearly → Player chooses from menu
+* System determines outcome → LLM narrates results
+* LLM tracks narrative → System stores facts in database → LLM retrieves for consistency
+
+**When to use:**
+
+* Need creativity AND precision
+* Want generation AND constraint
+* Playing to strengths of both
+
+### 5.4 Decision Framework for LLM Integration
+
+For each system designed in Step 4, ask:
+
+**1. Does this require creativity or adaptation?**
+
+* YES → Consider LLM\_PRIMARY or HYBRID
+* NO → Probably EXPLICIT\_SYSTEM
+
+**2. Does this require mathematical precision?**
+
+* YES → Probably EXPLICIT\_SYSTEM or HYBRID (system calculates, LLM narrates)
+* NO → Could be LLM\_PRIMARY
+
+**3. Do players need transparent outcomes?**
+
+* YES → EXPLICIT\_SYSTEM or constrained HYBRID
+* NO (emergent storytelling) → Could be LLM\_PRIMARY
+
+**4. Is real-time responsiveness critical?**
+
+* YES → EXPLICIT\_SYSTEM (no latency)
+* NO → LLM is viable
+
+**5. Does this involve hidden information?**
+
+* YES → LLM\_PRIMARY excels at tracking secrets
+* NO → Either approach works
+
+**6. Is this player-facing or behind-the-scenes?**
+
+* Player-facing → Prefer transparency (EXPLICIT or constrained HYBRID)
+* Behind-scenes → LLM\_PRIMARY is fine
+
+### 5.5 Marking Systems for LLM Integration
+
+For each system designed, mark with one of:
+
+* **\[LLM\_PRIMARY]** - LLM is authoritative, handles core functionality
+* **\[LLM\_SUPPORT]** - LLM assists but isn't authoritative
+* **\[EXPLICIT\_SYSTEM]** - Traditional design, no LLM
+* **\[HYBRID]** - Shared responsibility between LLM and explicit system
+
+Document why each choice was made based on framework above.
+
+**Critical reminder:** LLMs are tools for managing specific types of cognitive load (consistency, memory, adaptation). They don't replace good system design—they enable system designs that weren't feasible before.
+
+***
+
+## STEP 6: Design Load Support Systems
+
+This step designs mechanisms to help players manage necessary load and remove unnecessary load.
+
+### 6.1 Supporting Necessary Load
+
+When cognitive load is HIGH because it serves the experience, provide tools to help players manage it effectively.
+
+**Externalization Tools**
+
+**Purpose:** Move information from mental memory to external reference.
+
+**Examples:**
+
+* Character sheets (visual reference for abilities)
+* Clue journals (detective games track discovered information)
+* Relationship maps (visualize NPC connections)
+* Mission briefings (clear objective reference)
+* Inventory lists (don't memorize, write it down)
+* Timeline trackers (historical games, complex plots)
+
+**Design principle:** If players need to remember it, give them a place to write it or refer to it.
+
+**Decision-Support Tools**
+
+**Purpose:** Help evaluate complex decisions without reducing meaningful choice.
+
+**Examples:**
+
+* "What if?" speculation (ask about consequences before committing)
+* Option comparison (side-by-side evaluation)
+* Probability calculators (for math-heavy games)
+* Undo/rewind (for exploring decision space)
+* Advisor NPCs (suggest options, player decides)
+
+**Design principle:** Support decision-making process without making decisions for players.
+
+**Visual Aids**
+
+**Purpose:** Make invisible state visible; leverage spatial reasoning over verbal.
+
+**Examples:**
+
+* Maps with zones, distances, positions
+* Relationship diagrams (allies, enemies, neutral)
+* Resource dashboards (at-a-glance state)
+* Timeline visualizations (what happened when)
+* Color-coding and icons (quick pattern recognition)
+
+**Design principle:** Human spatial reasoning is powerful. Use visual representation when possible.
+
+**Collaborative Tools**
+
+**Purpose:** Distribute cognitive load across players.
+
+**Examples:**
+
+* Shared note-taking (wiki, shared doc)
+* Role specialization (each player tracks different subset)
+* Discussion prompts (encourage talking through decisions)
+* Turn structure (spotlight rotation ensures all contribute)
+
+**Design principle:** Group intelligence exceeds individual capacity. Enable collaboration.
+
+**Pacing and Structure**
+
+**Purpose:** Manage cognitive load over time; avoid sustained overload.
+
+**Examples:**
+
+* Session structure (opening → rising action → climax → resolution)
+* Downtime between intense sequences (breathe, process, socialize)
+* Clear phase transitions (switch between high-load and low-load activities)
+* Explicit breaks (step away, come back refreshed)
+
+**Design principle:** Cognitive capacity is finite and depletes. Structure play for sustainability.
+
+### 6.2 Removing Unnecessary Load
+
+When cognitive load doesn't serve the experience, eliminate or minimize it.
+
+**Automation**
+
+**Purpose:** Computer/LLM handles bookkeeping so players don't have to.
+
+**Examples:**
+
+* Auto-calculate modifiers (player just sees final number)
+* Track conditions invisibly (system knows, surfaces when relevant)
+* Update character sheets (changes apply automatically)
+* Generate reminders (LLM: "Remember, you're wounded")
+
+**Design principle:** If it's just bookkeeping without decisions, automate it.
+
+**Simplification**
+
+**Purpose:** Reduce mechanical complexity without sacrificing depth.
+
+**Techniques:**
+
+**Consolidation:**
+
+* Combine similar mechanics (one resolution system, not five different mini-games)
+* Unified currency (one resource type instead of many)
+* Streamlined stats (5 stats instead of 20)
+
+**Elimination:**
+
+* Remove mechanics that don't create decisions
+* Cut tracking that doesn't matter strategically
+* Delete rules that apply rarely
+
+**Abstraction:**
+
+* "Enough supplies" instead of exact inventory
+* "Wounded" instead of hit point accounting
+* "Skilled" instead of detailed skill levels
+
+**Bounded numbers:**
+
+* Keep numbers small (-2 to +3, not -47 to +183)
+* Use relative comparisons ("better than" not precise values)
+* Limit escalation (don't let numbers explode over time)
+
+**Design principle:** Simplicity isn't dumbing down—it's focusing complexity where it matters.
+
+**Offloading to GM/System**
+
+**Purpose:** Move complexity out of player view; referee handles it.
+
+**Examples:**
+
+* GM tracks NPC motivations (players discover through play)
+* System determines random encounters (players react)
+* LLM maintains world consistency (players explore)
+* Hidden modifiers (GM/system accounts for situation)
+
+**Design principle:** Players don't need to see all the gears turning. Magic can happen behind curtain.
+
+**Just-in-Time Information**
+
+**Purpose:** Avoid information overload upfront; provide when needed.
+
+**Examples:**
+
+* Teach rules through play (not upfront lecture)
+* Surface abilities when relevant ("You can do X now")
+* Contextual help (tooltip explains when you hover)
+* LLM reminders ("Given your Sneaky trait, you could...")
+
+**Design principle:** Human working memory is limited. Don't front-load everything.
+
+**Chunking and Patterns**
+
+**Purpose:** Group related information into memorable units.
+
+**Examples:**
+
+* Named moves/abilities (easier to remember "Shield Bash" than "+2 AC reaction")
+* Consistent patterns (all social actions work same way)
+* Thematic grouping (fire spells together, not scattered)
+* Mnemonic devices (acronyms, rhymes, visual associations)
+
+**Design principle:** Experts chunk information naturally. Design helps beginners chunk faster.
+
+### 6.3 Load Progression Over Time
+
+Design how cognitive load changes as players develop mastery.
+
+**Beginner Experience (First Session)**
+
+**Goals:**
+
+* Get playing quickly (15-30 minutes to first action)
+* Feel competent immediately (early wins)
+* Learn core loop through doing (not lecture)
+* Focus on immediate, not long-term
+
+**Load profile:**
+
+* Minimal rules overhead (learn 1-2 core mechanics)
+* Simple clear choices (3-5 obvious options)
+* Immediate feedback (see consequences quickly)
+* Guided play (tutorial, suggestions, safety rails)
+
+**Design techniques:**
+
+* Pre-generated characters (skip creation complexity)
+* Simplified scenario (focused situation, not open world)
+* Explicit prompts ("You could: A, B, or C")
+* Undo mechanisms (exploring is safe)
+
+**Intermediate Experience (Sessions 2-10)**
+
+**Goals:**
+
+* Develop competence (understand system)
+* Make informed choices (know consequences)
+* Start optimizing (find preferred strategies)
+* Build investment (care about character/story)
+
+**Load profile:**
+
+* Core mechanics mastered (become intuitive)
+* Introduce advanced options (more tools available)
+* Longer-term consequences (decisions matter across sessions)
+* Emerging patterns (see what works)
+
+**Design techniques:**
+
+* Gradually introduce complexity (one new thing per session)
+* Show advanced options (but don't require)
+* Callback to previous choices (consequences manifest)
+* Enable specialization (characters differentiate)
+
+**Expert Experience (Long-term Play)**
+
+**Goals:**
+
+* Deep mastery (know system inside-out)
+* Creative expression (use tools in novel ways)
+* Emergent complexity (interactions create depth)
+* System becomes invisible (pure expression)
+
+**Load profile:**
+
+* Mechanics automated (don't think about rules)
+* Focus on high-level strategy (emergent depth)
+* Optimize and innovate (find new approaches)
+* Teach others (competence enables mentoring)
+
+**Design techniques:**
+
+* Respect mastery (don't invalidate learned patterns)
+* Reveal depth (interactions create emergent complexity)
+* Enable creativity (tools support novel approaches)
+* Community knowledge (wikis, guides, discussions)
+
+**Critical insight:** Load should DECREASE through automation (basics become effortless) while INCREASING through revelation (see deeper possibilities). Net result: sustainable complexity at appropriate level.
+
+### 6.4 Onboarding Design
+
+First hour of play is critical. Design explicit onboarding flow.
+
+**Step 1: Fastest Path to Play (5-15 minutes)**
+
+What's minimum needed to start?
+
+* Core mechanic explanation (1 minute)
+* Character concept (2 minutes)
+* Initial situation (1 minute)
+* First action (GO)
+
+**Step 2: Learn Through Doing (Next 30-60 minutes)**
+
+How do we teach through play?
+
+* First action teaches core mechanic
+* Early choices introduce decision-making
+* First challenge teaches risk/reward
+* First success creates investment
+
+**Step 3: Gradual Introduction (After first success)**
+
+When do we add complexity?
+
+* Introduce one new element per "beat"
+* Only when previous element is mastered
+* Only when it becomes relevant to situation
+* Always through context, not lecture
+
+**Step 4: Safety and Support (Throughout)**
+
+How do we prevent overwhelm?
+
+* Undo mechanism (mistakes aren't permanent)
+* Suggestions (show options when stuck)
+* Scaffolding (support that fades over time)
+* Celebrate success (positive reinforcement)
+
+**Design checklist:**
+
+* [ ] Can a new player start playing in 15 minutes?
+* [ ] Do they feel competent in first action?
+* [ ] Is learning through doing, not reading?
+* [ ] Are advanced options hidden until relevant?
+* [ ] Can they make mistakes safely?
+
+***
+
+## STEP 7: Validate Against Experience Goals
+
+Return to Step 1 and verify the system design actually creates the intended experience.
+
+### 7.1 Validate Emotional Goals
+
+**For each intended feeling from Step 1, ask:**
+
+Does the cognitive load profile support this emotion?
+
+**Tension/Stress:**
+
+* ✓ Requires: Time pressure, high stakes, uncertainty
+* ✓ Load profile: Real-time or time-limited, medium-high simultaneity, clear consequences
+* ✗ Breaks if: Too much calculation (breaks urgency), too much confusion (becomes frustration)
+
+**Relaxation/Fellowship:**
+
+* ✓ Requires: Mental space for socializing, low pressure
+* ✓ Load profile: Low calculation, low tracking, turn-based, simple choices
+* ✗ Breaks if: Complex mechanics demand attention, time pressure prevents conversation
+
+**Discovery/Wonder:**
+
+* ✓ Requires: Mystery then revelation, learning, "aha!" moments
+* ✓ Load profile: Medium tracking (clues), pattern recognition, clear feedback
+* ✗ Breaks if: Too obscure (no aha, just confusion), too obvious (no discovery)
+
+**Mastery/Triumph:**
+
+* ✓ Requires: Challenge then success, growth feeling
+* ✓ Load profile: High load that DECREASES with practice, clear skill progression
+* ✗ Breaks if: Random success (no mastery feeling), difficulty doesn't scale
+
+**Confusion/Horror:**
+
+* ✓ Requires: Uncertainty, incomplete information, threat
+* ✓ Load profile: Hidden information, unpredictable elements, medium-high load
+* ✗ Breaks if: Too much load (overwhelm not horror), too predictable (not scary)
+
+**Validation questions:**
+
+* Will players actually FEEL this? (Not just thematically, but mechanically created?)
+* Does the load profile enable the emotional state?
+* Are there load mismatches that would undermine feeling?
+
+### 7.2 Validate Intellectual Goals
+
+**For each intended understanding from Step 1, ask:**
+
+Does the system enable this insight to emerge?
+
+**Systemic Understanding (how interconnected systems work):**
+
+* ✓ Requires: Consistent rules, visible cause-effect, pattern recognition
+* ✓ Load profile: Medium decision load, transparent mechanics, feedback loops
+* ✗ Breaks if: Too much complexity obscures patterns, random outcomes break causality
+
+**Skill Mastery (developing competence):**
+
+* ✓ Requires: Practice opportunities, clear feedback, progressive challenge
+* ✓ Load profile: Pattern recognition load, skill ceiling, mastery curve
+* ✗ Breaks if: Random success (skill doesn't matter), no progression (always same)
+
+**Moral Exploration (ethical questions):**
+
+* ✓ Requires: Meaningful choices, visible consequences, no "right answer"
+* ✓ Load profile: High decision load, low calculation (intuition matters), consequence tracking
+* ✗ Breaks if: Obvious morality (no dilemma), consequences invisible or delayed
+
+**World Immersion (understanding fictional reality):**
+
+* ✓ Requires: Consistent world logic, discovery through exploration
+* ✓ Load profile: Low mechanical interference, fiction-first, pattern recognition
+* ✗ Breaks if: Mechanics break immersion, too much calculation, inconsistent world
+
+**Validation questions:**
+
+* Will players actually LEARN this? (Through gameplay, not lecture?)
+* Does the load profile create conditions for understanding?
+* Are we trusting emergence or forcing it?
+
+### 7.3 Validate Action Goals
+
+**For each intended action from Step 1, ask:**
+
+Does the system support this activity effectively?
+
+**Tactical Combat:**
+
+* ✓ Requires: Positioning, resource management, threat assessment
+* ✓ Load profile: Medium-high simultaneity, spatial reasoning, decision load
+* ✗ Breaks if: Too abstract (position doesn't matter), too complex (paralysis)
+
+**Investigation:**
+
+* ✓ Requires: Clue discovery, synthesis, hypothesis testing
+* ✓ Load profile: Tracking load, pattern recognition, low calculation
+* ✗ Breaks if: Clues too obscure, too much irrelevant information, random success
+
+**Social Interaction:**
+
+* ✓ Requires: Reading others, persuasion, deception, coordination
+* ✓ Load profile: Social load, low mechanical interference, roleplay support
+* ✗ Breaks if: Mechanics replace interaction, too much calculation, dice override roleplay
+
+**Resource Management:**
+
+* ✓ Requires: Optimization, planning, adaptation
+* ✓ Load profile: Tracking load, decision load, calculation manageable
+* ✗ Breaks if: Too many resources (overwhelming), math too complex, consequences unclear
+
+**Creative Expression:**
+
+* ✓ Requires: Improvisation, authorship, world-building
+* ✓ Load profile: Low mechanical constraint, narrative support, option generation
+* ✗ Breaks if: Mechanics are rigid, too much calculation, system says "no"
+
+**Validation questions:**
+
+* Can players actually DO this? (System enables, doesn't obstruct?)
+* Is the action rewarding? (Interesting choices, meaningful outcomes?)
+* Does load profile match action type?
+
+### 7.4 Identify Load Mismatches
+
+**Common mismatch patterns to check for:**
+
+**Mismatch A: Load in Wrong Place**
+
+* Symptom: Complexity where it doesn't serve experience
+* Example: Complex inventory management in horror game (breaks tension)
+* Fix: Remove or simplify the misplaced load
+
+**Mismatch B: Load Type Conflicts with Aesthetic**
+
+* Symptom: Calculation load in immersive narrative, time pressure in strategic thinking
+* Example: Math-heavy combat in fiction-first game (breaks immersion)
+* Fix: Change load type to match aesthetic (abstract combat, fiction-first resolution)
+
+**Mismatch C: Total Load Too High for Context**
+
+* Symptom: Cognitive overload, player frustration, dropout
+* Example: Simultaneous high decision load + high tracking + time pressure for casual play
+* Fix: Reduce load in secondary dimensions, concentrate on primary
+
+**Mismatch D: Load Too Low for Engagement Goal**
+
+* Symptom: Trivial, boring, no challenge
+* Example: Simple choices with obvious answers in strategy game
+* Fix: Increase load where it creates interesting challenges
+
+**Mismatch E: Load Timing Issues**
+
+* Symptom: Wrong load at wrong time
+* Example: Complex tutorial before playing, information overload upfront
+* Fix: Just-in-time introduction, learn through doing
+
+**Mismatch F: Multiple Aesthetics Fighting for Load Budget**
+
+* Symptom: Neither aesthetic satisfied, feels confused
+* Example: Meditative traversal + complex menu systems (Death Stranding problem)
+* Fix: Prioritize one aesthetic, or separate them temporally
+
+**Validation questions:**
+
+* Where does load NOT serve experience?
+* Are different aspects fighting for cognitive budget?
+* Is load appropriate for target audience and context?
+
+### 7.5 Validation Checklist
+
+Before proceeding to testing:
+
+**Emotional alignment:**
+
+* [ ] Load profile creates intended feelings
+* [ ] No load mismatches undermine emotions
+* [ ] Intensity and pacing match goals
+
+**Intellectual alignment:**
+
+* [ ] System enables intended insights
+* [ ] Learning emerges from play
+* [ ] Feedback supports understanding
+
+**Action alignment:**
+
+* [ ] Primary actions are supported
+* [ ] Load matches action types
+* [ ] System enables rather than obstructs
+
+**Load coherence:**
+
+* [ ] Total load is appropriate for audience/context
+* [ ] High load types serve experience
+* [ ] Low load types don't interfere
+* [ ] No major mismatches identified
+
+**If validation fails:**
+Return to Step 4 and redesign systems. Iterate until alignment achieved.
+
+***
+
+## STEP 8: Document and Test
+
+### 8.1 Create Load Profile Summary
+
+Document the complete analysis in one-page reference:
+
+**EXPERIENCE GOAL:**
+\[One sentence: What experience are we creating?]
+
+**TARGET AUDIENCE:**
+\[Who is this for? Casual/engaged/hardcore? Session frequency? Group size?]
+
+**COGNITIVE LOAD PROFILE:**
+
+| Load Type           | Level           | Justification                    |
+| ------------------- | --------------- | -------------------------------- |
+| Simultaneity        | HIGH/MEDIUM/LOW | Why this level serves experience |
+| Decision            | HIGH/MEDIUM/LOW | Why this level serves experience |
+| Memory              | HIGH/MEDIUM/LOW | Why this level serves experience |
+| Tracking            | HIGH/MEDIUM/LOW | Why this level serves experience |
+| Calculation         | HIGH/MEDIUM/LOW | Why this level serves experience |
+| Pattern Recognition | HIGH/MEDIUM/LOW | Why this level serves experience |
+| Social              | HIGH/MEDIUM/LOW | Why this level serves experience |
+
+**TOTAL LOAD:** \[MINIMAL/LOW/MEDIUM/HIGH/EXTREME]
+
+**SYSTEM DESIGN SUMMARY:**
+
+* Core resolution mechanic: \[How do players resolve actions?]
+* Key systems: \[3-5 major mechanical systems]
+* Character representation: \[What's on character sheet?]
+* Session structure: \[How does play flow?]
+* Load support: \[Major tools/aids provided]
+
+**LLM INTEGRATION:**
+
+* \[PRIMARY]: \[What LLM handles authoritatively]
+* \[SUPPORT]: \[Where LLM assists]
+* \[EXPLICIT]: \[What remains traditional system]
+* \[HYBRID]: \[What shares responsibility]
+
+**LOAD MANAGEMENT:**
+
+* High load support: \[How we help players manage necessary complexity]
+* Low load techniques: \[How we removed unnecessary complexity]
+* Load progression: \[How load changes beginner → expert]
+
+**VALIDATION SUMMARY:**
+
+* ✓ \[What aligns with goals]
+* ⚠ \[What needs attention/iteration]
+* ✗ \[What mismatches were identified and resolved]
+
+### 8.2 Design Prototype Tests
+
+Before full development, design tests to validate assumptions.
+
+**Test 1: Onboarding Test**
+
+**Question:** Can new players engage quickly?
+
+**Method:**
+
+* Recruit 3-5 playtesters unfamiliar with system
+* Time how long to first meaningful action
+* Observe confusion points
+
+**Success criteria:**
+
+* Playing within 15-30 minutes (or target time)
+* No major confusion requiring explanation
+* Players report feeling competent
+
+**If fails:** Redesign onboarding, simplify core mechanics, improve just-in-time teaching.
+
+**Test 2: Load Appropriateness Test**
+
+**Question:** Is cognitive load at intended levels?
+
+**Method:**
+
+* Playtest with target audience
+* Ask players to rate mental effort (1-10) at intervals
+* Observe for signs of overload (paralysis, frustration) or underload (boredom)
+
+**Success criteria:**
+
+* Reported effort matches intended profile
+* High load where intended feels "challenging not overwhelming"
+* Low load where intended feels "accessible not boring"
+
+**If fails:** Adjust load (add support tools, simplify mechanics, or increase challenge as needed).
+
+**Test 3: Experience Alignment Test**
+
+**Question:** Does system create intended experience?
+
+**Method:**
+
+* Playtest complete session
+* Debrief: "What did you feel? What did you learn? What did you do?"
+* Compare to intended goals from Step 1
+
+**Success criteria:**
+
+* Players report intended emotions
+* Players gained intended insights
+* Players engaged with intended actions
+
+**If fails:** Identify mismatches, iterate on system design.
+
+**Test 4: LLM Performance Test**
+
+**Question:** Does LLM integration work smoothly?
+
+**Method:**
+
+* Playtest with LLM in role
+* Observe latency, consistency, quality
+* Identify where LLM helps vs. hinders
+
+**Success criteria:**
+
+* LLM maintains consistency (no contradictions)
+* LLM responses feel appropriate (tone, content)
+* Latency doesn't break flow
+
+**If fails:** Adjust LLM prompting, add explicit constraints, or shift to explicit system where needed.
+
+**Test 5: Long-term Engagement Test** (if applicable)
+
+**Question:** Does load progression work over time?
+
+**Method:**
+
+* Multi-session playtest
+* Track how load changes as players develop mastery
+* Observe retention and engagement
+
+**Success criteria:**
+
+* Players develop competence (not stuck at beginner)
+* System reveals depth (not solved immediately)
+* Investment feels rewarding (not frustrating)
+
+**If fails:** Adjust learning curve, add progressive complexity, or simplify if too steep.
+
+### 8.3 Iteration Framework
+
+Based on test results, iterate systematically:
+
+**If Onboarding Fails:**
+
+* Simplify core mechanic further
+* Improve just-in-time teaching
+* Add more scaffolding (hints, suggestions)
+* Consider pre-generated content
+
+**If Load Too High:**
+
+* Remove unnecessary complexity (Step 6.2)
+* Add support tools (Step 6.1)
+* Offload to automation/LLM
+* Separate high-load phases (sequential load)
+
+**If Load Too Low:**
+
+* Add meaningful decisions
+* Increase consequence depth
+* Reveal advanced options
+* Enable optimization paths
+
+**If Experience Misaligned:**
+
+* Return to Step 1, clarify goals
+* Check for load mismatches (Step 7.4)
+* Redesign systems that fight experience
+* Ensure mechanics demonstrate themes
+
+**If LLM Integration Fails:**
+
+* Tighten LLM constraints/prompting
+* Move to explicit system where precision needed
+* Add structured data backup for consistency
+* Pre-generate content to reduce latency
+
+**If Progression Issues:**
+
+* Adjust learning curve steepness
+* Add intermediate challenges
+* Reveal depth more gradually
+* Ensure mastery is rewarding
+
+### 8.4 Documentation for Development
+
+Once validated, document for implementation:
+
+**System Specification:**
+
+* Complete rules reference
+* Edge case handling
+* Examples of play
+* GM/system guidelines
+
+**LLM Integration Specification:**
+
+* Prompts and constraints for each LLM role
+* Data structures for fact storage
+* Consistency checking procedures
+* Failure handling (what if LLM breaks?)
+
+**Support Materials:**
+
+* Character sheets / reference cards
+* Visual aids (maps, trackers, diagrams)
+* Tutorial flow and onboarding
+* Quick-reference sheets
+
+**Playtest Feedback Integration:**
+
+* What worked (preserve these)
+* What didn't (iterate these)
+* Open questions (future testing)
+* Known limitations (accept or address)
+
+***
+
+## Summary: The Complete Framework
+
+**The eight-step process transforms scenario into system:**
+
+1. **Analyze Scenario** → Understand experience goals and constraints
+2. **Determine Load Requirements** → Map load types to experience needs
+3. **Identify Conflicts** → Find tensions, determine resolutions
+4. **Design Systems** → Create mechanics matching load profile
+5. **Determine LLM Role** → Mark what LLM handles vs. explicit systems
+6. **Design Load Support** → Help manage necessary load, remove unnecessary
+7. **Validate** → Check alignment with goals, identify mismatches
+8. **Document and Test** → Summarize, prototype, iterate
+
+**The framework is:**
+
+* **Experience-driven:** Starts with "what should players feel/understand/do"
+* **Load-aware:** Explicitly manages cognitive demands
+* **Practical:** Produces concrete system designs
+* **Iterative:** Tests and refines based on validation
+* **LLM-informed:** Leverages new capabilities where appropriate
+
+**Key insight:** Cognitive load isn't just a problem to minimize—it's a design tool. Different load profiles create different experiences. Match load to experience goal, and mechanics will follow.
+
+***
+
+## Next Steps
+
+**For readers:**
+
+* Study the case studies (Parts 10-11) to see framework in action
+* Try applying framework to your own scenarios
+* Compare resulting systems to design goals
+* Iterate based on what you learn
+
+**For designers:**
+
+* Start with Step 1 for your current project
+* Work through each step systematically
+* Don't skip validation (Step 7)
+* Test early and often (Step 8)
+
+**Remember:** This framework is a tool, not a formula. It guides thinking but doesn't replace creativity. Use it to make better design decisions, not to automate design away.
+
+The best game systems serve their experience goals. This framework helps ensure cognitive load serves rather than sabotages your creative vision.

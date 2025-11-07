@@ -1,0 +1,642 @@
+---
+title: resource-management-02-when-to-use
+---
+# Resource Management in Game Systems
+
+## Document 2: Should This Be A Resource?
+
+***
+
+## The Most Important Question
+
+Before deciding *what* resources to have or *how* they should work, ask the fundamental question:
+
+**"Should this thing be a resource at all?"**
+
+Not everything that *could* be tracked *should* be tracked. Every resource adds:
+
+* Cognitive overhead (players must understand and manage it)
+* System complexity (more rules, more interactions)
+* Development cost (more to implement, balance, explain)
+
+Resources must **earn their place** by serving the aesthetic experience.
+
+***
+
+## High-Level Principle: Resources as Strategic Filters
+
+✅ **Validated across multiple games**
+
+**Principle:** Resources create meaningful experiences by filtering possibilities and forcing prioritization. When something is scarce, choices about it become interesting. When something is abundant or automatic, it fades into background.
+
+**Implication:** Make something a resource when you want players to think strategically about it. Don't make it a resource if you want it to be automatic or invisible.
+
+### The Filter Metaphor
+
+Think of resources as **strategic filters**:
+
+**Abundant/Automatic:** Everything passes through (no filter)
+
+* Players can do anything without constraint
+* No meaningful choice required
+* Example: Unlimited movement in turn-based game with no time pressure
+
+**Scarce/Managed:** Filter forces prioritization (active choice)
+
+* Players must decide what's important
+* Every choice has opportunity cost
+* Example: Limited movement points per turn (Heroes of Might and Magic III)
+
+**The filter creates the experience:**
+
+* No filter → No decisions → No challenge
+* Too restrictive filter → No options → No agency
+* Right filter → Meaningful choices → Engaging gameplay
+
+### Examples of Filter in Action
+
+**Slay the Spire - Card additions as filtered choice:**
+
+* After combat: Choose 1 of 3 cards to add (or skip)
+* **The filter:** Must choose, can only take one
+* **Creates experience:** "Which card improves my deck? Or should I skip to keep deck thin?"
+* **If no filter:** Could take all three cards → deck would bloat → no curation skill
+
+**Catan - Hand limit as filter:**
+
+* Robber forces discard if 8+ cards
+* **The filter:** Can't safely hoard above 7 cards
+* **Creates experience:** "Must trade/build before I lose resources"
+* **If no filter:** Optimal strategy is hoard until overwhelming advantage → runaway leader problem
+
+**Blades in the Dark - Downtime actions as filter:**
+
+* Limited to 2-4 actions between scores
+* **The filter:** Can't recover stress AND heal harm AND work on project
+* **Creates experience:** "What matters most to my character?"
+* **If no filter:** Could do everything → no character-defining choices
+
+***
+
+## Decision Framework: When to Make Something a Resource
+
+### Question 1: Does This Serve Your Aesthetic?
+
+**Ask:** "What aesthetic experience am I trying to create, and does tracking this support it?"
+
+#### If Aesthetic is CHALLENGE/MASTERY:
+
+✓ **Make it a resource if:** Optimization of this thing is interesting
+
+* Example: Spell slots in D\&D (tactical resource management)
+* Creates: Strategic depth through scarcity
+
+✗ **Don't make it a resource if:** It adds complexity without deepening decisions
+
+* Counter-example: Tracking arrow count in D\&D (tedious bookkeeping)
+* Creates: Annoyance without meaningful choice
+
+#### If Aesthetic is NARRATIVE/FANTASY:
+
+✓ **Make it a resource if:** It reinforces theme or creates story
+
+* Example: Stress/Harm in Blades (mechanizes character arc)
+* Creates: "Grizzled veteran getting worn down" through mechanics
+
+✗ **Don't make it a resource if:** Tracking interrupts immersion
+
+* Counter-example: Detailed encumbrance in narrative-focused game
+* Creates: Math that breaks fiction
+
+#### If Aesthetic is FELLOWSHIP:
+
+✓ **Make it a resource if:** It creates interdependence or negotiation
+
+* Example: Trading in Catan (forces social interaction)
+* Creates: "I need brick, anyone have brick?" conversations
+
+✗ **Don't make it a resource if:** It increases cognitive load without social benefit
+
+* Counter-example: Complex individual resource tracking in party game
+* Creates: Players calculating alone instead of socializing
+
+#### If Aesthetic is TENSION:
+
+✓ **Make it a resource if:** Scarcity creates pressure and stakes
+
+* Example: HP in Slay the Spire (permanent, limited recovery)
+* Creates: "Can I afford this fight?" risk assessment
+
+✗ **Don't make it a resource if:** It adds tracking without raising stakes
+
+* Counter-example: Abundant fast-recovering resource
+* Creates: Busywork without tension
+
+#### If Aesthetic is SUBMISSION (relaxation):
+
+✓ **Make it a resource if:** It's simple and forgiving
+
+* Example: Energy in mobile puzzle games (regenerates automatically)
+* Creates: Gentle pacing without stress
+
+✗ **Don't make it a resource if:** It requires optimization or has harsh penalties
+
+* Counter-example: Complex resource juggling with permadeath
+* Creates: Anxiety instead of relaxation
+
+### Question 2: Does Scarcity Create Interesting Decisions?
+
+**Ask:** "If this thing is limited, do choices about it become meaningful?"
+
+**The test:**
+
+1. Imagine players have unlimited amount of this thing
+2. Would gameplay change significantly?
+3. If yes → might be good resource
+4. If no → probably shouldn't be resource
+
+**Example: HP in combat games**
+
+* Unlimited HP: No risk, no tension, no need to defend
+* Limited HP: Must balance offense/defense, tactical positioning matters
+* **Verdict:** HP works as resource (scarcity creates meaningful gameplay)
+
+**Example: Rope/climbing gear in fantasy game**
+
+* Unlimited rope: Players can always climb
+* Limited rope: Players... count rope? Try to avoid climbing?
+* **Verdict:** Probably shouldn't be resource (scarcity creates annoyance, not interesting decisions)
+
+> **Note:** This is context-dependent! In survival game focused on preparation, rope scarcity might create interesting "did I bring enough?" decisions. But in combat-focused game, it's just bookkeeping.
+
+### Question 3: Can Players Make Strategic Choices About It?
+
+**Ask:** "Can players decide how/when to acquire, spend, or conserve this thing?"
+
+**Resources require agency:**
+
+* Players must be able to influence acquisition
+* Players must have meaningful options for spending
+* Scarcity without agency = frustration, not strategy
+
+**Good agency example - Stress in Blades:**
+
+* Acquisition: You choose whether to take stress (resist consequence) or accept harm
+* Spending: You decide when to push yourself using stress
+* Conservation: You can play conservatively to avoid stress
+* **Result:** Players feel in control of stress management
+
+**Bad agency example - RNG loot drops:**
+
+* Acquisition: Purely random, no player influence
+* Spending: Use or don't use (limited decision)
+* Conservation: Just hoard until needed
+* **Result:** Excitement from luck but not strategic resource management
+
+> **Note:** RNG loot can work for Discovery aesthetic (excitement of finding things) but doesn't create Challenge/Mastery aesthetic (no optimization skill).
+
+### Question 4: Is There a Critical Path Dependency?
+
+**Ask:** "If players run out of this resource, can the game still progress?"
+
+⚠️ **Critical warning:** Never make critical path progression dependent on a depletable resource.
+
+**The problem:** If core progress requires a resource that can be used up, players can get stuck.
+
+**Classic failure - D\&D investigation with skill checks:**
+
+* Core clues require Perception checks
+* Can fail check and miss clue
+* Mystery cannot progress without clues
+* **Result:** Investigation stalls, game breaks
+
+**Fix - Gumshoe system:**
+
+* Core clues are automatic (not a resource)
+* Investigation points buy OPTIONAL depth
+* **Result:** Progress guaranteed, resource creates depth not gates
+
+> **Anti-Pattern: Critical Path Resources**
+> Never gate essential progress behind depletable resources. Core experience should not be blockable by resource exhaustion.
+>
+> **Wrong:** "Must have Investigation Points to find crucial clue"
+> **Right:** "Crucial clue is automatic, Investigation Points reveal additional context"
+
+### Question 5: Does It Add Complexity Worth Its Weight?
+
+**Ask:** "Is the cognitive overhead of tracking this worth the gameplay it creates?"
+
+**Complexity budget principle:**
+
+* Every game has limited player attention (see Cognitive Load document)
+* Every resource consumes some attention
+* Must justify complexity with meaningful gameplay
+
+**High value-to-complexity ratio:**
+
+* **Stress in Blades:** Single number (0-9), but creates push-your-luck, episodic pacing, and character progression
+* **Energy in Slay the Spire:** Simple (3 per turn), but all tactical decisions revolve around it
+
+**Low value-to-complexity ratio:**
+
+* **Encumbrance in D\&D 5e:** Track weight of all items, rarely matters, most groups ignore
+* **Too many currencies in MMOs:** Players confused about which token for which vendor
+
+**The trade-off:**
+
+* Simple resource + high impact = excellent
+* Complex resource + high impact = acceptable (if complexity serves purpose)
+* Simple resource + low impact = questionable (why track it?)
+* Complex resource + low impact = **cut it**
+
+***
+
+## Mid-Level Guidelines: Categories of Resource Candidates
+
+### Things That Often SHOULD Be Resources
+
+#### 1. Survival Pressure
+
+* **HP, shields, armor**
+* Why: Creates tension, risk/reward decisions, tactical positioning
+* Serves: Challenge, Tension aesthetics
+* Example: HP in XCOM, Slay the Spire
+
+#### 2. Action Economy
+
+* **Movement points, action points, energy**
+* Why: Forces prioritization of actions, creates turn optimization
+* Serves: Challenge, Mastery aesthetics
+* Example: Movement in HoMM3, Energy in Slay the Spire
+
+#### 3. Economic Investment
+
+* **Gold, building resources, currency**
+* Why: Creates strategic planning, investment decisions, trade-offs
+* Serves: Mastery, Progression aesthetics
+* Example: Resources in HoMM3, Gold in most RPGs
+
+#### 4. Ability Gating
+
+* **Mana, spell slots, cooldowns**
+* Why: Prevents spamming best abilities, creates rotation gameplay
+* Serves: Challenge, Mastery aesthetics
+* Example: Spell slots in D\&D, Mana in WoW
+
+#### 5. Narrative Consequence
+
+* **Stress, harm, corruption, trauma**
+* Why: Mechanizes character arc, creates meaningful stakes
+* Serves: Narrative, Fantasy aesthetics
+* Example: Stress/Harm in Blades, Corruption in various games
+
+#### 6. Social Currency
+
+* **Reputation, favor, strings, influence**
+* Why: Creates social dynamics, unlocks interactions
+* Serves: Fellowship, Narrative aesthetics
+* Example: Reputation in WoW, Strings in Monsterhearts
+
+### Things That Often SHOULD NOT Be Resources
+
+#### 1. Trivial Consumables
+
+* **Common ammunition, basic food (in non-survival games)**
+* Why: Bookkeeping without meaningful scarcity
+* Usually: Ignore or handwave
+* Exception: Survival games where preparation IS the game
+
+#### 2. Obvious Necessities
+
+* **Oxygen (unless underwater/space game), basic clothing**
+* Why: Tracking doesn't create decisions, just realism overhead
+* Usually: Assume characters have these
+* Exception: When scarcity is core to aesthetic (survival, horror)
+
+#### 3. Information That Should Be Automatic
+
+* **Core clues in mysteries, critical path information**
+* Why: Gating progress creates frustration, not challenge
+* Usually: Give automatically, use resources for OPTIONAL depth
+* Exception: Discovery aesthetic where finding is the point
+
+#### 4. Complex Systems That Don't Affect Play
+
+* **Detailed nutrition, realistic encumbrance (in action games)**
+* Why: High complexity, low impact on core gameplay
+* Usually: Simplify or cut
+* Exception: Simulation games where detail IS the aesthetic
+
+#### 5. Rapidly Consumed Trivia
+
+* **Torches (unless dungeon crawling focus), travel rations (unless journey matters)**
+* Why: Depletes too fast to be strategic, becomes chore
+* Usually: Handwave or use scene-based instead of item-based
+* Exception: Old-school dungeon crawls where resource management is central
+
+***
+
+## Low-Level Techniques: Specific Implementations
+
+### Technique 1: Auto-Success for Core, Resources for Depth
+
+**Pattern from:** Gumshoe (mystery RPG system)
+
+**Problem:** Mystery games need players to find clues, but random failure blocks progress
+
+**Solution:**
+
+* Core clues: Automatic if you look in right place
+* Investigation points: Spend to get bonus clues, context, or advantages
+* **Result:** Progress guaranteed, resource creates depth not gates
+
+**Applicable to:** Any game where certain information is essential
+
+**Example applications:**
+
+* Social game: Core social info automatic, Influence points for advantages
+* Exploration game: Key locations findable, Surveying points for detail/shortcuts
+* Combat game: Basic tactics clear, Tactical Analysis points for enemy weaknesses
+
+✅ **Validated:** Gumshoe system, widely adopted in mystery games
+
+**Aesthetic alignment:**
+
+* ✓ Serves: Challenge (optional depth), Narrative (maintains flow)
+* ✗ Conflicts with: Discovery (if finding itself is the challenge)
+
+### Technique 2: Escalating Costs
+
+**Pattern from:** Many games (Magic: The Gathering, Slay the Spire)
+
+**Problem:** Players optimize same strong option repeatedly
+
+**Solution:**
+
+* First use: Cheap/free
+* Subsequent uses: More expensive or weaker
+* **Result:** Encourages variety, prevents dominant strategy
+
+**Example - Magic: The Gathering mana costs:**
+
+* Weak creatures: 1-2 mana (can play multiple early)
+* Strong creatures: 5+ mana (only late game)
+* Most powerful: 7+ mana (rare, must build towards)
+
+**Example - Stress in Blades:**
+
+* First few stress: Easy to take (resist consequences freely)
+* Approaching 9: Dangerous (risk trauma)
+* At 9: Cannot take more (must recover or suffer trauma)
+
+⚠️ **Hypothesis:** Escalating costs create natural pacing and variety
+
+**Aesthetic alignment:**
+
+* ✓ Serves: Mastery (optimization around curve), Progression (power curve)
+* ✗ Conflicts with: Submission (creates pressure, not relaxation)
+
+### Technique 3: Opportunity Cost Tracking
+
+**Pattern from:** Catan, many Eurogames
+
+**Problem:** Want resource scarcity without complex tracking
+
+**Solution:**
+
+* Simple resources (easy to track)
+* Multiple uses for each resource
+* Limited acquisition
+* **Result:** Scarcity through competition for uses, not complex management
+
+**Example - Catan:**
+
+* Only 5 resource types (simple)
+* Each needed for different buildings (multiple uses)
+* Production limited by dice + placement (acquisition constraint)
+* **Result:** "Do I build road or settlement?" opportunity cost
+
+**Example - Campfires in Slay the Spire:**
+
+* Limited campfires per act
+* Can rest (heal) OR upgrade card (power)
+* Cannot do both
+* **Result:** "Survival now or power later?" meaningful choice
+
+✅ **Validated:** Common pattern in successful strategy games
+
+**Aesthetic alignment:**
+
+* ✓ Serves: Challenge (meaningful trade-offs), Mastery (optimization)
+* \~ Neutral: Most other aesthetics (depends on implementation)
+
+### Technique 4: Multiple Timescale Resources
+
+**Pattern from:** Blades in the Dark
+
+**Problem:** Want both immediate tactics and long-term consequences
+
+**Solution:**
+
+* Fast-recovering resource (tactical layer)
+* Slow-recovering resource (strategic layer)
+* Different decisions at different time scales
+* **Result:** Depth without overwhelming complexity
+
+**Example - Blades:**
+
+* Stress: Recovers between scores (tactical - per session)
+* Harm: Recovers slowly over downtime (strategic - across campaign)
+* Trauma: Permanent (long-term character arc)
+* **Result:** Three layers of decision-making
+
+⚠️ **Hypothesis:** Multiple timescales create richer experience without proportional complexity increase
+
+**Aesthetic alignment:**
+
+* ✓ Serves: Narrative (character arc), Mastery (multiple strategic layers)
+* ✗ Conflicts with: Submission (too much to track)
+
+### Technique 5: Composition Over Accumulation
+
+**Pattern from:** Slay the Spire, deckbuilding games
+
+**Problem:** "More is better" leads to bloated, unfocused strategies
+
+**Solution:**
+
+* Quality > quantity (thin deck often better)
+* Removal mechanics (can remove cards)
+* Choice on acquisition (can skip adding cards)
+* **Result:** Curation is skill, not just accumulation
+
+**Example - Slay the Spire:**
+
+* Starting deck: 10 basic cards
+* After combat: Choose 1 of 3 cards or skip
+* At shop: Pay to remove cards
+* **Result:** "Does this card improve my deck?" strategic question
+
+✅ **Validated:** Deckbuilders, some RPG builds (quality over quantity)
+
+**Aesthetic alignment:**
+
+* ✓ Serves: Mastery (optimization through curation), Challenge (meaningful choices)
+* ✗ Conflicts with: Collection (if goal is accumulation itself)
+
+***
+
+## Common Pitfalls
+
+### Pitfall 1: Resource for Realism, Not Gameplay
+
+> **Anti-Pattern: Simulationist Overhead**
+> Adding resources because they're "realistic" without considering gameplay value.
+
+**Example:** Detailed nutrition tracking in action RPG
+
+* **Why added:** "Characters need to eat in real life"
+* **What it creates:** Tedious shopping, inventory management
+* **What it doesn't create:** Meaningful decisions (just buy food constantly)
+* **Fix:** Either make food scarcity meaningful (survival game) or handwave it
+
+**Lesson:** Realism is not inherently valuable. Only add realistic constraints if they serve aesthetic.
+
+### Pitfall 2: Too Many Currencies
+
+> **Anti-Pattern: Currency Proliferation**
+> Adding multiple parallel currencies without clear purpose for each.
+
+**Example:** MMO with 10+ token types
+
+* Valor tokens (weekly cap, buy gear)
+* Justice tokens (uncapped, buy lower gear)
+* Conquest tokens (PvP weekly cap)
+* Honor points (PvP uncapped)
+* \[... 6 more types]
+* **Result:** Players confused, need spreadsheet to track
+
+**Why it happens:** Each designer adds currency for their system, no holistic view
+
+**Fix:** Consolidate currencies, ensure each serves distinct purpose
+
+**Lesson:** More currencies ≠ more depth. Often creates confusion over choices.
+
+### Pitfall 3: Critical Path Gating
+
+> **Anti-Pattern: Progress-Blocking Resources**
+> Making core progression dependent on depletable resource.
+
+**Example:** Must spend rare item to access final boss
+
+* **Problem:** Players might have used item earlier
+* **Result:** Cannot complete game, must restart or grind
+* **Emotional impact:** Betrayal, frustration
+
+**Example:** Investigation skill checks for crucial clues
+
+* **Problem:** Failed roll = missed clue
+* **Result:** Mystery cannot be solved
+* **Emotional impact:** Confusion, stalled narrative
+
+**Fix:** Never gate critical path behind depletable resource. Core progress should be guaranteed, resources add richness/depth.
+
+**Lesson:** Resources should create challenge in HOW you progress, not WHETHER you progress.
+
+### Pitfall 4: Vestigial Resources
+
+> **Anti-Pattern: Ignored Resources**
+> Resources that exist in rules but players don't meaningfully engage with.
+
+**Example:** Encumbrance in D\&D 5e
+
+* **Rules exist:** Track weight of all items
+* **What happens:** Most groups ignore it completely
+* **Why:** High tracking cost, low gameplay impact
+* **Result:** Dead rule, wasted design space
+
+**Example:** Arrows in many RPGs
+
+* **Rules exist:** Track arrow count
+* **What happens:** Players buy 100 arrows, never track
+* **Why:** Trivially abundant, tedious to count
+* **Result:** Busywork without scarcity
+
+**Fix:** If resource is consistently ignored, either make it matter (real scarcity) or cut it.
+
+**Lesson:** Resources players don't engage with should be removed. They add complexity without value.
+
+### Pitfall 5: False Scarcity
+
+> **Anti-Pattern: Theoretical Scarcity Without Practical Limit**
+> Resource that seems limited but never actually runs out.
+
+**Example:** Mana in easy RPG
+
+* **Nominal scarcity:** Mana bar exists, abilities cost mana
+* **Practical reality:** Mana so abundant it never runs out
+* **Result:** Players ignore resource, spam abilities
+* **Impact:** Intended tactical depth doesn't exist
+
+**Fix:** Either make scarcity real (limited mana matters) or remove the resource (abilities just have cooldowns).
+
+**Lesson:** If resource is never actually scarce, it's not creating meaningful decisions. Either make scarcity real or cut it.
+
+***
+
+## Decision Checklist
+
+Before adding a resource to your game, answer these questions:
+
+### Must Answer "Yes"
+
+* [ ] Does this serve my aesthetic goals? (Which aesthetic and how?)
+* [ ] Does scarcity of this create interesting decisions?
+* [ ] Can players make strategic choices about it? (Agency check)
+* [ ] Is the complexity worth the gameplay? (Value-to-overhead ratio)
+
+### Must Answer "No"
+
+* [ ] Does running out block critical path? (No progress-gating)
+* [ ] Is this just for realism without gameplay? (No simulationist overhead)
+* [ ] Do players consistently ignore this? (No vestigial resources)
+* [ ] Is scarcity purely theoretical? (No false scarcity)
+
+### Bonus Questions
+
+* [ ] Have I considered simpler alternatives? (Complexity budget)
+* [ ] Does this conflict with other aesthetic goals? (Trade-off awareness)
+* [ ] Can this resource be combined with others? (Consolidation check)
+* [ ] What happens when players run out? (Failure mode analysis)
+
+**If any "Must Answer Yes" is No, or any "Must Answer No" is Yes:** Reconsider whether this should be a resource.
+
+***
+
+## Summary: When to Make Something a Resource
+
+**Make it a resource when:**
+
+* Scarcity creates meaningful strategic choices
+* It serves your aesthetic goals directly
+* Players have agency over acquisition and spending
+* Complexity is justified by gameplay value
+
+**Don't make it a resource when:**
+
+* It's just realistic detail without gameplay impact
+* Running out would block critical progress
+* Players would ignore it anyway
+* Simpler alternatives exist
+
+**The fundamental test:**
+"If this thing is limited, do choices about it become interesting in ways that serve my aesthetic?"
+
+If yes → resource
+If no → cut it or make it automatic
+
+***
+
+**Next:** Document 3 - Types of Resources
+
+Now that we know WHEN to make something a resource, we'll explore WHAT KINDS of resources exist and what each type creates.

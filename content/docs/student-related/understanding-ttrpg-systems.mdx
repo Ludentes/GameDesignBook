@@ -1,0 +1,662 @@
+---
+title: understanding-ttrpg-systems
+---
+# Understanding TTRPG Systems: Why Mechanics Matter
+
+## The Problem You Don't Know You Have
+
+If D\&D is the only tabletop RPG system you know, you probably think "RPG system" means:
+
+* Roll d20 + modifier to see if you succeed
+* Track HP, AC, and spell slots
+* Combat has detailed turn-by-turn rules
+* Everything else is "just roleplay"
+
+**Here's the insight you're missing:** D\&D is designed for ONE specific type of experience (tactical fantasy combat with powerful heroes), and its mechanics ONLY support that experience well. When you try to use D\&D for other stories (political intrigue, horror, heists, mysteries), you're fighting against the system.
+
+Different systems are built for different experiences. The mechanics aren't just "how you resolve actions" - they're **what the game thinks is important** and **what kind of story emerges from play**.
+
+This document will show you why this matters, especially when thinking about LLMs and games.
+
+## Why This Matters More Than "AI Character Sheets"
+
+Most people think "AI + TTRPGs" means:
+
+* Generate character portraits with Stable Diffusion
+* Auto-fill character sheets
+* LLM describes scenes more vividly
+* LLM plays NPCs with more personality
+
+**This is "space coffee."** It's just putting "AI" in front of existing things without understanding what you're actually trying to achieve.
+
+**The real opportunity:** LLMs let us build game systems that were IMPOSSIBLE before because they can:
+
+* Maintain complex state and consequences across unlimited interactions
+* Adapt to player creativity without breaking internal consistency
+* Handle natural language instead of forcing everything into dice rolls
+* Support experiential purposes that traditional systems couldn't handle
+
+But to design these systems, you need to understand what makes a good system in the first place. You need to understand why different mechanics create different experiences.
+
+## What D\&D Is Actually Good At
+
+Let's start by understanding D\&D itself.
+
+### What D\&D's Mechanics Tell You About Its Purpose
+
+**Look at a D\&D 5e character sheet:**
+
+* 60% of the space: Combat abilities (attack bonuses, AC, HP, spell damage)
+* 20% of the space: Skills (mostly for non-combat situations)
+* 20% of the space: Personality/background (bonds, flaws, ideals)
+
+**The message:** Combat is complex and important. Everything else is simple.
+
+**Look at D\&D's core resolution mechanic:**
+
+* Roll d20 + modifier vs Difficulty Class (DC)
+* Meet or beat the DC = success
+* Below the DC = failure
+
+**What this creates:**
+
+* High variance (the d20 swing is huge - a +5 modifier matters less than luck)
+* Uncertainty even for experts (the rogue with +11 to lockpicking can still roll a 1)
+* Binary outcomes (you succeed or you don't, nothing in between)
+
+**Look at what D\&D gives detailed rules for:**
+
+* Combat: Initiative, actions, bonus actions, reactions, movement, attacks, saving throws, conditions, cover, advantage/disadvantage
+* Magic: Hundreds of spells with specific effects
+* Character building: Classes, subclasses, feats, multiclassing
+
+**Look at what D\&D does NOT give rules for:**
+
+* Persuading an NPC (just roll Persuasion, DM decides what happens)
+* Political maneuvering (no mechanics at all)
+* Investigation and clue-finding (roll Investigation, fail = no clue)
+* Moral choices (no mechanical consequences for alignment)
+* Relationships (no system for tracking NPC opinions)
+
+### What D\&D Is Designed For
+
+D\&D excels at:
+
+* **Tactical fantasy combat** where positioning and resource management matter
+* **Heroic power fantasy** where you play exceptional individuals
+* **Party-based adventures** where a group cooperates against external threats
+* **Dungeon crawling** where resource depletion creates pressure
+* **Monster fighting** where different enemies have different tactical challenges
+
+D\&D struggles with:
+
+* **Political intrigue** (no mechanics to support it)
+* **Mystery solving** (you can fail to find critical clues)
+* **Realistic consequences** (heroes can take dozens of sword hits)
+* **Moral complexity** (no mechanical weight to ethical choices)
+* **Social-focused stories** (one skill check vs an entire combat system)
+
+**The key insight:** D\&D's mechanics reveal its true purpose. The system provides mechanical support for what it thinks matters. Everything else is left to "just roleplay it."
+
+## Systems Built for Different Purposes
+
+Let's look at other systems to understand how mechanics shape experience.
+
+### Example 1: Powered by the Apocalypse (PbtA)
+
+**Core Innovation:** "Moves" that trigger on fictional actions.
+
+**How it works:**
+
+```
+When you [do something specific in the fiction], roll 2d6 + modifier:
+- On 10+: You do it successfully
+- On 7-9: You do it, but with a cost/complication
+- On 6-: You fail, and the GM makes a hard move (something bad happens)
+```
+
+**Example move from Apocalypse World:**
+
+```
+When you go aggro on someone, roll+Hard.
+On 10+: they have to choose: force your hand and suck it up, or cave and do what you want
+On 7-9: they can choose to cave, or they can instead force your hand, and you'll have to make good on your threat or back down
+On 6-: they call your bluff or turn the tables
+```
+
+**What this creates:**
+
+* Something ALWAYS happens (even failure moves the story forward)
+* Partial success is common (creates interesting choices)
+* Failure isn't "you can't do this" but "something goes wrong"
+* The moves encode the genre (different PbtA games have completely different moves)
+
+**Why this matters:**
+
+* In D\&D: Failed Persuasion check = "You don't convince them. Try something else."
+* In PbtA: Failed persuasion = "They're convinced, but now they want something from you" or "You convince them, but someone else overhears"
+
+**Different PbtA games have different moves because they create different experiences:**
+
+**Monsterhearts (supernatural teen drama):**
+
+* "Turn Someone On" (create attraction/desire)
+* "Lash Out Physically" (violence has social consequences)
+* "Run Away" (fleeing is mechanically supported)
+* Built for teen supernatural romance/horror
+
+**Dungeon World (fantasy adventure):**
+
+* "Hack and Slash" (deal damage when fighting)
+* "Spout Lore" (recall useful information)
+* "Defy Danger" (act quickly under pressure)
+* Built for D\&D-style adventure but with PbtA's momentum
+
+**The Sprawl (cyberpunk heists):**
+
+* "Research" (gather intel before the job)
+* "Mix It Up" (fast-paced action)
+* "Play Hardball" (negotiate with leverage)
+* Built for cyberpunk mission-based play
+
+**Key Insight:** The mechanics encode the genre. You can't play teen romance with Dungeon World's moves, and you can't play dungeon crawls with Monsterhearts' moves. The system IS the experience.
+
+### Example 2: Blades in the Dark (Heist Stories)
+
+**Core Innovation:** Position & Effect negotiation, Flashbacks, Stress economy
+
+**How it works:**
+
+**Before rolling, negotiate:**
+
+* **Position:** Are you in a Controlled, Risky, or Desperate situation?
+* **Effect:** Will success be Limited, Standard, or Great?
+
+Example:
+
+* Player: "I want to pick the lock"
+* GM: "You're picking it while guards patrol. That's Risky position. The lock is complex, so Standard effect - you'll get through but it'll take time."
+* Player: "What if I use my Wrench as a crowbar instead?"
+* GM: "Louder, but faster. Still Risky, but Great effect if you succeed."
+
+**Then roll dice based on your action rating:**
+
+* **Critical (6,6):** You do it, and there's some extra benefit
+* **Success (6):** You do it as negotiated
+* **Partial (4-5):** You do it, but there's a consequence or complication
+* **Failure (1-3):** You don't do it, and there's a consequence
+
+**Flashback mechanic:**
+
+* Instead of planning for hours, you plan DURING the heist
+* Player: "Did I bring rope?"
+* GM: "That's a flashback. It was obvious you'd need rope - no stress cost. What's the scene of you acquiring it?"
+* Or: "Did I bribe the guard beforehand?"
+* GM: "That's risky. Pay 2 stress and we'll roll to see if it worked."
+
+**Stress and Consequences:**
+
+* Take Stress to push yourself (extra dice, flashbacks, resisting consequences)
+* Fill your Stress track → Trauma (permanent character change)
+* Take Harm (physical consequences) or Heat (attract attention)
+
+**What this creates:**
+
+* Heist movie pacing (planning happens in moments, not hours)
+* Escalating tension (stress builds, pushing characters to limits)
+* Difficult choices (risk more or accept complications?)
+* "The job never goes as planned" feel (complications are baked in)
+
+**Why this matters for LLMs:**
+Blades shows that you can create specific story structures (heists) through mechanics. An LLM could maintain the Position/Effect negotiation naturally:
+
+* Player describes action
+* LLM assesses situation and offers Position/Effect
+* Player can negotiate or find creative alternatives
+* System maintains heist story structure without forcing predetermined scenes
+
+### Example 3: Dogs in the Vineyard (Moral Exploration)
+
+**Core Innovation:** Escalation mechanics that force you to choose when to use violence.
+
+**Setting:** You play "God's Watchdogs" in a supernatural Western - religious enforcers who travel from town to town dealing with sin and heresy.
+
+**How conflict works:**
+
+When you're in conflict, you:
+
+1. State what you want from the conflict
+2. Roll dice based on your traits, relationships, and belongings
+3. Take turns:
+   * **Raise:** Describe an action and choose dice to match it
+   * **See:** Use dice to block their action, or take consequences
+
+**The key mechanic - Escalation:**
+
+* **Just Talking:** Use your base dice pool
+* **Physical (pushing, grabbing):** Add more dice
+* **Fighting (punches, wrestling):** Add even more dice
+* **Gunfighting:** Add the most dice
+
+**What this creates:**
+
+* You get more dice when you escalate to violence
+* But escalating has narrative weight (you crossed a line)
+* You must constantly choose: "Is this worth resorting to violence?"
+* The game mechanically asks: "When do YOU think violence is justified?"
+
+**Example:**
+
+* You're trying to convince a father to let you take his heretic son
+* You're losing the argument (running out of dice)
+* You can escalate to physical intimidation (get more dice)
+* Or escalate to drawing your gun (get lots of dice)
+* But then YOU'RE the person who pulled a gun on a grieving father
+
+**Why this matters:**
+
+* D\&D treats combat as a neutral tactical challenge
+* Dogs makes violence a moral choice with mechanical weight
+* The system explores "what is justified authority?" through play
+* You don't discuss ethics in abstract - you face them in decisions
+
+### Example 4: Burning Wheel (Long-term Character Development)
+
+**Core Innovation:** "Let It Ride" rule and Belief-driven advancement.
+
+**Let It Ride:**
+
+* You roll once for an entire situation
+* No re-rolling the same thing in the same scene
+* One roll can determine days or weeks of activity
+* Creates: Novel-like time scale, focus on important moments
+
+**Beliefs, Instincts, Traits:**
+
+* **Beliefs:** Your character's goals/motivations (mechanically enforced)
+* **Instincts:** Automatic reactions ("Always draw my sword when threatened")
+* **Traits:** Personality/background features that give dice
+
+**Advancement through roleplaying:**
+
+* You earn "Artha" (fate points) by:
+  * Playing to your Beliefs (even when it's disadvantageous)
+  * Embodying your Traits
+  * Following your Instincts
+* Your Beliefs can change during play when character growth happens
+* Skills advance by using them in challenging situations
+
+**Duel of Wits:**
+
+* Social conflicts get the same mechanical attention as combat
+* Structured argument with positioning and strategy
+* Losing means you're convinced (mechanically, not just "failed persuasion")
+
+**What this creates:**
+
+* Character-driven stories (you're rewarded for pursuing your character's goals)
+* Long-term arcs (beliefs change over time)
+* Social conflicts matter (they're not just skill checks)
+* Epic fantasy where character development is central
+
+### Example 5: Gumshoe System (Mystery Investigation)
+
+**Core Innovation:** Automatic clue finding.
+
+**How it works:**
+
+* If you have the relevant investigative ability, you find the clue automatically
+* No rolling to find core clues (you're competent investigators)
+* Rolls are only for actions with uncertain outcomes or costs
+
+**Why this exists:**
+
+* In D\&D: Failed Investigation check = "You don't find the clue"
+* In a mystery story: Not finding clues = story stops, players stuck
+* Gumshoe: Finding clues is guaranteed, the game is about what you DO with them
+
+**What this creates:**
+
+* Forward momentum in mystery stories
+* Focus on interpretation and decision-making, not searching
+* Characters feel competent (you're actual detectives, not lucky amateurs)
+
+**Why this matters for game design:**
+Different resolution mechanics serve different purposes:
+
+* D\&D's "roll to find clue" works for dungeon crawls (finding secrets is optional)
+* Gumshoe's automatic clues work for mysteries (finding clues IS the game)
+
+## The Pattern: Mechanics Shape Experience
+
+Let's map what we've learned:
+
+| System            | Core Experience                 | Key Mechanic                        | What It Does                                       |
+| ----------------- | ------------------------------- | ----------------------------------- | -------------------------------------------------- |
+| **D\&D**          | Tactical combat, heroic fantasy | d20 + mod vs DC                     | High variance, binary outcomes, emphasis on combat |
+| **PbtA**          | Genre emulation, momentum       | 2d6 + mod, tiered outcomes          | Always moves forward, encodes genre in moves       |
+| **Blades**        | Heist stories                   | Position/Effect, Flashbacks, Stress | Heist pacing, escalating tension, hard choices     |
+| **Dogs**          | Moral complexity                | Escalation mechanics                | Violence as choice with mechanical weight          |
+| **Burning Wheel** | Character-driven epic fantasy   | Let It Ride, Beliefs                | Novel-like time scale, character growth central    |
+| **Gumshoe**       | Mystery investigation           | Automatic clue finding              | Competent investigators, focus on interpretation   |
+
+## What D\&D Can't Do (And What Would Work Instead)
+
+### Game of Thrones Campaign
+
+**Why D\&D fails:**
+
+* Political maneuvering has no mechanical support
+* Assumes party cooperation (GoT is about betrayal)
+* Combat is too "heroic" (people die from one sword thrust in GoT)
+* Magic breaks political realism
+
+**What would work:**
+
+* **Houses of the Blooded** (intrigue mechanics, betrayal is part of the system)
+* **Burning Wheel** (Duel of Wits for political debates, social combat)
+* **Custom system with LLM** (track faction relationships, political consequences)
+
+### Sherlock Holmes Mystery
+
+**Why D\&D fails:**
+
+* Investigation is a skill check you can fail
+* No mechanics for logical deduction
+* Combat-focused character sheets (Holmes rarely fights)
+* No support for "eureka" moments
+
+**What would work:**
+
+* **Gumshoe** (automatic clue finding, focus on interpretation)
+* **Brindlewood Bay** (collaborative mystery solving)
+* **Custom system with LLM** (track clue relationships, help players make connections)
+
+### Horror Survival Campaign
+
+**Why D\&D fails:**
+
+* Characters are too powerful (hard to feel threatened)
+* Death/injury is easy to heal (no lasting consequences)
+* Combat-focused (horror should avoid direct confrontation)
+* No mechanics for fear or psychological damage
+
+**What would work:**
+
+* **Call of Cthulhu** (sanity mechanics, fragile characters)
+* **Warhammer Fantasy** (deadly combat, corruption mechanics)
+* **Ten Candles** (tragic horror with guaranteed doom)
+
+### Heist Campaign
+
+**Why D\&D fails:**
+
+* No planning mechanics (planning in D\&D = hours of strategizing)
+* One failed roll can derail entire plan
+* No mechanical support for "complications" vs "failure"
+* Resource management for dungeons, not for heists
+
+**What would work:**
+
+* **Blades in the Dark** (built specifically for heists)
+* **Leverage RPG** (based on the TV show about con artists)
+
+## The Character Sheet Test
+
+**A quick way to understand any system: Look at the character sheet.**
+
+What takes up space reveals what the game thinks matters:
+
+* D\&D: Combat abilities dominate
+* Blades: Stress, trauma, crew, and connections get equal space to abilities
+* Dogs in the Vineyard: Relationships and belongings are mechanically important
+* Burning Wheel: Beliefs and Instincts are front and center
+
+**Exercise:** Find character sheets for the systems mentioned here. Look at what gets mechanical attention. What does each system think is important?
+
+## Why This Matters for LLMs
+
+Now we get to the real question: Why does understanding systems matter when thinking about LLMs and games?
+
+### Bad LLM Game Design (Space Coffee)
+
+**"AI Dungeon Master":**
+
+* Take D\&D
+* Replace human DM with LLM
+* LLM describes scenes more vividly
+* LLM plays NPCs with more personality
+* **Result:** Still has all of D\&D's limitations, just with fancier descriptions
+
+**"AI-Generated Content":**
+
+* LLM generates infinite dungeons
+* LLM creates random NPCs on demand
+* **Result:** Infinite shallow content, no coherent purpose
+
+### Good LLM Game Design (Understanding Purpose)
+
+**Question 1: What can LLMs do that traditional systems couldn't?**
+
+* Maintain complex state across unlimited interactions
+* Adapt to player creativity in natural language
+* Track nuanced consequences and relationships
+* Handle granular simulation without overwhelming players
+
+**Question 2: What constraints can we remove?**
+
+**Traditional TTRPG constraint:** Everything must be resolvable with 1-2 dice rolls
+
+* Human GMs can't track complex subsystems in their head
+* Players can't roll dice 100 times per turn
+* Example: D\&D combat is "one attack roll" because doing more is tedious
+
+**With LLM:** Could have complex resolution
+
+* A sword fight could consider: skill, fatigue, terrain, morale, injuries, equipment quality
+* LLM handles complexity, presents results simply
+* But wait - is this better? Or is the drama of "one roll decides" part of the experience?
+
+**Traditional TTRPG constraint:** Limited state tracking
+
+* Human GMs forget details
+* Players can't reference every past conversation
+* Example: NPCs often forget what players told them 3 sessions ago
+
+**With LLM:** Perfect memory
+
+* Every NPC remembers every interaction
+* Consequences ripple naturally
+* But: Does perfect consistency remove emergent chaos/humor?
+
+**Traditional TTRPG constraint:** Binary or simple outcomes
+
+* D\&D: You succeed or fail
+* PbtA: Success, partial success, or failure
+* Keeps resolution fast
+
+**With LLM:** Nuanced outcomes
+
+* "You convince the guard, but he's suspicious now"
+* "You pick the lock, but you notice someone watching from a window"
+* "You cast the spell successfully, but the local mages' guild senses the magic"
+* Natural language allows infinite shades of consequence
+
+### Question 3: What purposes become possible?
+
+**Example: Exploring Social Inequality**
+
+**Traditional system challenges:**
+
+* Hard to systemize privilege/disadvantage without being preachy
+* Difficult to maintain consistency across many interactions
+* Players might not notice subtle differences in treatment
+
+**LLM-enabled system:**
+
+* System tracks social status, race, gender, wealth for each character
+* NPCs react differently based on these factors (naturally, not mechanically)
+* Players experience systemic inequality through play
+* LLM maintains consistency: the merchant who was respectful to the noble PC is dismissive to the poor PC
+
+**Example: Detective Stories with Real Deduction**
+
+**Traditional system challenges:**
+
+* Hard to present clues that are discoverable but not obvious
+* Difficult to track logical connections between clues
+* Risk of players getting stuck (failed Investigation roll = no progress)
+
+**LLM-enabled system:**
+
+* Clues presented naturally in descriptions
+* LLM tracks what players know and can hint at connections
+* Can generate "aha" moments when players make correct logical leaps
+* Maintains internal consistency (no contradictory clues)
+
+**Example: Moral Weight of Choices**
+
+**Traditional system challenges:**
+
+* Alignment is often mechanical and simplistic
+* Hard to track reputation/consequences across many NPCs
+* Players may not see long-term consequences of actions
+
+**LLM-enabled system:**
+
+* Actions have rippling consequences naturally
+* NPCs remember and react to past choices
+* Moral complexity through narrative, not mechanics
+* "You saved the village, but now they depend on you" type consequences
+
+## What You Should Research
+
+Now that you understand why different systems create different experiences, here are questions to explore:
+
+### 1. System Analysis
+
+Pick 2-3 systems beyond D\&D and analyze:
+
+* What experience is this trying to create?
+* What gets mechanical attention? (look at character sheets)
+* What kinds of failure does this system have?
+* How does time/pacing work?
+* What would this system be terrible at?
+
+**Suggested systems to compare:**
+
+* **Blades in the Dark** (heists, stress economy, flashbacks)
+* **Apocalypse World** (PbtA, genre emulation through moves)
+* **Burning Wheel** (belief-driven, long-term character arcs)
+* **Dogs in the Vineyard** (escalation, moral choices)
+* **Gumshoe** (mystery investigation, automatic clues)
+
+### 2. Purpose-to-Mechanics Mapping
+
+Choose a specific experience you want to create, then:
+
+* What are the key moments in this experience?
+* What needs mechanical resolution vs narrative description?
+* What kind of failure is interesting for this experience?
+* What should the character sheet track?
+
+**Example exercises:**
+
+* Design a system for exploring colonialism and its consequences
+* Design a system for romantic comedy stories
+* Design a system for time travel paradoxes
+* Design a system for building a business/organization
+
+### 3. LLM Opportunities
+
+For your chosen experience:
+
+* What constraints did traditional systems have?
+* What becomes possible with an LLM?
+* What should you keep from traditional systems? (dice? mechanical structure?)
+* How do you test if the experience works?
+
+### 4. The "Space Coffee" Test
+
+Look at existing "AI + TTRPG" projects:
+
+* What are they actually doing?
+* Are they just adding "AI" to existing concepts?
+* Do they understand what experience they're creating?
+* What would make them NOT space coffee?
+
+## Reading and Playing List
+
+### Essential Reading
+
+**Systems to read (available as PDFs/SRDs):**
+
+1. **Apocalypse World** - Read to understand Moves
+2. **Blades in the Dark** - Read for Position/Effect and Flashbacks
+3. **Dogs in the Vineyard** - Read for Escalation mechanics
+4. **Dungeon World** - PbtA take on D\&D (shows contrast)
+
+**Short Articles:**
+
+1. **"System Does Matter" by Ron Edwards** - Classic essay on why system choice matters
+2. **"The Impossible Thing Before Breakfast"** - About contradictions in traditional RPG design
+3. Any game's "How to Play" or "Principles" section - These reveal design philosophy
+
+### Essential Playing
+
+**You must actually play systems to understand them. Reading isn't enough.**
+
+**Start with:**
+
+* **One-shot of Dungeon World** - Familiar fantasy, but PbtA mechanics
+* **One-shot of Blades in the Dark** - Heist, stress, flashbacks
+* **Watch actual play** if you can't get a group:
+  * Friends at the Table (Blades in the Dark)
+  * The Adventure Zone (various systems)
+  * Critical Role (they've played different systems)
+
+**The goal:** Experience how different mechanics create different feelings at the table.
+
+### Questions to Ask While Playing
+
+1. **What does the character sheet emphasize?**
+2. **When do we roll dice? When do we not?**
+3. **What happens when we fail? Does play stop or transform?**
+4. **What gets detailed mechanical attention?**
+5. **How does this feel different from D\&D?**
+6. **What story does this system want to tell?**
+
+## Conclusion: Why This Matters
+
+Understanding TTRPG systems isn't about collecting game knowledge. It's about understanding:
+
+1. **Mechanics shape experience** - The rules aren't neutral, they create specific types of stories
+2. **Purpose determines design** - Good systems are built for specific experiences
+3. **Constraints force creativity** - Traditional systems had limitations that shaped their design
+4. **LLMs change what's possible** - But only if you understand what you're trying to achieve
+
+When you think about "LLMs + TTRPGs," don't think:
+
+* "How can AI make D\&D easier?"
+* "How can AI generate more content?"
+
+Instead think:
+
+* "What experiences were impossible before?"
+* "What systems can we build when old constraints are removed?"
+* "What purposes can games serve with these new tools?"
+
+The difference between good and bad LLM game design is the difference between understanding purpose and just adding "AI" to existing things.
+
+Now go read some systems. Play some games. Come back with questions about what experiences you want to create.
+
+## Discussion Questions for Your Advisor
+
+After exploring some systems:
+
+1. What experience do you find most interesting to create? (Why?)
+2. Which system's approach resonated with you? (What clicked?)
+3. What limitations of traditional systems seem most worth removing with LLMs?
+4. What elements of traditional systems should we keep, even with LLMs?
+5. Can you articulate a specific game concept that would be impossible without LLMs? (Not just "better with AI" but actually impossible before)
+6. What's one example of "space coffee" thinking you've seen in AI + games? What would make it not space coffee?

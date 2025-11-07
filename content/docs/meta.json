@@ -1,0 +1,12 @@
+{
+  "title": "Docs",
+  "pages": [
+    "./games-as-experiential-scaffolds",    
+    "./game-design-scenarios",
+    "./general-analysis-of-game-systems",
+    "./what-is-game-system-v6",
+    "./resource-management",
+    "./cognitive-load",
+    "./megabonk-hypothesis"
+  ]
+}

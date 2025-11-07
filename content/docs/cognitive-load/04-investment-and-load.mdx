@@ -1,0 +1,896 @@
+---
+title: 04-investment-and-load
+---
+# Part 4: Investment and Cognitive Load
+
+## Introduction: Load Changes Over Time
+
+In Parts 2 and 3, we analyzed cognitive load as if it were static—a game "has" a certain load profile. But this is incomplete.
+
+**Cognitive load changes dramatically as players invest time and effort into a game.**
+
+A beginner playing StarCraft is overwhelmed by simultaneity—army dies while building workers, forgets to spend resources, can't track what's happening. An expert player executes the same tasks effortlessly, with attention left over for complex micro and strategic planning.
+
+**Same game, completely different cognitive experience.**
+
+This chapter explores:
+
+* How investment changes cognitive load over time
+* Different patterns: load reduction, load revelation, load persistence
+* Investment types: mastery, collection, social, temporal
+* The mastery paradox (automation vs. discovering complexity)
+* Design implications for learning curves and progression
+
+***
+
+## The Core Insight: Investment Transforms Load
+
+**Investment** = time, effort, money, or attention players put into a game
+
+**How investment affects load:**
+
+### Pattern 1: Load Reduction (Automation Through Practice)
+
+**Mechanism:** Practice internalizes patterns, converts conscious decisions into automatic habits.
+
+**Example: Dark Souls**
+
+* **First attempt:** Every enemy is terrifying, unclear what to do
+  * High pattern recognition load (learning tells)
+  * High decision load (react or dodge? When?)
+  * High tracking load (stamina, positioning, enemy position)
+
+* **After 10 deaths:** Enemy patterns internalized
+  * LOW pattern recognition (know all attacks)
+  * MEDIUM decision load (know when to dodge/attack)
+  * LOW tracking load (stamina management automatic)
+
+* **After mastery:** Boss feels easy
+  * MINIMAL load across all dimensions
+  * Can no-hit run (perfect execution without thinking)
+
+**Investment payoff:** What was impossible becomes trivial. Skill feels earned.
+
+***
+
+### Pattern 2: Load Revelation (Mastery Reveals Depth)
+
+**Mechanism:** As basics become automatic, attention freed for higher-level complexity.
+
+**Example: StarCraft**
+
+* **Bronze player (beginner):**
+  * Overwhelmed by basic macro (remembering to build workers)
+  * Can't micro units (attention on base)
+  * Doesn't scout (forgot it exists)
+  * Total load: EXTREME (everything is hard)
+
+* **Gold player (intermediate):**
+  * Macro is automatic (muscle memory)
+  * Can micro during fights (attention freed up)
+  * Scouts regularly (part of routine)
+  * Total load: STILL HIGH but different
+  * Now notices: build orders, timings, positioning subtleties
+
+* **Grandmaster (expert):**
+  * Everything automated efficiently
+  * But now thinking about: meta-game, mind games, adaptation, razor-thin optimizations
+  * Total load: STILL EXTREME
+  * InControl's observation: "Always more to do than possible"
+
+**Investment payoff:** Automation doesn't reduce challenge—it reveals deeper layers. Skill ceiling is infinite.
+
+***
+
+### Pattern 3: Load Persistence (Never Gets Easier)
+
+**Mechanism:** Complexity doesn't automate; requires active cognitive engagement always.
+
+**Example: Warhammer 40k**
+
+* **Beginner:** Constantly checking rulebook, can't remember unit stats
+  * High memory load
+  * High tracking load (rules, interactions)
+  * Slow play (rule lookups interrupt)
+
+* **Experienced player:** Knows their army deeply
+  * MEDIUM memory load (own army)
+  * STILL HIGH for opponent's army
+  * STILL lookups for edge cases, FAQs
+
+* **Veteran:** Knows multiple armies
+  * HIGH memory load (across factions)
+  * New codex = relearning rules
+  * Complexity persists, doesn't automate
+
+**Investment payoff:** Knowledge helps but load never disappears. Expert players still need reference materials.
+
+***
+
+### Pattern 4: Load Independence (Time, Not Skill)
+
+**Mechanism:** Progress through waiting, not practice. Cognitive load unchanged by investment.
+
+**Example: Cookie Clicker**
+
+* **Day 1:** Click cookie, buy upgrades
+  * Minimal decision load (obvious next purchase)
+  * No skill expression
+
+* **Week 1:** Same gameplay
+  * Still minimal decision load
+  * Numbers bigger but no new complexity
+
+* **Month 1:** Still the same
+  * Investment is time passage, not skill development
+  * Load never increases or decreases
+
+**Investment payoff:** Progress feels inevitable (patience, not mastery). Satisfying for different reasons.
+
+***
+
+## Investment Types and Their Effects
+
+### Investment Type 1: Mastery (Time + Effort → Skill)
+
+**Characteristics:**
+
+* Active practice improves performance
+* Skill development is visible
+* Investment directly reduces difficulty (or reveals depth)
+
+**Examples:**
+
+* Dark Souls: Dying teaches patterns
+* Chess: Studying openings/tactics improves play
+* StarCraft: Mechanical practice increases APM, strategic study improves decisions
+* Fighting games: Combo practice, matchup knowledge
+
+**Cognitive load effects:**
+
+* **Early:** High load, overwhelming
+* **Mid:** Automation begins, load shifts to new dimensions
+* **Late:** Basics automatic, focusing on optimization/adaptation
+
+**Design implications:**
+
+* Clear feedback needed (must know what went wrong)
+* Consistent rules (patterns must be learnable)
+* Skill ceiling should be high (always room to improve)
+* Failure should inform, not just punish
+
+***
+
+### Investment Type 2: Collection (Money/Time → Ownership)
+
+**Characteristics:**
+
+* Acquiring content (cards, miniatures, cosmetics)
+* Sunk cost creates attachment
+* Investment may or may not improve performance
+
+**Examples:**
+
+* Magic: The Gathering: Building card collection
+* Warhammer: Buying, building, painting miniatures
+* Gacha games: Collecting characters
+* Many F2P games: Cosmetics, battle passes
+
+**Cognitive load effects:**
+
+* **Collection complexity:** More options = higher decision load (deck building, list construction)
+* **Meta knowledge:** Must know what cards/units exist (memory load)
+* **Sunk cost:** Investment creates commitment despite load
+
+**Design implications:**
+
+* Collection can increase cognitive load (more options to evaluate)
+* But attachment from ownership motivates learning that load
+* Sunk cost creates retention (even if load is high)
+* Balance: Collection as expression vs. pay-to-win
+
+***
+
+### Investment Type 3: Social (Reputation/Relationships → Capital)
+
+**Characteristics:**
+
+* Reputation within community
+* Friendships/relationships formed
+* Social standing as investment return
+
+**Examples:**
+
+* Among Us: Meta-knowledge of friend group ("Bob always does X when lying")
+* Tabletop RPG campaigns: Ongoing character relationships
+* MMO guilds: Reputation, alliances
+* Competitive scenes: Known as "strong player"
+
+**Cognitive load effects:**
+
+* **Meta-knowledge increases load:** Must track reputation, relationships, history
+* **But also reduces load:** Shared understanding, shorthand communication
+* **Social load compounds:** Long-running groups develop complex dynamics
+
+**Design implications:**
+
+* Long-term play with same group adds layer
+* Meta-knowledge as feature (not bug)
+* Social investment creates retention
+* But new players face social barrier (established groups)
+
+***
+
+### Investment Type 4: Temporal (Time Passage → Progress)
+
+**Characteristics:**
+
+* Progress through waiting (not skill or money)
+* Passive investment (idle, daily login bonuses)
+* Ritual/habit formation
+
+**Examples:**
+
+* Wordle: Daily puzzle creates habit
+* Cookie Clicker: Idle progress while away
+* Animal Crossing: Daily check-ins
+* Mobile games: Energy systems, daily rewards
+
+**Cognitive load effects:**
+
+* **Load remains constant:** No skill development
+* **Ritual reduces decision load:** "Check my game" becomes automatic
+* **Streaks create commitment:** Don't want to break chain
+
+**Design implications:**
+
+* Low cognitive load necessary (can't demand attention daily)
+* Scarcity creates value (one per day)
+* Habit formation drives retention
+* But limits engagement depth (no mastery progression)
+
+***
+
+## The Mastery Paradox
+
+### The Paradox Stated
+
+**Observation:** In mastery-driven games, investment both reduces AND increases cognitive load simultaneously.
+
+**How?**
+
+* **Automation reduces load in practiced dimensions**
+  * Mechanical execution becomes effortless
+  * Basic patterns recognized instantly
+  * Routine decisions made without thinking
+
+* **But frees attention to notice deeper complexity**
+  * Subtleties invisible to beginners become obvious
+  * Strategic depth reveals itself
+  * Optimization possibilities emerge
+
+**Example: Chess**
+
+* **Beginner:** Overwhelmed by "what can each piece do?"
+  * High load: Learning rules, seeing threats
+
+* **Intermediate:** Pieces automated, now sees "how do pieces coordinate?"
+  * Medium load: Pattern recognition developing
+  * But notices: Pawn structures, piece activity, king safety
+
+* **Expert:** Coordination automatic, now thinks "how does position evolve over 20 moves?"
+  * High load: Deep calculation, positional judgment
+  * But also: Opening theory, endgame knowledge, opponent psychology
+
+**Paradox resolution:** Total cognitive load may never decrease. Instead, load TRANSFORMS from low-level (execution) to high-level (strategy).
+
+***
+
+### When Mastery Paradox Works Well
+
+**Success Case: StarCraft**
+
+**Layer 1 (Bronze):** Learn hotkeys, remember to build workers
+**Layer 2 (Silver-Gold):** Macro automated, now micro matters
+**Layer 3 (Platinum-Diamond):** Micro patterns learned, now scouting and adaptation
+**Layer 4 (Master-Grandmaster):** Everything optimized, now mind games and razor-thin edges
+
+**Why it works:**
+
+* **Each layer is satisfying:** Feels like progression
+* **Always something new:** Never bored
+* **Infinite skill ceiling:** Always room to improve
+* **Investment feels meaningful:** Can see your improvement
+* **Competitive depth:** Mastery matters in competition
+
+**Design lessons:**
+
+* Reveal complexity gradually (don't show everything at once)
+* Each layer should feel like achievement
+* Automation should feel earned (not given)
+* Depth should emerge naturally (not hidden)
+* Always provide next challenge (no plateau)
+
+***
+
+### When Mastery Paradox Fails
+
+**Failure Case: Overwhelming Complexity (No Onboarding)**
+
+**Problem:** All layers visible at once, can't learn gradually
+
+**Example: Dwarf Fortress (without tutorial)**
+
+* **First hour:** Hundreds of systems, all visible, all demanding attention
+  * Can't automate (don't know patterns yet)
+  * Can't prioritize (don't know what matters)
+  * No clear learning path (what to learn first?)
+
+**Why it fails:**
+
+* **No safe learning environment:** Must handle everything immediately
+* **Failure is opaque:** Don't know what went wrong
+* **No progression sense:** Just drowning at different depths
+* **Bounce rate high:** Most players quit before learning curve starts
+
+**Design lessons:**
+
+* **Scaffold complexity:** Introduce systems gradually
+* **Safe learning space:** Let players fail without disaster
+* **Clear progression:** "You've mastered X, now try Y"
+* **Feedback on failure:** Must understand what went wrong
+* **Acceptable for niche:** Intentional barrier can work if that's the design
+
+***
+
+**Failure Case: False Depth (Complexity Without Reward)**
+
+**Problem:** Complexity doesn't reveal interesting decisions, just more busywork
+
+**Example: Some MMO endgames**
+
+* **Early game:** Fun, learning systems
+* **Endgame:** Same rotations, bigger numbers, more grinding
+  * Complexity from raid coordination
+  * But no new strategic depth (just execute rotation better)
+  * Load increases without payoff (memorizing 40-button rotation isn't interesting)
+
+**Why it fails:**
+
+* **Automation doesn't reveal depth:** Just more execution load
+* **Mastery feels hollow:** Perfecting rotation isn't satisfying
+* **Time investment, not skill:** Grinding for gear, not improving decision-making
+* **Burnout:** Complexity without meaning leads to exhaustion
+
+**Design lessons:**
+
+* **Depth must be interesting:** Not just "do more of the same"
+* **Mastery should shift focus:** From execution to strategy
+* **New challenges:** Not just harder execution of known patterns
+* **Avoid rotation bloat:** More buttons ≠ more depth
+
+***
+
+## Learning Curves: Designing Load Over Time
+
+### The Ideal Learning Curve (For Mastery Games)
+
+**Phase 1: Onboarding (First Hour)**
+
+* **Goal:** Get playing quickly, don't overwhelm
+* **Load:** LOW to MEDIUM (introduce basics only)
+* **Teach:** Core mechanics, immediate feedback
+* **Hide:** Advanced systems, optimization, meta-game
+
+**Phase 2: Competence (Hours 2-20)**
+
+* **Goal:** Feel capable, start seeing depth
+* **Load:** MEDIUM (basics automated, new challenges)
+* **Introduce:** Intermediate tactics, system interactions
+* **Achievement:** "I understand how this works"
+
+**Phase 3: Mastery (Hours 20-100)**
+
+* **Goal:** Optimization, strategic depth
+* **Load:** HIGH (complexity reveals itself)
+* **Reveal:** Advanced techniques, edge cases, meta-game
+* **Achievement:** "I'm good at this"
+
+**Phase 4: Expertise (Hours 100+)**
+
+* **Goal:** Infinite skill ceiling, always improving
+* **Load:** HIGH but transformed (basics automatic, strategy complex)
+* **Emerge:** Creative solutions, adaptation, mind games
+* **Achievement:** "I can always get better"
+
+**Key principle:** Load should INCREASE over time, but through revealing depth, not adding arbitrary complexity.
+
+***
+
+### Alternative Curve: Casual/Accessible Games
+
+**Phase 1: Immediate Fun (First 5 Minutes)**
+
+* **Goal:** Instant engagement, no learning required
+* **Load:** VERY LOW (intuitive, immediate)
+* **Examples:** Candy Crush, Wordle, casual mobile games
+
+**Phase 2-4: Gentle Slope**
+
+* **Goal:** Optional depth, never required
+* **Load:** LOW to MEDIUM (can engage more if desired)
+* **Examples:** Puzzle games with advanced techniques, idle games with optimization
+
+**No Phase 4:** No infinite skill ceiling
+
+* **Goal:** Bounded experience, eventually "complete"
+* **Fine for:** Casual audience, palette-cleansers, low-commitment games
+
+**Key principle:** Load stays LOW throughout. Depth is optional, not required.
+
+***
+
+### Anti-Pattern: Complexity Spike
+
+**The Problem:**
+
+* Game is simple for hours
+* Suddenly introduces overwhelming complexity
+* No scaffolding, just "figure it out"
+
+**Examples:**
+
+* Tutorial → endgame complexity gap (many MMOs)
+* Simple mechanics → suddenly dozens of systems (JRPG kitchen sink)
+* Casual game → monetization complexity (F2P walls)
+
+**Why it fails:**
+
+* **Violates expectations:** Players thought they understood game
+* **No time to adapt:** Complexity dumped suddenly
+* **Frustration:** Feel betrayed or incompetent
+* **Churn:** Players quit at complexity spike
+
+**Design lessons:**
+
+* **Introduce complexity gradually** (no sudden spikes)
+* **Signal complexity coming** (prepare players mentally)
+* **Scaffold new systems** (teach, don't dump)
+* **Respect player expectations** (match genre conventions)
+
+***
+
+## Investment Payoffs: What Players Get
+
+### Payoff 1: Competence Satisfaction
+
+**What:** Feeling of "I'm good at this now"
+
+**Achieved through:**
+
+* Clear progression (beginner → expert path)
+* Visible skill development (can do things you couldn't before)
+* Earned mastery (automation through practice)
+
+**Games that do this well:**
+
+* Dark Souls: "I beat that boss" feels amazing
+* Chess: "I saw that tactic" satisfaction
+* StarCraft: "I executed that timing perfectly"
+
+**Design requirement:** Skill must be visible and earned.
+
+***
+
+### Payoff 2: Discovery and Depth
+
+**What:** "There's always more to learn"
+
+**Achieved through:**
+
+* Hidden depth (not obvious at first)
+* Emergent complexity (systems interact)
+* Meta-game evolution (community discovers new strategies)
+
+**Games that do this well:**
+
+* StarCraft: Pro scene constantly evolves
+* Chess: 1500 years, still discovering
+* Slay the Spire: Community finds new synergies
+
+**Design requirement:** Complexity must be interesting, not arbitrary.
+
+***
+
+### Payoff 3: Social Capital
+
+**What:** Reputation, relationships, belonging
+
+**Achieved through:**
+
+* Visible mastery (others recognize skill)
+* Community engagement (shared knowledge)
+* Long-term relationships (guilds, groups, friendships)
+
+**Games that do this well:**
+
+* MMOs: Guild reputation matters
+* Fighting game communities: Known players
+* Tabletop campaigns: Long-running characters/relationships
+
+**Design requirement:** Social systems support recognition and relationships.
+
+***
+
+### Payoff 4: Personal Investment
+
+**What:** "This is MY thing" attachment
+
+**Achieved through:**
+
+* Customization (deck, character, playstyle)
+* Unique experiences (emergent stories)
+* Time invested (sunk cost)
+* Identity ("I'm a StarCraft player")
+
+**Games that do this well:**
+
+* Magic: The Gathering: "My deck"
+* Warhammer: "My army" (literally painted)
+* MMOs: "My character" (years invested)
+
+**Design requirement:** Personalization and ownership systems.
+
+***
+
+## Investment Anti-Patterns
+
+### Anti-Pattern 1: Grind Without Growth
+
+**Problem:** Time investment required but no skill development
+
+**Characteristics:**
+
+* Progress through repetition, not learning
+* No skill expression (just time spent)
+* Feels like work, not play
+
+**Examples:**
+
+* Level grinding in RPGs (same battles repeatedly)
+* Resource gathering in survival games (boring necessity)
+* Many mobile F2P timegates
+
+**Why it fails:**
+
+* **Not satisfying:** No sense of improvement
+* **Respects time poorly:** Hours feel wasted
+* **No pride:** Anyone can grind given time
+* **Burnout:** Tedium leads to quitting
+
+**When it works:** Very rare. Maybe as meditation? But usually bad design.
+
+***
+
+### Anti-Pattern 2: Complexity Treadmill
+
+**Problem:** Must constantly learn new systems to keep playing
+
+**Characteristics:**
+
+* Frequent overhauls (reset learning)
+* Complexity creep (more systems added)
+* Meta constantly shifts (knowledge expires)
+* Can't keep up (exhausting)
+
+**Examples:**
+
+* Some live service games (constant meta shifts)
+* Warhammer 40k (new codexes invalidate knowledge)
+* Some MMOs (expansion rewrites systems)
+
+**Why it fails:**
+
+* **Exhausting:** Can't maintain mastery
+* **Knowledge expires:** Investment feels wasted
+* **Barrier to returning:** Took break, now lost
+* **Burnout:** Treadmill never stops
+
+**When it's acceptable:** If community enjoys meta shifts (competitive games). But still risk burnout.
+
+***
+
+### Anti-Pattern 3: Sunk Cost Trap
+
+**Problem:** Investment creates obligation, not joy
+
+**Characteristics:**
+
+* Keep playing because "invested so much"
+* Not having fun anymore
+* Obligation, not desire
+* Fear of "wasting" past investment
+
+**Examples:**
+
+* MMO subscriptions ("I pay, so I must play")
+* Collection games ("Can't quit, I spent $")
+* Long campaigns ("We're almost done..." but not enjoying)
+
+**Why it fails:**
+
+* **Negative motivation:** Playing to not waste, not for fun
+* **Resentment builds:** Game feels like burden
+* **Missed opportunity cost:** Could play something fun instead
+* **Eventually quit anyway:** Usually with bad feelings
+
+**Design consideration:** Don't exploit sunk cost. Make quitting acceptable.
+
+***
+
+## Design Implications: Investment and Load
+
+### Principle 1: Match Investment Type to Aesthetic
+
+**Challenge/Mastery → Mastery investment**
+
+* Skill development is the reward
+* Load reduction feels earned
+* Infinite skill ceiling keeps engaged
+
+**Fellowship → Social investment**
+
+* Relationships are the reward
+* Time together creates bonds
+* Load should stay LOW (brainspace for socializing)
+
+**Discovery → Progressive revelation**
+
+* Finding new things is the reward
+* Complexity reveals gradually
+* Maintain sense of "more to find"
+
+**Submission → Temporal investment**
+
+* Waiting/ritual is acceptable
+* Load stays LOW always
+* Progress through time, not effort
+
+***
+
+### Principle 2: Scaffold Complexity Intentionally
+
+**Don't:** Dump all systems at once
+**Do:** Introduce gradually as players ready
+
+**Techniques:**
+
+* **Gating:** Lock advanced systems until basics mastered
+* **Tutorials:** Teach incrementally (not all at once)
+* **Difficulty options:** Let players choose engagement depth
+* **Community:** Let experienced players teach newcomers
+
+***
+
+### Principle 3: Make Progression Visible
+
+**Players need to see improvement:**
+
+* **Stats/metrics:** "I'm faster/more accurate"
+* **Achievements:** "I did thing I couldn't before"
+* **Ranks/ratings:** "I climbed ladder"
+* **Community recognition:** "Others see my skill"
+
+**Invisible progression feels like no progression.**
+
+***
+
+### Principle 4: Respect Investment
+
+**Time investment should feel meaningful:**
+
+* **Skill that persists:** Don't invalidate learning
+* **Achievements that matter:** Don't reset progress arbitrarily
+* **Relationships that endure:** Don't force server/group changes
+* **Collections that retain value:** Don't deprecate content
+
+**Betraying investment creates bitterness.**
+
+***
+
+### Principle 5: Offer Multiple Investment Paths
+
+**Not everyone wants same investment type:**
+
+* **Mastery path:** For skill-focused players
+* **Collection path:** For collectors/builders
+* **Social path:** For community-focused players
+* **Casual path:** For time-limited players
+
+**Example: Magic: The Gathering**
+
+* Can pursue competitive mastery
+* Can collect/trade cards
+* Can play casually with friends
+* Can engage with lore/flavor
+
+**Principle:** Let players invest how they want, all paths valid.
+
+***
+
+## Case Study: Dark Souls Investment Curve
+
+### Phase 1: The Wall (First 2 Hours)
+
+**Experience:**
+
+* Die repeatedly to early enemies
+* Feel incompetent, frustrated
+* Consider quitting
+
+**Cognitive load:**
+
+* **Overwhelming pattern recognition:** Every enemy is new threat
+* **High decision load:** Unclear what to do
+* **High tracking:** Stamina, position, enemy movements
+
+**Investment:**
+
+* Time (dying repeatedly)
+* Patience (accepting frustration)
+* Mental effort (trying to learn patterns)
+
+**Risk:** High bounce rate (many players quit)
+**Reward:** Those who persist start learning
+
+***
+
+### Phase 2: Breakthrough (Hours 3-10)
+
+**Experience:**
+
+* Patterns start clicking
+* Beat first major boss
+* "I can do this!"
+
+**Cognitive load:**
+
+* **Pattern recognition pays off:** Start predicting attacks
+* **Decision load reduces:** Know when to dodge/attack
+* **Tracking becomes automatic:** Stamina management intuitive
+
+**Investment paying off:**
+
+* Dying taught patterns (each death had value)
+* Frustration transforms to satisfaction
+* Competence feels earned
+
+**Emotional shift:** From "This is impossible" to "I'm getting better"
+
+***
+
+### Phase 3: Mastery (Hours 10-50)
+
+**Experience:**
+
+* Can beat most bosses within few attempts
+* Exploring world confidently
+* Trying different builds/weapons
+
+**Cognitive load:**
+
+* **Low baseline load:** Core combat automatic
+* **Medium decision load:** Build choices, exploration paths
+* **Pattern recognition mastered:** Most enemy types learned
+
+**Investment depth:**
+
+* Skill ceiling still high (harder bosses, optional content)
+* Discovery (world layout, secrets)
+* Expression (build variety)
+
+**Satisfaction:** "I'm good at this game"
+
+***
+
+### Phase 4: Expertise (Hours 50+)
+
+**Experience:**
+
+* Challenge runs (SL1, no-hit)
+* PvP mastery
+* Teaching new players
+
+**Cognitive load:**
+
+* **Self-imposed challenges:** Increase load voluntarily
+* **PvP adds layer:** Player psychology, not just patterns
+* **Meta-knowledge:** Weapon matchups, optimal builds
+
+**Investment transformation:**
+
+* From learning to mastery
+* From challenge to expression
+* From solo to community (helping others)
+
+**Long-term engagement:** Hundreds of hours possible
+
+***
+
+### What Dark Souls Does Right
+
+**1. Front-loads difficulty (teaches through failure)**
+
+* Every death provides information
+* Failure is teacher, not just punishment
+* Clear cause-effect (can learn from mistakes)
+
+**2. Automation feels earned**
+
+* Pattern recognition through practice
+* Mechanical skill through repetition
+* Going from impossible to easy is satisfying
+
+**3. Consistent rules (patterns are learnable)**
+
+* Same enemy always behaves same way
+* Can develop strategies through learning
+* Mastery is possible (not random)
+
+**4. Depth reveals gradually**
+
+* First playthrough: Learn combat
+* Second playthrough: Learn world, lore
+* Further runs: Optimization, challenge
+
+**5. Community supports investment**
+
+* Messages help with discovery
+* Co-op helps struggling players
+* Shared struggle creates bonds
+
+***
+
+## Summary: Investment as Load Transformer
+
+**Core insights:**
+
+1. **Cognitive load is not static—investment changes it over time**
+
+2. **Four investment patterns:**
+   * Load reduction (Dark Souls: practice makes perfect)
+   * Load revelation (StarCraft: mastery reveals depth)
+   * Load persistence (Warhammer: never gets easier)
+   * Load independence (Cookie Clicker: time, not skill)
+
+3. **Four investment types:**
+   * Mastery (skill development)
+   * Collection (ownership)
+   * Social (relationships/reputation)
+   * Temporal (time/ritual)
+
+4. **The mastery paradox:** Investment automates low-level tasks but reveals high-level complexity. Total load may never decrease.
+
+5. **Learning curves should scaffold complexity:**
+   * Onboard quickly (low load)
+   * Reveal depth gradually (medium load)
+   * Offer infinite ceiling (high load, optional)
+
+6. **Investment payoffs should match aesthetic:**
+   * Challenge → Competence satisfaction
+   * Discovery → Depth revelation
+   * Fellowship → Social capital
+   * Submission → Ritual/progress
+
+7. **Respect player investment:**
+   * Make learning persistent (don't invalidate)
+   * Make progress visible (can see improvement)
+   * Make investment meaningful (feels worthwhile)
+
+**Design question:** "How will cognitive load change as players invest in this game, and is that transformation satisfying?"
+
+***
+
+## Next Chapter
+
+Part 5 explores how cognitive load distributes in multiplayer games—cooperative play, asymmetric roles, social deduction, and the unique challenges of coordinating multiple minds under pressure.
