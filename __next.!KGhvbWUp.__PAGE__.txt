@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2269b09d12a1c9b7.js","/_next/static/chunks/99eb049314ca59a4.js","/_next/static/chunks/2eac971906e8de3a.js","/_next/static/chunks/7002a6b541586e1d.js","/_next/static/chunks/549d876f947ca9e7.js","/_next/static/chunks/df4b05c2b212db44.js"],""]
+3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/dbbcd0760a09d374.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"aYPHdIJ8XN_hd5yp-cE9p","rsc":["$","$1","c",{"children":[["$","div",null,{"className":"flex flex-col justify-center text-center flex-1","children":[["$","h1",null,{"className":"text-2xl font-bold mb-4","children":"Hello World"}],["$","p",null,{"children":["You can open"," ",["$","$L2",null,{"href":"/docs","className":"font-medium underline","children":"/docs"}]," ","and see the documentation."]}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null
