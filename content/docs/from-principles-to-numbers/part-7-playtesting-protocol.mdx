@@ -1,0 +1,791 @@
+---
+title: part-7-playtesting-protocol
+---
+# Part 7: Playtesting Protocol
+
+You've set your numbers. Now you need to validate them.
+
+Playtesting isn't just "play and see what happens." **Systematic playtesting tests specific hypotheses about your measurables.**
+
+This section shows you:
+
+1. What to test and when
+2. How to gather useful data
+3. How to interpret results
+4. When to adjust vs. when you're done
+
+***
+
+## The Playtesting Mindset
+
+### Playtesting Is Not Just Playing
+
+**Bad approach:** "Let's play and see if it's fun"
+
+* Too vague to be actionable
+* "Fun" is subjective and late indicator
+* Doesn't tell you what to fix
+
+**Good approach:** "Let's test if Time-to-Kill matches our 20-25 round target"
+
+* Specific, measurable hypothesis
+* Can collect objective data
+* Tells you exactly what to adjust if wrong
+
+### Your Numbers Are Probably Wrong
+
+**Accept this now:** Your first-pass numbers will be off by 20-50%.
+
+**Why this is okay:**
+
+* You got within the right order of magnitude (boss HP is 540, not 54 or 5400)
+* Framework gave you starting point better than random guessing
+* Playtesting will reveal the adjustments needed
+
+**The goal isn't perfect first-try numbers.** The goal is systematic iteration toward good numbers.
+
+### Test One Thing at a Time
+
+**Don't change everything at once.**
+
+Bad: Boss too hard → Reduce HP 30%, reduce damage 20%, add healing items, remove one attack
+
+* If it works now, which change mattered?
+* If it still doesn't work, which change was wrong?
+
+Good: Boss too hard → Reduce HP 20% only
+
+* Test again
+* If still too hard, reduce another 10%
+* If now too easy, increase 5%
+* Each test gives clear feedback
+
+***
+
+## Playtesting Phases
+
+Playtest in stages, testing different things at each stage.
+
+### Phase 1: Mechanical Validation (First 2-3 Sessions)
+
+**Goal:** Do the numbers work mathematically?
+
+**What to test:**
+
+* Does Time-to-Kill match targets?
+* Are hit rates in target ranges?
+* Do resources deplete at expected rates?
+* Are patterns learnable/recognizable?
+
+**How to test:**
+
+* Track objective metrics (damage dealt, rounds elapsed, resources consumed)
+* Use spreadsheet or notes to record actual vs. expected
+* Multiple attempts (not just one playthrough)
+
+**What NOT to test yet:**
+
+* Is it fun? (Too early, numbers might be way off)
+* Do players like the story? (Mechanical layer first)
+* Would players play again? (Needs working mechanics first)
+
+**Example test plan for boss fight:**
+
+Session 1:
+
+* Track: Boss HP remaining each round, total rounds to victory/defeat, player deaths
+* Record: Actual DPR (damage per round), boss accuracy, resource usage
+* Compare to targets: 20-25 rounds, 60% player hit rate, \~16 boss DPR
+
+Session 2 (after adjustments):
+
+* Repeat measurement
+* Test edge cases: What if players focus fire? What if split damage?
+* Validate patterns: Can players recognize telegraphs?
+
+Session 3:
+
+* Test with different player builds/tactics
+* Confirm consistency: Similar results across attempts?
+
+### Phase 2: Experience Validation (Next 3-4 Sessions)
+
+**Goal:** Does it create the intended aesthetic experience?
+
+**What to test:**
+
+* Challenge aesthetic: Do players feel sense of mastery? Is difficulty appropriate?
+* Narrative aesthetic: Do choices feel meaningful? Do consequences drive story?
+* Fellowship aesthetic: Is cooperation required? Can team recover from mistakes?
+* Discovery aesthetic: Are players finding new things? Is variety sufficient?
+
+**How to test:**
+
+* Player feedback (but ask specific questions, not just "was it fun?")
+* Observe behavior: Do players discuss tactics (Challenge)? Do they engage with story (Narrative)?
+* Track engagement: Are players excited, bored, frustrated?
+
+**Specific questions by aesthetic:**
+
+For Challenge:
+
+* "Could you see yourself getting better with practice?"
+* "Did deaths feel fair or unfair?"
+* "Could you predict what would happen?"
+* "After failing, could you identify what to do differently?"
+
+For Narrative:
+
+* "Did your choices feel like they mattered?"
+* "Could you understand the stakes before deciding?"
+* "Did consequences create interesting complications?"
+* "Did you feel like you shaped the story?"
+
+For Fellowship:
+
+* "Did you need to coordinate with teammates?"
+* "Could the team recover when someone made a mistake?"
+* "Did everyone feel like they contributed?"
+* "Was the difficulty appropriate for your group's skill range?"
+
+For Discovery:
+
+* "Did you encounter surprises?"
+* "Were you curious about what might happen next?"
+* "Did you find new strategies or combinations?"
+* "Would different choices lead to different discoveries?"
+
+### Phase 3: Edge Case Testing (Next 2-3 Sessions)
+
+**Goal:** What breaks the system?
+
+**What to test:**
+
+* Extreme builds: All defense, all offense, all support
+* Degenerate strategies: Cheese tactics, exploits
+* Skill variance: Expert players, novice players
+* Unusual circumstances: Bad luck, good luck, weird player choices
+
+**How to test:**
+
+* Intentionally try to break it
+* Give to players with different skill levels
+* Ask players to find exploits
+* Test edge cases you anticipated during design
+
+**Example edge cases for boss fight:**
+
+* What if players all spam defensive stance? (Boss fight never ends due to regen)
+* What if players all focus fire one target? (Boss dies too fast)
+* What if players ignore investigation entirely? (Boss impossible)
+* What if players get extremely lucky/unlucky with rolls?
+
+### Phase 4: Polish Testing (Final 2-3 Sessions)
+
+**Goal:** Final tuning and feel.
+
+**What to test:**
+
+* Does everything flow smoothly?
+* Are there rough edges or confusion?
+* Is pacing right?
+* Would players want to play again?
+
+**How to test:**
+
+* Fresh playtesters (not people who played earlier versions)
+* Full experience start to finish
+* Minimal GM/designer intervention
+* Post-play survey
+
+***
+
+## Data Collection Methods
+
+### Quantitative Data (Objective Metrics)
+
+**What to track:**
+
+For combat/challenges:
+
+* Time-to-Kill (rounds or minutes)
+* Hit rates (successful attacks / total attacks)
+* Damage dealt per round (aggregate and per player)
+* Resource consumption (HP lost, items used, abilities spent)
+* Death count (total, per player)
+* Victory/defeat outcomes
+
+For exploration/investigation:
+
+* Actions attempted (total count)
+* Success rates (by Risk level if Framework)
+* Resources gained (preparation points, unlocks)
+* Time spent (per action, per phase)
+* Paths chosen (which investigations)
+
+For social/narrative:
+
+* Choices made (track what players chose)
+* Consequences triggered (what happened)
+* Stakes faced (Risk levels, consequence severity)
+* Story outcomes (which branches, endings)
+
+**How to collect:**
+
+* Spreadsheet during play
+* Post-session data entry
+* Digital logging (if computer-assisted)
+* Simple tally marks work fine
+
+**Example tracking sheet for boss fight:**
+
+```
+Round | Player 1 HP | Player 2 HP | Player 3 HP | Player 4 HP | Boss HP | Actions | Notes
+------|-------------|-------------|-------------|-------------|---------|---------|-------
+1     | 20          | 20          | 20          | 20          | 540     | P1 hit (9), P2 hit (10), P3 miss, P4 hit (8), Boss hit P1 (8), Boss hit P2 (7) | Boss pattern: basic attacks
+2     | 12          | 13          | 20          | 20          | 513     | ... | ...
+```
+
+### Qualitative Data (Player Experience)
+
+**What to observe:**
+
+Player behavior:
+
+* Are they engaged? (leaning forward, discussing, excited)
+* Are they confused? (asking rules questions repeatedly, hesitating)
+* Are they frustrated? (sighing, complaining, giving up)
+* Are they bored? (checking phones, disengaged, passive)
+
+Player discussion:
+
+* Do they discuss tactics? (Challenge engagement)
+* Do they discuss story? (Narrative engagement)
+* Do they coordinate? (Fellowship engagement)
+* Do they theorize about systems? (Mastery engagement)
+
+Emotional moments:
+
+* Excitement (cheers, high-fives, relief)
+* Tension (silence, focus, nervous energy)
+* Frustration (anger, resignation)
+* Satisfaction (smiles, sense of accomplishment)
+
+**How to collect:**
+
+* Take notes during play
+* Record session if possible (with permission)
+* Post-play discussion
+* Short survey afterward
+
+**Example observation notes:**
+
+```
+Session 2 - Boss Fight Playtest
+
+0:15 - Players excited at boss reveal, discussed tactics before engaging
+0:45 - First death (Player 3), team frustrated but determined
+1:10 - Recognized charge pattern, repositioned successfully, cheered
+1:35 - Player 2 used preparation points for clutch heal, team relieved
+1:55 - Victory! High-fives, sense of accomplishment evident
+
+Post-play feedback:
+- "Felt fair, we could see what we did wrong"
+- "Charge pattern was scary but learnable"
+- "Preparation points saved us, glad we investigated"
+- "Would try different tactics next time"
+```
+
+### Post-Play Survey (Simple)
+
+**Keep it short** (5-10 questions):
+
+**Rating questions (1-5 scale):**
+
+1. Difficulty was appropriate (1=too easy, 5=too hard)
+2. I felt like my choices mattered (1=not at all, 5=very much)
+3. I could understand what I needed to do (1=confused, 5=clear)
+4. I would play this again (1=no, 5=yes)
+5. [Aesthetic-specific]: e.g., "I felt challenged and wanted to improve"
+
+**Open questions (2-3):**
+
+1. What was the most memorable moment?
+2. What was frustrating or confusing?
+3. What would you change?
+
+**Don't ask:**
+
+* "Was it fun?" (too vague)
+* "Did you like it?" (social pressure to say yes)
+* Leading questions ("The boss was too hard, right?")
+
+***
+
+## Interpreting Results
+
+### When Numbers Are Off
+
+**Symptom:** Boss fight took 35 rounds (target was 20-25)
+
+**Diagnosis options:**
+
+1. Boss HP too high (540 → reduce to \~380)
+2. Player damage too low (increase damage or hit rate)
+3. Boss regeneration too strong (reduce regen)
+4. Players used suboptimal tactics (acceptable variance, not balance issue)
+
+**How to decide:**
+
+* Check player behavior: Were they playing reasonably well?
+* Check hit rates: Were players hitting expected 60%? Or were they missing more?
+* Check damage: Was average damage per hit on target?
+* Identify bottleneck: What single change would have biggest impact?
+
+**Example analysis:**
+
+```
+Expected: 23.4 DPR, 23 rounds = 538 HP boss
+Actual: 16.8 DPR, 35 rounds = 588 effective HP boss
+
+Why DPR low?
+- Hit rate was 50% (not 60% expected) → AC too high OR players had bad luck
+- Damage per hit was 9 (on target)
+- Boss regen was 20 HP per 5 rounds = 4 HP/round
+
+Diagnosis: Boss AC too high (15 → 14), OR bad luck (retest before changing)
+OR boss regen too strong (20 → 15 per 5 rounds)
+
+Test: Reduce AC to 14, retest
+```
+
+### When Experience Is Off
+
+**Symptom:** Players beat boss but said "it didn't feel challenging"
+
+**Diagnosis options:**
+
+1. Boss too easy (increase HP or damage)
+2. Players over-investigated (too many advantages)
+3. Patterns too simple (add complexity)
+4. Stakes too low (consequences not severe enough)
+
+**How to decide:**
+
+* Was victory in doubt? Or did players never feel threatened?
+* How many player deaths/near-deaths? (Target: at least 1-2 close calls)
+* Did players use all their resources? Or finish with plenty left over?
+* Did players engage with patterns? Or just brute-force through?
+
+**Example analysis:**
+
+```
+Observation: Players beat boss in 18 rounds (on target), but no deaths, finished with 15 preparation points unused, minimal tactics needed
+
+Diagnosis: Boss not threatening enough despite correct duration
+
+Possible fixes:
+- Increase boss damage (8 → 10 average)
+- Increase boss attack frequency (2 → 3 attacks per round)
+- Make patterns more punishing (AOE hits all adjacent instead of just front)
+- Reduce player HP (20 → 18)
+
+Test: Increase boss damage to 10 average (2d6+2), retest
+```
+
+### When Paradigm Is Wrong
+
+**Symptom:** Players keep asking "can I try this?" but you designed Consistency system
+
+**Diagnosis:** Paradigm mismatch with player expectations/aesthetic
+
+**This is serious.** You can't fix paradigm mismatch with number tweaks.
+
+**Options:**
+
+1. Change paradigm (Consistency → Framework)
+2. Communicate paradigm better ("This boss has set patterns to learn, not open-ended options")
+3. Accept mismatch and target different players
+
+**Example:**
+
+```
+Design: Consistency boss with fixed patterns
+Player behavior: Constantly trying creative solutions ("Can I climb on its back?" "Can I collapse the ceiling?" "Can I reason with it?")
+
+Diagnosis: Players want Framework (open-ended problem-solving), you gave them Consistency (pattern execution)
+
+Options:
+- Add Framework layer (allow creative tactics, assign Position/Effect)
+- Clarify expectation ("This is pattern-learning boss, creativity is in execution not approach")
+- Redesign for different player type
+```
+
+***
+
+## Adjustment Guidelines
+
+### How Much to Adjust
+
+**First iteration: ±20%**
+
+* Boss too hard: Reduce HP or damage by 20%
+* Too easy: Increase by 20%
+* Retest
+
+**Second iteration: ±10%**
+
+* Getting closer, fine-tune
+* Adjust by 10% increments
+
+**Final tuning: ±5%**
+
+* Small tweaks for feel
+* Polish, don't overhaul
+
+**Why incremental:**
+
+* Big changes overshoot
+* Hard to know if you fixed it or broke it differently
+* Multiple small adjustments converge better than few large ones
+
+### What to Adjust First
+
+**Priority order:**
+
+**1. Core numbers (highest impact):**
+
+* HP pools (fight duration)
+* Damage values (lethality)
+* Hit rates (success frequency)
+
+**2. Frequencies (medium impact):**
+
+* Attack rates (action economy)
+* Resource regeneration (sustainability)
+* Pattern timing (difficulty spikes)
+
+**3. Secondary values (lower impact):**
+
+* Modifiers (±1-2 to rolls)
+* Edge case values (critical hit damage)
+* Flavor details (exact pattern telegraphs)
+
+**Example adjustment sequence:**
+
+```
+Test 1: Boss fight took 35 rounds (target 23)
+→ Adjust: Reduce boss HP 20% (540 → 430)
+
+Test 2: Boss fight took 18 rounds (overshot)
+→ Adjust: Increase boss HP 10% (430 → 473)
+
+Test 3: Boss fight took 21 rounds (good!)
+→ But players said not threatening enough
+→ Adjust: Increase boss damage 10% (8 → 9 average)
+
+Test 4: Boss fight 22 rounds, felt appropriately dangerous
+→ Success! Lock in numbers.
+```
+
+### When to Stop Adjusting
+
+**You're done when:**
+
+* Objective metrics within ±10% of targets (23 rounds target, getting 21-25 consistently)
+* Players report intended aesthetic experience ("felt challenging but fair")
+* Multiple test groups have similar experiences (not just one lucky/unlucky session)
+* No obvious exploits or broken strategies
+* You've tested 3+ sessions without needing changes
+
+**You're NOT done when:**
+
+* Only tested once (could be outlier)
+* Numbers hit target but experience wrong (fight is 23 rounds but boring)
+* Only tested with one group (might be specific to that skill level)
+* Found exploits but haven't tested fixes
+
+**Diminishing returns:**
+
+Don't chase perfection. If you're within ±15% and players are happy, ship it.
+
+**Good enough:**
+
+* Boss fight 18-26 rounds (target was 20-25): ✓
+* 55-65% hit rate (target was 60%): ✓
+* Players say "appropriately challenging": ✓
+* No game-breaking exploits: ✓
+
+**Not good enough:**
+
+* Boss fight 10-40 rounds (target 20-25): ✗ Too variable
+* 30% hit rate (target 60%): ✗ Way off
+* Players say "too frustrating" or "too easy": ✗ Wrong experience
+* Obvious dominant strategy: ✗ Broken
+
+***
+
+## Playtesting Different Paradigms
+
+### Framework Paradigm Testing
+
+**What to test:**
+
+* Can GM apply framework consistently?
+* Do players understand stakes?
+* Is partial success meaningful?
+* Do consequences drive story forward?
+
+**How to test:**
+
+* Same scenario, multiple GMs: Do they assign similar Position/Effect?
+* Ask players: "Could you predict stakes before rolling?"
+* Track consequences: Do they create new situations or dead ends?
+
+**Red flags:**
+
+* Different GMs give wildly different stakes (framework unclear)
+* Players surprised by outcomes (stakes not transparent)
+* Consequences feel punitive not interesting (story doesn't move forward)
+
+**Adjustments:**
+
+* Add more examples if inconsistent
+* Clarify tier definitions
+* Redesign consequence types if they block progress
+
+### Consistency Paradigm Testing
+
+**What to test:**
+
+* Are patterns recognizable?
+* Can players learn through practice?
+* Is mastery curve evident?
+* Does consistency feel fair?
+
+**How to test:**
+
+* Multiple attempts: Does performance improve?
+* Ask players: "What would you do differently next time?"
+* Track attempts to victory: Is there clear learning?
+
+**Red flags:**
+
+* Players can't identify what went wrong (unclear feedback)
+* No improvement across attempts (not learnable)
+* Players complain "randomness screwed me" (variance too high)
+* Victory on first try (too easy or patterns too obvious)
+
+**Adjustments:**
+
+* Add clearer telegraphs if patterns unclear
+* Reduce randomness if variance masking patterns
+* Increase difficulty if too easy
+* Break complex patterns into simpler components
+
+### Adaptive Paradigm Testing
+
+**What to test:**
+
+* Is adaptation subtle enough?
+* Does it maintain engagement?
+* Can players exploit it?
+* Does it accommodate skill variance?
+
+**How to test:**
+
+* Ask players: "Did you notice difficulty changing?"
+* Test with different skill levels: Does system keep both engaged?
+* Try to exploit: Can you trigger "help" intentionally?
+
+**Red flags:**
+
+* Players notice adaptation and complain (too obvious)
+* Skilled players bored (over-adapted)
+* Weak players still frustrated (under-adapted)
+* Players farm "help" states (exploitable)
+
+**Adjustments:**
+
+* Make adaptation more gradual (smaller increments)
+* Widen ranges if not accommodating enough
+* Add delays or diminishing returns if exploitable
+* Hide adaptation better (attribute to "wave variation")
+
+***
+
+## Remote Playtesting
+
+If you can't playtest in person, adjust your methods.
+
+### Digital Tools
+
+**For tracking metrics:**
+
+* Shared spreadsheet (Google Sheets)
+* Discord bot (can log rolls automatically)
+* Virtual tabletop with logging (Roll20, Foundry)
+
+**For observation:**
+
+* Video calls (watch players)
+* Screen sharing (see their perspective)
+* Session recording (review later)
+
+**For feedback:**
+
+* Post-session survey (Google Forms)
+* Voice discussion (Discord, Zoom)
+* Async feedback (Discord channel, email)
+
+### Remote Challenges
+
+**Can't read body language as easily:**
+
+* Ask more direct questions during play
+* Check in regularly ("How's the difficulty feeling?")
+* Post-session survey more important
+
+**Technical issues:**
+
+* Internet lag affects timing
+* Dice rolling trust (use digital roller everyone can see)
+* Coordination harder (use voice, not just text)
+
+**Playtester recruitment:**
+
+* Easier to find remote players (wider pool)
+* Harder to ensure commitment (schedule multiple sessions)
+* Consider compensating playtesters (gift cards, credits)
+
+***
+
+## When to Recruit External Playtesters
+
+### Early Playtesting: Friends and Designer
+
+**Who:** You, close friends, co-designers
+**Why:** Can give blunt feedback, understand context
+**What to test:** Mechanical validation, does math work
+**Limitations:** May be too forgiving or know too much
+
+### Mid Playtesting: Acquaintances and Community
+
+**Who:** Gaming group, online community, acquaintances
+**Why:** Less biased, don't know design intent
+**What to test:** Experience validation, aesthetic fit
+**Limitations:** May not give harsh feedback, might not finish
+
+### Late Playtesting: Strangers and Target Audience
+
+**Who:** Recruited playtesters, target demographic
+**Why:** Unbiased, representative of actual players
+**What to test:** Edge cases, polish, full experience
+**Limitations:** Harder to recruit, may need compensation
+
+### Red Flags in Playtester Selection
+
+**Avoid:**
+
+* Only testing with highly skilled players (won't catch accessibility issues)
+* Only testing with your preferred play style (confirmation bias)
+* Only testing with people who want to be nice (won't get honest feedback)
+* Never testing with target audience (might not actually appeal to them)
+
+**Good mix:**
+
+* Various skill levels (novice to expert)
+* Various play styles (optimizer, storyteller, casual)
+* Various familiarity with your work (fans and newcomers)
+* Representative of target audience
+
+***
+
+## Iteration Loop
+
+**The cycle:**
+
+1. **Set numbers** (from Part 6 process)
+2. **Playtest** (Phase 1: Mechanical validation)
+3. **Collect data** (quantitative + qualitative)
+4. **Analyze** (where are numbers off? where is experience off?)
+5. **Adjust** (one thing at a time, ±20% first iteration)
+6. **Repeat** until converged
+
+**Typical timeline:**
+
+Week 1: Set initial numbers
+Week 2-3: Mechanical validation (2-3 sessions), make big adjustments
+Week 4-5: Experience validation (3-4 sessions), fine-tune numbers
+Week 6-7: Edge case testing (2-3 sessions), address exploits
+Week 8: Polish testing (2-3 sessions), final tweaks
+
+**Total: \~10-15 playtesting sessions over 6-8 weeks**
+
+For small designs (one-shot, simple system): Can compress to 2-3 weeks
+For large designs (campaign, complex systems): May take 3-6 months
+
+### Knowing When You're Done
+
+**Check these:**
+
+* ✓ Numbers within ±15% of targets for 3+ sessions
+* ✓ Players report intended aesthetic experience
+* ✓ Tested with different skill levels/playstyles
+* ✓ No game-breaking exploits found
+* ✓ No changes needed for last 2+ sessions
+* ✓ Both you and playtesters would play again
+
+**If all checked:** You're done. Ship it.
+
+**If some missing:** Keep iterating.
+
+**If stuck:** Maybe fundamental design issue (paradigm mismatch, aesthetic unclear). May need to revisit earlier decisions.
+
+***
+
+## Quick Reference: Playtesting Checklist
+
+### Before First Playtest
+
+* [ ] Numbers set using Part 6 process
+* [ ] Resolution mechanic chosen and documented
+* [ ] Target measurables identified (from Part 5)
+* [ ] Data tracking method prepared (spreadsheet, notes)
+* [ ] Playtesters recruited (start with friends)
+
+### During Playtest
+
+* [ ] Track quantitative data (HP, rounds, resources)
+* [ ] Observe player behavior (engagement, confusion, frustration)
+* [ ] Take notes on memorable moments
+* [ ] Don't defend your design (listen, don't argue)
+* [ ] Ask specific questions (not "was it fun?")
+
+### After Playtest
+
+* [ ] Enter data into tracking sheet
+* [ ] Compare actual vs. expected (where are gaps?)
+* [ ] Identify biggest issue (what matters most?)
+* [ ] Decide on one adjustment (not ten)
+* [ ] Schedule next session
+
+### After 3+ Playtests
+
+* [ ] Are numbers converging? (getting closer to targets)
+* [ ] Is experience matching aesthetic goals?
+* [ ] Have you tested different skill levels?
+* [ ] Have you found/fixed exploits?
+* [ ] Are you making smaller adjustments each time? (good sign)
+
+### Before Declaring Done
+
+* [ ] 3+ sessions with current numbers (no changes needed)
+* [ ] Metrics within ±15% of targets
+* [ ] Players report positive experience
+* [ ] No known game-breaking issues
+* [ ] Would play again (both you and playtesters)
+
+***
+
+**Next: Part 8 covers what happens when your game grows—how to scale balance as systems expand.**

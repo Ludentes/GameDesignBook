@@ -1,0 +1,1411 @@
+---
+title: part-5-measurables-catalog
+---
+# Part 5: Measurables Catalog
+
+This is your reference section. When you know your paradigm and aesthetic, come here to identify which measurables to optimize.
+
+Each measurable includes:
+
+* **Definition:** What this measures
+* **Scale:** How to quantify it
+* **Paradigm behavior:** How each paradigm typically handles this
+* **Primary aesthetics:** Which aesthetics care most
+* **Common targets:** Typical values for different contexts
+
+This isn't exhaustive—you might identify additional measurables for your specific design. But these cover the vast majority of balance considerations.
+
+***
+
+## Component 1: Temporal Dynamics
+
+How experience unfolds over time.
+
+**Note on Pacing:** Many temporal dynamics measurables relate to **pacing**—the rhythm and flow of experience. Pacing is not a single mechanism but an emergent property of how your systems interact. When do resources deplete? How often do decisions occur? When do consequences arrive? How do tension and release alternate? These questions determine your game's temporal feel.
+
+### Understanding Pacing Patterns
+
+Before diving into individual measurables, understand that different designs create different pacing patterns:
+
+**Attrition Pacing:**
+
+* Pressure builds gradually across multiple encounters
+* Resources deplete slowly, recovery limited
+* Example: Old-school D\&D (daily spells, slow healing), HoMM3 (permanent losses)
+* Best for: Challenge (strategic), Tension aesthetics
+* Feel: "Being ground down, every decision matters"
+
+**Episodic Pacing:**
+
+* Each encounter/scene self-contained, resources reset
+* Fresh start each time
+* Example: Modern D\&D short rests, Fate scenes, most video game levels
+* Best for: Challenge (tactical), Narrative (scene-based), Fellowship
+* Feel: "Each scene is new opportunity, failure doesn't compound"
+
+**Wave Pacing:**
+
+* Alternating intensity: build-up → climax → recovery → repeat
+* Multiple cycles per session
+* Example: Blades in the Dark scores, L4D2 AI Director cycles
+* Best for: Most aesthetics, engagement management
+* Feel: "Natural rhythm, tension rises and falls"
+
+**Continuous Pacing:**
+
+* Steady state without clear breaks
+* Real-time pressure or seamless flow
+* Example: Real-time strategy, action games, some narrative games
+* Best for: Challenge (execution), Immersion, Flow state
+* Feel: "In the zone" or "Can't put this down"
+
+**Punctuated Pacing:**
+
+* Long calm periods interrupted by sudden intense moments
+* Example: Horror games, open-world exploration
+* Best for: Discovery, Tension (anticipation), Narrative surprise
+* Feel: "Calm exploration then sudden terror"
+
+**Your paradigm influences pacing:**
+
+* Framework often creates Wave pacing (stake negotiation → resolution → consequence cycles)
+* Consistency often creates Episodic or Continuous (encounter-based or seamless execution)
+* Adaptive explicitly manages Wave pacing (build/peak/relax cycles)
+
+**The measurables below help you target and measure your intended pacing pattern.**
+
+### 1.1 Time-to-Kill (TTK)
+
+**Definition:** How long it takes to defeat an opponent or overcome a challenge.
+
+**Measurement scale:**
+
+* Seconds/minutes for real-time combat
+* Number of turns/rounds for turn-based
+* Number of player actions required
+
+**Paradigm behavior:**
+
+* **Framework:** TTK varies based on Position/Effect negotiation (wide range acceptable)
+* **Consistency:** TTK should be predictable within ±20% (enables planning)
+* **Adaptive:** TTK adjusted based on player performance (struggling → faster, skilled → longer)
+
+**Primary aesthetics:**
+
+* Challenge: TTK must feel earned (not too fast, not too slow)
+* Tension: Short TTK creates urgency and danger
+* Fellowship: Coordinated TTK prevents one player dominating
+
+**Common targets:**
+
+* Trash enemies: 5-15 seconds (1-3 player actions)
+* Elite enemies: 30-60 seconds (5-10 player actions)
+* Mini-bosses: 2-5 minutes (15-30 player actions)
+* Major bosses: 5-10 minutes (40-80 player actions)
+* Raid bosses: 10-20 minutes (multi-phase, 100+ actions)
+
+**Red flags:**
+
+* Below 3 seconds: Might feel trivial, no time for tactics
+* Above 15 minutes: Risk tedium unless mechanically interesting throughout
+* High variance (±50%+): Feels random, prevents planning
+
+### 1.2 Session Duration
+
+**Definition:** How long a typical play session lasts.
+
+**Measurement scale:**
+
+* Minutes for short sessions
+* Hours for medium/long sessions
+* Can measure actual vs. intended duration
+
+**Paradigm behavior:**
+
+* **Framework:** Session can end at any dramatic moment (flexible)
+* **Consistency:** Session ends at checkpoints/victories (structured)
+* **Adaptive:** System can compress/extend to hit target duration
+
+**Primary aesthetics:**
+
+* Submission: Short sessions (\<30 min) for casual play
+* Challenge: Medium sessions (1-3 hours) for focused mastery
+* Narrative: Flexible (end at narrative beats, 2-4 hours typical)
+* Discovery: Long sessions (3-6 hours) to explore thoroughly
+
+**Common targets:**
+
+* Mobile/casual: 5-15 minutes
+* Single sitting: 30-90 minutes
+* Campaign session: 2-4 hours
+* Marathon session: 4-8+ hours (supported but not required)
+
+**Red flags:**
+
+* Forced sessions over 4 hours without good stopping points
+* No session shorter than 1 hour (excludes casual players)
+* Can't save/checkpoint within first 30 minutes
+
+### 1.3 Decision Frequency
+
+**Definition:** How often players make meaningful choices.
+
+**Measurement scale:**
+
+* Decisions per minute (real-time)
+* Decisions per turn (turn-based)
+* Time between significant choices
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (time for stake negotiation, \~1 decision per 5-15 min)
+* **Consistency:** High in combat (action every turn), low in planning (thoughtful preparation)
+* **Adaptive:** Varies (system can increase/decrease decision pressure)
+
+**Primary aesthetics:**
+
+* Challenge: High frequency tests skill under pressure
+* Narrative: Moderate frequency allows contemplation of choices
+* Tension: High frequency creates time pressure
+* Submission: Low frequency reduces cognitive load
+
+**Common targets:**
+
+* Real-time action: 10-30 decisions per minute (high intensity)
+* Real-time tactics: 2-5 decisions per minute (thoughtful)
+* Turn-based tactics: 1 decision per 10-30 seconds
+* Narrative choices: 1 major decision per 10-15 minutes
+
+**Red flags:**
+
+* More than 60 decisions/minute (overwhelming, impossible to deliberate)
+* Fewer than 1 decision per 5 minutes in "active" play (boring, watching not playing)
+* Inconsistent (sometimes 20/min, sometimes 1/hour without clear mode shift)
+
+### 1.4 Tension Gradient
+
+**Definition:** How intensity/pressure varies over time.
+
+**Measurement scale:**
+
+* Flat: Constant intensity
+* Cyclical: Build-up → peak → relief → repeat
+* Escalating: Steadily increasing intensity
+* Declining: Steadily decreasing intensity
+
+**Paradigm behavior:**
+
+* **Framework:** Naturally cyclical (stakes negotiation creates peaks)
+* **Consistency:** Manually designed (bonfire placement, enemy density)
+* **Adaptive:** Actively managed (AI Director-style pacing)
+
+**Primary aesthetics:**
+
+* Tension: Cyclical with high peaks (adrenaline spikes)
+* Challenge: Escalating or consistent high (sustained difficulty)
+* Narrative: Cyclical matching story beats (drama → resolution)
+* Submission: Flat or declining (relaxation, no stress)
+
+**Common targets:**
+
+* Action games: 2-3 minute cycles (60-90s build, 15-30s peak, 30-45s relax)
+* Horror: Long builds (5-10 min), short peaks (15-30s), medium relax (2-3 min)
+* Puzzle: Flat intensity (consistent engagement)
+* Campaign narrative: Session-long arcs (build over 2-3 hours, climax, resolution)
+
+**Red flags:**
+
+* No relief phases in high-tension game (exhausting)
+* No peaks in tension-focused game (boring)
+* Random intensity (jarring, no rhythm)
+
+### 1.5 Cycle Length
+
+**Definition:** Duration of one complete pacing cycle (build → resolution → recovery).
+
+**Measurement scale:**
+
+* Micro-cycles: \<1 minute (individual actions)
+* Short cycles: 1-5 minutes (combat rounds, quick scenes)
+* Medium cycles: 5-15 minutes (encounters, scene complexes)
+* Long cycles: 15-60 minutes (quest arcs, mission structures)
+* Macro-cycles: 60+ minutes (session arcs, campaign chapters)
+
+**Paradigm behavior:**
+
+* **Framework:** Medium cycles (negotiate → roll → consequence → recover)
+* **Consistency:** Short to Medium (encounter → victory/defeat → regroup)
+* **Adaptive:** Designed explicitly (L4D2: 2-3 minute build/peak/relax cycles)
+
+**Primary aesthetics:**
+
+* Challenge (tactical): Short to Medium (clear feedback loops)
+* Challenge (strategic): Long to Macro (decisions compound)
+* Narrative: Medium to Long (scene and act structure)
+* Fellowship: Medium (space for discussion between cycles)
+* Tension: Variable (builds anticipation)
+
+**Common targets:**
+
+* Real-time action: Micro (constant action-reaction)
+* Turn-based combat: Short (3-5 minute encounters)
+* Investigation/scenes: Medium (10-15 minute scenes)
+* Story arcs: Long (30-60 minute sequences)
+* Session structure: Macro (2-4 hour session arc)
+
+**Pacing pattern relationships:**
+
+* Attrition: Long cycles or no distinct cycles (pressure continuous)
+* Episodic: Short to Medium cycles (clear resolution each time)
+* Wave: Medium cycles repeated (multiple peaks per session)
+* Continuous: Micro cycles or none (seamless flow)
+* Punctuated: Long cycles with sudden short spikes
+
+**Red flags:**
+
+* Cycles too short for meaningful decisions (rushed)
+* Cycles too long without sub-cycles (monotonous)
+* No cycles at all when aesthetic needs rhythm (flat)
+* Cycle length mismatched to session duration (only 1-2 cycles in 4-hour session)
+
+### 1.6 Recovery Frequency
+
+**Definition:** How often players get relief from pressure/intensity.
+
+**Measurement scale:**
+
+* Never: Constant pressure throughout
+* Rare: Recovery every 30-60+ minutes
+* Moderate: Recovery every 10-20 minutes
+* Frequent: Recovery every 5-10 minutes
+* Constant: Always low pressure (no intensity peaks)
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (recovery after scene resolution)
+* **Consistency:** Moderate (recovery at checkpoints/bonfires)
+* **Adaptive:** Frequent (system manages recovery cycles)
+
+**Primary aesthetics:**
+
+* Tension: Rare to Moderate (maintains pressure)
+* Challenge: Moderate (recover between encounters)
+* Fellowship: Frequent (space for social interaction)
+* Submission: Constant (no pressure to recover from)
+* Narrative: Moderate (recovery at scene transitions)
+
+**Common targets:**
+
+* High-tension games: Every 15-30 minutes (brief relief)
+* Action games: Every 5-10 minutes (between encounters)
+* Narrative games: Every 10-20 minutes (between scenes)
+* Fellowship games: Every 5-15 minutes (discussion breaks)
+* Relaxed games: Constant low pressure
+
+**Relationship to Wave Pacing:**
+
+* Wave pacing requires regular recovery (the "relax" phase)
+* Recovery frequency determines wave frequency
+* Too frequent recovery → no tension builds
+* Too rare recovery → exhaustion
+
+**Red flags:**
+
+* Never in multi-hour session (player exhaustion)
+* Constant when Tension aesthetic intended (no stakes)
+* Mismatched to Cycle Length (recovery doesn't align with cycles)
+
+### 1.7 Recovery Speed
+
+**Definition:** How quickly players can restore lost resources (HP, ammo, etc.).
+
+**Measurement scale:**
+
+* Instant: Immediate full recovery
+* Fast: Recovers in seconds/minutes
+* Slow: Recovers in 10+ minutes or between sessions
+* Permanent: Never recovers (permadeath, permanent loss)
+
+**Paradigm behavior:**
+
+* **Framework:** Varies by consequence type (stress fast, harm slow, trauma permanent)
+* **Consistency:** Typically slow (raises stakes for pattern learning)
+* **Adaptive:** Varies (system grants fast recovery to struggling players)
+
+**Primary aesthetics:**
+
+* Challenge: Slow recovery (resource management matters)
+* Tension: Slow recovery (danger persists)
+* Submission: Fast recovery (minimize frustration)
+* Narrative: Variable (stress fast, trauma slow for story purposes)
+
+**Common targets:**
+
+* HP in Challenge game: Slow (1-2 HP per minute out of combat)
+* HP in Submission game: Fast (full recovery in 10-30 seconds)
+* Special abilities: Medium (1 per combat or per rest)
+* Permanent losses: Never (army units, permadeath characters)
+
+**Red flags:**
+
+* Fast recovery in Challenge game (no stakes)
+* No recovery option in long game (death spiral)
+* Inconsistent (sometimes fast, sometimes slow without clear reason)
+
+***
+
+## Component 2: Agency Dynamics
+
+What choices matter and why.
+
+### 2.1 Agency Scope
+
+**Definition:** What level of outcomes players can influence through choices.
+
+**Measurement scale:**
+
+* **None:** No meaningful choices (pure submission)
+* **Mechanical:** Choice affects this action only
+* **Tactical:** Choices affect this scene/encounter
+* **Strategic:** Choices affect session/campaign arc
+* **Narrative:** Choices shape story outcomes
+
+**Paradigm behavior:**
+
+* **Framework:** Tactical to Strategic (Position/Effect shapes scene outcomes)
+* **Consistency:** Mechanical to Tactical (execution and build choices)
+* **Adaptive:** Varies (system can give/take control)
+
+**Primary aesthetics:**
+
+* Narrative: Strategic to Narrative scope essential
+* Challenge: Mechanical to Tactical (execution matters)
+* Expression: Strategic (create lasting things)
+* Submission: None to Mechanical (low stakes)
+
+**Common targets:**
+
+* Pure mechanical: Action games (dodge/attack choices affect survival)
+* Tactical: Tactics games (positioning affects encounter)
+* Strategic: RPGs (character build affects campaign)
+* Narrative: Story games (choices determine plot)
+
+**Red flags:**
+
+* Narrative aesthetic with only Mechanical scope (choices don't matter)
+* Challenge aesthetic with Narrative scope but not Mechanical (can't execute)
+* Scope inconsistent (sometimes choices matter, sometimes don't)
+
+### 2.2 Choice Reversibility
+
+**Definition:** How easily players can undo decisions.
+
+**Measurement scale:**
+
+* **Full:** Can rewind/undo freely (save scumming)
+* **High:** Can undo at some cost (respec, time)
+* **Medium:** Hard to undo, requires resources
+* **Low:** Cannot undo, consequences stick
+* **None:** Permanent choices (permadeath)
+
+**Paradigm behavior:**
+
+* **Framework:** Low (consequences drive story forward)
+* **Consistency:** Low to None (builds commitment, raises stakes)
+* **Adaptive:** Can vary (system might offer undo to struggling players)
+
+**Primary aesthetics:**
+
+* Challenge: Low reversibility (stakes matter)
+* Narrative: Low reversibility (choices have weight)
+* Tension: Low reversibility (pressure maintained)
+* Submission: High reversibility (reduce anxiety)
+* Discovery: Medium (can experiment, but progress persists)
+
+**Common targets:**
+
+* Roguelikes: None (permadeath, no undo)
+* Challenge games: Low (checkpoint only, no mid-attempt undo)
+* RPGs: Medium (can respec with cost/time)
+* Puzzle games: High (can restart level freely)
+* Narrative games: Low (story choices stick)
+
+**Red flags:**
+
+* Low reversibility + high punishment = frustration
+* High reversibility + narrative focus = choices feel meaningless
+* Inconsistent (some choices reversible, others not without clear logic)
+
+### 2.3 Risk Visibility
+
+**Definition:** Can players see potential consequences before committing?
+
+**Measurement scale:**
+
+* **None:** Hidden consequences (discovery through trial/error)
+* **Partial:** Some information available (clues, hints)
+* **High:** Stakes transparent (exact risks visible)
+* **Perfect:** Complete information (chess-like)
+
+**Paradigm behavior:**
+
+* **Framework:** High (Position/Effect states stakes explicitly)
+* **Consistency:** None initially, becomes High (learn through death)
+* **Adaptive:** Partial (some surprises, but general danger level visible)
+
+**Primary aesthetics:**
+
+* Narrative: High visibility (informed choices)
+* Challenge: Earned visibility (learn through play)
+* Discovery: None to Partial (mystery matters)
+* Tension: Partial (some known threats, some surprises)
+
+**Common targets:**
+
+* Framework games: High (Blades states Position/Effect)
+* Challenge games: None initially (Dark Souls teaches through death)
+* Puzzle games: Perfect (all information available)
+* Horror games: None to Partial (fear of unknown)
+
+**Red flags:**
+
+* Narrative game with None visibility (can't make informed choices)
+* Challenge game with Perfect visibility (trivializes planning)
+* Inconsistent (sometimes visible, sometimes hidden without pattern)
+
+### 2.4 Outcome Predictability
+
+**Definition:** How well can players predict consequences of actions?
+
+**Measurement scale:**
+
+* **Deterministic:** Same action always produces same outcome
+* **Bounded random:** Random within known range (2d6 damage = 2-12)
+* **Wide random:** Random within wide range (crit mechanics)
+* **Opaque:** Can't predict outcomes
+
+**Paradigm behavior:**
+
+* **Framework:** Bounded random (Position/Effect range known, roll determines specifics)
+* **Consistency:** Deterministic (same input = same output)
+* **Adaptive:** Wide random (system introduces variance)
+
+**Primary aesthetics:**
+
+* Challenge: Deterministic to Bounded (skill testing requires predictability)
+* Narrative: Bounded random (some uncertainty drives drama)
+* Discovery: Wide random (unpredictability creates surprise)
+* Mastery: Deterministic (optimization requires calculation)
+
+**Common targets:**
+
+* Tactics games: Deterministic to Bounded (85% hit chance known)
+* Narrative games: Bounded random (2d6 gives predictable probabilities)
+* Roguelikes: Wide random (crits, procs, random events)
+* Puzzle games: Deterministic (same inputs = same outputs)
+
+**Red flags:**
+
+* Challenge game with Opaque outcomes (can't learn, feels unfair)
+* Mastery game with Wide random (can't optimize)
+* All outcomes Deterministic (no variety, becomes rote)
+
+***
+
+## Component 3: Information Dynamics
+
+What players know and discover.
+
+### 3.1 Information Transparency
+
+**Definition:** How much information about game state is visible to players.
+
+**Measurement scale:**
+
+* **Perfect:** All information visible (HP numbers, exact stats)
+* **High:** Most information visible (ranges, approximate values)
+* **Partial:** Some information visible (health bars, indicators)
+* **Minimal:** Little information (no UI, diegetic only)
+* **None:** Hidden information (pure discovery)
+
+**Paradigm behavior:**
+
+* **Framework:** High (stakes require visible information)
+* **Consistency:** Partial to High (can calculate if known)
+* **Adaptive:** Partial (don't reveal adaptation mechanics)
+
+**Primary aesthetics:**
+
+* Challenge: High (need information to optimize)
+* Mastery: Perfect (need exact numbers for calculation)
+* Narrative: Partial (too much UI breaks immersion)
+* Discovery: Minimal to None (mystery matters)
+* Tension: Partial (uncertainty increases pressure)
+
+**Common targets:**
+
+* Tactics games: Perfect (exact HP, percentages, ranges)
+* Action games: High (health bars, damage numbers)
+* Narrative games: Partial (stress boxes, harm levels without exact numbers)
+* Horror: Minimal (limited UI, diegetic information only)
+
+**Red flags:**
+
+* Challenge game with None transparency (can't make informed tactical choices)
+* Mastery game with Minimal transparency (can't calculate optimal plays)
+* Too much information in Narrative game (UI overwhelms story)
+
+### 3.2 Discovery Rate
+
+**Definition:** How quickly players encounter new information/content.
+
+**Measurement scale:**
+
+* Discoveries per hour
+* Percentage of total content revealed per session
+* Time to see all content
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (situations unique but framework repeatable)
+* **Consistency:** Slow (same content, deeper mastery)
+* **Adaptive:** High (variety through procedural generation)
+
+**Primary aesthetics:**
+
+* Discovery: High rate (2-5 new things per hour)
+* Challenge: Low rate (master existing content before new)
+* Narrative: Moderate (new story beats, not overwhelming)
+* Mastery: Low (deep understanding before complexity added)
+
+**Common targets:**
+
+* Roguelikes: High (see new item/enemy every 10-30 min)
+* Challenge games: Low (same content, deeper learning)
+* Campaign narrative: Moderate (1-2 major reveals per session)
+* Tutorial phases: High initially, then slows
+
+**Red flags:**
+
+* Discovery game with rate below 1 per hour (boring)
+* Challenge game with rate above 5 per hour (can't master anything)
+* Rate too high at end-game (overwhelming when complexity already high)
+
+### 3.3 Pattern Consistency
+
+**Definition:** Do same situations produce same outcomes?
+
+**Measurement scale:**
+
+* **Perfect:** Identical inputs always produce identical outputs
+* **High:** Nearly consistent (minor variance only)
+* **Moderate:** Consistent patterns with variation
+* **Low:** Similar situations can vary widely
+* **None:** Every situation unique
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (framework consistent, situations vary)
+* **Consistency:** Perfect to High (by definition)
+* **Adaptive:** Low to Moderate (variation introduced)
+
+**Primary aesthetics:**
+
+* Challenge: High to Perfect (pattern learning essential)
+* Mastery: Perfect (optimization requires consistency)
+* Discovery: None to Low (variety matters)
+* Narrative: Moderate (framework consistent, applications vary)
+
+**Common targets:**
+
+* Dark Souls: Perfect (same boss = same patterns every time)
+* Blades: Moderate (framework consistent, situations unique)
+* L4D2: Low (AI Director varies encounters)
+* Pure procedural: None (different every time)
+
+**Red flags:**
+
+* Challenge aesthetic with Low consistency (can't learn patterns)
+* Mastery aesthetic with None consistency (can't optimize)
+* Perfect consistency in Discovery game (boring)
+
+### 3.4 Surprise Frequency
+
+**Definition:** How often unexpected events occur.
+
+**Measurement scale:**
+
+* Never: Fully predictable
+* Rare: Surprises every few sessions
+* Moderate: Surprises per session
+* Frequent: Multiple surprises per hour
+* Constant: Unpredictable throughout
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (player actions create surprises)
+* **Consistency:** Rare (initially surprising, then learned)
+* **Adaptive:** Frequent (system introduces variety)
+
+**Primary aesthetics:**
+
+* Discovery: Frequent (1-3 per hour)
+* Tension: Moderate (keep players on edge)
+* Challenge: Rare (consistency more important)
+* Narrative: Moderate (dramatic reveals)
+
+**Common targets:**
+
+* Horror: Moderate to Frequent (jumpscares, twists)
+* Roguelikes: Frequent (new combinations, rare items)
+* Challenge games: Rare (surprises initially, then mastered)
+* Puzzle games: Never (deterministic solutions)
+
+**Red flags:**
+
+* Discovery game with Never/Rare (boring)
+* Challenge game with Frequent (can't learn patterns)
+* Horror with Constant (surprise fatigue)
+
+***
+
+## Component 4: Risk Dynamics
+
+What's at stake and how.
+
+### 4.1 Consequence Severity
+
+**Definition:** How much mistakes cost.
+
+**Measurement scale:**
+
+* **None:** No negative consequences
+* **Low:** Minor setbacks (lose seconds, small resources)
+* **Moderate:** Significant setbacks (lose minutes, major resources)
+* **High:** Major setbacks (lose progress, permadeath)
+* **Extreme:** Catastrophic loss (account deletion, irrecoverable)
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate to High (consequences drive story)
+* **Consistency:** High (necessary for Challenge aesthetic)
+* **Adaptive:** Moderate (adjust to maintain engagement)
+
+**Primary aesthetics:**
+
+* Challenge: High (stakes create meaning)
+* Tension: High (pressure requires danger)
+* Narrative: Moderate (complications not dead ends)
+* Submission: None to Low (relaxation)
+* Fellowship: Moderate (team can recover)
+
+**Common targets:**
+
+* Roguelikes: High (permadeath)
+* Dark Souls: High (lose souls, restart from bonfire)
+* Narrative games: Moderate (harm/stress accumulates)
+* Casual games: Low (can always retry)
+* Competitive: Moderate (lose ranking points)
+
+**Red flags:**
+
+* Challenge game with Low severity (no stakes)
+* Submission game with High severity (anxiety not relaxation)
+* Extreme severity anywhere (usually toxic)
+
+### 4.2 Risk Frequency
+
+**Definition:** How often players face potential loss.
+
+**Measurement scale:**
+
+* Constant: Every action has stakes
+* High: Multiple risks per minute
+* Moderate: Few risks per session
+* Low: Rare dangerous moments
+* Never: No risk gameplay
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (stake negotiation per action)
+* **Consistency:** High in challenge moments (every attack can kill)
+* **Adaptive:** Varies (increase/decrease pressure)
+
+**Primary aesthetics:**
+
+* Tension: High frequency (constant pressure)
+* Challenge: High in combat, Low in preparation
+* Narrative: Moderate (dramatic moments)
+* Submission: Never to Low (safe play)
+
+**Common targets:**
+
+* Action games: Constant (any hit can hurt)
+* Tactics games: High (every turn matters)
+* Exploration: Low (mostly safe, occasional danger)
+* Puzzle: Never (no loss condition)
+
+**Red flags:**
+
+* Tension aesthetic with Low frequency (no pressure)
+* Submission aesthetic with High frequency (stressful)
+* Constant + High severity (exhausting)
+
+### 4.3 Comeback Possibility
+
+**Definition:** Can players recover from major setbacks?
+
+**Measurement scale:**
+
+* **Impossible:** Death spirals, no recovery
+* **Very difficult:** Requires perfect play
+* **Difficult:** Requires good play and time
+* **Moderate:** Recoverable with effort
+* **Easy:** Simple to recover
+* **Automatic:** System provides recovery
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (consequences stick but can work around)
+* **Consistency:** Very difficult to Impossible (designed for retry)
+* **Adaptive:** Moderate to Easy (system helps recovery)
+
+**Primary aesthetics:**
+
+* Fellowship: Moderate to Easy (team recovery essential)
+* Challenge: Very difficult to Impossible (mistakes matter)
+* Narrative: Moderate (can continue story with consequences)
+* Competitive: Impossible to Difficult (fairness)
+
+**Common targets:**
+
+* Co-op: Moderate (team can revive, resupply)
+* Dark Souls: Impossible (death = restart from checkpoint)
+* MOBAs: Difficult (catch-up mechanics exist but hard)
+* Party games: Easy (everyone stays competitive)
+
+**Red flags:**
+
+* Fellowship game with Impossible (one player ruins team)
+* Challenge game with Easy (stakes evaporate)
+* Competitive with Easy (rubber-banding feels unfair)
+
+### 4.4 Loss Accumulation
+
+**Definition:** Do consequences compound or stay isolated?
+
+**Measurement scale:**
+
+* **None:** Each event independent
+* **Linear:** Consequences accumulate predictably
+* **Exponential:** Consequences compound (death spirals)
+* **Bounded:** Accumulates to limit, then stops
+
+**Paradigm behavior:**
+
+* **Framework:** Bounded (stress/harm tracks have maximums)
+* **Consistency:** None to Linear (each attempt independent)
+* **Adaptive:** Linear (system prevents spirals)
+
+**Primary aesthetics:**
+
+* Challenge: None (each attempt fresh start)
+* Tension: Linear to Exponential (pressure builds)
+* Narrative: Bounded (trauma/harm has maximum)
+* Progression: Linear (gear/levels accumulate)
+
+**Common targets:**
+
+* Roguelikes: None (each run independent)
+* Narrative: Bounded (0-9 stress, then trauma)
+* Horror: Linear (sanity decreases over time)
+* Competitive: Linear (losing early hurts but recoverable)
+
+**Red flags:**
+
+* Exponential spirals without comeback mechanics
+* None accumulation in Narrative (no consequences persist)
+* Unbounded accumulation (becomes impossible)
+
+***
+
+## Component 5: Social Dynamics
+
+How players interact.
+
+### 5.1 Coordination Requirement
+
+**Definition:** How much must players coordinate to succeed?
+
+**Measurement scale:**
+
+* **None:** Solo play or purely parallel
+* **Optional:** Coordination helpful but not required
+* **Moderate:** Some coordination needed
+* **High:** Constant coordination essential
+* **Perfect:** Precise coordination required
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (discuss stakes, share information)
+* **Consistency:** None to Moderate (each player can learn independently)
+* **Adaptive:** High (system enforces cooperation)
+
+**Primary aesthetics:**
+
+* Fellowship: High (cooperation is the point)
+* Competitive: None (opponents, not allies)
+* Challenge: Moderate (can coordinate tactics)
+* Narrative: Moderate (discuss story choices)
+
+**Common targets:**
+
+* L4D2: High (must coordinate or die)
+* Dark Souls co-op: Optional (summons help but not required)
+* Blades: Moderate (players discuss but each has agency)
+* Competitive: None (FFA) to High (team games)
+
+**Red flags:**
+
+* Fellowship game with None/Optional (not actually cooperative)
+* Solo game with High requirement (forces multiplayer)
+* Perfect coordination required (too demanding)
+
+### 5.2 Communication Bandwidth
+
+**Definition:** How much communication is needed/possible?
+
+**Measurement scale:**
+
+* **None:** No communication (solo or automated)
+* **Minimal:** Pings, emotes only
+* **Moderate:** Voice/text for key moments
+* **High:** Constant voice communication
+* **Unlimited:** Can pause to discuss at length
+
+**Paradigm behavior:**
+
+* **Framework:** Unlimited to High (stake negotiation requires discussion)
+* **Consistency:** Minimal to Moderate (can pre-plan)
+* **Adaptive:** Moderate to High (coordinate in moment)
+
+**Primary aesthetics:**
+
+* Fellowship: High (communication is social glue)
+* Narrative: Unlimited (discuss story implications)
+* Challenge: Moderate (coordinate tactics, but execution matters)
+* Tension: Minimal (no time for extended discussion)
+
+**Common targets:**
+
+* Tabletop RPG: Unlimited (can pause, discuss)
+* Real-time co-op: Moderate (quick callouts)
+* Competitive fast-paced: Minimal (no time)
+* Asynchronous: None (play at different times)
+
+**Red flags:**
+
+* Fellowship game with None (can't actually cooperate)
+* Tension game requiring Unlimited (breaks urgency)
+* High requirement excluding players without voice chat
+
+### 5.3 Skill Gap Tolerance
+
+**Definition:** How much skill variance can system accommodate?
+
+**Measurement scale:**
+
+* **None:** All players must be equal skill
+* **Low:** Small variance acceptable (±10%)
+* **Moderate:** Some variance okay (±25%)
+* **High:** Wide variance tolerable (±50%)
+* **Unlimited:** Any skill level works together
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate to High (GM can adjust stakes)
+* **Consistency:** Low to None (fixed difficulty)
+* **Adaptive:** High to Unlimited (system balances)
+
+**Primary aesthetics:**
+
+* Fellowship: High (want wide skill range to play together)
+* Competitive: None (fairness requires equal skill)
+* Challenge: Low (designed for specific skill level)
+* Submission: Unlimited (accommodates anyone)
+
+**Common targets:**
+
+* Party games: Unlimited (anyone can play)
+* L4D2: High (Director helps weaker players)
+* Dark Souls: Low (fixed difficulty)
+* Ranked competitive: None (matchmaking required)
+
+**Red flags:**
+
+* Fellowship game with None/Low (excludes mixed-skill groups)
+* Competitive with High (unfair matches)
+* Challenge game claiming High but actually None
+
+### 5.4 Social Pressure
+
+**Definition:** How much external pressure do players feel from others?
+
+**Measurement scale:**
+
+* **None:** Solo, no audience
+* **Low:** Asynchronous, delayed feedback
+* **Moderate:** Observer pressure
+* **High:** Live performance pressure
+* **Extreme:** Competitive with stakes
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate to High (negotiating in group)
+* **Consistency:** Low to Moderate (can practice alone)
+* **Adaptive:** Varies (system can hide/show performance)
+
+**Primary aesthetics:**
+
+* Fellowship: Moderate (want positive social experience)
+* Competitive: High to Extreme (pressure is feature)
+* Challenge: None to Moderate (focus on task)
+* Submission: None (relaxation)
+
+**Common targets:**
+
+* Solo games: None
+* Tabletop RPG: Moderate (group watching your turn)
+* Live streaming: High (audience present)
+* Esports: Extreme (public performance)
+
+**Red flags:**
+
+* Submission aesthetic with High pressure (anxiety not relaxation)
+* Fellowship with Extreme pressure (toxicity)
+* Moderate pressure without tools to handle it (mute, privacy options)
+
+***
+
+## Component 6: Progress Dynamics
+
+How advancement works.
+
+### 6.1 Progress Type
+
+**Definition:** What form does player advancement take?
+
+**Measurement scale:**
+
+* **None:** No progression (pure skill-based)
+* **Skill:** Player gets better (Dark Souls pattern learning)
+* **Character:** Stats/abilities improve
+* **Meta:** Account-wide unlocks
+* **Narrative:** Story advances
+* **Collection:** Acquire items/achievements
+
+**Paradigm behavior:**
+
+* **Framework:** Skill + Narrative (learn system + story progresses)
+* **Consistency:** Skill primary (pattern mastery)
+* **Adaptive:** Character + Meta (power compensates for skill gaps)
+
+**Primary aesthetics:**
+
+* Challenge: Skill (player improvement is achievement)
+* Mastery: Skill (deep system understanding)
+* Narrative: Narrative (story is progress)
+* Progression: Character + Meta (becoming powerful)
+* Collection: Collection (completionism)
+
+**Common targets:**
+
+* Pure skill: Fighting games, challenge platformers
+* Character: Traditional RPGs (levels, stats)
+* Meta: Roguelikes (permanent unlocks across runs)
+* Narrative: Story games (unlock story beats)
+* Hybrid: Most modern games (multiple types)
+
+**Red flags:**
+
+* Challenge aesthetic with only Character progression (power not skill)
+* Narrative aesthetic with no Narrative progression (story stagnant)
+* Too many types simultaneously (overwhelming)
+
+### 6.2 Power Curve
+
+**Definition:** How does power change over time?
+
+**Measurement scale:**
+
+* **Flat:** No power increase
+* **Linear:** Constant growth rate
+* **Exponential:** Accelerating growth
+* **S-curve:** Fast early, then flattens
+* **Stepped:** Discrete jumps (level-ups)
+
+**Paradigm behavior:**
+
+* **Framework:** Flat to Linear (skill improvement, not stat scaling)
+* **Consistency:** Flat (pure skill-based) to Stepped (gear upgrades)
+* **Adaptive:** Linear to S-curve (system compensates at top end)
+
+**Primary aesthetics:**
+
+* Challenge: Flat (pure skill testing)
+* Progression: Exponential to S-curve (feeling of growth)
+* Tension: Flat to Linear (consistency in stakes)
+* Submission: Linear (steady comfortable growth)
+
+**Common targets:**
+
+* Skill-based: Flat (player skill only variable)
+* RPG early: Linear (levels 1-10)
+* RPG mid: Exponential (levels 10-20, accelerating)
+* RPG late: S-curve (flattens at cap)
+
+**Red flags:**
+
+* Exponential without cap (breaks balance at high level)
+* Flat in Progression-focused game (no advancement feeling)
+* Too steep early (trivializes content too fast)
+
+### 6.3 Mastery Curve
+
+**Definition:** How does player capability improve with practice?
+
+**Measurement scale:**
+
+* **None:** No improvement possible (pure randomness)
+* **Slow:** Small improvements over long practice
+* **Moderate:** Noticeable improvement per session
+* **Fast:** Rapid improvement within hours
+* **Perfect:** Can master completely
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (learn system, doesn't cap)
+* **Consistency:** Fast to Perfect (pattern learning enables mastery)
+* **Adaptive:** Slow (system adjusts, prevents ceiling)
+
+**Primary aesthetics:**
+
+* Challenge: Fast to Perfect (mastery is goal)
+* Mastery: Perfect (complete understanding possible)
+* Tension: Moderate (some improvement, always challenging)
+* Submission: None to Slow (not focused on mastery)
+
+**Common targets:**
+
+* Fighting games: Perfect (frame-perfect execution possible)
+* Dark Souls: Fast (bosses that took 20 attempts now take 1-2)
+* L4D2: Moderate (better coordination over time)
+* Casual games: Slow to None (consistent difficulty)
+
+**Red flags:**
+
+* Challenge aesthetic with None/Slow curve (frustration)
+* Mastery aesthetic without Perfect capability (ceiling too low)
+* Adaptive canceling out improvement (feels patronizing)
+
+### 6.4 Unlock Pacing
+
+**Definition:** How quickly do new options become available?
+
+**Measurement scale:**
+
+* Unlocks per hour
+* Percentage of total content per session
+* Time to 100% unlock
+
+**Paradigm behavior:**
+
+* **Framework:** N/A (all options available from start typically)
+* **Consistency:** Slow (focus on mastery before new complexity)
+* **Adaptive:** Moderate to Fast (maintain variety)
+
+**Primary aesthetics:**
+
+* Discovery: Fast (2-5 unlocks per hour)
+* Progression: Moderate (1-2 per hour)
+* Challenge: Slow (master before adding complexity)
+* Mastery: Slow (depth before breadth)
+
+**Common targets:**
+
+* Early game: Fast (unlock core systems in first hour)
+* Mid game: Moderate (1-2 unlocks per hour)
+* Late game: Slow (most content available, occasional surprise)
+* Total time to 100%: 20-100 hours depending on game scope
+
+**Red flags:**
+
+* Discovery game unlocking 100% in first 10 hours
+* Challenge game adding complexity faster than can master
+* No unlocks after early game (nothing new to discover)
+
+***
+
+## Component 7: Emotional Dynamics
+
+What feelings are evoked.
+
+### 7.1 Emotional Stakes
+
+**Definition:** How much do players care about outcomes personally?
+
+**Measurement scale:**
+
+* **None:** Emotionally uninvested
+* **Low:** Mild preference for winning
+* **Moderate:** Care about outcomes
+* **High:** Deeply invested in results
+* **Extreme:** Real emotional impact
+
+**Paradigm behavior:**
+
+* **Framework:** High (narrative investment)
+* **Consistency:** Moderate to High (achievement investment)
+* **Adaptive:** Varies (system can manage intensity)
+
+**Primary aesthetics:**
+
+* Narrative: High to Extreme (story matters personally)
+* Challenge: Moderate to High (achievement matters)
+* Fellowship: Moderate (team bonding)
+* Submission: None to Low (relaxation)
+
+**Common targets:**
+
+* Story-driven: High (care about characters, outcomes)
+* Challenge-driven: Moderate (care about overcoming)
+* Casual: Low (light investment)
+* Competitive: High to Extreme (ego involvement)
+
+**Red flags:**
+
+* Narrative game with Low stakes (story doesn't land)
+* Submission game with High stakes (anxiety not relaxation)
+* Extreme stakes without support systems (toxic)
+
+### 7.2 Frustration Tolerance
+
+**Definition:** How much frustration is acceptable?
+
+**Measurement scale:**
+
+* **None:** Zero frustration acceptable
+* **Low:** Minor frustration okay
+* **Moderate:** Some frustration expected
+* **High:** Significant frustration tolerated
+* **Extreme:** Designed to frustrate
+
+**Paradigm behavior:**
+
+* **Framework:** Low to Moderate (GM manages)
+* **Consistency:** High (death teaches)
+* **Adaptive:** Low to Moderate (system helps before extreme frustration)
+
+**Primary aesthetics:**
+
+* Challenge: High (frustration → mastery → satisfaction)
+* Submission: None (relaxation)
+* Fellowship: Low to Moderate (team frustration spreads)
+* Narrative: Low (don't want frustration blocking story)
+
+**Common targets:**
+
+* Challenge games: High (Dark Souls: die 20+ times acceptable)
+* Narrative: Low (stuck = can't see story = bad)
+* Casual: None to Low (frustration = quit)
+* Puzzle: Moderate (want challenge without helplessness)
+
+**Red flags:**
+
+* Submission aesthetic with High frustration (contradicts goal)
+* High frustration without clear path forward (helpless not challenged)
+* Extreme frustration (almost always toxic)
+
+### 7.3 Achievement Satisfaction
+
+**Definition:** How rewarding does success feel?
+
+**Measurement scale:**
+
+* **None:** No satisfaction (random or trivial)
+* **Low:** Mild satisfaction
+* **Moderate:** Noticeable satisfaction
+* **High:** Significant sense of achievement
+* **Extreme:** Major life accomplishment feeling
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate to High (story victories feel earned)
+* **Consistency:** High to Extreme (mastery satisfaction deep)
+* **Adaptive:** Low to Moderate (if help obvious, satisfaction reduced)
+
+**Primary aesthetics:**
+
+* Challenge: High to Extreme (achievement is core goal)
+* Mastery: Extreme (perfection satisfaction)
+* Narrative: Moderate (story resolution satisfaction)
+* Submission: None to Low (not focused on achievement)
+
+**Common targets:**
+
+* Challenge games: High (beat Dark Souls boss)
+* Competitive wins: High (beat other players)
+* Story resolution: Moderate (completed narrative)
+* Casual victories: Low (pleasant not profound)
+
+**Red flags:**
+
+* Challenge aesthetic with Low satisfaction (hollow victories)
+* High satisfaction from trivial wins (participation trophy feeling)
+* Adaptive help so obvious it reduces satisfaction
+
+### 7.4 Flow State Frequency
+
+**Definition:** How often do players enter flow (optimal engagement)?
+
+**Measurement scale:**
+
+* **Never:** No flow state achievable
+* **Rare:** Occasional brief moments
+* **Moderate:** Sometimes achieves flow
+* **Frequent:** Often in flow state
+* **Constant:** Designed for sustained flow
+
+**Paradigm behavior:**
+
+* **Framework:** Moderate (negotiation breaks flow, resolution can create it)
+* **Consistency:** Frequent to Constant (skill-challenge balance enables flow)
+* **Adaptive:** Frequent (system maintains flow channel)
+
+**Primary aesthetics:**
+
+* Challenge: Frequent (flow is goal state)
+* Mastery: Frequent (deep engagement)
+* Tension: Moderate (too much tension breaks flow)
+* Submission: Frequent (relaxed engagement)
+
+**Common targets:**
+
+* Action games: Frequent (good challenge-skill balance)
+* Puzzle games: Moderate to Frequent
+* Narrative games: Moderate (story moments create flow)
+* Badly balanced: Never (too hard or too easy)
+
+**Red flags:**
+
+* Challenge game with Never/Rare flow (wrong difficulty)
+* Too many interruptions (breaks flow state)
+* Flow only achievable at extreme skill (excludes most players)
+
+***
+
+## Using the Catalog
+
+### Quick Reference: Aesthetic → Priority Measurables
+
+**Challenge aesthetic prioritizes:**
+
+1. Consequence Severity (HIGH)
+2. Pattern Consistency (HIGH)
+3. Mastery Curve (steep, clear)
+4. Recovery Speed (SLOW)
+5. Time-to-Kill Consistency (predictable)
+6. **Pacing:** Episodic (tactical) or Attrition (strategic)
+
+**Narrative aesthetic prioritizes:**
+
+1. Risk Visibility (HIGH)
+2. Agency Scope (TACTICAL to STRATEGIC)
+3. Choice Reversibility (LOW)
+4. Emotional Stakes (HIGH)
+5. Information Transparency (PARTIAL)
+6. **Pacing:** Wave (dramatic structure) or Episodic (scene-based)
+
+**Fellowship aesthetic prioritizes:**
+
+1. Coordination Requirement (HIGH)
+2. Comeback Possibility (MODERATE to HIGH)
+3. Skill Gap Tolerance (HIGH)
+4. Communication Bandwidth (MODERATE to HIGH)
+5. Social Pressure (MODERATE, positive)
+6. **Pacing:** Episodic or Wave (space for social interaction)
+
+**Discovery aesthetic prioritizes:**
+
+1. Surprise Frequency (FREQUENT)
+2. Discovery Rate (HIGH, 2-5 per hour)
+3. Option Space Size (LARGE)
+4. Pattern Consistency (LOW to NONE)
+5. Information Transparency (PARTIAL)
+6. **Pacing:** Punctuated or Continuous (exploration at player pace)
+
+**Tension aesthetic prioritizes:**
+
+1. Risk Frequency (HIGH)
+2. Consequence Severity (HIGH)
+3. Recovery Speed (SLOW)
+4. Tension Gradient (CYCLICAL with high peaks)
+5. Frustration Tolerance (MODERATE to HIGH)
+6. **Pacing:** Attrition or Punctuated (building pressure)
+
+**Mastery aesthetic prioritizes:**
+
+1. Pattern Consistency (PERFECT)
+2. Mastery Curve (PERFECT mastery possible)
+3. Information Transparency (PERFECT)
+4. Outcome Predictability (DETERMINISTIC)
+5. Option Space Size (LARGE, complex)
+6. **Pacing:** Continuous or Episodic (depends on mastery type)
+
+### Paradigm → Required Measurables
+
+**Framework paradigm requires:**
+
+* Risk Visibility (HIGH) - stakes must be transparent
+* Agency Scope (TACTICAL+) - choices must shape outcomes
+* Information Transparency (PARTIAL+) - enough to make informed decisions
+* Consequence Severity (MODERATE+) - stakes must matter
+
+**Consistency paradigm requires:**
+
+* Pattern Consistency (HIGH) - predictable outcomes
+* Time-to-Kill Consistency (within ±20%) - plannable
+* Mastery Curve (EXISTS) - improvement through practice
+* Recovery Speed (SLOW) - stakes persist
+
+**Adaptive paradigm requires:**
+
+* Comeback Possibility (MODERATE+) - must be recoverable
+* Tension Gradient (MANAGED) - system controls intensity
+* Skill Gap Tolerance (HIGH) - accommodate variance
+* Subtlety (NOT TOO OBVIOUS) - adaptation shouldn't feel manipulative
+
+### How to Use This Catalog
+
+**Step 1:** Identify your primary aesthetic (from earlier chapters)
+
+**Step 2:** Find that aesthetic's priority measurables (quick reference above)
+
+**Step 3:** Check your paradigm's required measurables (add to list)
+
+**Step 4:** Look up each measurable in catalog for:
+
+* Definition (what it means)
+* Common targets (starting point values)
+* Red flags (what to avoid)
+
+**Step 5:** Use these measurables to guide your parameter setting (Part 6)
+
+**Example workflow:**
+
+* Aesthetic: Challenge
+* Paradigm: Consistency
+* Priority measurables: Consequence Severity (HIGH), Pattern Consistency (HIGH), Mastery Curve (steep), Recovery Speed (SLOW), Time-to-Kill Consistency (±20%)
+* Look up each → get target values → use in Part 6 calculations
+
+**Part 6 will show you how to turn measurable targets into actual numbers.**

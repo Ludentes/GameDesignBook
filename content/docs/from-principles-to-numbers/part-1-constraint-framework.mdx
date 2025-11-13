@@ -1,0 +1,410 @@
+---
+title: part-1-constraint-framework
+---
+# Part 1: The Constraint Satisfaction Framework
+
+## What This Chapter Covers (And What It Doesn't)
+
+### What We Cover
+
+This chapter focuses on **single-system balance within bounded scope**:
+
+* Setting parameters for new games or discrete systems
+* One-shot to short campaign balance (sessions to months)
+* Small to medium complexity (2-10 interacting systems)
+* Initial launch balance (not live service iteration)
+
+**Why this scope:** These are the problems most designers face most often. Get this right, and you have foundation for everything else.
+
+### What We Don't Cover
+
+**Long-term live balance:** Games like League of Legends (15+ years, 160+ characters) or World of Warcraft (20+ years, constant patches) require entire teams and methodologies beyond one chapter. We'll point you toward principles, but balancing a decade-long live service is a book-length topic itself.
+
+**Massive complexity:** Balancing D\&D 5e's 13 classes across 20 levels, each with dozens of spells and abilities, involves tools and processes we can't fully cover here. We'll help you think about scaling (Part 8), but comprehensive multi-year development of vast systems needs more than this chapter provides.
+
+**Competitive esports balance:** High-level competitive play reveals edge cases and optimization strategies that casual play never encounters. If you're designing for professional competition, you need everything here PLUS expert player councils, telemetry analysis, and constant iteration. We provide foundation, not advanced competitive balancing.
+
+**Emergent complexity:** When players discover unexpected interactions between systems, or when community optimization finds dominant strategies months after launch, you need responsive iteration processes. We cover validation (Part 7) and common pitfalls (Part 9), but ongoing balance maintenance is beyond our scope.
+
+### What You Get
+
+If you're designing:
+
+* A new tabletop RPG
+* A board game
+* A roguelike with 10-20 items
+* A tactics game with 5-10 unit types
+* A small-scale video game
+* An expansion or module for existing game
+
+**This chapter helps you systematically go from aesthetic goals to working parameters.**
+
+If you're maintaining League of Legends or designing D\&D 6e, this chapter provides **thinking tools and starting points**, but you'll need additional resources and team processes.
+
+We're teaching you to fish, not giving you an industrial fishing fleet.
+
+## The Problem This Chapter Solves
+
+You've read the earlier chapters. You understand your aesthetic goals. You know what resources to use and why. You've thought about cognitive load. But now you face the practical question:
+
+**"Fireball does 3 damage or 3578? How much HP should enemies have? What makes an encounter challenging but not impossible?"**
+
+The book has told you WHAT to use and WHY. This chapter tells you HOW to set the actual numbers.
+
+But we can't just give you a formula. Balance isn't mathematical optimization—it's creating an experience that serves your aesthetic. The "right" numbers for Dark Souls would be completely wrong for Blades in the Dark, even though both are RPGs with combat.
+
+Instead, we'll show you a **systematic process** for going from high-level goals ("I want Challenge aesthetic") to concrete parameters ("Boss has 540 HP, deals 8 damage per attack").
+
+## Balance as Constraint Satisfaction
+
+Game balance isn't a target you hit. It's a **constraint satisfaction problem**—you're finding parameters that satisfy multiple, sometimes competing constraints simultaneously.
+
+Think of it like designing a house:
+
+* The **lot size** constrains how big the house can be (like your time budget)
+* The **building codes** constrain what's structurally feasible (like your platform)
+* The **owner's lifestyle** determines room layout (like your aesthetic)
+* The **budget** constrains material choices (like your designer resources)
+
+No formula tells you THE house to build. But understanding your constraints helps you design a house that works.
+
+Game balance is the same.
+
+## The Five Constraint Levels
+
+Your design emerges from satisfying constraints at five levels:
+
+### Level 1: Design Context (What's Feasible)
+
+**What this is:** The unchangeable reality of your design situation.
+
+**What constrains:**
+
+* **Platform:** Digital vs. tabletop vs. hybrid? Computer-managed or human-adjudicated?
+* **Player count:** Solo, small group (2-5), large group (6-10), MMO-scale?
+* **Session structure:** Single sitting? Episodic? Ongoing campaign?
+* **Time budget:** 30 minutes? 3 hours? 40+ hours?
+* **Technical capability:** Can you track state persistently? Implement real-time adaptation? Use computer assistance?
+* **Designer/GM resources:** What can you author, track, adjudicate?
+
+**Why this matters first:** Some approaches simply aren't feasible given your context.
+
+**Example:**
+
+* "Real-time adaptive AI Director" requires computer tracking → Not feasible for pure tabletop
+* "Pattern-learning mastery loop" requires players to retry encounters → Not feasible for single-session one-shot
+* "Complex state tracking across 40+ variables" → Not feasible without computer assistance
+
+**Design Context eliminates infeasible options before you consider aesthetics.**
+
+### Level 2: Aesthetic Goals (What Experience You Want)
+
+**What this is:** The experience you're trying to create for players.
+
+**Drawing from earlier chapters** (using MDA framework + our expansions):
+
+**MDA's eight aesthetics:**
+
+* Sensation, Fantasy, Narrative, Challenge, Fellowship, Discovery, Expression, Submission
+
+**Our additional aesthetics** (from game analysis):
+
+* Mastery (deep system understanding)
+* Tension (high-stakes pressure)
+* Progression (growth over time)
+* Collection (completionism)
+
+**Your design:**
+
+* Primary aesthetic(s): Which experience(s) are you creating?
+* Secondary aesthetic(s): Supporting goals
+* Intensity: Pure aesthetic or blended experience?
+
+**Why this matters:** Different aesthetics require different approaches to balance.
+
+**Example:**
+
+* Challenge aesthetic: Players want to feel skilled mastery through overcoming difficulty
+* Narrative aesthetic: Players want meaningful choices that shape the story
+* Fellowship aesthetic: Players want to succeed/fail together through cooperation
+
+**These require fundamentally different things from your balance systems.**
+
+### Level 3: Paradigm Choice (How Balance Works)
+
+**What this is:** Your fundamental approach to creating balanced experience.
+
+**The three working paradigms:**
+
+* **Framework-based:** Explicit decision frameworks that create consistent adjudication
+* **Consistency-based:** Static, repeatable challenges enabling pattern learning
+* **Adaptive-based:** Dynamic systems that adjust to player performance
+
+**Plus combinations:** Hybrid approaches using different paradigms for different subsystems.
+
+**Why this matters:** Your paradigm determines what you build and how you validate it.
+
+**The relationship:**
+
+```
+Design Context
+     ↓ (constrains feasibility)
+Aesthetic Goals  
+     ↓ (suggests fit)
+Paradigm Choice
+```
+
+**Design Context eliminates infeasible paradigms.**
+**Aesthetic Goals score remaining paradigms by fit.**
+**You choose the paradigm that's both feasible and serves your aesthetic.**
+
+**Example:**
+
+* Context: Tabletop, one GM, 4 players, single session
+  * ✓ Framework feasible (GM can negotiate)
+  * ✓ Consistency feasible (can pre-author)
+  * △ Adaptive feasible but requires GM to track many variables
+
+* Aesthetic: Challenge (pattern mastery)
+  * Framework: Compatible but not ideal
+  * Consistency: ★★★ Ideal (enables pattern learning)
+  * Adaptive: Conflicts (adaptation prevents mastery)
+
+* **Choice:** Consistency paradigm (feasible + serves aesthetic)
+
+### Level 4: Measurable Priorities (What to Optimize)
+
+**What this is:** The specific properties of play experience you need to measure and tune.
+
+**Where these come from:**
+
+* Your aesthetic suggests certain measurables matter
+* Your paradigm adds paradigm-specific measurables
+* Together they determine priorities
+
+**The seven experience components** (detailed in Part 5):
+
+1. Temporal Dynamics (how experience unfolds over time)
+2. Agency Dynamics (what choices matter and why)
+3. Information Dynamics (what players know/discover)
+4. Risk Dynamics (what's at stake and how)
+5. Social Dynamics (how players interact)
+6. Progress Dynamics (how advancement works)
+7. Emotional Dynamics (what feelings are evoked)
+
+Each component has associated measurables. Different aesthetic+paradigm combinations prioritize different measurables.
+
+**The relationship:**
+
+```
+Design Context
+     ↓
+Aesthetic Goals ───────→ Measurable Priorities
+     ↓                         ↑
+Paradigm Choice ──────────────┘
+```
+
+**Both aesthetic AND paradigm constrain which measurables matter.**
+
+**Example:**
+
+* Challenge aesthetic says: "Optimize consequence severity, risk frequency, mastery curve"
+* Consistency paradigm adds: "And pattern consistency, repeatability, time-to-kill stability"
+* Result: These are your priority measurables for Challenge + Consistency
+
+### Level 5: Parameter Values (Actual Numbers)
+
+**What this is:** The concrete numbers in your game—HP, damage, costs, durations, probabilities.
+
+**Where these come from:**
+
+* Target values for your priority measurables
+* Your paradigm's number-setting approach
+* Calculations based on other constraints
+
+**The relationship:**
+
+```
+Design Context ──┐
+                  ↓
+Aesthetic Goals ─→ Measurable Priorities ─→ Parameter Values
+     ↓                    ↑                        ↑
+Paradigm Choice ─────────┴────────────────────────┘
+```
+
+**All levels constrain your parameters:**
+
+* Context: "Tabletop = simple math, no real-time calculations"
+* Aesthetic: "Challenge = time-to-kill should feel earned"
+* Paradigm: "Consistency = time-to-kill must be same each encounter"
+* Measurables: "Target: 3-5 rounds to defeat equal-level enemy"
+
+**Result:** Specific HP and damage values that satisfy all constraints.
+
+## How Constraints Interact
+
+**Constraint satisfaction means finding parameters that work within ALL your constraints simultaneously.**
+
+### Example: Time Constraint Cascades
+
+**Design Context:** "Single 5-hour session"
+
+**Immediate implications:**
+
+* Can't have long-term progression (no time for multiple sessions)
+* Combat encounters must resolve in minutes, not hours
+* Players need to learn systems quickly (no multi-session tutorial)
+
+**This constrains paradigm choice:**
+
+* ✓ Framework works (if simple framework)
+* ✓ Consistency works (single-session doesn't need retry opportunities)
+* △ Adaptive harder (limited time to establish baseline and adapt)
+
+**This constrains measurables:**
+
+* Decision frequency: \~10-15 minutes per major decision (180 minutes ÷ \~15 decisions)
+* Time-to-kill: Combat rounds must be 1-2 minutes max (2-hour boss fight = \~40-50 player turns total)
+* Learning curve: Must be comprehensible in minutes, not hours
+
+**This constrains parameters:**
+
+* Resolution mechanic must be fast (2d6, not complex dice pool)
+* Boss HP calculated from time-to-kill target
+* Complexity limited (can't track 40+ status effects)
+
+**One constraint (5-hour session) cascaded through all five levels.**
+
+### Example: Aesthetic Constrains Paradigm
+
+**Aesthetic Goal:** "Pure Challenge—mastery through pattern learning"
+
+**Immediate implications:**
+
+* Requires patterns to learn (not random)
+* Requires consistency (same pattern, same situation)
+* Requires consequence (mistakes matter)
+
+**This constrains paradigm choice:**
+
+* ✓ Consistency ideal (enables pattern learning)
+* △ Framework possible (if framework consistent)
+* ✗ Adaptive conflicts (adaptation prevents mastery)
+
+**This constrains measurables:**
+
+* Pattern consistency: HIGH (same input → same output)
+* Consequence severity: HIGH (failure must hurt)
+* Recovery speed: SLOW (can't trivially undo mistakes)
+* Mastery curve: Must exist (players get better over time)
+
+**Aesthetic determined paradigm, paradigm determined measurables, measurables determine parameters.**
+
+### Example: Paradigm Constrains Everything Below
+
+**Paradigm Choice:** Framework (Blades in the Dark style)
+
+**Immediate implications from paradigm:**
+
+* Need explicit negotiation framework (Position/Effect or equivalent)
+* Stakes must be transparent before roll
+* Partial success must be meaningful
+* Resolution must support negotiation
+
+**This constrains measurables:**
+
+* Risk visibility: HIGH (players must see stakes)
+* Agency scope: TACTICAL+ (choices shape outcomes)
+* Choice reversibility: LOW (stakes matter)
+* Resolution speed: MODERATE (time for negotiation)
+
+**This constrains parameters:**
+
+* Need framework tiers (Low/Medium/High risk, Minor/Major/Critical effect)
+* Need consequence tracks (stress, harm, progress clocks)
+* Resolution mechanic needs partial success (2d6 better than d20 hit/miss)
+
+**Paradigm choice rippled through measurables to parameters.**
+
+## What This Framework Actually Does
+
+Let's be honest about what this framework provides:
+
+### What Framework Does:
+
+**1. Makes reasoning explicit**
+You can articulate WHY you made choices, not just WHAT you chose.
+
+"I'm using Consistency paradigm because Challenge aesthetic requires pattern learning, and my 5-hour session constraint means I can't have players retry encounters to learn patterns."
+
+**2. Identifies what to measure**
+Instead of guessing what matters, framework tells you:
+
+"If Challenge + Consistency, then optimize: pattern consistency, consequence severity, time-to-kill stability, mastery curve."
+
+**3. Provides calculation methods**
+Framework gives you equations:
+
+"Time-to-kill = Player DPR × Target rounds → Boss HP = Time-to-kill × Expected damage"
+
+**4. Reveals conflicts**
+Framework shows when constraints fight each other:
+
+"My aesthetic wants unpredictable discovery, but my paradigm requires consistency. I need to resolve this tension."
+
+**5. Creates shared vocabulary**
+"We're using Framework paradigm" communicates a lot to your team or players.
+
+### What Framework Doesn't Do:
+
+**1. Eliminate judgment**
+You still decide whether Framework fits better than Consistency for your aesthetic. Framework helps you evaluate, not decide for you.
+
+**2. Produce unique solutions**
+Multiple paradigms often work. Framework helps you understand trade-offs, not eliminate options.
+
+**3. Generate creative content**
+Framework won't design your boss's attack patterns. It tells you boss needs consistent patterns, YOU create them.
+
+**4. Perfect tuning**
+Framework gets you in the ballpark. Playtesting fine-tunes exact values.
+
+**5. Replace experience**
+Expert designers still out-perform framework. But framework helps less-experienced designers think like experts.
+
+## The Honest Framing
+
+**This framework provides structure for your reasoning, not a formula that outputs THE answer.**
+
+You'll still use judgment. But now your judgment is **systematic and explicable** rather than pure intuition.
+
+When you iterate after playtesting, you'll know WHAT to adjust and WHY, not just randomly tweak numbers hoping something works.
+
+When you explain your design to others, you can show your reasoning: "Here are my constraints, here's why I chose this paradigm, here's what I'm optimizing for."
+
+That's what this framework gives you.
+
+## How to Use This Chapter
+
+**The process:**
+
+1. **Assess your Design Context** (Part 2: What's feasible for you?)
+2. **Choose your Paradigm(s)** (Part 2-3: What approach serves your aesthetic?)
+3. **Identify Measurable Priorities** (Part 3-5: What do you need to optimize?)
+4. **Derive Parameters** (Part 6: How do you calculate actual numbers?)
+5. **Validate Through Play** (Part 7: Does it work?)
+6. **Iterate Systematically** (Part 8-9: How do you adjust?)
+
+**The rest of this chapter:**
+
+* **Part 2:** Deep dive on the three paradigms (when to use, how they work)
+* **Part 3:** "Recipes" for common aesthetic+paradigm combinations
+* **Part 4:** What we learned from analyzing real games
+* **Part 5:** Complete catalog of measurables (reference material)
+* **Part 6:** From measurables to actual numbers (including resolution mechanic choice)
+* **Part 7:** Playtesting protocol (systematic validation)
+* **Part 8:** Scaling (what happens as systems grow)
+* **Part 9:** Common pitfalls and fixes
+* **Part 10:** Quick reference and takeaways
+
+Let's begin.

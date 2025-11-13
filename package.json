@@ -6,7 +6,9 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
-    "postinstall": "fumadocs-mdx"
+    "postinstall": "fumadocs-mdx",
+    "predeploy": "npm run build && cp public/.nojekyll out/.nojekyll",
+    "deploy": "gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@orama/orama": "^3.1.16",
@@ -27,6 +29,7 @@
     "@types/node": "^24.9.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.16",
     "typescript": "^5.9.3"

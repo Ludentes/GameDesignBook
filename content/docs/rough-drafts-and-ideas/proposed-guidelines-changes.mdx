@@ -1,0 +1,914 @@
+---
+title: "Proposed changes to Writing Guidelines"
+---
+# Proposed Changes to Writing Guidelines
+## Based on "What is a Game System?" Framework (Chapter 1)
+
+---
+
+## Executive Summary
+
+The "What is a Game System?" chapter introduces several foundational concepts that should be integrated into the writing guidelines:
+
+1. **System Functions** (7 functions all systems must address)
+2. **Configuration Coherence** (how components must align)
+3. **Five Components Framework** (Mechanics, Parameters, Context, Pacing, Configuration)
+4. **Character Creation as Filter** (aesthetic enforcement through creation)
+5. **Information Management** (core vs. optional information)
+6. **Research Methodology** (hypotheses, validation, confidence levels)
+
+These need to be added to Part 1 (Core Conceptual Commitments) and referenced throughout.
+
+---
+
+## Category 1: Add to Part 1 (Core Conceptual Commitments)
+
+### Addition 1.1: System Functions Framework
+
+**Insert after "Resource Classification" section**
+
+```markdown
+### System Functions (From Game System Chapter)
+
+**Core Insight:** Game systems don't just resolve actions—they perform seven distinct functions. Different aesthetics require different functions to work well.
+
+**The Seven System Functions:**
+
+1. **Adjudication** - Resolving uncertainty (dice, GM fiat, algorithms, LLM)
+2. **Information Management** - Controlling what players know and when
+3. **Content Generation** - Creating situations (pre-authored, procedural, improvised)
+4. **State Persistence** - Remembering across sessions/time
+5. **Cognitive Encoding** - Shaping how players think (through mechanics, stats, resources)
+6. **Constraint Design** - Creating meaningful limitations
+7. **Procedural Content for Solo Play** - Enabling GM-less play (oracles, procedures)
+
+**Function Priority by Aesthetic:**
+
+Not all functions matter equally for all aesthetics:
+- **Mystery aesthetic:** Information Management (critical), State Persistence (critical), Character-Aesthetic Alignment (critical)
+- **Horror aesthetic:** Constraint Design (critical), Information Management (important), State Persistence (important)
+- **Tactical combat:** Adjudication (critical), Constraint Design (important)
+- **Exploration:** Content Generation (critical), Information Management (important), State Persistence (important)
+
+**How to Reference:**
+
+```
+✓ Correct: "Mystery games require strong Information Management function..."
+✓ Correct: "This aesthetic needs these three functions to work well: [list]..."
+✗ Wrong: Discussing systems without identifying which functions they provide
+✗ Wrong: Assuming all functions matter equally for all aesthetics
+```
+
+**Design Implication:**
+
+When analyzing a system for an aesthetic:
+1. Identify which functions that aesthetic requires
+2. Verify system provides those functions well
+3. If 2+ critical functions are missing/broken, system is wrong choice
+
+**Example Application:**
+
+"D&D for mystery fails because Information Management function is broken (roll-to-find can miss core clues). Despite being good system for tactical combat, it lacks functions mystery requires."
+
+**When to Revise:**
+- If new function identified that doesn't fit the seven
+- If function proves unnecessary across multiple analyses
+- If function definitions need refinement
+
+**Revision Protocol:**
+1. Document which aesthetic/scenario revealed gap
+2. Propose new function or refinement with clear definition
+3. Update Game System chapter first
+4. Update all chapters discussing system selection
+5. Update worked examples
+
+**Current Status:** NEWLY ADDED (from Game System chapter, validated by Scenario 3)
+```
+
+---
+
+### Addition 1.2: Configuration Coherence Principle
+
+**Insert after "System Functions Framework"**
+
+```markdown
+### Configuration Coherence (From Game System Chapter)
+
+**Core Principle:** A game system's components (mechanics, parameters, context, pacing, configuration) must all serve the same aesthetic goal. Misalignment creates dissonance.
+
+**The Five Components:**
+
+1. **Mechanics** - What players can do (resolution, actions, resources)
+2. **Parameters** - How much, how fast, how scarce (tuning dials)
+3. **Context** - What it means (setting, tone, framing)
+4. **Pacing** - When things happen (rhythm, escalation)
+5. **Configuration** - How components combine (coherence or incoherence)
+
+**Configuration Coherence Test:**
+
+For each component, ask: "Does this serve the target aesthetic?"
+- Mechanics serve aesthetic? ✓ / ✗
+- Parameters serve aesthetic? ✓ / ✗
+- Context aligns with mechanics? ✓ / ✗
+- Pacing supports aesthetic? ✓ / ✗
+
+If any component contradicts aesthetic, configuration is incoherent. Players will experience dissonance and follow mechanics over context.
+
+**Validated Example (D&D for Mystery):**
+
+| Component | Configuration | Serves Mystery? |
+|-----------|---------------|-----------------|
+| Mechanics | Combat, tactical positioning | ✗ (rewards violence not investigation) |
+| Parameters | 40% failure rate on rolls | ✗ (breaks investigation flow) |
+| Context | Mystery investigation | ✓ (correct framing) |
+| Pacing | Stalls on failures | ✗ (no guaranteed rhythm) |
+| **Result** | **Incoherent** | **Failed configuration** |
+
+**Observed:** Players solved mysteries through violence ("kill suspect, loot clues from corpse") because mechanics rewarded combat over investigation.
+
+**How to Reference:**
+
+```
+✓ Correct: "Checking configuration coherence: do mechanics align with context?"
+✓ Correct: "Configuration test reveals incoherence between mechanics and aesthetic..."
+✗ Wrong: Discussing mechanics without checking alignment with other components
+✗ Wrong: Treating configuration as separate element (it's how components combine)
+```
+
+**Design Implication:**
+
+When analyzing any system:
+1. State target aesthetic
+2. List what each component does
+3. Check if all components serve same aesthetic
+4. If misaligned, predict player behavior (they follow mechanics)
+5. This prediction is testable
+
+**When to Revise:**
+- If component categories prove insufficient
+- If coherence test doesn't predict player behavior
+- If additional components identified
+
+**Current Status:** NEWLY ADDED (from Game System chapter, validated by multiple examples)
+```
+
+---
+
+### Addition 1.3: Character Creation as Aesthetic Filter
+
+**Insert after "Configuration Coherence Principle"**
+
+```markdown
+### Character Creation as Aesthetic Filter (From Game System Chapter)
+
+**Core Principle:** Character creation is the first enforcement point of aesthetic requirements. It's not neutral toolset—it filters for compatible character types.
+
+**The Problem:**
+
+Some aesthetics require specific character mindsets:
+- Mystery requires characters who care about solving correctly (intellectual vindication)
+- Collaborative storytelling requires characters who enable others' stories
+- Horror requires characters capable of vulnerability
+- Competitive games require characters who engage with competition
+
+Generic character creation allows incompatible characters. **No amount of mechanical design fixes wrong character type.**
+
+**Validated Example (Mystery):**
+
+Player created "cowardly warrior focused on survival and payment."
+- Mystery aesthetic needs: Care about being correct
+- Character cared about: Getting paid, surviving
+- Red herrings (essential mystery element) had no meaning
+  - For detective: False lead = wasted time = failure
+  - For warrior: False lead = still got paid = success
+- System couldn't fix this
+
+**Three Filtering Approaches:**
+
+1. **Limited Archetypes (Restrictive)**
+   - Provide only aesthetic-compatible types
+   - Example: Mystery game offers only Detective, Researcher, Reporter, Forensic Expert
+   - Pros: Guarantees fit, Cons: Feels restrictive
+
+2. **Mandatory Drives/Motivations (Guided)**
+   - All characters must have motivation aligned with aesthetic
+   - Example: Every character has "Drive" (why they solve mysteries)
+   - Pros: Ensures investment, Cons: Requires careful design
+
+3. **Explicit Requirements (Educational)**
+   - States: "This game requires X type of character"
+   - Explains why certain types won't work
+   - Pros: Maintains freedom, Cons: Some players ignore
+
+**Which Approach When:**
+
+```
+IF aesthetic requires specific mindset → Use Limited Archetypes or Mandatory Drives
+IF aesthetic flexible with constraints → Use Explicit Requirements
+IF aesthetic serves multiple playstyles → Generic creation works
+```
+
+**How to Reference:**
+
+```
+✓ Correct: "Character creation filters for [aesthetic] through [approach]..."
+✓ Correct: "This aesthetic requires character filtering because..."
+✗ Wrong: Treating character creation as neutral mechanic
+✗ Wrong: Assuming players will "just roleplay appropriately"
+```
+
+**Design Implication:**
+
+When analyzing system for aesthetic:
+1. Identify if aesthetic requires specific character mindset
+2. Check if character creation filters appropriately
+3. If wrong characters possible, system is incomplete
+4. Document filtering approach used
+
+**When to Revise:**
+- If new filtering approach identified
+- If approach proves insufficient for aesthetic
+- If balance shifts (too restrictive? too permissive?)
+
+**Current Status:** NEWLY ADDED (from Game System chapter, validated by Scenario 3)
+```
+
+---
+
+### Addition 1.4: Information Management Framework
+
+**Insert after "Character Creation as Aesthetic Filter"**
+
+```markdown
+### Information Management (From Game System Chapter)
+
+**Core Insight:** Information is a resource. Design when it's scarce, abundant, earned, and what it costs.
+
+**Two Models for Critical Information:**
+
+**Traditional RPG Model (D&D):**
+- All information gated by action + rolls
+- Missing information = stalled progress
+- GM must improvise or railroad
+- Problem: Core information can be missed
+
+**Mystery Game Model (Gumshoe):**
+- Distinguish core (necessary) from optional (enrichment)
+- Core: Automatic when investigating relevant locations
+- Optional: Requires resource expenditure
+- Solution: Progress guaranteed, challenge shifts to interpretation
+
+**When Each Model Works:**
+
+| Aesthetic | Information Model | Why |
+|-----------|------------------|-----|
+| Mystery, Horror, Exploration | Core/Optional Split | Can't stall investigation |
+| Tactical Combat | Traditional | Missing info is tactical choice |
+| Social Intrigue | Hybrid | Some info automatic, some negotiated |
+| Sandbox | Traditional | Exploration is about finding what's hidden |
+
+**How to Reference:**
+
+```
+✓ Correct: "Using core/optional information model for mystery aesthetic..."
+✓ Correct: "Information management broken: players can miss critical info..."
+✗ Wrong: Not distinguishing core from optional information in mystery/horror
+✗ Wrong: Treating all information as equally gate-able
+```
+
+**Design Questions:**
+
+1. What information is critical for progress?
+2. How do you ensure players can't miss critical information?
+3. What information is enrichment vs. necessary?
+4. How do you make discovery feel earned, not given?
+
+**Test:** If players can miss necessary information and investigation stalls, information management is broken.
+
+**When to Revise:**
+- If model proves insufficient for aesthetic
+- If new information architecture identified
+- If distinction between models needs refinement
+
+**Current Status:** NEWLY ADDED (from Game System chapter, validated by Scenario 3)
+```
+
+---
+
+## Category 2: Add to Part 2 (Terminology Standards)
+
+### Addition 2.1: System Function Terminology
+
+**Add to terminology section:**
+
+```markdown
+### System Functions
+
+**Always use these exact function names:**
+
+1. **Adjudication** (NOT: resolution, judgment, arbitration)
+2. **Information Management** (NOT: clue distribution, knowledge control)
+3. **Content Generation** (NOT: world-building, scenario creation)
+4. **State Persistence** (NOT: memory, continuity, tracking)
+5. **Cognitive Encoding** (NOT: mindset shaping, perspective framing)
+6. **Constraint Design** (NOT: limitation creation, restriction)
+7. **Procedural Content** (NOT: oracle systems, solo play)
+
+**When discussing system analysis:**
+
+```
+✓ Correct: "Mystery requires three critical functions: Information Management, State Persistence, Character-Aesthetic Alignment"
+✓ Correct: "This system provides weak Information Management function"
+✗ Wrong: "This system has poor clue distribution" (use Information Management)
+✗ Wrong: "Memory system is broken" (use State Persistence)
+```
+
+**Critical distinction:**
+
+- **Function** = What system does (Information Management, Adjudication)
+- **Mechanism** = How system does it (core clues, dice rolls, oracle tables)
+- **Component** = What system is made of (Mechanics, Parameters, Context, Pacing)
+
+Don't conflate these three levels.
+```
+
+---
+
+### Addition 2.2: Configuration Terminology
+
+**Add to terminology section:**
+
+```markdown
+### Configuration and Coherence
+
+**Configuration** (noun) - How components combine to create system
+- NOT: "configuration" as verb (use "configure" or "design")
+- NOT: "setup" or "arrangement" (too generic)
+
+**Coherence** (adjective: coherent/incoherent)
+- Describes whether components align toward same aesthetic
+- NOT: "consistent" (different concept - internal logic consistency)
+- NOT: "unified" (too vague)
+
+**The Five Components** (always reference in order):
+1. Mechanics
+2. Parameters
+3. Context
+4. Pacing
+5. Configuration
+
+**Usage:**
+
+```
+✓ Correct: "Configuration coherence test shows mechanics contradict context"
+✓ Correct: "Coherent configuration: all five components serve same aesthetic"
+✗ Wrong: "System configuration is inconsistent" (use incoherent)
+✗ Wrong: "Mechanics setup" (use component or configuration)
+```
+
+**Test phrasing:**
+
+"Does [component] serve target aesthetic?" → Answer determines coherence
+```
+
+---
+
+### Addition 2.3: Character Creation Terminology
+
+**Add to terminology section:**
+
+```markdown
+### Character Creation and Filtering
+
+**Character-Aesthetic Fit** (NOT: character compatibility, character appropriateness)
+
+**Aesthetic Filter** (noun) - Character creation as enforcement mechanism
+- NOT: "character restriction" (negative framing)
+- NOT: "creation guidelines" (too weak)
+
+**Three Filtering Approaches** (use exact names):
+1. Limited Archetypes
+2. Mandatory Drives
+3. Explicit Requirements
+
+**Usage:**
+
+```
+✓ Correct: "Character creation serves as aesthetic filter through Limited Archetypes"
+✓ Correct: "System lacks character-aesthetic filtering"
+✗ Wrong: "Character limits" (use Limited Archetypes)
+✗ Wrong: "Required backgrounds" (use Mandatory Drives)
+```
+```
+
+---
+
+## Category 3: Add to Part 3 (Chapter Structure)
+
+### Addition 3.1: System Analysis Section Template
+
+**Add new template section for chapters analyzing game systems:**
+
+```markdown
+### System Analysis Section Template
+
+When analyzing a game system in any chapter, include these elements:
+
+**1. Aesthetic Goal**
+- State what aesthetic(s) system serves
+- Reference 12 aesthetics framework
+- Identify primary vs. secondary aesthetics
+
+**2. Function Analysis**
+- List which of 7 functions system provides
+- Identify which functions are critical for stated aesthetic
+- Note any missing/broken functions
+
+**3. Configuration Analysis**
+- Mechanics: What players do
+- Parameters: How much, how fast, how scarce
+- Context: What it means
+- Pacing: When things happen
+- Coherence: Do all components serve same aesthetic?
+
+**4. Character-Aesthetic Fit**
+- Does character creation filter for appropriate types?
+- Which filtering approach used (if any)?
+- Can wrong character types break aesthetic?
+
+**5. Information Management** (if aesthetic requires)
+- Core vs. optional information structure
+- Can players miss critical information?
+- How is discovery gated?
+
+**Example structure:**
+
+```markdown
+## [Game Name] System Analysis
+
+**Aesthetic Goal:** [Primary aesthetics] with [secondary aesthetics]
+
+**Function Provision:**
+- Adjudication: [mechanism] - ✓ Works well / ⚠️ Has issues / ✗ Broken
+- Information Management: [mechanism] - [assessment]
+- [Continue for relevant functions]
+
+**Configuration:**
+- Mechanics: [description] → Serves [aesthetic]? ✓/✗
+- Parameters: [description] → Serves [aesthetic]? ✓/✗
+- Context: [description] → Serves [aesthetic]? ✓/✗
+- Pacing: [description] → Serves [aesthetic]? ✓/✗
+- Coherence: ✓ Coherent / ✗ Incoherent
+
+**Character-Aesthetic Fit:**
+- Filtering approach: [Limited Archetypes / Mandatory Drives / Explicit Requirements / None]
+- Assessment: [Does it work? What breaks?]
+
+**Key Insights:**
+- [What this system teaches about aesthetic-mechanic alignment]
+- [What this system does well]
+- [What this system struggles with]
+```
+
+**Use this template consistently** to enable cross-chapter comparison of systems.
+```
+
+---
+
+## Category 4: Add to Part 6 (LLM Integration Approach)
+
+### Addition 4.1: LLM and System Functions
+
+**Add section on how LLM affects each function:**
+
+```markdown
+### LLM Impact on System Functions
+
+When discussing LLM in context of game systems, reference which functions LLM enhances:
+
+**Functions LLM Strongly Enhances:**
+1. **Content Generation** - Dynamic scene/NPC creation
+2. **State Persistence** - Perfect memory across sessions
+3. **Information Management** - Dynamic clue distribution
+4. **Adjudication** - Natural language interpretation
+
+**Functions LLM Moderately Enhances:**
+5. **Cognitive Encoding** - Can enforce alien thinking patterns
+6. **Constraint Design** - Can track and enforce complex constraints
+
+**Functions LLM Weakly Affects:**
+7. **Procedural Content** - Enables solo play but quality concerns
+
+**How to Reference:**
+
+```
+✓ Correct: "LLM solves State Persistence function through perfect recall..."
+✓ Correct: "Information Management enhanced by LLM dynamic distribution..."
+✗ Wrong: "LLM improves the game" (too vague - specify which function)
+✗ Wrong: "LLM enables mystery" (specify: Information Management + State Persistence)
+```
+
+**Always specify:**
+- Which function LLM enhances
+- How it enhances (what becomes possible)
+- What remains as challenge (what LLM doesn't solve)
+- What validation needed (how to ensure LLM performs well)
+
+**Critical Note:** LLM enables new system architectures but doesn't change aesthetic-first design principle. Still start with aesthetic, use LLM to implement functions that serve it.
+```
+
+---
+
+## Category 5: Add to Part 8 (Game Analysis Repository)
+
+### Addition 5.1: System Analysis Tags
+
+**Add these tags to game analysis entries:**
+
+```markdown
+### Enhanced Game Analysis Template
+
+For each analyzed game, add:
+
+**System Function Profile:**
+- Primary functions: [list 2-3 functions this system does exceptionally well]
+- Weak functions: [list functions this system doesn't provide well]
+- Critical for aesthetic: [which functions are make-or-break for this game's aesthetic]
+
+**Configuration Coherence:**
+- Assessment: ✓ Coherent / ⚠️ Partial / ✗ Incoherent
+- Components: [Brief assessment of mechanics, parameters, context, pacing alignment]
+- Coherence notes: [What works? What doesn't?]
+
+**Character-Aesthetic Filtering:**
+- Approach: [Limited Archetypes / Mandatory Drives / Explicit Requirements / None]
+- Effectiveness: [Does it work for this aesthetic?]
+
+**Information Management:**
+- Model: [Traditional RPG / Core-Optional Split / Hybrid / N/A]
+- Critical for aesthetic? [Yes/No]
+- Assessment: [How well does it work?]
+
+**Example Entry (Gumshoe):**
+
+**System Function Profile:**
+- Primary functions: Information Management (exceptional core/optional split), Adjudication (automatic core clues)
+- Weak functions: Content Generation (requires prep), Cognitive Encoding (not emphasis)
+- Critical for aesthetic: Information Management, State Persistence
+
+**Configuration Coherence:**
+- Assessment: ✓ Coherent
+- All components serve mystery aesthetic: Investigation mechanics, mystery context, progressive revelation pacing align perfectly
+
+**Character-Aesthetic Filtering:**
+- Approach: Mandatory Drives
+- Effectiveness: Strong - ensures all characters care about solving mysteries
+
+**Information Management:**
+- Model: Core-Optional Split
+- Critical for aesthetic: Yes (mystery requires this)
+- Assessment: Excellent - solves investigation stall problem
+```
+
+---
+
+## Category 6: Add to Part 10 (Handoff Guidelines)
+
+### Addition 6.1: Onboarding Checklist Update
+
+**Update the onboarding checklist to include system framework:**
+
+```markdown
+**Onboarding checklist:**
+
+1. **Read Core Concepts (this document Part 1)**
+   - Understand aesthetics (12 total)
+   - Understand paradigms (3 + hybrids)
+   - Understand pacing (emergent, 5 patterns)
+   - Understand resource types
+   - Understand cognitive load
+   - **NEW: Understand system functions (7 functions)**
+   - **NEW: Understand configuration coherence (5 components)**
+   - **NEW: Understand character-aesthetic filtering (3 approaches)**
+   - **NEW: Understand information management (2 models)**
+```
+
+---
+
+### Addition 6.2: Review Checklist Enhancement
+
+**Add to review checklist:**
+
+```markdown
+## System Analysis Review (if chapter analyzes game systems)
+- [ ] System functions identified (which of 7 functions provided?)
+- [ ] Function priority stated (which critical for this aesthetic?)
+- [ ] Configuration coherence assessed (5 components aligned?)
+- [ ] Character-aesthetic fit evaluated (filtering approach noted?)
+- [ ] Information management model identified (if relevant)
+- [ ] Analysis uses standard terminology (functions not "mechanics")
+- [ ] Cross-references to Game System chapter included
+- [ ] Consistent with other system analyses in book
+
+**Common System Analysis Errors:**
+- [ ] Not discussing system without identifying functions
+- [ ] Not treating coherence as binary (it's assessment: coherent/partial/incoherent)
+- [ ] Not using configuration test (do components serve aesthetic?)
+- [ ] Not checking character-aesthetic filtering
+- [ ] Not assuming all functions matter equally (they don't)
+```
+
+---
+
+## Category 7: New Section - Research Methodology
+
+**Add new Part 12 to writing guidelines:**
+
+```markdown
+## Part 12: Research Methodology and Confidence Levels
+
+### Framework Development Approach
+
+This book uses scenario-based validation, not pure theory. Principles are:
+1. Tested against real design problems (scenarios)
+2. Validated across multiple examples
+3. Documented with confidence levels
+4. Revised when evidence contradicts
+
+### Three Content Categories
+
+**Category A: Validated Principles (Add Immediately)**
+- Tested across 3+ scenarios or well-established in literature
+- Can be stated as principles
+- Safe to build on in future chapters
+- Examples: Configuration Coherence, Aesthetic-First Design, MDA Framework
+
+**Category B: Working Hypotheses (Document Transparently)**
+- Tested in 1-2 scenarios, seems strong
+- Needs validation across more cases
+- Document as "hypothesis to test"
+- Don't build critical framework elements on these yet
+- Examples: Agency Priority by Aesthetic, Pacing Automation Spectrum
+
+**Category C: Open Questions (Acknowledge Limitations)**
+- Important questions without clear answers
+- Require extensive research beyond book scope
+- Document as "open research questions"
+- Be honest about not having solutions
+- Examples: Guaranteed Progress vs. Stakes, LLM Content Quality
+
+### How to Document Each Category
+
+**Validated Principles:**
+```markdown
+**Principle:** [Clear statement]
+**Evidence:** [What validates this - multiple examples, scenario testing]
+**Application:** [How to use this]
+**Confidence:** High
+```
+
+**Working Hypotheses:**
+```markdown
+**Hypothesis:** [Tentative claim]
+**Evidence so far:** [What supports this, what hasn't been tested]
+**What would validate:** [What evidence needed]
+**What would invalidate:** [What would disprove this]
+**Testing approach:** [How to test]
+**Confidence:** Medium - needs more validation
+```
+
+**Open Questions:**
+```markdown
+**Question:** [The problem/uncertainty]
+**Current understanding:** [What we know so far]
+**Why this matters:** [Why it's important]
+**Research needed:** [What would answer this]
+**Confidence:** Low - requires extensive study
+```
+
+### Confidence Level Guidelines
+
+**HIGH confidence (validated principles):**
+- State as fact: "Systems require coherent configuration"
+- Build framework elements on these
+- Reference without caveat
+- Examples get confidence from: Multiple validations, established literature, clear evidence
+
+**MEDIUM confidence (working hypotheses):**
+- State as hypothesis: "We hypothesize that agency priority varies by aesthetic"
+- Don't build critical framework on these yet
+- Reference with caveat: "Current evidence suggests..."
+- Test before promoting to high confidence
+
+**LOW confidence (open questions):**
+- State as question: "It's unclear whether guaranteed progress reduces stakes"
+- Acknowledge limitation: "This requires further research"
+- Don't base recommendations on these
+- Be honest about not knowing
+
+### Example Chapter Sections
+
+**For Validated Principle:**
+```markdown
+## Configuration Coherence (Validated)
+
+**Principle:** Game systems require all components (mechanics, parameters, context, pacing) to align toward same aesthetic goal.
+
+**Evidence:** 
+- D&D for mystery: Incoherent configuration (combat mechanics, investigation context) → players solve through violence
+- Gumshoe: Coherent configuration (investigation mechanics, mystery context) → players investigate
+- Weather Factory: Same mechanics, different parameters/context → different aesthetics
+
+**Application:** Use configuration coherence test when selecting/designing systems...
+
+[Continue with details]
+```
+
+**For Working Hypothesis:**
+```markdown
+## Agency Priority by Aesthetic (Hypothesis)
+
+**Hypothesis:** Different aesthetics prioritize different agency sources (Interpretation, Scene Selection, Action, Resources).
+
+**Evidence so far:**
+- Mystery aesthetic: Interpretation primary, Scene Selection secondary (validated in Scenario 3)
+- Untested: Other aesthetics (horror, exploration, tactical)
+
+**What would validate:** Pattern holds across 3+ aesthetics with different characteristics
+
+**What would invalidate:** No consistent pattern emerges across aesthetics
+
+**Testing approach:** Analyze Scenarios 1, 4, 5 for agency priorities...
+
+**Current confidence: MEDIUM** - promising pattern but needs more validation
+
+[Can discuss hypothesis but note it's tentative]
+```
+
+**For Open Question:**
+```markdown
+## Guaranteed Progress vs. Stakes (Open Question)
+
+**Question:** Does guaranteeing progress (e.g., Gumshoe's automatic core clues) reduce stakes and tension?
+
+**Current understanding:**
+- Some players prefer security of guaranteed progress
+- Some players find it boring (removes uncertainty)
+- Unclear if this is aesthetic-dependent, personality-dependent, or culture-dependent
+
+**Why this matters:** Fundamental question about where uncertainty should live in systems
+
+**Research needed:**
+- Player psychology studies on stake types
+- Cross-aesthetic testing of guaranteed progress
+- Cultural differences in stake preferences
+
+**Current confidence: LOW** - important question without clear answer
+
+**Recommendation:** Design choice depends on target audience preference. Test with your players.
+```
+
+### When to Promote Confidence Levels
+
+**Medium → High:**
+- Validated across 3+ diverse scenarios
+- Pattern consistent across different aesthetics
+- No counter-examples found
+- Becomes basis for framework principles
+
+**Low → Medium:**
+- Some evidence emerges (1-2 scenarios)
+- Pattern seems plausible
+- Worth testing more
+- Can discuss as hypothesis
+
+**High → Medium (demotion):**
+- Counter-example found
+- Pattern breaks in important case
+- Needs refinement
+- Return to hypothesis status
+
+### Using This in Chapters
+
+Every chapter should include:
+
+**"What We Know" section:**
+- Lists validated principles used in chapter
+- References with confidence levels
+- Links to supporting evidence
+
+**"What We're Testing" section (optional):**
+- Lists working hypotheses explored
+- Explicit about tentative status
+- Invites validation
+
+**"What We Don't Know" section (if relevant):**
+- Acknowledges limitations
+- States open questions
+- Honest about uncertainty
+
+**Example:**
+
+```markdown
+## Framework Basis for This Chapter
+
+**Validated Principles (High Confidence):**
+- Configuration Coherence (Game System Chapter)
+- Aesthetic-First Design (MDA Framework)
+- Resource-Aesthetic Alignment (Resource Management Chapter)
+
+**Working Hypotheses (Medium Confidence):**
+- Agency Priority by Aesthetic (needs more validation)
+- Pacing Automation Spectrum (partially tested)
+
+**Open Questions:**
+- Guaranteed Progress vs. Stakes (no clear answer yet)
+
+We build this chapter on validated principles, explore hypotheses where relevant, and acknowledge open questions honestly.
+```
+
+### Why This Matters
+
+**Scientific integrity:**
+- Clear about what's proven vs. tentative vs. unknown
+- Readers can assess reliability
+- Framework evolves based on evidence
+
+**Practical utility:**
+- Validated principles are safe to use
+- Hypotheses are interesting but need testing
+- Open questions acknowledge limits
+
+**Intellectual honesty:**
+- We don't have all answers
+- Some things need more research
+- Admitting uncertainty is strength, not weakness
+```
+
+---
+
+## Summary of Proposed Changes
+
+### Part 1 (Core Concepts) - 4 Major Additions:
+1. System Functions Framework
+2. Configuration Coherence Principle
+3. Character Creation as Aesthetic Filter
+4. Information Management Framework
+
+### Part 2 (Terminology) - 3 Additions:
+1. System Function Terminology
+2. Configuration Terminology
+3. Character Creation Terminology
+
+### Part 3 (Structure) - 1 Addition:
+1. System Analysis Section Template
+
+### Part 6 (LLM) - 1 Addition:
+1. LLM Impact on System Functions
+
+### Part 8 (Game Analysis) - 1 Addition:
+1. Enhanced System Analysis Tags
+
+### Part 10 (Handoff) - 2 Additions:
+1. Updated Onboarding Checklist
+2. Enhanced Review Checklist
+
+### NEW Part 12 - Research Methodology:
+Complete new section on confidence levels, validation, and scientific approach
+
+---
+
+## Implementation Priority
+
+**CRITICAL (Do Immediately):**
+- Part 1 additions (foundational concepts)
+- Part 2 terminology (prevents confusion)
+- Part 12 methodology (establishes rigor)
+
+**HIGH PRIORITY (Next):**
+- Part 3 system analysis template
+- Part 10 checklist updates
+
+**MEDIUM PRIORITY (When Convenient):**
+- Part 6 LLM clarifications
+- Part 8 enhanced tags
+
+---
+
+## Migration Notes
+
+**Chapters that need review after these changes:**
+1. Resources chapter - verify alignment with configuration coherence
+2. Balance chapter - verify alignment with system functions
+3. Cognitive Load chapter - verify alignment with information management
+4. Any chapter analyzing specific game systems
+
+**Backward compatibility:**
+- Existing concepts (aesthetics, paradigms, pacing) unchanged
+- New concepts add to, don't replace, existing framework
+- Terminology updates clarify, don't contradict
+
+**Timeline:**
+- Implement critical changes before writing new chapters
+- Update existing chapters opportunistically during revisions
+- Complete migration within next major revision cycle

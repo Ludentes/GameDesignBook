@@ -1,0 +1,658 @@
+---
+title: part-9-common-pitfalls
+---
+# Part 9: Common Pitfalls
+
+Even with systematic framework, designers make predictable mistakes. Here are the most common pitfalls and how to avoid them.
+
+***
+
+## Pitfall 1: Skipping the Framework
+
+**Symptom:** "I'll just set some numbers that feel right."
+
+**Why it fails:**
+
+* "Feel right" based on intuition, not design goals
+* Can't explain why you chose those numbers
+* Can't iterate systematically when they're wrong
+* Different designers on team use different intuitions (inconsistent)
+
+**Why designers do this:**
+
+* Framework feels like extra work
+* Want to start creating immediately
+* Intuition feels reliable ("I've played lots of games")
+
+**Actual cost:**
+
+* 2-3x more iteration cycles (numbers wrong by larger margins)
+* Team confusion (no shared vocabulary)
+* More playtesting time needed (shooting in dark)
+
+**How to avoid:**
+
+* Framework saves time in iteration (spend 2 hours on framework, save 20 hours in playtesting)
+* Use quick-start from recipes (Part 3)
+* Even simple framework better than none
+
+**Recovery if caught:**
+
+* Playtest reveals numbers way off (50%+ errors)
+* Stop, return to Part 1
+* Document current design as "first draft"
+* Apply framework to understand what you actually built
+* Make informed second draft
+
+***
+
+## Pitfall 2: Aesthetic-Paradigm Mismatch
+
+**Symptom:** "Players keep trying creative solutions but I designed fixed patterns."
+
+**Why it fails:**
+
+* Players want Framework (open-ended problem solving)
+* You built Consistency (pattern execution)
+* Neither side satisfied
+
+**Common mismatches:**
+
+**Mismatch A: Challenge aesthetic + Adaptive paradigm (unbounded)**
+
+* Players want to master patterns
+* System keeps changing difficulty
+* Can't learn because moving target
+* Result: Frustration, feels unfair
+
+**Mismatch B: Discovery aesthetic + Consistency paradigm**
+
+* Players want novelty and surprise
+* System is predictable and repeating
+* Boring after first playthrough
+* Result: No replay value
+
+**Mismatch C: Narrative aesthetic + No mechanical consequences**
+
+* Players want meaningful story choices
+* System has no stakes (can retry infinitely, no resource tracking)
+* Choices feel cosmetic
+* Result: Hollow narrative
+
+**How to avoid:**
+
+* Use compatibility matrix (Part 2)
+* Check aesthetic-paradigm fit before setting numbers
+* Communicate paradigm to players ("This is pattern-learning boss")
+
+**Recovery if caught:**
+
+* Severe: Need to rebuild with different paradigm (major work)
+* Moderate: Add elements of needed paradigm (hybrid approach)
+* Example: Consistency boss + optional Framework tactics (some creativity within patterns)
+
+***
+
+## Pitfall 3: Optimizing Wrong Measurables
+
+**Symptom:** "Numbers are perfect but experience is wrong."
+
+**Why it fails:**
+
+* Time-to-Kill exactly 23 rounds ✓
+* But player says "felt boring and tedious" ✗
+* You optimized duration but ignored tension, consequence severity, pattern interest
+
+**Example:**
+
+```
+Boss fight metrics:
+- Duration: 23 rounds ✓ (target: 20-25)
+- Hit rate: 62% ✓ (target: 60%)
+- DPR: 24.1 ✓ (target: 23.4)
+
+But:
+- Boss has no patterns (same attack every turn)
+- No risk of death (boss damage too low)
+- No interesting decisions (mash attack button)
+
+Technically balanced, completely boring.
+```
+
+**How to avoid:**
+
+* Use aesthetic-specific measurables (Part 5)
+* Challenge aesthetic needs: Consequence Severity, Pattern Consistency, Mastery Curve
+* Don't just optimize Time-to-Kill
+* Check experience measurables (Part 5, Component 7)
+
+**Recovery if caught:**
+
+* Playtest feedback: "It works but it's not fun"
+* Return to measurables catalog (Part 5)
+* Identify missing measurables (probably Consequence Severity, Pattern Interest)
+* Add complexity/stakes, not just tune numbers
+
+***
+
+## Pitfall 4: Analysis Paralysis
+
+**Symptom:** "I need to calculate everything perfectly before testing."
+
+**Why it fails:**
+
+* Spend months calculating, never playtest
+* Perfect math doesn't account for human behavior
+* Game never ships ("needs more tuning")
+
+**Why designers do this:**
+
+* Fear of putting imperfect work in front of players
+* Want to "solve" balance mathematically
+* Perfectionism
+
+**Reality:**
+
+* 80% accurate with 2 hours of work + playtesting beats 99% accurate with 200 hours of calculation
+* Players do unexpected things (math can't predict)
+* "Done and iterating" beats "perfect on paper"
+
+**How to avoid:**
+
+* Set time box (2-4 hours for initial numbers)
+* Use framework to get in ballpark
+* Playtest early and often
+* Accept that first numbers will be wrong
+
+**Recovery if caught:**
+
+* Been working 3+ weeks without playtesting?
+* Stop calculating, start testing
+* First playtest will reveal what actually matters
+* Iterate from data, not theory
+
+***
+
+## Pitfall 5: No Baseline Reference
+
+**Symptom:** "Boss has 500 HP" without knowing what that means.
+
+**Why it fails:**
+
+* 500 HP might be killed in 2 rounds or 200 rounds
+* Can't tell if 500 is right without damage context
+* All numbers relative, not absolute
+
+**Example error:**
+
+```
+Designer sets:
+- Boss HP: 800
+- Boss damage: 15 per hit
+
+But forgot:
+- Player HP: 100
+- Player damage: 5 per hit
+
+Result:
+- Boss kills player in 7 hits (Boss DPR = 15, Player HP = 100)
+- Player kills boss in 160 hits (Player DPR = 5, Boss HP = 800)
+- Fight lasts 2.5 hours (way too long)
+
+Could have been avoided by calculating:
+- Target duration: 20-25 rounds
+- Player DPR = 5 → Boss HP should be 5 × 23 = 115, not 800
+```
+
+**How to avoid:**
+
+* Define player baseline first (Part 6, Section 2)
+* Calculate everything relative to baseline
+* Use formulas (Boss HP = Player DPR × Target Rounds)
+* Work backwards from targets, not forwards from guesses
+
+**Recovery if caught:**
+
+* First playtest lasts 5 hours (or 5 minutes)
+* Calculator or spreadsheet for formulas
+* Recalculate using baseline approach
+
+***
+
+## Pitfall 6: Ignoring Variance
+
+**Symptom:** "On average it works" but wildly inconsistent.
+
+**Why it fails:**
+
+* Average damage 10 doesn't tell you:
+  * 1d20 (range 1-20, high variance)
+  * 2d10 (range 2-20, low variance)
+  * 10 flat (range 10-10, no variance)
+* All have average 10.5 (or 10), very different feel
+
+**Example:**
+
+```
+Boss designed for 20 rounds average
+- 50% of fights: 15-25 rounds ✓
+- 25% of fights: 5-10 rounds (way too short)
+- 25% of fights: 30-45 rounds (way too long)
+
+Average is 20, but experience inconsistent.
+```
+
+**How to avoid:**
+
+* Consider variance when choosing resolution mechanic
+* Test edge cases (what if low rolls? high rolls?)
+* Use tighter probability distributions if consistency matters (2d6 not d20)
+* Bound extreme outcomes (maximum damage caps)
+
+**Recovery if caught:**
+
+* Playtest reveals huge variance
+* Check resolution mechanic (d20 has high variance)
+* Switch to 2d6 or dice pool (lower variance)
+* OR add bounds (cap damage at max, minimum at floor)
+
+***
+
+## Pitfall 7: Framework Too Complex
+
+**Symptom:** GM takes 10 minutes to determine stakes for one action.
+
+**Why it fails:**
+
+* 5+ risk tiers (Low, Medium-Low, Medium, Medium-High, High)
+* 10+ consequence types (reduced effect, complication, lost opportunity, harm, stress, worse position, time pressure, alert, exposure, collateral damage)
+* GM can't apply consistently
+* Players can't predict outcomes
+
+**Example:**
+
+```
+Player: "I sneak past the guard"
+GM: [Looks at 5-tier risk table, 10 consequence types, cross-references character preparation, considers fictional positioning, checks modifiers...]
+10 minutes later: "This is Medium-High risk with Standard-Plus effect"
+Player: "What?"
+```
+
+**How to avoid:**
+
+* 3 tiers maximum per dimension (Part 6, Section 2)
+* 4-6 consequence types maximum
+* GM should decide in \<30 seconds
+* If taking longer, framework too complex
+
+**Recovery if caught:**
+
+* Playtest drags (spending more time negotiating than playing)
+* Simplify ruthlessly (collapse tiers, remove consequences)
+* 3 Risk × 3 Effect is plenty
+* Test if GM can apply quickly
+
+***
+
+## Pitfall 8: Adaption Too Obvious
+
+**Symptom:** Players notice difficulty changing, feel patronized.
+
+**Why it fails:**
+
+* Player struggles → System spawns health items immediately
+* Player succeeds → System doubles enemy count next room
+* Too blatant, breaks immersion
+* Players feel manipulated
+
+**Example:**
+
+```
+Player: "Why did three health packs just appear when I'm low HP?"
+Player: "Weird, after we won easily, suddenly 10 enemies spawn."
+Player: "The game is helping me / cheating against me."
+```
+
+**How to avoid:**
+
+* Gradual adjustment (10-20% changes, not doubling)
+* Delayed response (don't adapt immediately after trigger)
+* Attribute to variation ("tough wave" not "system adapting")
+* Test: Ask players if they noticed (if yes, too obvious)
+
+**Recovery if caught:**
+
+* Playtest feedback: "Is the game changing difficulty?"
+* Make adjustments smaller (50% → 10%)
+* Add delay between trigger and adaptation
+* Hide behind pseudo-random variation
+
+***
+
+## Pitfall 9: No Integration Between Systems
+
+**Symptom:** Investigation phase feels disconnected from boss fight.
+
+**Why it fails:**
+
+* Players spend 3 hours investigating
+* Investigation has no mechanical impact on boss fight
+* Investigation feels like wasted time
+* Players skip investigation in future
+
+**Example:**
+
+```
+Investigation: Players uncover boss weakness to fire
+Boss fight: No mechanical representation of this knowledge
+Result: Information was narrative only, no gameplay impact
+Players frustrated: "Why did we investigate if it doesn't help?"
+```
+
+**How to avoid:**
+
+* Design integration mechanism (Part 6, Section 3)
+* Resource pool: Investigation generates points usable in boss fight
+* Unlocks: Investigation reveals tactical options
+* State changes: Investigation modifies boss parameters
+* Test: Can players articulate what investigation gained them?
+
+**Recovery if caught:**
+
+* Playtest feedback: "Investigation didn't matter"
+* Add explicit integration
+* Preparation pool or tactical unlocks
+* Make investigation advantages concrete
+
+***
+
+## Pitfall 10: Scope Creep Without Rebalancing
+
+**Symptom:** Started with 10 items, now have 100, original balance broken.
+
+**Why it fails:**
+
+* Each item balanced against original 10
+* New items didn't account for interactions with all others
+* Unintended synergies emerge
+* Dominant strategies appear
+
+**Example:**
+
+```
+Original: 10 weapons, balanced
+Add: 90 more weapons over 2 years
+Result:
+- Weapon 76 + Weapon 43 = overpowered combo
+- Weapons 1-30 obsolete (power crept)
+- 40 weapons never used (overshadowed)
+- Testing all interactions impossible (4950 pairs)
+```
+
+**How to avoid:**
+
+* Set content bounds from start (Part 8)
+* Tier system (new content in higher tier, old tier separate)
+* Rebalance periodically (every 20-30 additions)
+* Modular design (new content doesn't interact with old)
+
+**Recovery if caught:**
+
+* Game has 100+ items, many broken
+* Implement tier system (Part 8)
+* OR level/content squish
+* OR prune worst offenders (remove broken items)
+
+***
+
+## Pitfall 11: Playtesting With Wrong Players
+
+**Symptom:** Expert playtesters say "too easy," real players say "impossible."
+
+**Why it fails:**
+
+* Playtesters are designers or highly skilled
+* Biased sample (not representative of target audience)
+* Balance feels perfect to experts, broken to average players
+
+**Example:**
+
+```
+Designer playtests own boss fight:
+- Knows patterns (designed them)
+- Optimized build (knows system deeply)
+- Beats boss first try
+
+Real player encounters boss:
+- Doesn't know patterns (must learn)
+- Suboptimal build (new to system)
+- Dies 30 times, quits frustrated
+
+Same boss, different experience.
+```
+
+**How to avoid:**
+
+* Playtest with target audience (not just friends/designers)
+* Include range of skill levels (novice to expert)
+* Fresh eyes (players who don't know your design)
+* Part 7: playtester selection guidelines
+
+**Recovery if caught:**
+
+* Launch reveals difficulty mismatch
+* Emergency patch (quick difficulty adjustment)
+* Expand playtester pool for future
+
+***
+
+## Pitfall 12: Confusing Math Correctness with Fun
+
+**Symptom:** "The expected value is perfect" but players hate it.
+
+**Why it fails:**
+
+* Math says boss fight lasts 23.4 rounds (target: 23)
+* Players say fight is boring
+* Optimized for duration, ignored engagement
+
+**Example:**
+
+```
+Boss fight analysis:
+- Time-to-Kill: 23.2 rounds ✓
+- Hit rates: 61% player, 69% boss ✓
+- DPR: 23.8 player, 15.7 boss ✓
+
+All numbers perfect!
+
+Player feedback:
+- "Just attacked same way 23 times, boring"
+- "No strategy, just roll dice"
+- "Nothing interesting happened"
+
+Mathematically correct, experientially bad.
+```
+
+**Why this happens:**
+
+* Math can't measure fun
+* Numbers can't capture pattern interest, tension, satisfaction
+* Expected value ignores variance, edge cases, player creativity
+
+**How to avoid:**
+
+* Optimize for experience measurables, not just math (Part 5)
+* Consequence Severity, Pattern Consistency, Mastery Curve matter
+* Playtest experience, not just numbers
+* Math is necessary but not sufficient
+
+**Recovery if caught:**
+
+* Numbers check out but experience wrong
+* Return to aesthetic goals (what experience do we want?)
+* Add depth (patterns, choices, tension)
+* Retest experience
+
+***
+
+## Pitfall 13: No Clear Win/Loss Conditions
+
+**Symptom:** "Players aren't sure if they won or lost."
+
+**Why it fails:**
+
+* Framework without resolution = endless negotiation
+* No stakes because no clear failure state
+* Choices meaningless if outcomes ambiguous
+
+**Example:**
+
+```
+Investigation system:
+- Players investigate, gain information
+- But no clear success/failure
+- GM always says "you learn something"
+- Players unsure if they're succeeding
+
+Result: No tension, stakes unclear, investigation feels pointless.
+```
+
+**How to avoid:**
+
+* Define victory conditions (what does success look like?)
+* Define failure conditions (what does failure look like?)
+* Make outcomes clear (you succeeded/failed at X)
+* Test: Can players articulate if they won?
+
+**Recovery if caught:**
+
+* Playtest feedback: "Not sure what we're trying to do"
+* Add explicit goals (investigate 3 of 6 boss properties)
+* Add clear stakes (boss impossible with \<2 properties known)
+* Make progress visible (track discovered properties)
+
+***
+
+## Pitfall 14: Ignoring Player Feedback Loop
+
+**Symptom:** Players can't tell what they did wrong when they fail.
+
+**Why it fails:**
+
+* Die without understanding why
+* Can't improve because don't know mistake
+* Frustration instead of learning
+
+**Example:**
+
+```
+Boss fight:
+- Player dies
+- Doesn't know: Was positioning wrong? Build wrong? Tactics wrong? Just bad luck?
+- Tries again, dies again
+- Still doesn't know what to change
+- Quits frustrated
+```
+
+**How to avoid:**
+
+* Clear feedback (visible telegraphs, damage numbers, status effects)
+* Distinguish player error from bad luck (consistent patterns)
+* Make correct play obvious in hindsight
+* Ask playtesters: "Why did you die?" (if they can't answer, feedback insufficient)
+
+**Recovery if caught:**
+
+* Players quit saying "I don't know what I'm supposed to do"
+* Add telegraphs (visual/audio warnings)
+* Add damage numbers (show what hurt)
+* Add pattern consistency (same mistake = same outcome)
+
+***
+
+## Pitfall 15: Feature Creep
+
+**Symptom:** "Let's add one more system..."
+
+**Why it fails:**
+
+* Every system adds complexity
+* Interactions multiply exponentially
+* Balance becomes impossible to manage
+* Players overwhelmed
+
+**Example:**
+
+```
+Started with: HP, Damage, Armor (3 resources)
+Added: Mana, Stamina, Rage, Focus, Combo Points, Energy, Heat, Shield, Ward (9 more resources)
+Now: 12 resources to track
+Plus: 15 status effects, 30 abilities, 50 items
+
+Players: [drowning in complexity]
+Designer: [can't balance all interactions]
+```
+
+**How to avoid:**
+
+* Set complexity budget (Part 6: choose resolution mechanic based on simplicity)
+* Resist feature addition (every addition costs balance)
+* Remove more than add (simplify existing before adding)
+* Ask: "Does this serve aesthetic?" (if no, cut it)
+
+**Recovery if caught:**
+
+* Game unmanageably complex
+* Prune ruthlessly (remove least-used systems)
+* Consolidate (merge similar resources)
+* Simplify (reduce status effects, abilities)
+
+***
+
+## Red Flags Checklist
+
+**If you see these, stop and address:**
+
+* [ ] Can't explain why you chose these numbers
+* [ ] Players doing unexpected things constantly (paradigm mismatch)
+* [ ] Experience feels wrong despite correct numbers
+* [ ] Spending weeks calculating, not playtesting
+* [ ] Boss HP set without knowing player damage
+* [ ] Fight duration varies 5-45 minutes
+* [ ] Framework takes 5+ minutes to apply
+* [ ] Players notice difficulty changing
+* [ ] Investigation doesn't affect boss fight
+* [ ] 100+ items and broken synergies everywhere
+* [ ] Only expert friends playtesting
+* [ ] Math perfect but players bored
+* [ ] Players can't tell if they won
+* [ ] Players can't explain why they died
+* [ ] Adding systems every week
+
+**If multiple checked:** Stop adding content, return to framework, simplify and rebalance.
+
+***
+
+## How to Avoid All Pitfalls
+
+**The meta-pattern:**
+
+1. **Use the framework** (don't wing it)
+2. **Match paradigm to aesthetic** (compatibility matrix, Part 2)
+3. **Optimize right measurables** (aesthetic-specific, Part 5)
+4. **Work systematically** (Part 6 process)
+5. **Playtest early** (Part 7, don't wait for perfect)
+6. **Integrate systems** (make them talk to each other)
+7. **Test with target audience** (not just experts)
+8. **Measure experience, not just math** (emotional measurables matter)
+9. **Limit complexity** (resist feature creep)
+10. **Listen to feedback** (players tell you what's wrong)
+
+**Most pitfalls trace back to:** Skipping a step in the framework or ignoring player feedback.
+
+**The framework exists because these pitfalls are common.** Use it.
+
+***
+
+**Next: Part 10 provides quick-reference takeaways and final guidance.**

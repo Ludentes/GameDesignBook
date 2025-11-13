@@ -1,0 +1,16 @@
+{
+  "title": "From Principles to Numbers",
+  "pages": [
+    "./part-1-constraint-framework",    
+    "./part-2-balance-paradigms",
+    "./part-3-aesthetic-paradigm-recipes",
+    "./part-4-learning-from-real-games",
+    "./part-5-measurables-catalog",
+    "./part-6-measurables-to-numbers",
+    "./part-7-playtesting-protocol.mdx",
+    "./part-8-scaling-and-evolution",
+    "./part-9-common-pitfalls",
+    "./part-10-designer-takeaways",
+    "./supplementary"
+  ]
+}

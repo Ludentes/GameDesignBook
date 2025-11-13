@@ -1,0 +1,1009 @@
+---
+title: part-3-aesthetic-paradigm-recipes
+---
+# Part 3: Aesthetic-Paradigm Recipes
+
+You've assessed your design context and chosen your paradigm. Now what?
+
+This section provides **recipes**—concrete guidance for common aesthetic+paradigm combinations. Each recipe tells you:
+
+* When to use this combination
+* What measurables to prioritize
+* How to set initial parameters
+* Common pitfalls to avoid
+* Quick-start guidance
+
+Think of these as starting points, not rigid formulas. Use the recipe that fits your goals, then customize based on your specific design.
+
+***
+
+## Recipe 1: Challenge + Consistency (Mastery Through Pattern Learning)
+
+### When to Use This Combination
+
+**Aesthetic goal:** Players overcome difficult challenges by learning patterns and improving execution skill.
+
+**Design context:**
+
+* Players willing to retry challenges multiple times
+* Moderate to long play sessions (time for pattern learning)
+* Can pre-author content (design specific challenges)
+* Digital or well-prepped tabletop
+
+**Examples:** Dark Souls, Celeste, Hollow Knight, Super Meat Boy, Monster Hunter
+
+**Why this paradigm:** Challenge aesthetic requires fair, learnable patterns. Consistency enables pattern recognition and skill development. "I died 30 times but finally beat it" satisfaction.
+
+### Priority Measurables
+
+**Ranked by importance for this combination:**
+
+1. **Pattern Consistency** (Critical)
+   * **Target:** HIGH - Same inputs always produce same outputs
+   * **Why:** Pattern learning impossible without consistency
+   * **Test:** Does same enemy in same situation always behave identically?
+
+2. **Consequence Severity** (Critical)
+   * **Target:** HIGH - Mistakes must hurt meaningfully
+   * **Why:** Challenge requires real threat of failure
+   * **Test:** Can players fail permanently? Does death set back progress?
+
+3. **Time-to-Kill Consistency** (High)
+   * **Target:** Predictable within ±20% - Combat length stable if played well
+   * **Why:** Players need to plan resource usage, can't if fight length random
+   * **Test:** Do fights take roughly same time when executed properly?
+
+4. **Mastery Curve** (High)
+   * **Target:** Clear progression from first attempt to mastery
+   * **Why:** Players need to feel they're getting better
+   * **Test:** Does challenge that took 20 attempts initially take 2 attempts after learning?
+
+5. **Recovery Speed** (Moderate-High)
+   * **Target:** SLOW - Can't easily undo mistakes
+   * **Why:** Makes resource management matter, raises stakes
+   * **Test:** Can players heal/recover quickly after errors? (Should be no/difficult)
+
+6. **Risk Visibility** (Moderate)
+   * **Target:** EARNED - Initially hidden, revealed through play
+   * **Why:** Discovery through death is acceptable (players retry anyway)
+   * **Test:** Do players learn danger through experience rather than explicit warnings?
+
+**Pacing pattern:** Episodic (per-encounter cycles) or Attrition (strategic pressure)
+
+* Episodic: Each encounter self-contained, fast recovery between (modern challenge games)
+* Attrition: Pressure builds across encounters, slow recovery (old-school challenge)
+* Choice depends on whether Challenge is tactical (Episodic) or strategic (Attrition)
+
+**Measurables to de-prioritize:**
+
+* Information Transparency: Hidden info acceptable (discovery through play)
+* Comeback Possibility: Not needed (players retry from checkpoint)
+* Social Coordination: Often solo experience
+
+### Number-Setting Approach
+
+**Step 1: Define power baseline**
+Set player reference point.
+
+Example:
+
+* Player HP: 100 (enough for mistakes but not infinite)
+* Player damage: 15 per hit
+* Player defense: 30% damage reduction
+
+**Step 2: Calculate time-to-kill targets**
+How long should engagements last?
+
+For major boss:
+
+* Target: 5-7 minutes (long enough to learn, short enough to retry)
+* Attack rate: \~2 seconds per attack = 150-210 player attacks
+* Hit rate: \~70% = 105-147 successful hits
+* Boss HP: 147 hits × 15 damage = \~2,200 HP
+
+For regular enemy:
+
+* Target: 10-15 seconds
+* 5-7 player attacks
+* Enemy HP: 5 hits × 15 damage = 75 HP
+
+**Step 3: Set threat level**
+How dangerous should enemies be?
+
+For major boss:
+
+* Target: Player survives 8-10 boss attacks before death
+* Player effective HP: 100 / (1 - 0.30 reduction) = \~143 effective
+* Boss damage: 143 / 9 = \~16 damage per hit
+
+For regular enemy:
+
+* Target: Player survives 15-20 enemy attacks
+* Enemy damage: 143 / 17.5 = \~8 damage per hit
+
+**Step 4: Design learnable patterns**
+Create consistent, recognizable patterns.
+
+Boss patterns:
+
+* Pattern 1: Three-hit combo → pause (opening for 2 player attacks)
+* Pattern 2: Charge telegraph → charge (dodge left/right to avoid)
+* Pattern 3: AOE telegraph → explosion (back away to avoid)
+* Cycle repeats predictably
+
+Enemy patterns:
+
+* Patrol route (predictable movement)
+* Aggro range (consistent detection)
+* Attack telegraph (same timing every time)
+
+**Step 5: Test mastery curve**
+Does player improvement show?
+
+* First attempt: Boss kills player in \~2 minutes (learning patterns)
+* Fifth attempt: Player survives \~4 minutes (recognizing patterns)
+* Tenth attempt: Player reaches final phase (executing patterns)
+* Fifteenth attempt: Victory (mastered patterns)
+
+### Common Pitfalls
+
+**Pitfall 1: Inconsistent patterns**
+
+* Symptom: Players complain "sometimes it works, sometimes it doesn't"
+* Cause: RNG in enemy behavior, unclear telegraphs, frame-perfect timing required
+* Fix: Remove randomness from patterns, add clear visual/audio cues, widen timing windows slightly
+
+**Pitfall 2: Too punishing**
+
+* Symptom: Players quit after 3-5 attempts, no sense of progress
+* Cause: Consequence too severe (lose 30 minutes progress on death), learning curve too steep
+* Fix: Shorten retry loop (closer checkpoints), break challenge into learnable chunks
+
+**Pitfall 3: Pattern-breaking at higher levels**
+
+* Symptom: Strategies that worked early game fail later
+* Cause: New enemies ignore established patterns, difficulty becomes unfair not harder
+* Fix: Maintain pattern language, add complexity to existing patterns rather than breaking rules
+
+**Pitfall 4: Not enough "teeth"**
+
+* Symptom: Players stop caring about mistakes, challenge feels hollow
+* Cause: Death doesn't cost anything, can brute-force through
+* Fix: Increase consequence severity, slow recovery speed, add progress loss on failure
+
+### Quick Start
+
+If you're building Challenge + Consistency:
+
+1. **Start with time-to-kill targets:** How long should key encounters last?
+2. **Work backwards to HP/damage:** Use player damage output and target duration
+3. **Design 3-5 core patterns:** Make them clearly telegraphed and consistently timed
+4. **Set high consequences:** Make death matter (checkpoints far apart, progress loss)
+5. **Test the learning curve:** Can players improve through repetition?
+
+**Red flags:**
+
+* Players can't tell why they died → Add clearer feedback
+* Same strategy works/fails randomly → Remove randomness
+* Players beat challenge first try → Increase difficulty or add complexity
+* Players quit after 10 attempts showing no improvement → Reduce difficulty or simplify patterns
+
+***
+
+## Recipe 2: Narrative + Framework (Player-Driven Stories)
+
+### When to Use This Combination
+
+**Aesthetic goal:** Players make meaningful choices that shape story outcomes, with transparent stakes enabling informed decisions.
+
+**Design context:**
+
+* Human GM or sophisticated AI capable of framework application
+* Players comfortable with negotiation/discussion
+* Moderate session length (time for stake negotiation)
+* Narrative focus over mechanical complexity
+
+**Examples:** Blades in the Dark, Powered by the Apocalypse games (Dungeon World, Masks, Monster of the Week)
+
+**Why this paradigm:** Narrative aesthetic requires player agency over story direction. Framework enables transparent stakes ("Here's what's at risk") so players make informed choices. Same mechanics generate different fictional outcomes based on context.
+
+### Priority Measurables
+
+**Ranked by importance for this combination:**
+
+1. **Risk Visibility** (Critical)
+   * **Target:** HIGH - Stakes transparent before commitment
+   * **Why:** Informed choices essential for narrative agency
+   * **Test:** Can players see consequences before rolling?
+
+2. **Agency Scope** (Critical)
+   * **Target:** TACTICAL to STRATEGIC - Choices shape scene/story outcomes
+   * **Why:** Players need to feel their decisions matter narratively
+   * **Test:** Do player choices change story direction meaningfully?
+
+3. **Choice Reversibility** (High)
+   * **Target:** LOW - Decisions stick, consequences persist
+   * **Why:** Choices meaningless if easily undone
+   * **Test:** Can players undo narrative choices? (Should be difficult/costly)
+
+4. **Consequence Severity** (High)
+   * **Target:** MODERATE to HIGH - Stakes matter but don't end story
+   * **Why:** Need consequences that drive story forward, not dead ends
+   * **Test:** Do consequences create interesting complications, not just failure?
+
+5. **Information Transparency** (Moderate-High)
+   * **Target:** PARTIAL - Some hidden, but players understand what's knowable
+   * **Why:** Mystery valuable but players need framework for investigation
+   * **Test:** Do players understand how to learn hidden information?
+
+6. **Emotional Stakes** (High)
+   * **Target:** HIGH - Players care about outcomes personally
+   * **Why:** Narrative engagement requires emotional investment
+   * **Test:** Do players discuss outcomes in character terms, not mechanical terms?
+
+**Pacing pattern:** Wave (dramatic structure) or Episodic (scene-based)
+
+* Wave: Build tension → climax → resolution → recovery, matching story beats
+* Episodic: Scene-by-scene structure with clear beginnings/endings
+* Framework naturally creates waves through stake negotiation cycles
+* Recovery periods essential (relax phase allows emotional processing)
+
+**Measurables to de-prioritize:**
+
+* Pattern Consistency: Not relevant (each situation unique)
+* Time-to-Kill: Combat not focus (when it occurs, quick resolution fine)
+* Mastery Curve: System mastery not goal (narrative mastery is)
+
+### Number-Setting Approach
+
+**Step 1: Define framework dimensions**
+What axes evaluate actions?
+
+Example (Blades-inspired):
+
+* **Risk tiers:** Controlled, Risky, Desperate (3 levels)
+* **Effect tiers:** Limited, Standard, Great (3 levels)
+* **Consequence types:** Harm, Complication, Reduced Effect, Lost Opportunity, Worse Position
+
+**Step 2: Set ranges for each tier**
+What does each tier mean mechanically?
+
+Risk = Potential consequences:
+
+* **Controlled:** Minor consequence (1-2 stress, complication that's manageable)
+* **Risky:** Standard consequence (2-3 stress, significant complication, Level 1 harm)
+* **Desperate:** Major consequence (3-4 stress, severe complication, Level 2-3 harm)
+
+Effect = What you accomplish:
+
+* **Limited:** Partial progress (1-2 ticks on 6-tick clock)
+* **Standard:** Full action (3 ticks, or achieve immediate goal)
+* **Great:** Extra benefit (4-5 ticks, or achieve goal + advantage)
+
+**Step 3: Create resolution mechanic**
+How do you determine outcome within framework?
+
+Example (2d6 + modifier):
+
+* **10+:** Achieve effect, no consequence
+* **7-9:** Achieve effect OR avoid consequence (player chooses), or achieve lesser effect without consequence
+* **6-:** Don't achieve effect, suffer consequence at risk level
+
+**Step 4: Define consequence tracks**
+How do consequences accumulate?
+
+Example:
+
+* **Stress:** 0-9 (when full, suffer trauma = permanent character change)
+* **Harm:** Level 1 (recover in downtime), Level 2 (recover slowly), Level 3 (need extended recovery)
+* **Progress clocks:** Track long-term goals/threats (6-8 segments typical)
+
+**Step 5: Create framework application guidance**
+When is something Risky vs. Desperate?
+
+Guidelines:
+
+* **Controlled:** You're prepared, opposition weak/unaware, you have advantage
+* **Risky:** Standard danger, opposition capable and aware, even footing
+* **Desperate:** You're outmatched, opposition has advantage, you're in bad spot
+
+Guidelines for Effect:
+
+* **Limited:** Approach not ideal for situation, scale mismatch (you're tiny vs. huge)
+* **Standard:** Approach fits situation, scale matched
+* **Great:** Perfect approach, you have advantage, scale in your favor
+
+### Common Pitfalls
+
+**Pitfall 1: Framework too complex**
+
+* Symptom: Play slows down, players confused about stakes, GM struggles with edge cases
+* Cause: Too many tiers (5+ risk levels), too many consequence types (10+ options), unclear guidance
+* Fix: Simplify to 3 tiers per dimension, limit consequence types to 4-6, add examples
+
+**Pitfall 2: Stakes feel arbitrary**
+
+* Symptom: Players don't trust framework, outcomes feel like GM fiat
+* Cause: Inconsistent application, GM doesn't explain reasoning, hidden factors
+* Fix: Explain Position/Effect reasoning before roll, calibrate with players, write down precedents
+
+**Pitfall 3: Negotiation becomes argument**
+
+* Symptom: Players lobby for better Position/Effect, table time spent negotiating not playing
+* Cause: Unclear criteria, players min-maxing stakes, GM not confident
+* Fix: Final call with GM after brief discussion, players can improve stakes through fictional positioning (preparation), not argument
+
+**Pitfall 4: Consequences don't drive story**
+
+* Symptom: Consequences feel like punishment not plot, players avoid risk
+* Cause: Consequences too harsh, no interesting complications, failure = dead end
+* Fix: Make consequences create new situations, not shut down options ("Yes, but..." instead of "No")
+
+### Quick Start
+
+If you're building Narrative + Framework:
+
+1. **Design your framework:** 3 Risk levels, 3 Effect levels (resist urge to add more)
+2. **Set consequence ranges:** What does each Risk level threaten? (written down, not improvised)
+3. **Choose resolution mechanic:** 2d6 works well (ternary outcomes support "success with complication")
+4. **Create consequence tracks:** Stress/Harm or equivalent (something that accumulates toward character change)
+5. **Write 5-10 example applications:** "This situation is Risky because..." (calibrate your intuition)
+
+**Red flags:**
+
+* Players asking "Is this Risky or Desperate?" every action → Framework unclear
+* Negotiations take 5+ minutes → Framework too complex or poorly calibrated
+* Players always choose safest approach → Consequences too harsh or boring
+* Outcomes feel predetermined → Framework not actually being applied, just GM fiat
+
+***
+
+## Recipe 3: Fellowship + Adaptive (Cooperative Play with Skill Balancing)
+
+### When to Use This Combination
+
+**Aesthetic goal:** Players succeed or fail together through cooperation, with system helping balance skill gaps.
+
+**Design context:**
+
+* Computer-managed system (or experienced GM tracking state)
+* Wide skill variance in player group expected
+* Cooperative play (not competitive)
+* Real-time or near-real-time gameplay
+
+**Examples:** Left 4 Dead 2, Deep Rock Galactic, Vermintide series, cooperative roguelikes
+
+**Why this paradigm:** Fellowship aesthetic requires team success/failure. Adaptive paradigm prevents one weak player from ruining experience for others, or one strong player trivializing challenge. Dynamic adjustment keeps all players engaged.
+
+### Priority Measurables
+
+**Ranked by importance for this combination:**
+
+1. **Coordination Requirement** (Critical)
+   * **Target:** HIGH - Solo play fails, teamwork succeeds
+   * **Why:** Fellowship requires cooperation to be mechanically necessary
+   * **Test:** Can one player succeed alone? (Should be no)
+
+2. **Comeback Possibility** (Critical)
+   * **Target:** HIGH - Team can recover from setbacks
+   * **Why:** Prevents death spirals that break team morale
+   * **Test:** Can team recover from losing one player or major mistake?
+
+3. **Communication Bandwidth** (High)
+   * **Target:** MODERATE - Coordination needed but not overwhelming
+   * **Why:** Must balance coordination needs with action
+   * **Test:** Can players act without constant communication? But do they need to coordinate key moments?
+
+4. **Tension Gradient** (High)
+   * **Target:** CYCLICAL - Build-up → peak → relief → repeat
+   * **Why:** Maintains engagement, prevents fatigue, creates shared moments
+   * **Test:** Does intensity vary over session? Are there clear relief moments?
+
+5. **Consequence Severity** (Moderate)
+   * **Target:** MODERATE - Mistakes hurt but aren't catastrophic
+   * **Why:** High stakes good for tension, but death spirals break Fellowship
+   * **Test:** Does one player's mistake doom team? (Should be recoverable)
+
+6. **Recovery Speed** (Moderate)
+   * **Target:** SLOW within engagement, FAST between engagements
+   * **Why:** Tension during action, but can reset for next challenge
+   * **Test:** Can team recover mid-fight? (Difficult) Between fights? (Yes)
+
+**Pacing pattern:** Wave (L4D2-style) or Episodic with frequent recovery
+
+* Wave is ideal: Build-up (60-90s) → Peak (15-30s) → Relax (30-45s) → Repeat
+* Creates shared emotional beats (team experiences tension together)
+* Recovery phases essential (space for social interaction, discussion)
+* Adaptive system explicitly manages wave cycles (builds/peaks/relaxes)
+* Avoid Continuous pacing (no breaks = no space for Fellowship)
+
+**Measurables to de-prioritize:**
+
+* Pattern Consistency: Variety more important than fixed patterns
+* Mastery Curve: Team coordination matters more than individual skill ceiling
+* Risk Visibility: Some hidden danger acceptable (creates surprise)
+
+### Number-Setting Approach
+
+**Step 1: Define baseline difficulty**
+What's default challenge level?
+
+Example (4-player co-op):
+
+* Spawn rate: 5 enemies per 30 seconds
+* Enemy HP: 20 (die in 3-4 player hits)
+* Enemy damage: 10 per hit
+* Special enemy frequency: Every 45 seconds
+
+**Step 2: Set adaptation ranges**
+How much can difficulty vary?
+
+Ranges:
+
+* Spawn rate: 2-10 enemies per 30 seconds (5x variation)
+* Special frequency: 20-90 seconds (4.5x variation)
+* Item spawn chance: 20-80% (4x variation)
+* Enemy HP: ±30% (0.7x to 1.3x baseline)
+
+**Step 3: Define state tracking**
+What does system monitor?
+
+Track per player:
+
+* HP percentage
+* Ammo remaining
+* Deaths/incapacitations (last 5 minutes)
+* Damage dealt (contribution level)
+
+Track team aggregate:
+
+* Average HP
+* Progress rate (vs. expected)
+* Time since last peak intensity
+* Team cohesion (distance between players)
+
+**Step 4: Set adaptation triggers**
+When does system adjust?
+
+Help struggling team:
+
+```
+IF any_player_HP < 25%
+  THEN increase_health_item_spawns (40% → 70%)
+
+IF multiple_players_incapacitated
+  THEN reduce_spawn_rate (5 → 3 enemies/30sec)
+  AND delay_special_enemies (+15 seconds)
+
+IF team_wiped_recently (last 2 min)
+  THEN easier_spawn_composition (fewer specials)
+```
+
+Challenge successful team:
+
+```
+IF no_deaths_last_5_minutes AND high_progress_rate
+  THEN spawn_mini_boss
+  AND increase_spawn_rate (5 → 8 enemies/30sec)
+
+IF all_players_HP > 75%
+  THEN reduce_item_spawns (40% → 25%)
+
+IF one_player_far_ahead (lone wolf)
+  THEN spawn_enemies_targeting_them (punish separation)
+```
+
+**Step 5: Design intensity cycles**
+How does pacing work?
+
+Cycle structure:
+
+* **Build-up (60-90 sec):** Gradually increase spawn rate, telegraph peak coming
+* **Peak (15-30 sec):** Maximum intensity, overwhelming numbers, special enemies
+* **Relax (30-45 sec):** Minimal spawns, team can catch breath, heal, resupply
+* **Repeat** with varying intensity (not every peak same strength)
+
+**Step 6: Set bounds on adaptation**
+What are hard limits?
+
+Never exceed:
+
+* Spawn rate: 12 enemies per 30 seconds (performance/overwhelming)
+* Special simultaneously: 3 max (more = chaos not challenge)
+* Zero item spawns: Always 15% minimum (prevent impossible situations)
+
+Always provide:
+
+* Winning chance: Even struggling team has path to victory
+* Team comeback: One strong player can help others (carrying possible but not trivial)
+
+### Common Pitfalls
+
+**Pitfall 1: Adaptation too obvious (rubber-banding)**
+
+* Symptom: Players notice difficulty adjusting, feel patronized or unfairly challenged
+* Cause: Adaptation too sudden (spawn rate doubles), happens too frequently, players can observe triggers
+* Fix: Gradual adjustment (10-20% changes), longer intervals between adjustments, hide adaptation in pacing
+
+**Pitfall 2: Exploitation**
+
+* Symptom: Players intentionally trigger "help" states (fake struggling to get items)
+* Cause: Adaptation rewards are too good, triggers too predictable, no cost to triggering
+* Fix: Delay between trigger and help, diminishing returns on help (can't farm), don't make help better than playing well
+
+**Pitfall 3: Death spirals**
+
+* Symptom: One player dies → team weaker → more deaths → inevitable wipe
+* Cause: Adaptation doesn't help enough, losing player costs too much power, no comeback mechanics
+* Fix: Stronger adaptation when team down players, respawn/revive mechanics, difficulty scales to remaining player count
+
+**Pitfall 4: Lone wolf problem**
+
+* Symptom: One strong player carries team, others feel useless
+* Cause: Adaptation doesn't prevent solo success, no mechanical reason to cooperate
+* Fix: Spawn enemies targeting strong player, challenges requiring coordination (can't solo), separated players punished
+
+### Quick Start
+
+If you're building Fellowship + Adaptive:
+
+1. **Define baseline:** What's the default difficulty for average team?
+2. **Set adaptation ranges:** How much can difficulty vary? (±50% is typical safe range)
+3. **Track team health:** Average HP is simplest effective metric
+4. **Create intensity cycles:** 2-3 minute cycles (build → peak → relax)
+5. **Test team wipe scenarios:** Can team recover from losing one player? Two players?
+
+**Red flags:**
+
+* Players notice adaptation and comment on it → Too obvious/sudden
+* Team always succeeds regardless of performance → Helping too much
+* One player regularly MVP, others bored → Not enforcing cooperation enough
+* Players intentionally die to trigger help → Exploitable adaptation
+
+***
+
+## Recipe 4: Discovery + Adaptive (Exploration with Maintained Novelty)
+
+### When to Use This Combination
+
+**Aesthetic goal:** Players explore unknown spaces/systems, with variety maintained across playthroughs.
+
+**Design context:**
+
+* Procedural generation or large content pool
+* Computer-managed (tracks what's been seen)
+* Replayability valued
+* Medium to long play sessions
+
+**Examples:** Spelunky, Slay the Spire, Hades, No Man's Sky, roguelikes/roguelites
+
+**Why this paradigm:** Discovery aesthetic requires novelty—seeing/learning new things. Adaptive paradigm prevents staleness by varying encounters, adjusting to what players have seen, maintaining surprise. Pure consistency kills discovery (same every time).
+
+### Priority Measurables
+
+**Ranked by importance for this combination:**
+
+1. **Surprise Frequency** (Critical)
+   * **Target:** REGULAR - New things encountered frequently
+   * **Why:** Discovery requires encountering unknown
+   * **Test:** Do players see new content/combinations each run?
+
+2. **Information Transparency** (Critical)
+   * **Target:** PARTIAL - Some hidden, gradually revealed
+   * **Why:** Mystery essential for discovery, but need framework for learning
+   * **Test:** Can players learn patterns over multiple runs? But still find surprises?
+
+3. **Discovery Rate** (High)
+   * **Target:** GRADUAL - New things introduced at sustainable pace
+   * **Why:** Too fast = overwhelming, too slow = boring
+   * **Test:** Do players learn 2-3 new things per session?
+
+4. **Option Space Size** (High)
+   * **Target:** LARGE - Many possible builds/approaches
+   * **Why:** Discovery enhanced by finding new combinations
+   * **Test:** Do players find new viable strategies across runs?
+
+5. **Consequence Severity** (Moderate-High)
+   * **Target:** VARIES - Some runs high stakes (permadeath), some low stakes (can retry)
+   * **Why:** High stakes make discoveries meaningful, but need opportunities to experiment
+   * **Test:** Do players feel discoveries matter? Can they safely experiment sometimes?
+
+6. **Progress Type** (Moderate)
+   * **Target:** META-PROGRESSION - Account unlocks, not just run-based power
+   * **Why:** Gives reason to replay (discover new options)
+   * **Test:** Do players unlock new content through play?
+
+**Measurables to de-prioritize:**
+
+* Pattern Consistency: Variety more important than fixed patterns
+* Mastery Curve: System understanding grows, but not pattern execution
+* Coordination Requirement: Often solo experience
+
+### Number-Setting Approach
+
+**Step 1: Define content pool**
+What can players encounter?
+
+Example (roguelike):
+
+* Enemy types: 50 (10 per biome, 5 biomes)
+* Items: 200 (weapons, abilities, modifiers)
+* Room types: 100 (combat, treasure, event, shop, boss)
+* Synergies: 500+ (item combinations)
+
+**Step 2: Set encounter frequency**
+How often do players see new things?
+
+Early game (first 5 runs):
+
+* New enemy type: Every 2-3 rooms
+* New item: Every run finds 5-8 new items
+* New synergy: Discover 1-2 per run
+
+Mid game (runs 6-20):
+
+* New enemy: Every 5-10 rooms (most seen, occasional new)
+* New item: 2-3 new items per run
+* New synergy: 3-5 per run (more combinations)
+
+Late game (runs 21+):
+
+* Rare content: Unlock special conditions, hidden areas
+* Deep synergies: Find powerful combinations
+* Challenge variations: Modifiers, special modes
+
+**Step 3: Design adaptive variety**
+How does system maintain novelty?
+
+Track per player account:
+
+* Enemies encountered (adjust spawn weights away from common)
+* Items found (increase spawn rate for rare/unseen)
+* Strategies used (offer counters to previous successful builds)
+* Areas explored (gate content behind exploration)
+
+Adapt spawning:
+
+```
+IF player_seen_enemy_type > 20_times
+  THEN reduce_spawn_weight (appear less often)
+
+IF player_never_seen_item_type
+  THEN increase_spawn_chance_slightly (breadcrumb rare content)
+
+IF player_used_same_strategy_3_consecutive_runs
+  THEN spawn_counter_enemies (encourage experimentation)
+
+IF player_explored_all_normal_content
+  THEN unlock_hidden_areas (reward mastery with discovery)
+```
+
+**Step 4: Balance power variance**
+How much can run strength vary?
+
+Power range:
+
+* Weak run: 70% of baseline power (unlucky but winnable with skill)
+* Average run: 100% baseline power
+* Strong run: 150% baseline power (great synergies)
+* God run: 250% baseline power (perfect synergies, very rare)
+
+Difficulty adapts to power:
+
+```
+IF player_power > 150% baseline
+  THEN increase_enemy_HP (+30%)
+  AND spawn_more_elites (+50% chance)
+
+IF player_power < 80% baseline
+  THEN offer_power_items (shop has strong options)
+  AND slightly_easier_enemies (-15% HP)
+```
+
+**Step 5: Meta-progression pacing**
+How fast do players unlock new content?
+
+Unlock tiers:
+
+* **Tier 1 (runs 1-5):** Basic content, 20% of pool available
+* **Tier 2 (runs 6-15):** Core content, 60% of pool available
+* **Tier 3 (runs 16-30):** Advanced content, 85% of pool available
+* **Tier 4 (runs 31+):** Hidden/rare content, 100% eventually discoverable
+
+Unlock pace:
+
+* New enemy type every 2-3 runs initially
+* New item every run initially
+* New mechanic every 5-10 runs
+* Secret content requires special conditions (keep some mysteries long-term)
+
+### Common Pitfalls
+
+**Pitfall 1: Shallow content pool**
+
+* Symptom: Players see everything by run 10, no more discovery
+* Cause: Not enough content, unlocks too fast, no hidden depth
+* Fix: Larger content pool, slower unlock pace, add hidden synergies/areas, emergent interactions
+
+**Pitfall 2: RNG frustration**
+
+* Symptom: Players complain about "bad RNG ruining runs"
+* Cause: Too much variance, weak runs unwinnable, no agency over build
+* Fix: Bound variance (weak runs still viable), give player choices (shop, branching paths), adapt to give useful options
+
+**Pitfall 3: Optimal strategy dominates**
+
+* Symptom: Players find one strong build, use every run, stop exploring
+* Cause: Power imbalance, no reason to try other builds, meta-game solved
+* Fix: Balance power spikes, spawn counters to overused strategies, rotate daily modifiers, add variety incentives
+
+**Pitfall 4: No sense of progress**
+
+* Symptom: Players quit after losses feel like wasted time
+* Cause: No meta-progression, pure permadeath, no unlocks
+* Fix: Account unlocks, persistent currencies, knowledge as progression (completion tracking)
+
+### Quick Start
+
+If you're building Discovery + Adaptive:
+
+1. **Create large content pool:** Aim for 20+ runs before players see everything
+2. **Design synergies:** Items/abilities that combine in interesting ways (exponential combinations)
+3. **Track what's seen:** Adjust spawn weights away from overexposed content
+4. **Meta-progression:** Unlock 5-10 new things per run initially, slower later
+5. **Test discovery pacing:** Do players say "I found something new!" regularly?
+
+**Red flags:**
+
+* Players seeing same content every run → Not enough variety or bad spawn weighting
+* Players quitting after 5-10 runs → Discovered everything, no reason to continue
+* One strategy dominates → Power imbalance or lack of counters
+* Players frustrated by RNG → Too much variance, weak runs unwinnable
+
+***
+
+## Recipe 5: Challenge + Bounded Adaptive (Accessible Difficulty)
+
+### When to Use This Combination
+
+**Aesthetic goal:** Challenge aesthetic for wide skill range—skilled players challenged, struggling players get help, but mastery still rewarded.
+
+**Design context:**
+
+* Wide expected skill variance
+* Want Challenge aesthetic without excluding less-skilled players
+* Can implement adaptation (computer or human GM)
+* Optional difficulty modifiers acceptable
+
+**Examples:** Hades, Dark Souls with summons, Celeste with assist mode, modern roguelikes with meta-progression
+
+**Why this hybrid:** Pure Challenge + Consistency excludes many players (too hard). Pure Adaptive can feel patronizing to skilled players ("game holding my hand"). Bounded Adaptive provides help while preserving mastery satisfaction.
+
+### Priority Measurables
+
+**Ranked by importance for this combination:**
+
+1. **Mastery Curve** (Critical)
+   * **Target:** EXISTS - Players get better through practice
+   * **Why:** Challenge aesthetic requires feeling of improvement
+   * **Test:** Do players beat challenges faster after learning? (Must be yes)
+
+2. **Consequence Severity** (Critical)
+   * **Target:** HIGH but SCALABLE - Mistakes hurt, but help available
+   * **Why:** Challenge requires stakes, but accommodation needed for accessibility
+   * **Test:** Do skilled players face real threat? Do struggling players have safety net?
+
+3. **Comeback Possibility** (High)
+   * **Target:** MODERATE - Can recover from mistakes, but not trivially
+   * **Why:** Prevents hopeless situations while maintaining tension
+   * **Test:** Can struggling players recover with smart play? But do mistakes still cost something?
+
+4. **Pattern Consistency** (High)
+   * **Target:** HIGH within challenge, but difficulty varies
+   * **Why:** Patterns must be learnable (Challenge), but overall difficulty adapts
+   * **Test:** Does boss behave consistently? But do players face different challenge levels?
+
+5. **Agency Scope** (Moderate-High)
+   * **Target:** DIFFICULTY CONTROL - Players choose challenge level
+   * **Why:** Explicit choice preserves achievement feeling
+   * **Test:** Can players opt into help? Or choose harder variants?
+
+6. **Progress Type** (Moderate)
+   * **Target:** DUAL - Skill improvement + character power
+   * **Why:** Skill primary, but power progression provides alternate path
+   * **Test:** Can skilled players beat game under-leveled? Can patient players out-level content?
+
+**Measurables to de-prioritize:**
+
+* Discovery: Patterns learnable (can conflict with novelty)
+* Social Coordination: Often solo or optional co-op
+
+### Number-Setting Approach
+
+**Step 1: Define base difficulty (Challenge mode)**
+What's intended challenge for skilled players?
+
+Example (boss fight):
+
+* Boss HP: 2000
+* Boss damage: 25 per hit
+* Player HP: 100 (survive 4 hits)
+* Expected attempts: 10-20 for skilled player
+
+**Step 2: Set difficulty modifiers**
+How much easier can it get?
+
+Difficulty levels:
+
+* **Challenge (baseline):** No modifications
+* **Moderate:** Boss HP -20% (1600), damage -20% (20 per hit), player survives 5 hits
+* **Accessible:** Boss HP -40% (1200), damage -40% (15 per hit), player survives 6-7 hits
+* **Story mode:** Boss HP -60% (800), damage -60% (10 per hit), player survives 10 hits
+
+OR optional assists:
+
+* **Damage assist:** Player deals +25% damage (2000 HP boss → 1600 effective)
+* **Defense assist:** Player takes -25% damage (25 damage → 18.75 effective)
+* **Extra lives:** Respawn at checkpoint mid-boss (second chance)
+
+**Step 3: Design explicit vs. automatic adaptation**
+
+**Explicit (player chooses):**
+
+* Difficulty settings at game start
+* Optional summons/co-op (brings help but boss gets more HP)
+* Meta-progression (grind levels to over-level content)
+* Assist mode toggle (Celeste-style granular options)
+
+**Automatic (system adapts):**
+
+* Death count triggers: After 5 deaths, offer item/advantage
+* Stuck detection: No progress in 30 minutes → suggest easier mode
+* Success triggers: Win streak → offer harder variant for bonus rewards
+
+**Step 4: Preserve achievement feeling**
+
+Critical: Players who use help should still feel accomplished, but distinguish from "pure" challenge.
+
+Methods:
+
+* Separate achievement tracks (Hades: cleared vs. cleared without god mode)
+* Visible indicators (summon ashes in Dark Souls)
+* Bonus rewards for harder modes (more resources, cosmetics)
+* Frame as "your choice" not "you're failing"
+
+**Step 5: Set bounds on adaptation**
+
+Never:
+
+* Make so easy that patterns don't matter (avoid autopilot mode)
+* Adapt without player awareness (hidden help feels patronizing)
+* Punish players for using accessibility (shame spiral)
+* Let adaptation trivialize sense of accomplishment
+
+Always:
+
+* Maintain pattern consistency (boss behaves same at any difficulty)
+* Preserve skill expression (better play = better outcome even with help)
+* Make adaptation visible/explicit (players know when getting help)
+* Respect player choice (opt-in, not forced)
+
+### Common Pitfalls
+
+**Pitfall 1: Help feels patronizing**
+
+* Symptom: Players refuse accessibility options, feel insulted by offers
+* Cause: System treats struggle as failure, help is "hand-holding"
+* Fix: Frame as "playstyle choice" not "help for struggling players," neutral language, no shame
+
+**Pitfall 2: Easy mode trivializes challenge**
+
+* Symptom: Players breeze through on easy, then complain game is boring
+* Cause: Difficulty settings too extreme, easy is autopilot
+* Fix: Bound easy mode (patterns still matter), test that mistakes still have consequences
+
+**Pitfall 3: Meta-progression makes difficulty moot**
+
+* Symptom: Players grind levels until content trivial, challenge lost
+* Cause: Power progression too strong, no level caps, stat scaling broken
+* Fix: Bounded power growth (Hades-style), scale enemies with player level, cap over-leveling
+
+**Pitfall 4: No achievement distinction**
+
+* Symptom: Skilled players feel no accomplishment, "everyone gets trophy"
+* Cause: Same rewards regardless of difficulty, no recognition of challenge
+* Fix: Separate achievement tracks, bonus rewards for hard modes, visible completion status
+
+### Quick Start
+
+If you're building Challenge + Bounded Adaptive:
+
+1. **Design Challenge baseline:** What should skilled players face?
+2. **Create explicit difficulty options:** Settings or optional assists (player chooses)
+3. **Set bounds:** Easy mode still requires pattern learning (not autopilot)
+4. **Add achievement distinction:** Separate tracks or bonus rewards for higher difficulty
+5. **Test both extremes:** Is Challenge hard enough? Is Accessible winnable for new players?
+
+**Red flags:**
+
+* Skilled players beat Challenge first try → Too easy
+* Accessible players still can't progress → Help insufficient
+* Players feel ashamed for using help → Framing wrong
+* No distinction between difficulties → Achievement hollow
+
+***
+
+## Using These Recipes
+
+### How to Apply a Recipe
+
+**Step 1: Identify your match**
+Which recipe fits your aesthetic + context + paradigm?
+
+**Step 2: Use measurables as checklist**
+Optimize the priority measurables listed. Ignore de-prioritized ones.
+
+**Step 3: Follow number-setting approach**
+Use recipe's method as starting point. Adapt to your specifics.
+
+**Step 4: Watch for common pitfalls**
+Recipes tell you what goes wrong. Avoid those mistakes.
+
+**Step 5: Iterate from quick start**
+Get to testable prototype fast using quick-start guidance.
+
+### When Recipes Don't Fit
+
+**If no recipe matches your combination:**
+
+* Use closest recipe as reference
+* Identify your priority measurables (Part 5 catalog)
+* Apply paradigm's number-setting approach (Part 2)
+* Test and iterate (Part 7)
+
+**If you need multiple aesthetics:**
+
+* Use multiple recipes for different subsystems
+* Combine measurables from both recipes
+* Be careful of conflicts (Challenge + Discovery can fight)
+
+**If your design is unique:**
+
+* Recipes are starting points, not restrictions
+* Framework (Parts 1-2) still applies
+* Create your own "recipe" and document it
+
+### Recipe Selection Decision Tree
+
+```
+Start: What's your primary aesthetic?
+
+→ Challenge
+  ├─ Pattern learning valued? → Recipe 1 (Challenge + Consistency)
+  └─ Wide skill range? → Recipe 5 (Challenge + Bounded Adaptive)
+
+→ Narrative
+  └─ Player-driven story? → Recipe 2 (Narrative + Framework)
+
+→ Fellowship
+  └─ Cooperative + skill gaps? → Recipe 3 (Fellowship + Adaptive)
+
+→ Discovery
+  └─ Exploration + replayability? → Recipe 4 (Discovery + Adaptive)
+
+→ Other/Multiple aesthetics
+  └─ See Part 5 for measurables catalog, build custom approach
+```
+
+***
+
+## Next Steps
+
+You now have concrete recipes for common combinations.
+
+**Part 4:** Learn from real games—what worked, what didn't, and why
+**Part 5:** Complete measurables catalog (reference for all measurables)
+**Part 6:** Detailed number derivation within your paradigm
+**Part 7:** How to validate through playtesting
+
+Choose your recipe, or adapt one to your needs. Then move to implementation.

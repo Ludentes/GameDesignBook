@@ -1,0 +1,1241 @@
+---
+title: part-6-measurables-to-numbers
+---
+# Part 6: From Measurables to Numbers
+
+You've identified your priority measurables. Now: how do you turn "Time-to-Kill should be 5-7 minutes" into "Boss has 540 HP"?
+
+This part shows you the actual derivation process—from abstract targets to concrete parameters.
+
+We'll cover:
+
+1. Choosing resolution mechanics
+2. Setting parameters within each paradigm
+3. Integration across systems
+4. Using LLMs to assist calibration
+5. Worked examples
+
+***
+
+## Section 1: Choosing Resolution Mechanics
+
+Before you can set HP and damage values, you need to know **how actions resolve**. Different resolution mechanics serve different paradigms and aesthetics.
+
+### Why This Matters First
+
+**You can't set parameters without knowing the resolution system:**
+
+* "Boss has 500 HP" meaningless without knowing damage scale
+* "Player deals 15 damage" meaningless without knowing hit rate
+* "60% success chance" requires specific dice mechanic
+
+**Resolution mechanic determines:**
+
+* How you calculate probabilities
+* What granularity is possible
+* How much variance exists
+* How fast resolution occurs
+
+### Decision Framework for Resolution Mechanics
+
+**Step 1: Identify your requirements from measurables**
+
+From Part 5, check your priority measurables for:
+
+**Transparency requirement:**
+
+* Risk Visibility HIGH → Need transparent odds (players can calculate)
+* Risk Visibility LOW → Opaque mechanics acceptable
+
+**Speed requirement:**
+
+* Decision Frequency high → Need fast resolution (\<10 seconds per action)
+* Decision Frequency moderate → Can afford slower resolution
+
+**Granularity requirement:**
+
+* Partial success important (Framework, Narrative) → Need ternary outcomes (fail/partial/success)
+* Binary sufficient (Consistency, Challenge) → Success/fail works
+
+**Player control requirement:**
+
+* Agency Scope TACTICAL+ → Need modifiers, choices affecting roll
+* Agency Scope MECHANICAL → Simple pass/fail sufficient
+
+**Step 2: Match requirements to resolution mechanics**
+
+### Resolution Mechanic Library
+
+#### 2d6 + Modifiers (PbtA-style)
+
+**Properties:**
+
+* **Transparency:** HIGH (bell curve probabilities known)
+* **Speed:** FAST (one roll, immediate result)
+* **Granularity:** TERNARY (6-/7-9/10+ natural breakpoints)
+* **Player control:** MODERATE (modifiers shift probabilities)
+* **Variance:** MODERATE (2-12 range, 7 most common)
+
+**Probabilities:**
+
+* 10+ (success): 41.7% base, 58.3% with +1, 72.2% with +2
+* 7-9 (partial): 41.7% base, 30.6% with +1, 25.0% with +2
+* 6- (failure): 16.7% base, 11.1% with +1, 2.8% with +2
+
+**Best for:**
+
+* Framework paradigm (ternary outcomes support complications)
+* Narrative aesthetic (partial success drives story)
+* Moderate decision frequency (fast resolution)
+* Risk visibility HIGH (players understand probabilities)
+
+**Examples:** Blades in the Dark, Dungeon World, Apocalypse World, Monster of the Week
+
+**When NOT to use:**
+
+* Need high granularity (2d6 only gives 11 outcomes)
+* Want very low variance (bell curve still has spread)
+* Binary success/fail sufficient (wasting ternary structure)
+
+#### d20 + Modifiers (D\&D-style)
+
+**Properties:**
+
+* **Transparency:** HIGH (linear probabilities, 5% increments)
+* **Speed:** FAST (one roll for attack, second for damage)
+* **Granularity:** HIGH (20 outcomes for hit, variable damage dice)
+* **Player control:** HIGH (many modifiers possible)
+* **Variance:** HIGH (flat distribution, any outcome equally likely)
+
+**Probabilities:**
+
+* Linear: Each +1 = +5% hit chance
+* AC 14 with +5 to hit: Need 9+ = 60% hit chance
+* AC 16 with +5 to hit: Need 11+ = 50% hit chance
+* Crits (natural 20) = 5%, crit fails (natural 1) = 5%
+
+**Best for:**
+
+* Consistency paradigm (granular control over hit rates)
+* Challenge aesthetic (tactical combat with calculable odds)
+* High decision frequency in combat (each action resolved quickly)
+* Need separation of hit/damage (tactical depth)
+
+**Examples:** D\&D 5e, Pathfinder, 13th Age
+
+**When NOT to use:**
+
+* Want partial success natively (d20 is binary, need homebrew)
+* Want bounded outcomes (nat 1 and nat 20 create extreme results)
+* Players want less math (modifiers can stack extensively)
+
+#### Dice Pool (Count Successes)
+
+**Properties:**
+
+* **Transparency:** LOW (hard to calculate probabilities mentally)
+* **Speed:** MODERATE (roll multiple dice, count successes)
+* **Granularity:** CONTINUOUS (0 to N successes)
+* **Player control:** HIGH (build pool through choices)
+* **Variance:** MODERATE to LOW (more dice = more consistent)
+
+**Probabilities (d6, success on 5-6):**
+
+* 1d6: 33% 1+ success
+* 2d6: 55% 1+ success, 11% 2+ success
+* 3d6: 70% 1+ success, 26% 2+ success, 4% 3+ success
+* 4d6: 80% 1+ success, 40% 2+ success, 13% 3+ success
+
+**Best for:**
+
+* Framework paradigm (successes = Effect level)
+* Resource-building mechanics (spend for dice)
+* Want player control over risk (more dice = less variance)
+* Narrative focus (drama of roll matters more than calculation)
+
+**Examples:** Blades in the Dark (Position/Effect), World of Darkness, Shadowrun, Burning Wheel
+
+**When NOT to use:**
+
+* Need fast resolution (counting slower than single die)
+* Want transparent odds (players can't calculate easily)
+* Limited table space or digital implementation (many dice to track)
+
+#### Simple d6 (OSR-style)
+
+**Properties:**
+
+* **Transparency:** HIGH (six outcomes, easy to remember)
+* **Speed:** VERY FAST (one die, instant resolution)
+* **Granularity:** LOW (only 6 outcomes)
+* **Player control:** LOW to MODERATE (few modifiers)
+* **Variance:** HIGH (16.7% per outcome)
+
+**Probabilities:**
+
+* Target number 4+: 50% success
+* Target number 5+: 33% success
+* Target number 6+: 16% success (only on 6)
+
+**Best for:**
+
+* Consistency paradigm (fast resolution)
+* Minimal mechanical complexity (more brainspace for tactics)
+* Old-school aesthetic (classic feel)
+* Quick adjudication needed
+
+**Examples:** Into the Odd, Maze Rats, Cairn, many OSR games
+
+**When NOT to use:**
+
+* Need granular control (only 6 outcomes)
+* Want significant player control (limited modifier space)
+* Need to distinguish small differences (not enough resolution)
+
+#### Narrative/Token-Based (Fate-style)
+
+**Properties:**
+
+* **Transparency:** MODERATE (understand economy but not probabilities)
+* **Speed:** FAST (spend tokens, narrate outcome)
+* **Granularity:** NARRATIVE (success determined by fiction + tokens)
+* **Player control:** VERY HIGH (players spend tokens to shape outcomes)
+* **Variance:** LOW (outcomes negotiated, not random)
+
+**Mechanics:**
+
+* Players have tokens/points (Fate points, story tokens, bennies)
+* Spend tokens to: succeed automatically, add details, reroll, invoke aspects
+* GM gives tokens when: players accept complications, engage disadvantages
+* Success/failure negotiated using tokens + dice or tokens alone
+
+**Best for:**
+
+* Framework paradigm (negotiation is core)
+* Narrative aesthetic (story takes precedence over mechanics)
+* High agency scope (players shape outcomes directly)
+* Want to minimize randomness (tokens reduce variance)
+
+**Examples:** Fate Core, Cortex Prime, various story games
+
+**When NOT to use:**
+
+* Challenge aesthetic (token spending replaces skill expression)
+* Want objective difficulty (negotiation makes it subjective)
+* Players prefer tactical/mechanical focus over narrative control
+
+### Matching Requirements to Mechanics: Decision Table
+
+\| Need | 2d6 | d20 | Dice Pool | d6 | Tokens |
+\|------|-----|-----|-----------|----|----- --|
+\| Transparent odds | ✓✓ | ✓✓✓ | ✗ | ✓✓✓ | ○ |
+\| Fast resolution | ✓✓✓ | ✓✓ | ✓ | ✓✓✓ | ✓✓ |
+\| Partial success | ✓✓✓ | ○ | ✓✓ | ○ | ✓✓✓ |
+\| High granularity | ○ | ✓✓✓ | ✓✓ | ✗ | ✓ |
+\| Player control | ✓ | ✓✓ | ✓✓✓ | ○ | ✓✓✓ |
+\| Low variance | ✓ | ✗ | ✓✓ | ✗ | ✓✓✓ |
+
+**Legend:** ✓✓✓ = Excellent, ✓✓ = Good, ✓ = Adequate, ○ = Possible but not ideal, ✗ = Poor fit
+
+### Step 3: Choose Your Mechanic
+
+**For our Village Mystery + Boss Fight scenario:**
+
+**Investigation phase requirements:**
+
+* Transparent odds: HIGH (Framework requires risk visibility)
+* Fast resolution: YES (12-15 actions in 3 hours = \~10 min each)
+* Partial success: ESSENTIAL (Framework paradigm, Narrative aesthetic)
+* Player control: MODERATE (modifiers from preparation)
+
+**Match: 2d6 + modifiers**
+
+* ✓✓ Transparent (players know 10+ = success)
+* ✓✓✓ Fast (one roll)
+* ✓✓✓ Partial success (7-9 built in)
+* ✓ Player control (modifiers available)
+
+**Boss fight requirements:**
+
+* Transparent odds: HIGH (players need to calculate tactics)
+* Fast resolution: YES (4 players × 6 rounds = 24 actions in 2 hours)
+* Granularity: HIGH (need HP/damage tracking for 20+ round fight)
+* Binary ok: SUCCESS/FAIL sufficient (hit/miss, damage rolled separately)
+
+**Match: d20 + AC system**
+
+* ✓✓✓ Transparent (linear probabilities)
+* ✓✓ Fast (attack roll + damage roll)
+* ✓✓✓ Granular (20 outcomes for hit, variable damage)
+* Works for Consistency paradigm (fixed AC, learnable hit rates)
+
+**Note: Different mechanics for different phases is valid hybrid approach.**
+
+***
+
+## Section 2: Setting Parameters Within Paradigms
+
+Once you've chosen resolution mechanics, you can set actual numbers. The process differs by paradigm.
+
+### Framework Paradigm: Setting Tier Ranges
+
+**Framework doesn't set exact values—it sets ranges for each tier.**
+
+#### Step 1: Define Framework Dimensions
+
+**Choose your framework axes** (typically 2-3):
+
+* **Risk axis:** How dangerous? (3 tiers typical)
+* **Effect axis:** What's accomplished? (3 tiers typical)
+* **Consequence types:** What goes wrong? (4-6 types)
+
+**For Village Mystery investigation:**
+
+* Risk: Low / Medium / High
+* Information Gain: Minor / Major / Critical
+* Consequences: Time lost, Alert raised, Path closed, Danger increased
+
+#### Step 2: Set Ranges for Risk Tiers
+
+**What does each risk level threaten?**
+
+Using 2d6 resolution (6- = consequence occurs):
+
+**Low Risk:**
+
+* **Probability of consequence:** 16.7% base (6- on 2d6)
+* **Typical consequence:** Minor (time lost, need different approach)
+* **No catastrophic outcomes**
+
+**Medium Risk:**
+
+* **Probability of consequence:** 16.7% base, BUT consequence more severe
+* **Typical consequence:** Moderate (alert raised +1, path closes, complication)
+* **Can create problems but not end investigation**
+
+**High Risk:**
+
+* **Probability of consequence:** 16.7% base, BUT consequence severe
+* **Typical consequence:** Major (danger level increases significantly, lose opportunity permanently)
+* **Can make situation notably worse**
+
+**Modifier ranges:**
+
+* Low Risk: +1 to roll (reduces failure chance to 11.1%)
+* Medium Risk: +0 to roll (16.7% failure)
+* High Risk: -1 to roll (27.8% failure)
+
+#### Step 3: Set Ranges for Effect Tiers
+
+**What does each effect level provide?**
+
+**Minor Information:**
+
+* 1-2 preparation points (usable in boss fight)
+* OR hint about boss (not full revelation)
+* Useful but not game-changing
+
+**Major Information:**
+
+* 3-4 preparation points
+* OR reveal one boss weakness/pattern
+* OR unlock one tactical option
+* Significantly helpful
+
+**Critical Information:**
+
+* 5-6 preparation points
+* OR reveal major boss secret + unlock powerful tactical option
+* Game-changing advantage
+
+**Total available across investigation:**
+
+* \~12-15 investigation actions possible
+* Average yield if playing well: 25-30 preparation points, 3-4 tactical unlocks, knowledge of 3-4 boss properties
+* This becomes input to boss fight parameters
+
+#### Step 4: Create GM Guidance
+
+**Not formulas, but principles for application:**
+
+**Risk determination:**
+
+* Low: You're prepared, opposition weak/unaware, safe location
+* Medium: Standard danger, opposition capable, some exposure
+* High: Outmatched, opposition strong, exposed position
+
+**Effect determination:**
+
+* Minor: Approach indirect, limited time/resources
+* Major: Approach suited, adequate resources
+* Critical: Perfect approach, excellent resources, ideal circumstances
+
+**Consequence selection:**
+
+* Choose consequence that drives story forward
+* Match severity to Risk level
+* Avoid dead ends (even High Risk consequences should create new situations)
+
+#### Step 5: Test Framework Consistency
+
+**Can GM apply framework consistently?**
+
+Present same scenario to GM multiple times:
+
+* Do they give same Risk/Effect?
+* Present to multiple GMs: Do they agree within 1 tier?
+* Do players understand framework well enough to predict stakes?
+
+**If not:** Add more examples, clarify guidance, provide edge case rulings.
+
+### Consistency Paradigm: Calculating Fixed Values
+
+**Consistency sets exact numbers that enable pattern learning.**
+
+#### Step 1: Define Power Baseline
+
+**Choose your reference point** (player power level):
+
+**For Village Mystery boss fight:**
+
+* "Level 3" power equivalent (our design choice)
+* Player HP: 20 (enough for mistakes, not infinite)
+* Player to-hit: +5 to +7 (average +6)
+* Player damage per hit: 8-10 (average 9)
+* 4 players total
+
+**Why this matters:** All other numbers derive from player baseline.
+
+#### Step 2: Calculate Time-to-Kill Target
+
+**From measurables (Part 5):**
+
+* Target boss fight duration: 2 hours
+* Players take turns, then boss acts: \~1 round per 5 minutes
+* Target: 20-25 rounds total
+
+**Player damage per round:**
+
+* 4 players each attack
+* Against boss AC (to be determined), let's assume 65% hit rate
+* Average damage per hit: 9
+* DPR (Damage Per Round) = 4 players × 9 damage × 65% hit = 23.4 damage
+
+**Boss HP from DPR:**
+
+* Target 23 rounds (middle of 20-25)
+* Boss HP = 23 rounds × 23.4 DPR = **538 HP**
+* Round to **540 HP** (clean number)
+
+**Validation with investigation advantages:**
+
+* Good investigation adds \~30-40% effective DPR (unlocks, preparation)
+* Enhanced DPR = 23.4 × 1.35 = 31.6 DPR
+* Fight duration with advantages: 540 / 31.6 = **17 rounds** (within target of 15-18)
+
+#### Step 3: Set Threat Level
+
+**From measurables:**
+
+* Consequence Severity: HIGH
+* Target: Boss can incapacitate player in 3-4 hits
+
+**Player effective HP:**
+
+* Raw HP: 20
+* Assume some damage mitigation (armor, positioning): \~30% reduction
+* Effective HP: 20 / (1 - 0.30) ≈ 28 effective HP
+
+**Boss damage:**
+
+* 28 effective HP / 3.5 hits = 8 damage per hit
+* Using dice: 2d6+1 = 8 average (range 3-13)
+
+**Boss attack frequency:**
+
+* 2 attacks per round (threaten multiple players, require coordination)
+* Total boss DPR = 2 × 8 = 16 damage per round
+* Against team (80 HP total): Team can survive \~5 rounds of full boss damage
+
+**This creates tension:** Boss deals 16 DPR, team deals 23.4 DPR. Team wins math but slowly—must play well.
+
+#### Step 4: Set Hit Probabilities
+
+**Boss AC calculation:**
+
+**Target player hit rate: 60-70%** (frequent enough for progress, occasional misses for tension)
+
+Using d20 + modifier:
+
+* Player to-hit bonus: +6 average
+* For 65% hit rate: Need to roll 8+ on d20
+* 8+ on d20 = 13+ total with +6 bonus
+* Boss AC = 13 becomes target
+
+**But:** Boss is major threat, should be harder to hit
+
+**Adjusted: Boss AC = 15**
+
+* Player needs 9+ on d20 with +6 = 15 total
+* Hit chance = 60% (12 outcomes of 20 succeed)
+* Slightly harder, appropriate for boss
+
+**Boss to-hit against players:**
+
+Players have some defense. Assume player AC \~14 (light armor/decent Dex)
+
+Boss to-hit bonus: +7 (skilled threat)
+
+* Needs 7+ on d20 = 70% hit rate
+* Boss is dangerous, hits most attacks
+* But players have 30% chance to dodge (creates tension)
+
+#### Step 5: Design Patterns
+
+**From measurables:**
+
+* Pattern Consistency: HIGH
+* Patterns must be learnable
+
+**Boss attack patterns** (fixed sequence):
+
+**Pattern 1: Basic Attacks (Rounds 1-8)**
+
+* Attack 1: Swipe (targets closest player, 2d6+1 damage)
+* Attack 2: Stab (targets second-closest, 2d6+1 damage)
+* Repeat until Phase 2
+
+**Pattern 2: Charge Telegraph (Round 3, 6, 9...)**
+
+* Every 3rd round: Roar and rear back (telegraph)
+* Next round: Charge in line, 3d6+3 damage to first target hit (\~13.5 damage, very dangerous)
+* **Learnable:** Players see telegraph, can reposition
+* **Investigation unlock:** "Interrupt charge with heavy hit during roar"
+
+**Pattern 3: Phase Transition (50% HP, 270 damage taken)**
+
+* Visual change (eyes glow, stance shifts)
+* Gains +1 attack per round (now 3 attacks)
+* **Learnable:** Happens at HP threshold
+* **Investigation unlock:** "Prepare defensive buffs at 50%"
+
+**Pattern 4: AOE Sweep (Phase 2, every 4th round)**
+
+* Wind-up: Weapon spins (1 round telegraph)
+* Execute: All adjacent players take 2d6 damage
+* **Learnable:** Players spread out after seeing telegraph
+* **Investigation unlock:** "Boss off-balance after sweep, next attack has advantage"
+
+**Pattern 5: Regeneration (Every 5 rounds if in moonlight)**
+
+* Regains 30 HP (keeps fight from ending too early if players slow)
+* **Learnable:** Pattern becomes obvious, environmental
+* **Investigation unlock:** "Douse torches to block moonlight, stop regen"
+
+**Total patterns: 5 major behaviors, all consistent and learnable**
+
+#### Step 6: Validate Time-to-Kill
+
+**Run simulation:**
+
+Baseline (no investigation advantages):
+
+* Players: 23.4 DPR
+* Boss: 540 HP, regens 30 HP every 5 rounds
+* Net boss HP = 540 + (6 HP per round regen) = 540 + 6×23 ≈ 680 effective
+* Fight length: 680 / 23.4 ≈ 29 rounds
+
+**Too long!** Exceeds 20-25 target.
+
+**Adjustment:** Reduce regen to 20 HP every 5 rounds (4 HP per round)
+
+* Effective HP: 540 + 92 = 632
+* Fight length: 632 / 23.4 ≈ 27 rounds (better, high end of target)
+
+**With investigation advantages (tactical unlocks used well):**
+
+* Effective DPR: 31.6 (includes advantage on some attacks, interrupts, etc.)
+* Boss regen partially countered (douse moonlight)
+* Fight length: \~540 / 31.6 ≈ 17 rounds ✓
+
+**Validated: Numbers hit targets.**
+
+### Adaptive Paradigm: Setting Bounds and Rules
+
+**Adaptive defines ranges and adaptation triggers, not fixed values.**
+
+#### Step 1: Define Baseline Difficulty
+
+**What's the default, before adaptation?**
+
+**Example: 4-player co-op horde game**
+
+Baseline parameters:
+
+* Enemy spawn rate: 5 enemies per 30 seconds
+* Enemy HP: 20 (die in 3-4 player shots)
+* Enemy damage: 10 per hit
+* Special enemy frequency: Every 45 seconds
+* Item spawn chance: 40% at item locations
+
+#### Step 2: Set Adaptation Ranges
+
+**How much can each parameter vary?**
+
+**Enemy spawn rate range:**
+
+* Minimum: 2 enemies per 30 sec (help struggling team)
+* Maximum: 10 enemies per 30 sec (challenge successful team)
+* Ratio: 5x variation
+
+**Special enemy frequency range:**
+
+* Minimum: Every 90 seconds (give breaks)
+* Maximum: Every 20 seconds (intense pressure)
+* Ratio: 4.5x variation
+
+**Item spawn chance range:**
+
+* Minimum: 20% (items rare, must play well)
+* Maximum: 80% (items common, help recovery)
+* Ratio: 4x variation
+
+**Enemy HP/damage:**
+
+* HP range: ±30% (14-26 HP)
+* Damage range: ±20% (8-12 damage)
+* Keeps core feel while adjusting difficulty
+
+#### Step 3: Define State Tracking
+
+**What does system monitor?**
+
+**Per player:**
+
+* Current HP (0-100)
+* Ammo remaining
+* Deaths/incapacitations (last 5 minutes)
+* Damage dealt (contribution to team)
+* Distance from teammates (isolation tracking)
+
+**Team aggregate:**
+
+* Average HP across all players
+* Progress rate (distance/objectives vs. expected)
+* Time since last intensity peak
+* Recent team deaths (last 2 minutes)
+
+**Intensity tracking:**
+
+* Current intensity level (0-100 scale)
+* Time in current phase (build/peak/relax)
+* Cumulative intensity (session total)
+
+#### Step 4: Create Adaptation Rules
+
+**When does system adjust?**
+
+**Help struggling team:**
+
+```
+IF team_avg_HP < 40%
+  THEN increase item_spawn_chance (40% → 60%)
+  AND reduce_spawn_rate (5 → 3.5 enemies/30sec)
+
+IF multiple_players_incapacitated_simultaneously
+  THEN reduce_spawn_rate (5 → 2 enemies/30sec)
+  AND delay_next_special (add 30 seconds to timer)
+  AND spawn_health_items (guarantee at next location)
+
+IF team_wiped_in_last_2_minutes
+  THEN easier_enemy_composition (fewer specials)
+  AND increase_item_spawns (+20% for next 5 minutes)
+```
+
+**Challenge successful team:**
+
+```
+IF no_deaths_last_5_minutes AND team_progress_fast
+  THEN spawn_mini_boss (create challenge spike)
+  AND increase_spawn_rate (5 → 7 enemies/30sec)
+
+IF all_players_HP > 75% for 3+ minutes
+  THEN reduce_item_spawns (40% → 25%)
+  AND increase_special_frequency (45sec → 35sec)
+
+IF one_player_far_ahead (lone_wolf behavior)
+  THEN spawn_specials_targeting_them
+  AND increase_spawns_in_their_area
+```
+
+**Pacing rules (independent of performance):**
+
+```
+Every 2-3 minutes:
+  - Build phase (60-90 sec): Gradually increase spawn_rate (3 → 7)
+  - Peak phase (15-30 sec): Maximum intensity (spawn_rate = 9-10)
+  - Relax phase (30-45 sec): Minimal spawns (spawn_rate = 1-2)
+
+Cycle varies in intensity:
+  - Not every peak same strength
+  - Occasionally very high peak (mini-boss spawn)
+  - Relief phases sacred (never skip, needed for recovery)
+```
+
+#### Step 5: Set Hard Bounds
+
+**What are absolute limits?**
+
+**Never exceed:**
+
+* Spawn rate: 12 enemies per 30 seconds (performance/overwhelming)
+* Simultaneous specials: 3 maximum (more = chaos)
+* Zero item spawns: Always 15% minimum
+* Instant death situations: Boss attacks telegraphed, avoidable
+
+**Always provide:**
+
+* Winning chance: Even struggling team has path (help eventually enough)
+* Revive mechanics: Can recover teammates
+* Ammo: Won't run completely dry (stingier but never zero)
+* Information: Dangers telegraphed (no invisible instant deaths)
+
+#### Step 6: Test Adaptation Subtlety
+
+**Can players notice the adaptation?**
+
+**Good signs:**
+
+* Players attribute difficulty changes to "good/bad luck"
+* Players don't feel patronized or cheated
+* Adaptation gradual (not sudden swings)
+
+**Bad signs:**
+
+* Players say "the game is helping me" (too obvious)
+* Players intentionally trigger "help" states (exploitable)
+* Players say "the game is cheating" (too aggressive)
+
+**Tuning:**
+
+* Make adjustments 10-20% at a time (not 50%+)
+* Space adjustments (not every 30 seconds)
+* Attribute to "wave variation" not "adaptation"
+
+***
+
+## Section 3: Integration Across Systems
+
+When different subsystems use different paradigms (hybrid), you need integration layer.
+
+### Integration Principle
+
+**Two subsystems can only integrate if they share mechanical language.**
+
+**Example: Investigation (Framework) + Boss Fight (Consistency)**
+
+**Shared language options:**
+
+1. **Resource pool:** Investigation generates points, boss fight spends points
+2. **Unlocks:** Investigation reveals options, boss fight uses options
+3. **State changes:** Investigation modifies boss fight parameters
+
+**For Village Mystery, we use #1 and #2:**
+
+### Integration Mechanism 1: Preparation Pool
+
+**Investigation generates resource:**
+
+* Minor information: 1-2 preparation points
+* Major information: 3-4 preparation points
+* Critical information: 5-6 preparation points
+* Total available: \~25-30 points with good investigation
+
+**Boss fight spends resource:**
+
+* Reroll any d20: 5 points
+* Gain advantage on roll: 3 points
+* Take extra action this turn: 10 points
+* Emergency heal (10 HP): 7 points
+* Defensive stance (+2 AC until next turn): 5 points
+
+**Why this works:**
+
+* Converts abstract "investigation success" into concrete "tactical resource"
+* Players understand what investigation gains
+* Boss fight doesn't need to know HOW points were earned
+* Resource scarcity maintains tension (can't spam)
+
+**Tuning the economy:**
+
+Points earned (25-30) vs points needed:
+
+* 5 emergency heals = 35 points (would need excellent investigation + some choices)
+* 5 rerolls + 5 advantages = 40 points (more than available, must choose)
+* 2 extra actions + 3 heals + mixed = \~41 points (again, must prioritize)
+
+**Result:** Enough to matter significantly but not enough to trivialize. Must make tough choices.
+
+### Integration Mechanism 2: Tactical Unlocks
+
+**Investigation reveals boss properties:**
+
+**Knowledge system:**
+
+* Boss has 6 discoverable properties (patterns, weaknesses, tactics)
+* Each investigation success can reveal 0-1 property (based on Effect level)
+* Average good investigation: Discover 3-4 of 6
+
+**Boss properties to discover:**
+
+1. **Charge Pattern:** Roar → Charge. Can interrupt with heavy hit during roar.
+2. **Sweep Vulnerability:** After AOE sweep, boss off-balance. Next attack has advantage.
+3. **Regeneration Condition:** Regens in moonlight. Douse torches to stop regen.
+4. **Phase Threshold:** Enrages at 50% HP. Can prepare defensive buffs if known.
+5. **Weak Point - Joints:** Called shots to joints (harder to hit but double damage if hit).
+6. **Fear of Loud Noise:** Bang shields together to force miss on next attack (once per fight).
+
+**Why this works:**
+
+* Each unlock = meaningful tactical option
+* Players who investigated have concrete advantages
+* Players who didn't investigate face same patterns but without counters
+* Doesn't break Consistency (patterns still consistent, players just know them)
+
+**Alternative if no investigation:**
+
+* Players learn patterns through dying (traditional Dark Souls method)
+* But no time in single session
+* Investigation replaces "learning through repetition" with "learning through exploration"
+
+### Integration Tuning
+
+**Question: How much should investigation matter?**
+
+**Measure: Win rate variance**
+
+Test scenarios:
+
+* **No investigation:** Can skilled players win? (Should be very hard but possible)
+* **Minimal investigation (20%):** 10 points, 1-2 unlocks (Should be hard)
+* **Good investigation (60%):** 25 points, 3-4 unlocks (Should be manageable with skill)
+* **Excellent investigation (90%):** 35 points, 5-6 unlocks (Should feel powerful but not trivial)
+
+**Target win rates:**
+
+* No investigation: 20% (very difficult, possible with excellent play)
+* Minimal: 40% (challenging)
+* Good: 70% (winnable with decent play)
+* Excellent: 90% (likely win unless major mistakes)
+
+**If investigation matters too much:**
+
+* No investigation becomes impossible (bad—punishes player choice)
+* Fix: Reduce boss HP or damage
+
+**If investigation matters too little:**
+
+* Excellent investigation still only 60% win rate (bad—wasted 3 hours investigating)
+* Fix: More powerful tactical unlocks or more preparation points
+
+***
+
+## Section 4: Using LLMs to Assist Calibration
+
+LLMs can help with number-setting, but require proper guidance.
+
+### What LLMs Can Help With
+
+**1. Simulating many playthroughs**
+
+Ask LLM to simulate:
+
+* 100 boss fights with given parameters
+* Track win rate, average duration, cause of death
+* Identify edge cases or dominant strategies
+
+**2. Calculating probabilities**
+
+Ask LLM to calculate:
+
+* Expected damage per round given hit rates and damage rolls
+* Probability distributions for fight duration
+* Likelihood of specific outcomes (player death, boss phase transitions)
+
+**3. Suggesting starting values**
+
+Ask LLM to suggest:
+
+* "Boss HP for 20-round fight given player DPR of 23.4"
+* "Damage to incapacitate in 3-4 hits given player HP 20"
+* Comparative values from similar games
+
+**4. Identifying balance issues**
+
+Ask LLM to critique:
+
+* "Can players exploit this system?"
+* "What happens if players focus-fire this pattern?"
+* "Are there unintended interactions between these mechanics?"
+
+### What LLMs Cannot Do (Need Human)
+
+**1. Judge subjective "feel"**
+
+* Does 65% hit rate feel good? (Need playtesting)
+* Is this consequence satisfying? (Need player feedback)
+* Does boss fight feel epic? (Aesthetic judgment)
+
+**2. Understand your specific aesthetic goals**
+
+* LLM doesn't know your Narrative vs Challenge priorities
+* Can't weight measurables without explicit instruction
+* Needs you to specify "more important: duration stability or difficulty accommodation?"
+
+**3. Create content**
+
+* LLM won't design interesting boss patterns
+* Won't create flavorful consequences
+* Won't generate compelling investigation clues
+
+**4. Validate with real play**
+
+* Math checks out ≠ actually fun
+* Simulation ≠ human behavior
+* Always playtest with real humans
+
+### LLM Workflow Example
+
+**Prompt structure for LLM number-checking:**
+
+```
+I'm designing a boss fight with these parameters:
+
+CONTEXT:
+- 4 players, "level 3" power (20 HP, +6 to hit, 9 damage average)
+- Boss fight target: 20-25 rounds (2 hours real-time)
+- Resolution: d20 + modifier
+- Aesthetic: Challenge (Consistency paradigm)
+
+CURRENT PARAMETERS:
+- Boss HP: 540
+- Boss AC: 15
+- Boss damage: 2d6+1 (8 average), 2 attacks per round
+- Boss regenerates 20 HP every 5 rounds
+- Player hit chance: 60% (need 9+ on d20 with +6)
+- Boss hit chance: 70% (need 7+ on d20 with +7 vs AC 14)
+
+QUESTIONS:
+1. Calculate expected fight duration with these parameters
+2. What's the probability of player death (any player below 0 HP)?
+3. If players have 25 preparation points to spend on advantages, how much does that change expected duration?
+4. Are there edge cases or exploits I'm missing?
+```
+
+**What LLM can provide:**
+
+* Math: Fight duration \~27 rounds baseline (need to reduce regen)
+* Probability: \~40% chance at least one player incapacitated
+* With advantages: Duration reduces to \~18 rounds (good)
+* Potential exploit: "Players could all focus defensive stance, outlast boss regen" (need to test)
+
+**What you decide:**
+
+* Is 27 rounds acceptable or should reduce regen? (Judgment call)
+* Is 40% incapacitation rate appropriate for Challenge aesthetic? (Aesthetic decision)
+* Do tactical unlocks create interesting decisions or dominant strategy? (Playtest needed)
+
+### LLM Prompt Templates
+
+**Template 1: Expected value calculation**
+
+```
+Calculate expected damage per round:
+- 4 players
+- Each attacks once per round
+- To-hit: +[modifier] vs AC [target]
+- Damage on hit: [dice notation]
+- Include: Hit probability, average damage per hit, total DPR
+```
+
+**Template 2: Fight duration simulation**
+
+```
+Simulate this fight 100 times:
+- Attacker DPR: [value]
+- Defender HP: [value]
+- Defender healing: [X HP every Y rounds]
+- Track: Fight duration in rounds, variance, percentage fights >30 rounds
+```
+
+**Template 3: Balance critique**
+
+```
+Review these parameters for balance issues:
+[paste your parameters]
+
+Check for:
+- Obvious exploits or dominant strategies
+- Death spirals or positive feedback loops
+- Unintended interactions
+- Edge cases where systems break
+```
+
+**Template 4: Comparison to similar games**
+
+```
+Compare my parameters to [reference game]:
+My: [your parameters]
+Reference: [known game parameters]
+
+Identify: Where am I significantly different? Is that intentional or oversight?
+```
+
+***
+
+## Section 5: Worked Examples
+
+Let's see complete derivations using this process.
+
+### Example 1: Framework Investigation System (Fully Worked)
+
+**Context:**
+
+* Tabletop, 1 GM, 4 players
+* 3-hour investigation phase
+* Aesthetic: Narrative + Discovery
+* Paradigm: Framework
+
+**Step 1: Choose resolution mechanic**
+
+* Requirements: Transparent odds, Fast, Partial success essential
+* Choice: 2d6 + modifiers
+
+**Step 2: Define framework**
+
+* Risk: Low (+1) / Medium (+0) / High (-1)
+* Information: Minor (1-2 points) / Major (3-4 points) / Critical (5-6 points)
+* Consequences: Time lost, Alert raised, Path closed, Danger increased
+
+**Step 3: Set time budget**
+
+* 3 hours = 180 minutes
+* Target: 12-15 meaningful actions
+* \~12 minutes per action (including RP, discussion, resolution)
+
+**Step 4: Set total rewards available**
+
+* 15 actions × average Major information (3.5 points) = 52 points theoretical maximum
+* Realistic with mix of success/failure: \~25-30 points
+* Plus: 3-4 tactical unlocks from specific investigations
+* Plus: 3-4 boss properties revealed
+
+**Step 5: Create GM guidance**
+
+Risk assessment:
+
+* Low: Sneaking past distracted guard, investigating safe area, well-prepared approach
+* Medium: Confronting aware guard, investigating guarded location, standard risk
+* High: Infiltrating heavily guarded area, confronting dangerous NPC, exposed position
+
+Effect assessment:
+
+* Minor: Indirect investigation, limited time, asking general questions
+* Major: Direct investigation, adequate time, specific questions, good approach
+* Critical: Perfect circumstance, excellent preparation, ideal approach, lucky break
+
+**Step 6: Create example applications**
+
+\[Include 5-10 examples like:]
+
+*"Player wants to sneak past guard to reach study"*
+
+* Risk: Medium (guard is alert but player has shadows to hide in)
+* Effect: Standard (reaching study is full goal)
+* On 10+: Reach study undetected
+* On 7-9: Reach study BUT guard heard something, will investigate soon (time pressure added)
+* On 6-: Don't reach study, guard spots you (alert raised)
+
+**Step 7: Test with GM**
+
+* Present scenarios, check GM assigns consistent Risk/Effect
+* Calibrate if needed
+
+### Example 2: Consistency Boss Fight (Fully Worked in Step-by-Step)
+
+\[We did this above in Section 2, full derivation from baseline through validation]
+
+### Example 3: Adaptive Difficulty for Co-op Horde Game
+
+**Context:**
+
+* Digital, 4-player co-op
+* 45-minute sessions
+* Aesthetic: Fellowship + Tension
+* Paradigm: Adaptive
+
+**Step 1: Define baseline**
+
+* Enemy spawn: 5 per 30 seconds
+* Enemy HP: 20 (3 shots to kill)
+* Enemy damage: 10 per hit
+* Special frequency: Every 45 seconds
+* Item spawn: 40% chance
+
+**Step 2: Set ranges (calculated above in Section 2)**
+
+**Step 3: Define tracking**
+
+* Monitor: Team avg HP, progress rate, deaths, isolation
+
+**Step 4: Create adaptation rules**
+
+* Help triggers: Avg HP \< 40%, multiple incaps, recent wipe
+* Challenge triggers: No deaths 5 min, all HP > 75%, fast progress
+* Pacing cycles: Independent 2-3 min cycles
+
+**Step 5: Set bounds**
+
+* Max spawn: 12 per 30 sec (performance limit)
+* Min items: 15% (never zero)
+* Always winnable (system provides path)
+
+**Step 6: Validate subtlety**
+
+* Playtest: Can players notice adaptation?
+* Adjust if too obvious
+* Check for exploits
+
+***
+
+## Quick Reference: Paradigm-Specific Workflows
+
+### Framework Paradigm Checklist
+
+1. ✓ Choose resolution mechanic (2d6 or dice pool recommended)
+2. ✓ Define 2-3 framework dimensions (Risk, Effect, Consequences)
+3. ✓ Set 3 tiers per dimension (more = too complex)
+4. ✓ Define ranges for each tier (not exact values)
+5. ✓ Create GM guidance (principles not formulas)
+6. ✓ Write 5-10 example applications (calibrate intuition)
+7. ✓ Test with GM (consistent application?)
+
+### Consistency Paradigm Checklist
+
+1. ✓ Choose resolution mechanic (d20 or simple d6 recommended)
+2. ✓ Define player power baseline (HP, to-hit, damage)
+3. ✓ Calculate time-to-kill target (from measurables)
+4. ✓ Work backwards to enemy HP (DPR × rounds)
+5. ✓ Set threat level (how many hits to kill player?)
+6. ✓ Calculate hit rates (what AC/defense creates target percentages?)
+7. ✓ Design 3-5 learnable patterns (consistent behaviors)
+8. ✓ Validate time-to-kill (simulate or calculate)
+
+### Adaptive Paradigm Checklist
+
+1. ✓ Choose resolution mechanic (any works, typically d20 for precision)
+2. ✓ Define baseline difficulty (before adaptation)
+3. ✓ Set adaptation ranges (±30-50% typical)
+4. ✓ Define state tracking (what to monitor)
+5. ✓ Create adaptation rules (help and challenge triggers)
+6. ✓ Design pacing cycles (build/peak/relax)
+7. ✓ Set hard bounds (maximums and minimums)
+8. ✓ Test subtlety (too obvious = bad)
+
+***
+
+## Common Pitfalls in Number-Setting
+
+### Pitfall 1: Setting Numbers Without Resolution Mechanic
+
+**Symptom:** "Boss has 500 HP" without knowing damage scale or hit rates
+**Problem:** Can't validate if 500 is right without knowing how fast it depletes
+**Fix:** Choose resolution mechanic first, then set HP based on DPR calculations
+
+### Pitfall 2: Ignoring Variance
+
+**Symptom:** Calculations use average damage but ignore swingy results
+**Problem:** 2d6 (2-12) has different feel than 7 flat damage even though average is 7
+**Fix:** Consider variance in your calculations, test edge cases (low rolls, high rolls)
+
+### Pitfall 3: Framework Too Complex
+
+**Symptom:** 5+ tiers per dimension, 10+ consequence types
+**Problem:** GM can't apply consistently, players can't predict
+**Fix:** Simplify to 3 tiers, 4-6 consequence types
+
+### Pitfall 4: Consistency Without Patterns
+
+**Symptom:** Boss has fixed stats but random behavior
+**Problem:** Can't learn patterns if behavior random
+**Fix:** Create 3-5 clear, repeating patterns with telegraphs
+
+### Pitfall 5: Adaptive Too Obvious
+
+**Symptom:** Players notice difficulty changes, feel patronized or cheated
+**Problem:** Breaks immersion, feels manipulative
+**Fix:** Gradual adjustments (10-20%), space them out, attribute to natural variation
+
+### Pitfall 6: Integration Mismatch
+
+**Symptom:** Investigation results don't translate to boss fight advantages
+**Problem:** Players wasted time investigating with no payoff
+**Fix:** Create explicit integration (resource pool or unlocks)
+
+### Pitfall 7: No Validation
+
+**Symptom:** Set numbers based on intuition, never tested
+**Problem:** Numbers often wrong by 50%+ until tested
+**Fix:** Always calculate expected outcomes, then playtest
+
+***
+
+## Final Check: Are Your Numbers Ready?
+
+Before playtesting, verify:
+
+**Resolution Mechanics:**
+
+* ✓ Chosen mechanic fits paradigm and aesthetic
+* ✓ Players understand how to roll/resolve
+* ✓ Probabilities transparent if required by aesthetic
+
+**Framework Systems:**
+
+* ✓ 3 tiers per dimension maximum
+* ✓ Ranges defined for each tier
+* ✓ GM guidance written
+* ✓ 5+ example applications created
+
+**Consistency Systems:**
+
+* ✓ Player baseline defined
+* ✓ Time-to-kill calculated
+* ✓ Enemy HP derived from DPR × rounds
+* ✓ Threat level set (hits to kill player)
+* ✓ Hit rates calculated
+* ✓ Patterns designed (3-5 consistent behaviors)
+
+**Adaptive Systems:**
+
+* ✓ Baseline defined
+* ✓ Ranges set (±30-50%)
+* ✓ Tracking defined (what to monitor)
+* ✓ Adaptation rules created (triggers)
+* ✓ Bounds set (hard limits)
+* ✓ Pacing cycles designed
+
+**Integration (if hybrid):**
+
+* ✓ Shared mechanical language exists
+* ✓ Resource pools or unlocks defined
+* ✓ Conversion rates set
+* ✓ Impact magnitude tuned (matters but not trivial)
+
+**If all checked:** Ready for Part 7 (Playtesting).
+
+**If gaps:** Return to relevant section above and complete.
+
+***
+
+**Next: Part 7 shows you how to validate these numbers through systematic playtesting.**

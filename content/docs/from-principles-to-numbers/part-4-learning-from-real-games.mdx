@@ -1,0 +1,676 @@
+---
+title: part-4-learning-from-real-games
+---
+# Part 4: Learning from Real Games
+
+Theory is one thing. Practice is another. Let's examine what real games teach us about balance paradigms, measurables, and what works (or doesn't).
+
+This isn't comprehensive analysis of each game—we're extracting key lessons that inform your design decisions.
+
+***
+
+## Framework Paradigm in Practice: Blades in the Dark
+
+### What It Does
+
+**Core mechanism:** Position/Effect system
+
+* GM and player negotiate stakes before roll
+* Position (Controlled/Risky/Desperate) = danger level
+* Effect (Limited/Standard/Great) = potential outcome
+* Roll determines success, partial success, or failure within framework
+
+**Key innovation:** Makes narrative stakes mechanically legible
+
+* "This is Risky position" has specific meaning (Level 2 harm possible)
+* Players can adjust approach to change Position/Effect
+* Same framework handles any situation (combat, social, infiltration)
+
+### What We Learn
+
+**Lesson 1: Three tiers is the sweet spot**
+
+* Position: 3 levels (Controlled/Risky/Desperate)
+* Effect: 3 levels (Limited/Standard/Great)
+* Consequences: \~5-6 types (harm, complication, reduced effect, lost opportunity, worse position)
+
+**Why this works:** More tiers add cognitive load without meaningful distinction. Fewer tiers reduce nuance too much.
+
+**Application:** If designing framework, start with 3-tier system. Only add tiers if you can clearly explain why 3 isn't enough.
+
+**Lesson 2: Ranges matter more than exact values**
+
+* Controlled Position: 0-1 harm (not "exactly 1")
+* Risky Position: 1-2 harm (GM chooses based on fiction)
+* Desperate Position: 2-4 harm (variance represents situation severity)
+
+**Why this works:** GM can tune to fiction without violating framework. Range provides flexibility within structure.
+
+**Application:** Don't set exact values for framework tiers. Set ranges that GM/system can use contextually.
+
+**Lesson 3: Partial success is critical**
+
+* 2d6 system: 6-/7-9/10+ gives three outcomes
+* 7-9 "success with consequence" drives story forward
+* Players never feel completely blocked (even failure advances something)
+
+**Why this works:** "Yes, but..." keeps game moving. Pure success/failure creates stop/go rhythm that breaks narrative flow.
+
+**Application:** If using framework paradigm, your resolution mechanic should support partial success. 2d6 or dice pool work better than single d20 for this.
+
+**Lesson 4: Framework requires calibration examples**
+
+* Blades provides extensive examples of Position/Effect determination
+* Different GMs can apply framework consistently because they've seen how
+* New GMs struggle without examples
+
+**Why this matters:** Framework without examples is just vague guidance. Examples calibrate intuition.
+
+**Application:** If you create framework, write 10-20 example applications showing edge cases and common situations.
+
+### What Didn't Work (Community Challenges)
+
+**Problem 1: "Effect creep"**
+
+* Players lobby for Great effect by adding fictional details
+* Can slow game if GM not confident in framework
+* Some groups spend more time negotiating than playing
+
+**Fix in practice:** Time-box negotiations (1-2 minutes max), GM has final call after brief discussion, establish that Great effect needs genuinely advantageous approach (not just descriptive flair).
+
+**Problem 2: Some groups prefer determinism**
+
+* Framework negotiation doesn't appeal to all players
+* Challenge-focused players want fixed difficulty to overcome
+* "What's my AC?" players confused by situational stakes
+
+**Takeaway:** Framework paradigm serves Narrative aesthetic. Don't use for Challenge-focused players who want consistent patterns.
+
+### Measurables This Validates
+
+**Framework paradigm prioritizes:**
+
+* ✅ Risk Visibility (HIGH) - Position makes stakes transparent
+* ✅ Agency Scope (TACTICAL+) - Players shape outcomes through approach
+* ✅ Choice Reversibility (LOW) - Consequences stick
+* ✅ Information Transparency (PARTIAL) - Mystery maintained but framework for investigation exists
+
+**Framework paradigm de-prioritizes:**
+
+* Pattern Consistency - Each situation unique
+* Time-to-Kill - Not relevant focus
+* Mastery Curve (system mastery) - Pattern execution not goal
+
+***
+
+## Consistency Paradigm in Practice: Dark Souls
+
+### What It Does
+
+**Core mechanism:** Fixed challenges with learnable patterns
+
+* Same enemy always has same HP, damage, moveset
+* Boss patterns repeat predictably
+* Player improvement = pattern recognition + execution
+
+**Key innovation:** Death as teaching tool
+
+* Each death reveals information (attack patterns, timing windows)
+* No "wasted" deaths if you learn something
+* Mastery curve visible (first attempt: die in 30 seconds, tenth attempt: reach final phase)
+
+### What We Learn
+
+**Lesson 1: Consistency enables deep mastery**
+
+* Speedrunners optimize to seconds because patterns are knowable
+* Community shares strategies because challenges are same for everyone
+* Skill ceiling extremely high (perfect play possible)
+
+**Why this works:** When patterns are consistent, players can study and improve indefinitely. Randomness would cap skill ceiling.
+
+**Application:** If Challenge aesthetic is primary, consistency paradigm enables deepest mastery satisfaction.
+
+**Lesson 2: Stakes must be high for consistency to feel fair**
+
+* Dark Souls: Lose souls on death, must retrieve or lose permanently
+* Consequence severity makes death meaningful
+* But consistency makes death feel fair ("I made a mistake" not "game cheated")
+
+**Why this works:** High stakes + consistency = fair challenge. High stakes + randomness = frustration. Low stakes + consistency = boredom.
+
+**Application:** Consistency paradigm works best with HIGH consequence severity. If you lower stakes, you need another source of engagement (narrative, discovery, etc.).
+
+**Lesson 3: Bonfire placement controls difficulty pacing**
+
+* Sparse bonfires = harder (more to lose, longer retry loop)
+* Dense bonfires = easier (can experiment safely)
+* Shortcuts reward exploration and reduce retry tedium
+
+**Why this works:** Difficulty not just enemy stats—checkpoint frequency changes how mistakes feel.
+
+**Application:** In Consistency systems, checkpoint placement is difficulty tuning. Long retry loops increase stakes even with same enemy stats.
+
+**Lesson 4: Investigation can replace repetition for pattern learning**
+
+* Our Village Mystery + Boss Fight scenario uses this
+* Investigation reveals patterns that would normally take 5-10 deaths to learn
+* Single-session design can use Consistency paradigm if patterns revealed upfront
+
+**Why this matters:** Consistency paradigm usually requires retry opportunities. Investigation is alternative way to provide pattern knowledge.
+
+**Application:** If designing single-session with boss fight, investigation phase can reveal tactical information that consistency + retries would normally provide.
+
+### What Didn't Work (Community Challenges)
+
+**Problem 1: Difficulty wall for new players**
+
+* \~30% of players quit in first few hours
+* Consistency means no adaptation to help struggling players
+* "Git gud" community response alienates some
+
+**Fix in practice:** Optional summons (bounded adaptive help), but these are divisive (some see as "cheating"). Hades solved this better with optional god mode.
+
+**Problem 2: Replay value drops after mastery**
+
+* Once patterns learned, subsequent playthroughs less engaging
+* Discovery aesthetic killed by predictability
+* NG+ increases numbers but not mechanical interest for many
+
+**Takeaway:** Pure Consistency serves Challenge, conflicts with Discovery. If you want both, consider hybrid (Hades: consistent within run, variety across runs via random boons).
+
+**Problem 3: Can't balance for skill variance**
+
+* Expert players find game easy after mastering patterns
+* New players face brutal difficulty
+* No middle ground without modifying paradigm
+
+**Takeaway:** Consistency works for targetable skill range, but can't accommodate wide variance. Need bounded adaptive (accessibility options) or accept some players will be excluded.
+
+### Measurables This Validates
+
+**Consistency paradigm prioritizes:**
+
+* ✅ Pattern Consistency (HIGH) - Same inputs = same outputs
+* ✅ Consequence Severity (HIGH) - Mistakes hurt
+* ✅ Time-to-Kill Consistency - Predictable engagement length
+* ✅ Mastery Curve - Clear improvement through practice
+* ✅ Recovery Speed (SLOW) - Can't easily undo mistakes
+
+**Consistency paradigm de-prioritizes:**
+
+* Discovery - Patterns become known
+* Comeback Possibility - Designed for retry, not recovery
+* Risk Visibility - Initially hidden, learned through death
+
+***
+
+## Adaptive Paradigm in Practice: Left 4 Dead 2
+
+### What It Does
+
+**Core mechanism:** AI Director monitors team state, adjusts difficulty
+
+* Tracks player HP, ammo, progress rate, recent deaths
+* Spawns enemies, items, specials based on team performance
+* Creates dramatic pacing: build-up → peak → relax cycles
+
+**Key innovation:** Dynamic difficulty maintains engagement
+
+* Struggling team gets fewer enemies, more items
+* Successful team gets Tank spawns, increased pressure
+* Same map plays differently each time
+
+### What We Learn
+
+**Lesson 1: Adaptation must be subtle**
+
+* Players who notice Director helping them feel patronized
+* Players who notice Director challenging them feel cheated
+* Best adaptation is invisible or attributed to "good/bad luck"
+
+**Why this works:** When adaptation is obvious, players question whether their success/failure was earned.
+
+**Application:** If using adaptive paradigm, make adjustments gradual (10-20% changes), space them out (not every 30 seconds), and frame as natural variation not system intervention.
+
+**Lesson 2: Bounds are critical**
+
+* Director has ranges: spawn rate 1-10 enemies per 30 sec (not 0 or 100)
+* Never makes impossible (always provides health items at some rate)
+* Never makes trivial (always maintains some threat)
+
+**Why this works:** Unbounded adaptation leads to extreme swings. Struggling team with zero spawns = boring. Successful team with 100 spawns = unfair.
+
+**Application:** Set adaptation ranges at design time. Test both extremes. Minimum difficulty should still engage, maximum should still be beatable.
+
+**Lesson 3: Pacing structure matters more than raw difficulty**
+
+* Director's build-up/peak/relax cycles create drama
+* Relief phases essential (constant pressure exhausts players)
+* Cycle timing: \~2-3 minutes total (60-90s build, 15-30s peak, 30-45s relax)
+
+**Why this works:** Mirrors movie pacing. Tension requires contrast—can't sustain peak indefinitely.
+
+**Application:** If using adaptive paradigm for dramatic pacing, build explicit phase system. Don't just adjust difficulty continuously—create rhythm.
+
+**Lesson 4: Cooperation must be mechanically enforced**
+
+* Director spawns specials on isolated players (punishes lone wolves)
+* Some enemies require coordination to counter
+* Team composition and positioning matter mechanically
+
+**Why this works:** Fellowship aesthetic requires cooperation to be necessary, not just beneficial.
+
+**Application:** If targeting Fellowship, mechanics must fail for solo players. Adaptive system should punish non-cooperation, not just reward cooperation.
+
+### What Didn't Work (Community Challenges)
+
+**Problem 1: Versus mode required disabling Director**
+
+* Competitive fairness requires identical challenges for both teams
+* Director adaptation conflicts with competitive balance
+* Versus uses fixed spawns in same locations for both teams
+
+**Takeaway:** Adaptive paradigm incompatible with competitive play. If designing for competition, use Consistency or Framework with fixed elements.
+
+**Problem 2: Expert players can exploit patterns**
+
+* Director's "no damage for 3 minutes → spawn Tank" becomes predictable
+* Skilled teams can manipulate Director states
+* Some speedrunners intentionally trigger "help" states
+
+**Takeaway:** Adaptive systems can be gamed. Savvy players will learn trigger conditions. Either accept this or add unpredictability to adaptation logic.
+
+**Problem 3: Campaign becomes stale after mastery**
+
+* Once players understand Director patterns, less engaging
+* Consistency of map layouts limits variety
+* Discovery aesthetic diminished by learning Director's tricks
+
+**Fix in practice:** Community mods, custom campaigns. But highlights that Adaptive alone doesn't provide infinite replayability—needs content variety.
+
+### Measurables This Validates
+
+**Adaptive paradigm prioritizes:**
+
+* ✅ Coordination Requirement (HIGH) - Must work together
+* ✅ Comeback Possibility (HIGH) - Can recover from setbacks
+* ✅ Tension Gradient (CYCLICAL) - Build/peak/relax rhythm
+* ✅ Communication Bandwidth (MODERATE) - Coordinate key moments
+* ✅ Consequence Severity (MODERATE) - Mistakes hurt but recoverable
+
+**Adaptive paradigm de-prioritizes:**
+
+* Pattern Consistency - Variety valued over fixed patterns
+* Mastery Curve - Team coordination matters more than individual execution
+* Risk Visibility - Hidden danger creates surprise
+
+***
+
+## Unconstrained Paradigm in Practice: AI Dungeon (Cautionary Tale)
+
+### What It Tried
+
+**Core mechanism:** Pure LLM generation without mechanical constraints
+
+* Player types anything, LLM continues story
+* No HP tracking, no resource systems, no failure states
+* "Infinite possibilities" through unconstrained narrative
+
+**Key claim:** Ultimate freedom—do anything you can imagine
+
+### What Went Wrong
+
+**Problem 1: Power creep within single session**
+
+* Player: "I cast a small spell"
+* LLM: "You succeed"
+* Player: "I cast a bigger spell"
+* LLM: "You succeed"
+* 10 actions later: Player is reality-warping god with no opposition
+* No mechanical constraints to prevent escalation
+
+**Why this failed:** Narrative freedom without mechanical foundations leads to stakes evaporation. Everything possible = nothing matters.
+
+**Lesson:** Even narrative-first games need mechanical constraints. HP, resources, consequences must be tracked mechanically, not just narratively.
+
+**Problem 2: Consequence inconsistency**
+
+* LLM generates: "You're badly wounded, bleeding heavily"
+* Next action: Player climbs cliff
+* LLM generates: "You nimbly scale the cliff"
+* Injury forgotten or inconsistently applied
+
+**Why this failed:** LLMs don't maintain consistent state across generations. Context window limitations and lack of explicit state tracking.
+
+**Lesson:** Consequences must be tracked mechanically, separate from narrative. LLM can describe them, but can't be trusted to remember them.
+
+**Problem 3: Infinite retries kill stakes**
+
+* Any action can be retried until satisfactory
+* Death doesn't stick (LLM often resurrects or player retries)
+* No permanent consequences possible
+
+**Why this failed:** Consequences require commitment. If players can undo anything, choices become meaningless.
+
+**Lesson:** Stakes require limited retries or costs for retrying. Infinite do-overs eliminate tension.
+
+**Problem 4: No difficulty calibration**
+
+* Same LLM "yes-ands" both "I attack the goblin" and "I reshape reality"
+* No concept of appropriate challenge level
+* Can't maintain Challenge aesthetic (everything succeeds)
+
+**Why this failed:** LLMs predict next tokens, don't understand game balance. Without explicit difficulty targets, default to acceptance.
+
+**Lesson:** LLMs need explicit constraints: "Player is NOT overpowered," "This enemy IS a threat," "Player cannot trivially solve this." Can't rely on LLM intuiting appropriate difficulty.
+
+### What This Teaches Us
+
+**Critical lesson 1: Mechanical layer is mandatory**
+Even if your aesthetic is pure Narrative, you need:
+
+* HP or equivalent (tracks meaningful resource)
+* Consequence tracking (injuries, status effects persist)
+* Resource scarcity (can't do everything)
+* Failure states (possible to lose)
+
+**Without these:** Stakes evaporate, choices become cosmetic, engagement collapses.
+
+**Critical lesson 2: LLMs are tools, not paradigms**
+
+* LLMs can ENHANCE any paradigm (generate flavor text, create variety within constraints)
+* LLMs cannot REPLACE paradigms (no balance intuition, no consistent state tracking)
+* LLMs need explicit frameworks to operate within
+
+**Application:** Use LLM for:
+
+* Generating descriptions within mechanical results
+* Creating variety in similar situations
+* Handling edge cases within framework
+
+**Don't use LLM for:**
+
+* Deciding if player should succeed/fail (needs mechanical resolution)
+* Tracking consequences (needs explicit state)
+* Maintaining balance (needs difficulty calibration)
+
+**Critical lesson 3: Context is not memory**
+
+* Even with large context windows, LLMs don't "remember" consistently
+* Contradictions occur because each generation is semi-independent
+* Need separate state tracking system that LLM queries
+
+**Application:** If using LLM, maintain database of:
+
+* Character stats (HP, resources, abilities)
+* World state (what's true, what's known)
+* Consequences (injuries, debts, relationships)
+* LLM generates narrative around this mechanical truth
+
+### What We Don't Learn (It Didn't Work Long Enough)
+
+AI Dungeon failed so quickly that we didn't learn:
+
+* How to make unconstrained generation work
+* How to balance pure narrative freedom
+
+**Because it can't work.** Freedom requires constraints. Balance requires mechanical foundations. Aesthetics require systems that serve them.
+
+This isn't a paradigm to adapt—it's an anti-pattern to avoid.
+
+### Measurables This Invalidates
+
+**Unconstrained approach claims to prioritize:**
+
+* Agency Scope (UNLIMITED) - Do anything imaginable
+* Information Transparency (NONE) - Pure discovery
+* Choice Reversibility (FULL) - Infinite retries
+
+**Why these fail:**
+
+* Unlimited agency = no constraints = no meaningful choices
+* Pure discovery = no patterns = no mastery = engagement drops
+* Full reversibility = no stakes = choices don't matter
+
+**Reality:** All working paradigms constrain these measurables. Constraints create meaning.
+
+***
+
+## Cross-Paradigm Lessons
+
+### Lesson 1: All Successful Games Use Hybrid Approaches
+
+**None of our examples use pure paradigm:**
+
+* Blades: Framework for resolution + Consistency in framework itself
+* Dark Souls: Consistency for patterns + Bounded Adaptive (optional co-op)
+* L4D2: Adaptive spawning + Consistency in core mechanics (HP, damage)
+
+**Implication:** Don't view paradigms as exclusive. Use different paradigms for different subsystems.
+
+**Example from our scenario:**
+
+* Village Mystery Investigation: Framework (unpredictable player approaches)
+* Boss Fight: Consistency (learnable patterns)
+* Integration: Hybrid (investigation reveals patterns)
+
+### Lesson 2: Paradigm Must Match Aesthetic
+
+**Mismatches create problems:**
+
+* ✗ Challenge + Adaptive (unbounded) → Prevents mastery
+* ✗ Discovery + Consistency → Kills surprise
+* ✗ Narrative + Unconstrained → Stakes evaporate
+
+**Good matches:**
+
+* ✓ Challenge + Consistency → Mastery through pattern learning
+* ✓ Narrative + Framework → Agency with transparent stakes
+* ✓ Fellowship + Adaptive → Team success balanced across skill ranges
+
+**Implication:** Aesthetic determines paradigm fit. Don't choose paradigm for technical reasons alone—serve your aesthetic.
+
+### Lesson 3: Constraints Create Meaning
+
+**Every working system we examined has:**
+
+* Mechanical constraints (HP, resources, damage)
+* Consequence persistence (can't instantly undo)
+* Failure states (possible to lose)
+* Scarcity somewhere (time, resources, information, or retry opportunities)
+
+**The failed system (AI Dungeon) lacked all of these.**
+
+**Implication:** "Freedom" in games means "interesting choices within meaningful constraints," not "no constraints."
+
+**Application:** Even if Narrative or Expression is your aesthetic, you need mechanical foundations. Freedom requires structure.
+
+### Lesson 4: Measurables Cluster by Paradigm
+
+**Framework games consistently optimize:**
+
+* Risk Visibility (HIGH)
+* Agency Scope (TACTICAL+)
+* Information Transparency (PARTIAL)
+
+**Consistency games consistently optimize:**
+
+* Pattern Consistency (HIGH)
+* Consequence Severity (HIGH)
+* Mastery Curve (visible improvement)
+
+**Adaptive games consistently optimize:**
+
+* Coordination Requirement (HIGH)
+* Comeback Possibility (HIGH)
+* Tension Gradient (CYCLICAL)
+
+**Implication:** When you choose paradigm, certain measurables become important automatically. Don't fight paradigm requirements—they're what makes it work.
+
+### Lesson 5: Technical Capability Constrains Paradigm Choice
+
+**Framework requires:**
+
+* Human GM OR sophisticated AI that can evaluate situations
+* Time for negotiation/discussion
+* Player buy-in to framework
+
+**Consistency requires:**
+
+* Ability to pre-author content
+* Retry opportunities OR investigation alternative
+* Player patience for pattern learning
+
+**Adaptive requires:**
+
+* Real-time state monitoring
+* Computational adjustment capability
+* Player acceptance of dynamic difficulty
+
+**Implication:** Your design context eliminates some paradigms before you consider aesthetics. Pure tabletop can't do computer-managed adaptation. Solo digital can't do GM-negotiated framework.
+
+***
+
+## Additional Real-World Examples (Brief)
+
+### Hades (Challenge + Bounded Adaptive)
+
+**What it does right:**
+
+* Consistent enemy patterns within run (learnable)
+* Random boon selection across runs (variety)
+* Optional God Mode (explicit help that accumulates with deaths)
+* Meta-progression (permanent unlocks) without trivializing challenge
+
+**Key lesson:** Accessibility through explicit player choice preserves achievement feeling. God Mode players know they used it—but game doesn't shame them.
+
+### Slay the Spire (Discovery + Consistency-ish)
+
+**What it does right:**
+
+* Cards behave consistently (same effect every time)
+* But deck composition varies (discovery through different builds)
+* Synergies create emergent complexity (100+ cards = thousands of combinations)
+* Mastery comes from system understanding, not pattern execution
+
+**Key lesson:** Discovery doesn't require randomness in mechanics. Consistent building blocks + combinatorial explosion = infinite discovery space.
+
+### Monster Hunter (Challenge + Consistency + Fellowship)
+
+**What it does right:**
+
+* Boss patterns fully consistent (learnable through practice)
+* But 4-player co-op changes dynamics (fellowship)
+* Difficulty scales with player count (adaptive element)
+* Gear progression (bounded) doesn't trivialize patterns
+
+**Key lesson:** Can combine multiple paradigms if each serves distinct purpose. Consistency for Challenge, coordination for Fellowship, light adaptation for accessibility.
+
+### Celeste (Challenge + Accessibility Done Right)
+
+**What it does right:**
+
+* Pure Consistency base (same physics, same patterns)
+* Granular Assist Mode (adjust speed, stamina, invincibility separately)
+* Explicit player choice (no hidden adaptation)
+* Separate achievement tracking but no shame
+
+**Key lesson:** Accessibility and Challenge can coexist if distinction is clear and respectful.
+
+***
+
+## Synthesis: What These Games Teach Us About Our Framework
+
+### Validation: Five-Level Constraint Model Works
+
+**Design Context** → determined feasibility
+
+* Tabletop → eliminated real-time adaptation for Blades
+* Computer-managed → enabled Director for L4D2
+* LLM-only → proved insufficient for AI Dungeon
+
+**Aesthetic** → determined paradigm fit
+
+* Challenge → Consistency worked (Dark Souls)
+* Narrative → Framework worked (Blades)
+* Fellowship → Adaptive worked (L4D2)
+* Discovery without constraints → Failed (AI Dungeon)
+
+**Paradigm** → determined measurables
+
+* Each paradigm optimized predictable measurables
+* Fighting paradigm requirements caused problems
+
+**Measurables** → enabled parameter derivation
+
+* Time-to-Kill calculations worked (Souls boss HP)
+* Framework tier ranges worked (Blades Position/Effect)
+* Adaptation bounds worked (L4D2 spawn rates)
+
+**Parameters** → created actual games
+
+* Real games followed the chain we described
+* Numbers that violated measurable targets caused problems
+
+### Gaps: What Framework Doesn't Fully Capture
+
+**Creative content generation:**
+
+* Framework doesn't design boss attack patterns
+* Doesn't create framework application examples
+* Doesn't generate synergies or combinations
+
+**These require designer creativity.** Framework helps you know WHAT to create and HOW to tune it, but not the specific content.
+
+**Subjective "feel" calibration:**
+
+* "Does 65% hit rate feel good?" still requires testing
+* Framework gets you close, playtesting fine-tunes
+
+**This is appropriate.** Perfect calibration impossible without iteration.
+
+**Edge cases and exploits:**
+
+* Players find unintended strategies
+* Systems interact in unexpected ways
+* LLMs need explicit constraints designers might not anticipate
+
+**This is inevitable.** Framework helps you iterate systematically when problems emerge.
+
+### Confidence: Framework Provides Real Value
+
+**What real games prove:**
+
+1. **Paradigm choice matters** - Mismatch causes failure (AI Dungeon), match enables success (others)
+2. **Measurables predict success** - Games optimizing paradigm-appropriate measurables work
+3. **Constraints create meaning** - Freedom requires mechanical foundations
+4. **Hybrid works** - Different paradigms for different subsystems is normal and effective
+5. **Process is systematic** - Context → Aesthetic → Paradigm → Measurables → Parameters chain evident in successful designs
+
+**Framework doesn't guarantee success.** But it makes failure explainable and iteration systematic.
+
+When Dark Souls player complains "boss fight too long," framework tells you:
+
+* Check: Time-to-Kill measurable (target: 5-7 minutes)
+* Diagnose: Boss HP too high OR player damage too low
+* Fix: Adjust one parameter systematically
+* Validate: Does adjusted time-to-kill serve Challenge aesthetic better?
+
+Without framework, you guess. With framework, you diagnose.
+
+***
+
+## Key Takeaways for Your Design
+
+**From these real games:**
+
+1. **Choose paradigm deliberately** - Aesthetic should drive choice, not convenience
+2. **Hybrid is normal** - Different subsystems can use different paradigms
+3. **Constraints are mandatory** - Even narrative-first needs mechanical foundations
+4. **Measurables cluster by paradigm** - Trust the patterns, don't fight them
+5. **LLMs enhance, don't replace** - Use within paradigm, not as paradigm
+6. **Accessibility possible** - Bounded Adaptive can serve wide skill range without destroying Challenge
+7. **Iteration is expected** - Framework helps you iterate systematically, not eliminate iteration
+
+**Next: Part 5 provides complete measurables catalog so you can apply these lessons to your specific design.**
