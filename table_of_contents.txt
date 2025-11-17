@@ -1,0 +1,83 @@
+Documentation Contents
+=====================
+
+  ./games-as-experiential-scaffolds
+  ./game-design-scenarios
+  ./general-analysis-of-game-systems/
+
+  General Analysis of Game Systems
+    ./system-evolution-civilization
+    ./system-evolution-dnd
+    ./system-evolution-pbta
+    ./system-evolution-xcom
+    ./system-evolution-lessons-summary
+    ./fate-confirmation-bias-test
+    ./cultist-simulator
+  ./what-is-game-system-v6
+  ./resource-management/
+
+  Resource Management
+    ./resource-management-01-introduction
+    ./resource-management-02-when-to-use
+    ./resource-management-03-types
+    ./resource-management-04-scarcity
+    ./resource-management-05-recovery
+    ./resource-management-06-spending
+    ./resource-management-part-7-psychological-effects
+    ./resource-management-part-8-anti-patterns
+    ./resource-management-part-9-decision-framework
+    ./resource-management-part-10-appendices
+    ./supplimentary/
+
+    Supplimentary
+      ./resource-management-game-analyses
+  ./cognitive-load/
+
+  Cognitive Load
+    ./00-index
+    ./01-foundations
+    ./02-load-as-design-tool
+    ./03-load-types-and-examples
+    ./04-investment-and-load
+    ./05-load-distribution
+    ./06-load-appropriateness
+    ./07-player-types
+    ./08-load-support-systems
+    ./09-design-process
+    ./10-case-study-busy-adults
+    ./11-case-study-aliens
+    ./12-connections
+    ./13-future-research
+    ./14-summary
+    ./supplimentary/
+
+    Supplimentary
+      ./cognitive-load-game-analysis
+      ./aliens-horror-game-design
+  ./from-principles-to-numbers/
+
+  From Principles to Numbers
+    ./part-1-constraint-framework
+    ./part-2-balance-paradigms
+    ./part-3-aesthetic-paradigm-recipes
+    ./part-4-learning-from-real-games
+    ./part-5-measurables-catalog
+    ./part-6-measurables-to-numbers
+    ./part-7-playtesting-protocol.mdx
+    ./part-8-scaling-and-evolution
+    ./part-9-common-pitfalls
+    ./part-10-designer-takeaways
+    ./supplementary/
+
+    Supplimentary
+      ./blades-in-the-dark-analysis
+      ./dark-souls-analysis
+      ./left-4-dead-2-analysis
+      ./ai-dungeon-analysis
+      ./supplementary-worked-scenario
+  ./megabonk-hypothesis/
+
+  Ideas, sketches, and notes
+    ./pacing-integration-plan
+    ./writing-guidelines-updated
+    ./proposed-guidelines-changes
