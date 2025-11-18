@@ -132,46 +132,51 @@ This section briefly covers how resource management connects to other game desig
 
 **Key relationship:** Resources are tools for implementing system functions.
 
-**The 7 System Functions** (from "What is a Game System" document):
+**Note**: The following describes how resources interact with game systems. For the complete System Functions framework applicable to all game systems (not just resources), see Writing Guidelines Part 1 and Chapter 1, Section 5: System Functions.
 
-**Function 1: Resolution** - How outcomes are determined
+**The 7 System Functions** (from "What is a Game System" document and Writing Guidelines Part 1):
+
+**Function 1: Adjudication** - Resolving uncertainty
 
 * Resources can be spent to influence outcomes (Blades stress for better roll)
+* Resources modify resolution mechanics (gear bonuses, spell slots)
 
-**Function 2: Information Management** - What players know
+**Function 2: Information Management** - Controlling what players know
 
 * Resources can gate information (but careful with critical info!)
 * Example: Investigation points for optional clues (Gumshoe)
 
-**Function 3: Progression** - Character/player growth
+**Function 3: Content Generation** - Creating situations
 
-* Accumulation resources (XP, skills, unlocks)
-* Visible advancement over time
+* Resources enable content (gold buys quests, crew coin opens scores)
+* Accumulation unlocks new scenarios
 
-**Function 4: Pacing** - Rhythm of play
+**Function 4: State Persistence** - Remembering across sessions
 
-* Recovery patterns create pacing (fast = high tempo, slow = strategic)
-* Depletion/refresh cycles structure time
+* Resources track long-term state (trauma, faction reputation, wealth)
+* Persistence creates campaign arcs (Blades trauma accumulation)
 
-**Function 5: Social Dynamics** - Player interaction
+**Function 5: Cognitive Encoding** - Shaping how players think
 
-* Shared resources create coordination (crew coin)
-* Competitive resources create tension (Catan)
-* Trading resources enable negotiation
+* Resources encode priorities (HP = value life, stress = value success)
+* Resource types frame strategic thinking
 
-**Function 6: Risk Management** - Handling uncertainty
+**Function 6: Constraint Design** - Creating meaningful limitations
 
-* Buffer resources enable risk-taking (stress protects from harm)
-* Scarcity creates risk/reward decisions (spend now or save?)
+* Capacity resources limit options (inventory slots, hand limits)
+* Scarcity forces priorities
 
-**Function 7: Aesthetic Reinforcement** - Supporting experience
+**Function 7: Procedural Content for Solo Play** - Enabling GM-less play
 
-* Resources should reinforce intended aesthetic
-* Wrong resources undermine aesthetic (D\&D investigation problem)
+* Resources can drive oracle systems (spend to reveal)
+* Less relevant for resource design, more for system architecture
 
 **Design principle:** Each resource should serve at least one system function clearly.
 
-**See:** What is a Game System (Part 10: System Functions)
+**See:**
+
+* Chapter 1: Understanding Game Systems (Section 5: System Functions) for detailed discussion
+* Writing Guidelines Part 1, System Functions for applying this framework in analysis
 
 ***
 
@@ -239,6 +244,34 @@ This section briefly covers how resource management connects to other game desig
 **See:** LLM Implications and Opportunities (future document)
 
 **Quick guideline:** LLMs expand possibilities, but same aesthetic goals and design principles apply.
+
+***
+
+### A.6: Core Loops and Resource Recovery (Chapter 1, Section 4)
+
+Resource recovery patterns directly affect loop satisfaction at different timescales:
+
+**Fast Recovery** (seconds to minutes):
+
+* Enables tight micro loops → aggressive play encouraged
+* Players can retry immediately → supports Challenge aesthetic's learning cycles
+* Example: Modern FPS health regeneration → enables continuous combat micro loop
+
+**Moderate Recovery** (per-encounter):
+
+* Structures core loops → episodic session pacing
+* Each encounter feels complete → supports clean core loop closure
+* Example: Blades stress recovers per-score → episodic heist loop
+
+**Slow Recovery** (per-session or permanent):
+
+* Creates meta loop pressure → long-term strategic thinking
+* Consequences persist → supports Mastery aesthetic's deep planning
+* Example: Blades trauma persists → meta loop of character arc management
+
+**Key Insight**: Recovery speed isn't just "fast vs. slow"—it determines which loop level experiences scarcity pressure. Fast micro-loop resources create moment-to-moment decisions. Slow meta-loop resources create campaign-level strategy.
+
+**See**: Chapter 1, Section 4 for complete Core Loops framework (micro/core/meta nested loops).
 
 ***
 
@@ -468,7 +501,7 @@ This section briefly covers how resource management connects to other game desig
 **Related documents:**
 
 * Game Analyses (Blades, HoMM3, Catan, WoW, Slay the Spire detailed analysis)
-* What is a Game System (foundation framework with System Functions)
+* Chapter 1: Understanding Game Systems (Section 5: System Functions)
 * System Evolution Lessons (historical patterns from D\&D, PbtA, Civ, XCOM)
 * Games as Experiential Scaffolds (core concept of purpose-driven design)
 

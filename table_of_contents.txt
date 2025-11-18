@@ -2,18 +2,17 @@ Documentation Contents
 =====================
 
   ./games-as-experiential-scaffolds
-  ./game-design-scenarios
-  ./general-analysis-of-game-systems/
+  ./game-system/
 
-  General Analysis of Game Systems
-    ./system-evolution-civilization
-    ./system-evolution-dnd
-    ./system-evolution-pbta
-    ./system-evolution-xcom
-    ./system-evolution-lessons-summary
-    ./fate-confirmation-bias-test
-    ./cultist-simulator
-  ./what-is-game-system-v6
+  Game Systems
+    ./chapter-1-complete-rewrite
+    ./supplementary/
+
+    Supplementry
+      ./general-analysis-of-game-systems/
+
+      System Evolution: Synthesized Lessons
+        ./system-evolution-lessons-summary
   ./resource-management/
 
   Resource Management
@@ -27,9 +26,9 @@ Documentation Contents
     ./resource-management-part-8-anti-patterns
     ./resource-management-part-9-decision-framework
     ./resource-management-part-10-appendices
-    ./supplimentary/
+    ./supplementary/
 
-    Supplimentary
+    supplementary
       ./resource-management-game-analyses
   ./cognitive-load/
 
@@ -49,9 +48,9 @@ Documentation Contents
     ./12-connections
     ./13-future-research
     ./14-summary
-    ./supplimentary/
+    ./supplementary/
 
-    Supplimentary
+    Supplementary
       ./cognitive-load-game-analysis
       ./aliens-horror-game-design
   ./from-principles-to-numbers/
@@ -75,9 +74,43 @@ Documentation Contents
       ./left-4-dead-2-analysis
       ./ai-dungeon-analysis
       ./supplementary-worked-scenario
+  ./context-from-setting-to-experience/
+
+  From Setting to Experience
+    ./context-part-1-introduction
+    ./context-part-2-aesthetic-to-genre
+    ./context-part-3-space-coffee-test
+    ./context-part-4-maintaining-perspective
+    ./context-part-5-build-suggest-omit
+    ./context-part-6-design-document
+    ./context-part-7-dynamics
+    ./context-part-8-integration
+    ./context-part-9-validation
+    ./context-part-10-pitfalls
+    ./context-part-11-quick-reference
+    ./supplementary/
+
+    Supplementary
+      ./weather-factory-context-analysis
+      ./disco-elysium-context-analysis
+      ./mass-effect-andromeda-context-analysis
+      ./obra-dinn-context-analysis
+      ./outer-wilds-context-analysis
+      ./nms
+      ./Borderlands Procedural Weapons
+      ./space-coffee-framework
   ./megabonk-hypothesis/
+
+  Megabonk Hypothesis (WIP)
+    ./megabonk_hypothesis_combined
+    ./inkle-studios-and-the-megabonk-hypothesis
+    ./age-of-darkness-analysis
+    ./megabonk-hypothesis-cross-genre-validation
+    ./missing-aesthetics-megabonk-tabb
+  ./rough-drafts-and-ideas/
 
   Ideas, sketches, and notes
     ./pacing-integration-plan
     ./writing-guidelines-updated
     ./proposed-guidelines-changes
+    ./task-update-writing-guidelines

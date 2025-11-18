@@ -17,6 +17,191 @@ We'll examine when load serves experience, when it hinders it, how to diagnose m
 
 ***
 
+## Genre Affects Cognitive Load Budget
+
+✅ **New framework integration** (from Context Chapter)
+
+**Critical insight:** Different genres have different cognitive load expectations and budgets. Choosing load levels that contradict your genre creates player confusion and frustration.
+
+### Genre-Specific Load Profiles
+
+**Cozy Genre (Submission/Discovery aesthetics):**
+
+* **Load Budget:** VERY LOW cognitive load
+* **Why:** Players seek relaxation, not mental challenge
+* **Load Profile:**
+  * Decision load: LOW (choices should be easy, forgiving)
+  * Tracking load: LOW (minimal state management)
+  * Calculation load: MINIMAL (simple or no math)
+  * Pattern recognition: NONE (no mastery curve needed)
+* **Examples:** Stardew Valley (simple systems, forgiving), Animal Crossing (minimal optimization)
+* **Breaks when:** Complex crafting trees, resource optimization puzzles, time pressure
+* **Player expectation:** "I don't want to think hard, I want to relax"
+
+**Mystery Genre (Discovery/Challenge aesthetics):**
+
+* **Load Budget:** MEDIUM cognitive load
+* **Why:** Investigation rewards thinking but shouldn't overwhelm
+* **Load Profile:**
+  * Decision load: MEDIUM (meaningful clue selection)
+  * Memory/Knowledge load: HIGH (must remember clues, connections)
+  * Tracking load: MEDIUM (note-taking, deduction)
+  * Pattern recognition: MEDIUM (seeing connections)
+  * Simultaneity load: LOW (investigation needs time to think)
+* **Examples:** Return of the Obra Dinn (deduction), Outer Wilds (synthesis)
+* **Breaks when:** Excessive simultaneity (time pressure kills investigation), overwhelming clue volume
+* **Player expectation:** "I want to think and deduce, but not be overwhelmed"
+
+**Horror Genre (Tension aesthetic):**
+
+* **Load Budget:** LOW to MEDIUM (varies by horror type)
+* **Why:** Mental space needed for fear, tension, atmosphere
+* **Load Profile:**
+  * Simultaneity load: LOW-MEDIUM (pressure creates tension but too much confuses)
+  * Decision load: LOW (simple choices with high stakes)
+  * Tracking load: LOW (minimal resource management)
+  * Pattern recognition load: MEDIUM (survival horror), LOW (atmospheric horror)
+* **Examples:** Alien: Isolation (pattern learning + resource scarcity), Amnesia (simple mechanics, high tension)
+* **Breaks when:** Complex systems distract from fear, optimization puzzles remove vulnerability
+* **Player expectation:** "I want to feel scared and vulnerable, not solve math problems"
+
+**Mastery Genre (Challenge aesthetic):**
+
+* **Load Budget:** HIGH cognitive load (but must decrease with practice)
+* **Why:** Depth and optimization are the appeal
+* **Load Profile:**
+  * Decision load: VERY HIGH (deep optimization)
+  * Simultaneity load: HIGH if real-time (StarCraft), VERY HIGH if turn-based (Chess)
+  * Pattern recognition: VERY HIGH (learning curve is the point)
+  * Calculation load: MEDIUM-HIGH (math as optimization tool)
+  * **Critical:** Load must REDUCE through practice (mastery curve)
+* **Examples:** StarCraft (high simultaneity), Slay the Spire (decision depth), Dark Souls (pattern mastery)
+* **Breaks when:** Load stays constant (no mastery curve), randomness prevents learning
+* **Player expectation:** "I want to get better through practice and optimization"
+
+**Tactical Combat Genre (Challenge/Mastery aesthetics):**
+
+* **Load Budget:** HIGH cognitive load with turn-based thinking time
+* **Why:** Tactical analysis is the core activity
+* **Load Profile:**
+  * Decision load: VERY HIGH (positioning, unit choices, timing)
+  * Calculation load: HIGH (damage math, probability)
+  * Tracking load: MEDIUM-HIGH (unit positions, abilities, cooldowns)
+  * Pattern recognition: HIGH (enemy patterns, tactical solutions)
+  * Simultaneity load: LOW (turn-based gives processing time)
+* **Examples:** XCOM, Into the Breach, Fire Emblem
+* **Breaks when:** Real-time pressure removes thinking time, too many variables overwhelm even experts
+* **Player expectation:** "I want to analyze and optimize tactics"
+
+**Fellowship Genre (Social aesthetic):**
+
+* **Load Budget:** LOW mechanical load, HIGH social load
+* **Why:** Mental energy reserved for socializing, not system management
+* **Load Profile:**
+  * Mechanical decision load: LOW (simple rules)
+  * Mechanical tracking load: LOW (minimal bookkeeping)
+  * Social/Communication load: HIGH (negotiation, coordination)
+  * Calculation load: MINIMAL (math disrupts conversation)
+* **Examples:** Catan (simple resource trades), Pandemic (cooperative coordination)
+* **Breaks when:** Complex individual optimization required, bookkeeping disrupts socializing
+* **Player expectation:** "I want to focus on talking to friends, not managing spreadsheets"
+
+### Context Beyond Genre: Setting Complexity
+
+**Familiar Context (medieval fantasy, contemporary):**
+
+* **Load Impact:** Lower memory/knowledge load
+* **Why:** Known tropes, can infer rules
+* **Example:** D\&D medieval fantasy (players know what swords do)
+* **Advantage:** Can focus cognitive budget on gameplay, not world-learning
+
+**Alien/Unique Context (original worlds, complex cosmology):**
+
+* **Load Impact:** Higher memory/knowledge load upfront
+* **Why:** Must learn world rules, new concepts
+* **Example:** Weather Factory occult lore (extensive terminology, cosmology)
+* **Trade-off:** World-learning consumes budget that could go to gameplay complexity
+* **Mitigation:** Simpler mechanics to compensate for world complexity
+
+**Complex Worldbuilding:**
+
+* **Load Impact:** Increases knowledge load permanently
+* **Why:** Factions, history, terminology must be learned and remembered
+* **Example:** Disco Elysium (political factions, historical context)
+* **Design choice:** Invest cognitive budget in world depth, keep mechanics simple
+* **Wrong:** Complex world + complex mechanics = overwhelming totality
+
+### How to Choose Load Level from Genre
+
+**Step 1: Identify genre's load expectations**
+
+* What's the core activity? (Investigation? Combat? Socializing?)
+* What mental work should players do? (Think hard? Relax? Socialize?)
+* See Context Chapter Part 2 for genre selection process
+
+**Step 2: Allocate cognitive budget to match**
+
+* Cozy/Fellowship → LOW mechanical load (reserve energy for relaxation/socializing)
+* Mystery/Mastery → HIGH load in specific areas (deduction/optimization)
+* Horror → LOW-MEDIUM load (fear needs mental space)
+
+**Step 3: Test for genre-load coherence**
+
+* Does load serve genre expectations?
+* Does load leave space for genre-specific activities?
+* Does load contradict genre feeling?
+
+**Step 4: Adjust for context complexity**
+
+* Familiar context → Can support higher mechanical complexity
+* Alien context → Must reduce mechanical complexity to compensate
+* Complex worldbuilding → Keep mechanics simple OR keep world simple
+
+### Warning: Genre-Load Mismatches
+
+**Common failures:**
+
+❌ **Cozy game + optimization pressure:**
+
+* Genre expects: Relaxation, forgiveness
+* Load creates: Anxiety, need to think strategically
+* Example: Stardew Valley with harsh time limits (breaks cozy feeling)
+* Result: Players stressed instead of relaxed
+
+❌ **Fellowship game + high mechanical load:**
+
+* Genre expects: Social interaction as focus
+* Load creates: Individual optimization, spreadsheet management
+* Example: Complex resource tracking in party game
+* Result: Players calculating alone instead of talking
+
+❌ **Horror game + complex systems:**
+
+* Genre expects: Fear, vulnerability, tension
+* Load creates: Optimization focus, distraction from atmosphere
+* Example: Survival game with crafting tech trees
+* Result: Fear broken by system management
+
+❌ **Mystery game + time pressure:**
+
+* Genre expects: Deduction, synthesis, thinking time
+* Load creates: Frantic searching, no time to think
+* Example: Investigation with countdown timer
+* Result: Investigation impossible, players frustrated
+
+### Cross-Reference
+
+For complete genre selection and perspective maintenance:
+**See Context Chapter Part 2 (Aesthetic to Genre)**
+
+For how context creates behavioral dynamics:
+**See Context Chapter Part 7 (Dynamics)**
+
+For integration of load with other systems:
+**See Context Chapter Part 6 (Design Document - System Integration)**
+
+***
+
 ## Load in Service of Experience
 
 ### When Cognitive Load IS the Point

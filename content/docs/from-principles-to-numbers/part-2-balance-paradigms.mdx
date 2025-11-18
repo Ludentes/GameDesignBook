@@ -9,7 +9,7 @@ We call these **balance paradigms**—the underlying philosophy of how balance w
 
 **The three working paradigms:**
 
-1. **Framework-Based Balance:** Explicit decision frameworks create consistent adjudication
+1. **Framework-Based Balance:** Explicit decision frameworks create consistent adjudication (Adjudication function—see Writing Guidelines Part 1, System Functions)
 2. **Consistency-Based Balance:** Static, repeatable challenges enable pattern learning
 3. **Adaptive Balance:** Dynamic systems adjust to player performance
 
@@ -22,6 +22,130 @@ Understanding paradigms helps you:
 * Know what to build and how to validate it
 * Avoid mixing incompatible approaches
 
+***
+
+## Genre Determines Paradigm Fit
+
+✅ **New framework integration** (from Context Chapter)
+
+**Critical insight:** Different genres require different balance paradigms. Choosing the wrong paradigm for your genre creates incoherent experiences.
+
+### Genre-Paradigm Mapping
+
+**Mystery Investigation Genre (Discovery/Narrative aesthetics):**
+
+* **Requires:** Framework paradigm
+* **Why:** Investigation needs flexibility—players approach clues differently, ask unexpected questions, combine evidence creatively
+* **Example:** Gumshoe uses judgment framework for investigation (core clues automatic, Investigation Points for depth)
+* **Breaks with:** Consistency (fixed outcomes would make some investigation paths impossible)
+* **Breaks with:** Adaptive (adjusting difficulty removes deduction challenge)
+
+**Horror Survival Genre (Tension aesthetic):**
+
+* **Requires:** Consistency OR Adaptive (depending on horror approach)
+* **Consistency for:** Pattern-learning horror (Alien: Isolation, Resident Evil)
+  * Why: Players learn enemy patterns to survive, mastery through understanding threat
+* **Adaptive for:** Dynamic threat horror (Left 4 Dead AI Director)
+  * Why: Threat adjusts to maintain pressure without overwhelming
+* **Breaks with:** Framework (negotiated stakes remove terror—"let's discuss how scared I am" kills horror)
+
+**Heist Genre (Narrative/Tension aesthetics):**
+
+* **Requires:** Framework paradigm
+* **Why:** Planning and flashbacks require flexible resolution ("I planned for this!" moments)
+* **Example:** Blades in the Dark Position/Effect enables planning vs. improvisation trade-offs
+* **Breaks with:** Pure Consistency (rigid outcomes kill improvisation and clever solutions)
+* **Breaks with:** Adaptive (heist success should depend on planning, not difficulty scaling)
+
+**Tactical Combat Genre (Challenge/Mastery aesthetics):**
+
+* **Requires:** Consistency paradigm
+* **Why:** Mastery requires learnable, repeatable patterns
+* **Example:** XCOM, Into the Breach, Dark Souls (fixed enemy stats, consistent rules)
+* **Can incorporate:** Adaptive elements (AI behavior variation) within consistent framework
+* **Breaks with:** Framework (negotiated combat removes tactical optimization)
+
+**Cozy Life Sim Genre (Submission/Discovery aesthetics):**
+
+* **Requires:** Framework OR minimal Consistency (forgiving, no harsh failures)
+* **Why:** Relaxation requires safety—no punishing optimization or pattern mastery
+* **Example:** Stardew Valley (flexible systems, forgiving consequences, no permadeath)
+* **Breaks with:** Strict Consistency with harsh consequences (creates anxiety, not relaxation)
+* **Breaks with:** Adaptive difficulty ramping (pressure increases contradict cozy feeling)
+
+**Roguelike Genre (Challenge/Mastery aesthetics):**
+
+* **Requires:** Consistency with procedural variation
+* **Why:** Mastery requires learnable patterns despite randomized content
+* **Example:** Slay the Spire (card effects consistent, encounters varied)
+* **Can incorporate:** Adaptive elements (difficulty modifiers) as player-chosen options
+* **Breaks with:** Framework (negotiation removes challenge of fixed rules)
+
+### How to Choose Paradigm from Genre
+
+**Step 1: Identify your genre** (not just setting/dressing)
+
+* What structural experience type? (Mystery? Horror? Heist? Tactical combat?)
+* See Context Chapter Part 2 for genre selection process
+
+**Step 2: Check genre's paradigm requirements**
+
+* Does genre need flexibility (investigation, heists) → Framework
+* Does genre need pattern mastery (horror, tactics) → Consistency
+* Does genre need dynamic adjustment (co-op survival) → Adaptive
+* Does genre need safety/forgiveness (cozy, relaxation) → Framework or forgiving Consistency
+
+**Step 3: Validate paradigm serves aesthetic**
+
+* Does paradigm create intended feeling?
+* Does paradigm enable genre-specific gameplay?
+* Does paradigm avoid contradicting genre expectations?
+
+**Step 4: Test for coherence**
+
+* Can players engage with genre through this paradigm?
+* Does paradigm import mechanics from different genre?
+* Example: Mystery + combat XP (imports challenge genre mechanics, breaks investigation)
+
+### Warning: Genre-Paradigm Mismatches
+
+**Common failures:**
+
+❌ **Mystery investigation + Consistency paradigm:**
+
+* Problem: Fixed outcomes make some investigation approaches impossible
+* Example: D\&D investigation (roll to find clue → can fail → mystery stalls)
+* Result: Players frustrated when valid approaches don't work
+
+❌ **Horror survival + Framework paradigm:**
+
+* Problem: Negotiating stakes removes terror
+* Example: "Let's discuss how scared my character is" (breaks immersion)
+* Result: Horror becomes negotiation exercise
+
+❌ **Tactical combat + Framework paradigm:**
+
+* Problem: Negotiated outcomes remove optimization challenge
+* Example: "This seems hard, let's make it easier" (no mastery curve)
+* Result: Challenge aesthetic lost
+
+❌ **Heist planning + Strict Consistency:**
+
+* Problem: Fixed outcomes prevent improvisation and flashbacks
+* Example: "I would have planned for this" → "Too bad, you didn't explicitly say so"
+* Result: Heist genre violated (no clever solutions)
+
+### Cross-Reference
+
+For complete genre selection process and Build/Suggest/Omit framework:
+**See Context Chapter: From Setting to Experience, Part 2 (Aesthetic to Genre)**
+
+For understanding how genre creates behavioral dynamics:
+**See Context Chapter Part 7 (Dynamics)**
+
+For paradigm-specific implementation:
+**Continue reading this chapter's detailed paradigm descriptions below.**
+
 Let's examine each paradigm in detail.
 
 ***
@@ -30,7 +154,7 @@ Let's examine each paradigm in detail.
 
 ### What It Is
 
-**Framework-based balance uses explicit decision frameworks that create consistent adjudication of unpredictable situations.**
+**Framework-based balance uses explicit decision frameworks that create consistent adjudication (Adjudication function) of unpredictable situations.**
 
 Instead of pre-determining outcomes or calculating probabilities for every possible action, you define a **framework for evaluating actions in the moment**. The GM or system uses this framework to determine stakes, risks, and outcomes consistently.
 
