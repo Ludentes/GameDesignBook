@@ -1,0 +1,1165 @@
+---
+title: synthesis-framework-phase2
+---
+# Phase 2: Scaffold Architecture
+
+## What Structure Supports Your Aesthetics?
+
+You've defined what experience you want to create and for whom. Now you need to choose the structural pattern that will support those aesthetics within your players' cognitive capacity.
+
+This is where you decide: Is this a loop-based game? A narrative arc? A pure puzzle system? How does time flow through the experience? What's the pacing? How complex can it be?
+
+Your scaffold architecture is the skeleton that holds everything else. Get this right, and the rest of the design flows naturally. Get it wrong, and even perfect mechanics won't save you.
+
+***
+
+## Step 2.1: Choose Structural Pattern
+
+Not all games are built the same way. The structure you need depends on what aesthetics you're creating, who's playing, and how much time they have.
+
+### Pattern A: Loop-Based Architecture
+
+**Best for:** Action games, roguelikes, strategy games, most video games, many board games
+
+**Core concept:** Repeating cycles at different time scales (micro/meso/macro) that create rhythm, progression, and compounding meaning.
+
+**When to use:**
+
+* Players will engage in repeated actions
+* Session length is predictable
+* You want layered short/medium/long-term goals
+* Mastery, Challenge, or Competition are primary aesthetics
+
+**Reference:** Temporal Architecture chapter for detailed loop design
+
+#### The Four Loop Architectures
+
+**Full Stack (Micro + Meso + Macro)**
+
+* **What it is:** All three loop scales present and interconnected
+* **Time structure:**
+  * Micro: 30 seconds - 5 minutes (moment-to-moment action)
+  * Meso: 10-60 minutes (session goal)
+  * Macro: Hours to weeks (long-term progression)
+* **Best for:** Hardcore players, long-term engagement, complex progression
+* **Aesthetics served:** Mastery (improvement across scales), Challenge (escalating), Discovery (long-term reveals)
+* **Examples:** Hades (combat micro, escape attempt meso, relationship/unlock macro), traditional RPGs, 4X strategy games
+* **Content implications:** High content needs across all scales
+* **Cognitive load:** High (tracking goals at three time scales)
+
+**Compressed (Micro + Meso Only)**
+
+* **What it is:** Short and medium loops, no long-term progression
+* **Time structure:**
+  * Micro: 1-3 minutes (single action/decision)
+  * Meso: 15-30 minutes (complete session)
+  * Macro: None or very light (cosmetic unlocks, statistics)
+* **Best for:** Casual players, session-complete games, episodic play
+* **Aesthetics served:** Challenge + Completion (finish something), Discovery (light - daily novelty)
+* **Examples:** Wordle, daily puzzle games, Into the Breach (meso is single island)
+* **Content implications:** Moderate - need variety in meso goals, micro can repeat
+* **Cognitive load:** Low to moderate (only need to track current session)
+
+**Inverted (Macro-Heavy or Macro Only)**
+
+* **What it is:** Long-term progression is primary, micro/meso minimal or automated
+* **Time structure:**
+  * Micro: Often automated or trivial clicks
+  * Meso: Optional or same as macro
+  * Macro: Days to months (watching numbers grow)
+* **Best for:** Very casual players, async play, idle games
+* **Aesthetics served:** Completion (collecting), Power (growing stronger), Discovery (unlocking)
+* **Examples:** Cookie Clicker, idle/incremental games, some mobile collection games
+* **Content implications:** Low variety needed, high numerical progression
+* **Cognitive load:** Very low (check in, make decision, leave)
+
+**Constrained (Single Scale)**
+
+* **What it is:** One loop scale, no meta-progression
+* **Time structure:**
+  * Usually just micro (1-5 minutes per attempt)
+  * Each attempt is isolated
+  * No meso or macro loops
+* **Best for:** Pure skill games, arcade-style games, specific aesthetics
+* **Aesthetics served:** Challenge (pure), Mastery (single skill), Flow
+* **Examples:** Tetris, pure puzzle games, rhythm games (single song)
+* **Content implications:** Can be minimal if mechanic is deep
+* **Cognitive load:** Low (only current attempt matters)
+
+#### Loop Architecture Decision Matrix
+
+| Primary Aesthetic | Casual Players             | Midcore Players          | Hardcore Players              |
+| ----------------- | -------------------------- | ------------------------ | ----------------------------- |
+| **Challenge**     | Compressed                 | Compressed or Full Stack | Full Stack                    |
+| **Mastery**       | Compressed or Constrained  | Full Stack               | Full Stack                    |
+| **Discovery**     | Compressed                 | Full Stack               | Full Stack                    |
+| **Completion**    | Compressed                 | Compressed               | Full Stack (if complex goals) |
+| **Competition**   | Compressed                 | Full Stack               | Full Stack                    |
+| **Fellowship**    | Compressed (casual social) | Full Stack               | Full Stack                    |
+| **Power**         | Inverted                   | Full Stack               | Full Stack                    |
+| **Collection**    | Inverted or Compressed     | Full Stack               | Full Stack                    |
+
+**Time constraint effects:**
+
+* \<30 min sessions → Compressed or Constrained only
+* 30-90 min sessions → Compressed or Full Stack
+* 2+ hour sessions → Full Stack works
+* Unpredictable sessions → Compressed (must complete meso)
+* Daily check-ins → Inverted or Compressed
+
+**Example decisions:**
+
+"Challenge + Completion for casual players, 20-min sessions"
+→ **Compressed architecture** (micro + meso, no macro)
+
+"Mastery + Competition for hardcore players, 60+ min sessions"
+→ **Full Stack architecture** (all three scales for depth)
+
+"Collection + Discovery for casual players, 5-min check-ins"
+→ **Inverted architecture** (macro-heavy, minimal micro)
+
+### Pattern B: Narrative Arc Architecture
+
+**Best for:** Story games, TTRPGs, walking simulators, one-shots, visual novels
+
+**Core concept:** Sequential acts or story beats with escalating tension, revelations, and resolution. Not cyclical—linear or branching progression through narrative.
+
+**When to use:**
+
+* Narrative, Horror, or Discovery (story-based) are primary aesthetics
+* Experience is meant to be completed once (or few times)
+* Medium supports authored content (TTRPG, authored video game)
+* Player agency affects story outcomes
+
+**Structure:**
+
+**Act Structure (Most Common):**
+
+* **Act 1 (Setup):** 15-25% of total time
+  * Establish premise, characters, stakes
+  * Tutorial/introduction
+  * Initial choices that seem low-stakes
+
+* **Act 2 (Complication):** 50-60% of total time
+  * Consequences emerge
+  * Tension escalates
+  * Information reveals
+  * Multiple decision points
+
+* **Act 3 (Resolution):** 20-25% of total time
+  * Climax and final choices
+  * Consequences manifest
+  * Conclusion (tragic, triumphant, ambiguous)
+
+* **Optional Epilogue:** 5-10% of total time
+  * Reflection, processing
+  * Debrief (especially for serious themes)
+
+**Alternative: Story Beats Structure:**
+
+* Instead of acts, track specific narrative moments
+* Each beat is a decision point or revelation
+* Beats can branch or be sequential
+* Pacing controlled by beat density
+
+**Time structure:**
+
+* **Decision points** replace micro loops (5-15 min each)
+* **Acts** replace meso loops (acts take 30-90 min each)
+* **Complete narrative** is the macro (full session or campaign)
+
+**Best for player profiles:**
+
+* Adults who engage with narrative complexity
+* Players comfortable with consequences
+* Social groups (TTRPG context)
+* Single-player narrative game audiences
+
+**Aesthetics served:**
+
+* Narrative (obviously)
+* Horror (especially complicity/dread types)
+* Discovery (narrative reveals)
+* Fellowship (shared story experience)
+
+**Examples:**
+
+* TTRPG one-shots (3-4 hour arc)
+* Walking simulators (What Remains of Edith Finch)
+* Visual novels (branching narratives)
+* Narrative-heavy adventure games
+
+**Content implications:**
+
+* Need authored scenarios, not procedural
+* Branching increases content needs exponentially
+* Must prepare for player agency (multiple paths)
+
+**Cognitive load:**
+
+* Medium to high (tracking narrative, consequences, relationships)
+* But simpler mechanics than loop-based games
+* Memory requirements across session(s)
+
+**When narrative arc fails:**
+
+* If players don't care about story (wrong aesthetic match)
+* If mechanics distract from narrative
+* If player agency is illusion (feels railroaded)
+* If pacing drags or rushes
+
+### Pattern C: Puzzle Architecture
+
+**Best for:** Pure puzzle games, brain teasers, logic games, escape rooms
+
+**Core concept:** Discrete, self-contained challenges with solutions. Each puzzle is complete unto itself. Minimal or no meta-progression.
+
+**When to use:**
+
+* Challenge aesthetic is primary (but intellectual, not dexterity)
+* Players want clear win conditions
+* Medium supports puzzle presentation (board, mobile, PC)
+* Content can be authored or procedurally generated with validation
+
+**Structure:**
+
+**Single-Puzzle Focus:**
+
+* Present puzzle with clear goal
+* Player attempts solution
+* Success or failure (or degrees of success)
+* Move to next puzzle
+
+**No traditional loops:**
+
+* Each puzzle is independent
+* Optional meta-progression (cosmetic, difficulty tiers)
+* Can have time limits (arcade-style) or be untimed
+
+**Variants:**
+
+**Pure Puzzle (Constrained):**
+
+* Each puzzle completely isolated
+* No carryover between puzzles
+* Examples: Sudoku, crosswords, logic grid puzzles
+
+**Progressive Puzzle (Slight Meta):**
+
+* Puzzles unlock each other (gating)
+* Difficulty increases
+* Might have overarching theme
+* Examples: The Witness, Portal (puzzle sequences)
+
+**Arcade Puzzle (Time-Based):**
+
+* Puzzles repeat with increasing speed/difficulty
+* Score-focused
+* Examples: Tetris, Bejeweled
+
+**Time structure:**
+
+* **Puzzle attempt:** 2-30 minutes (depends on complexity)
+* **Session:** Complete N puzzles (player decides)
+* **No macro:** Unless adding progression system (becomes hybrid)
+
+**Best for player profiles:**
+
+* Casual to midcore (depends on puzzle complexity)
+* Players who enjoy intellectual challenge
+* Short, flexible sessions
+
+**Aesthetics served:**
+
+* Challenge (primary)
+* Completion (solving puzzle)
+* Mastery (getting better at puzzle type)
+* Discovery (if puzzle reveals something)
+
+**Content implications:**
+
+* Need many puzzles (variety prevents fatigue)
+* Procedural generation possible if puzzles are systemic
+* Hand-crafted puzzles are higher quality but expensive
+
+**Cognitive load:**
+
+* Variable (depends on puzzle complexity)
+* But contained within puzzle (no meta-state to track)
+
+**When puzzle architecture fails:**
+
+* If puzzles too easy (no satisfaction) or too hard (frustration)
+* If variety insufficient (becomes tedious)
+* If meta-progression added carelessly (distracts from puzzles)
+
+### Pattern D: Exploration Architecture
+
+**Best for:** Metroidvanias, walking simulators, open-world discovery games
+
+**Core concept:** Space-based progression where discovery of new areas/abilities gates further exploration. World itself is the structure.
+
+**When to use:**
+
+* Discovery aesthetic is primary (especially spatial)
+* Medium supports explorable space (video games primarily)
+* Content can be authored (high quality) or procedural (variety)
+* Players enjoy non-linear progression
+
+**Structure:**
+
+**Gated Exploration:**
+
+* World divided into areas
+* Areas gated by abilities, items, or knowledge
+* Discovering gates unlocks new areas
+* Backtracking reveals new content
+
+**Not loop-based, but has rhythm:**
+
+* **Explore → Gate → Unlock → Explore** cycle
+* But player-paced, not timed loops
+* Progress measured spatially, not temporally
+
+**Variants:**
+
+**Metroidvania Style:**
+
+* Ability-gated (need double-jump to reach area)
+* Backtracking is core (new abilities reveal old secrets)
+* Combat/challenge often present
+* Examples: Hollow Knight, Metroid series
+
+**Walking Simulator Style:**
+
+* Knowledge-gated (learn code to open door)
+* Narrative discovery (environmental storytelling)
+* Minimal or no challenge/combat
+* Examples: Gone Home, Outer Wilds
+
+**Open World Style:**
+
+* Choice-gated (player decides where to go)
+* Side content abundant
+* Main path exists but optional
+* Examples: Breath of the Wild, Elden Ring (with combat)
+
+**Time structure:**
+
+* No fixed loops
+* **Exploration session:** 30-120 minutes (player decides when to stop)
+* **Discovery moments:** Variable (when player finds something)
+* **Completion:** When player decides they've found "enough" (or 100%)
+
+**Best for player profiles:**
+
+* Midcore to hardcore (requires navigation memory)
+* Players who enjoy intrinsic motivation (not told what to do)
+* Sessions 30+ minutes (need time to explore)
+
+**Aesthetics served:**
+
+* Discovery (primary - spatial and narrative)
+* Wonder (if world is beautiful/interesting)
+* Mastery (learning world layout)
+* Challenge (if combat/obstacles present)
+
+**Content implications:**
+
+* High content needs (must populate world)
+* Quality over quantity (each discovery should feel meaningful)
+* Interconnected design (areas reference each other)
+
+**Cognitive load:**
+
+* High (mental map of world, gates, objectives)
+* Requires memory of where you've been
+* Benefits from in-game map systems
+
+**When exploration architecture fails:**
+
+* If world is empty/boring (no discovery payoff)
+* If navigation is confusing (players lost constantly)
+* If gating is unclear (don't know what unlocks what)
+* If backtracking is tedious rather than revealing
+
+### Pattern E: Progression Architecture
+
+**Best for:** RPGs, character builders, incremental games, gacha games
+
+**Core concept:** Numerical advancement is the primary structure. Getting stronger/bigger/more capable over time.
+
+**When to use:**
+
+* Power or Mastery (improvement) aesthetic is primary
+* Medium supports character/account persistence
+* Players want to see growth over time
+* Monetization through progression acceleration (F2P games)
+
+**Structure:**
+
+**Growth Curve:**
+
+* Start weak, become strong
+* Progress through:
+  * Levels (discrete jumps)
+  * Stats (continuous improvement)
+  * Unlocks (new abilities/content)
+  * Collections (complete sets)
+
+**Can combine with other patterns:**
+
+* Progression + Loops (most RPGs)
+* Progression + Narrative (story-driven RPGs)
+* Progression + Exploration (open-world RPGs)
+
+**Variants:**
+
+**Traditional RPG Progression:**
+
+* XP → Levels → Stats/abilities
+* Gear upgrades
+* Story gates (must be level X to progress)
+* Examples: Most JRPGs, MMORPGs
+
+**Incremental/Idle Progression:**
+
+* Numbers increase exponentially
+* Prestige/reset mechanics
+* Minimal player input
+* Examples: Cookie Clicker, Adventure Capitalist
+
+**Gacha/Collection Progression:**
+
+* Collect units/characters
+* Upgrade collection
+* Synergies between units
+* Examples: Genshin Impact, Fire Emblem Heroes
+
+**Time structure:**
+
+* **Progression session:** Variable (5 min to hours)
+* **Power milestones:** Regularly (every level, every upgrade)
+* **Long-term goal:** Weeks to months (max level, complete collection)
+
+**Best for player profiles:**
+
+* Casual to hardcore (depends on complexity)
+* Players motivated by growth/improvement
+* Variable session lengths (can accommodate many patterns)
+
+**Aesthetics served:**
+
+* Power (becoming stronger)
+* Mastery (optimizing builds)
+* Collection (completing sets)
+* Progression (seeing numbers go up)
+
+**Content implications:**
+
+* Need content gated at different power levels
+* Difficulty must scale with player power
+* Requires balancing (power curves, monetization)
+
+**Cognitive load:**
+
+* Variable (simple idle vs complex build optimization)
+* Must understand progression systems
+* Can become overwhelming if too many systems
+
+**When progression architecture fails:**
+
+* If progression too slow (feels grindy)
+* If progression too fast (trivializes content)
+* If optimization required but opaque (can't understand builds)
+* If progression replaces skill (pay-to-win perception)
+
+### Multiple Pattern Hybrids
+
+Real games often combine patterns:
+
+**Loop-Based + Progression:**
+
+* Most common hybrid
+* Loops provide immediate gameplay
+* Progression provides long-term goals
+* Example: Hades (roguelike loops + meta-progression)
+
+**Loop-Based + Narrative:**
+
+* Loops provide gameplay structure
+* Narrative provides context and meaning
+* Example: Returnal (gameplay loops + story progression)
+
+**Exploration + Progression:**
+
+* Space-based discovery
+* Gaining power unlocks areas
+* Example: Metroidvanias
+
+**Narrative + Puzzle:**
+
+* Story told through puzzle solving
+* Puzzles gate narrative progress
+* Example: The Witness (sort of)
+
+**When to use hybrids:**
+
+* When multiple aesthetics are co-primary
+* When player profile supports complexity
+* When you have content budget for both patterns
+
+**When to avoid hybrids:**
+
+* Limited cognitive budget (casual players)
+* Short development time (scope risk)
+* One pattern clearly serves aesthetic better
+
+### Choosing Your Pattern: Decision Process
+
+**Step 1: Check your aesthetic profile**
+
+What are your primary aesthetics? Which patterns serve them?
+
+```
+Challenge → Loops, Puzzles
+Mastery → Loops, Progression
+Discovery → Exploration, Narrative, Loops (with reveals)
+Narrative → Narrative Arc
+Horror → Narrative Arc
+Fellowship → Loops (synchronous) or Narrative (shared)
+Completion → Loops (compressed), Puzzles
+Power → Progression
+```
+
+**Step 2: Check your player profile**
+
+What's their cognitive capacity and session time?
+
+```
+Casual + Short sessions → Compressed Loops or Puzzles
+Casual + Variable sessions → Compressed or Inverted
+Midcore + Medium sessions → Compressed or Full Stack
+Hardcore + Long sessions → Full Stack or Complex Hybrids
+```
+
+**Step 3: Check your medium and content budget**
+
+What can you actually build?
+
+```
+TTRPG → Narrative Arc or Loops (simpler)
+Video game → Any pattern
+Board game → Loops or Puzzles (simpler)
+Solo dev → Simpler patterns or procedural content
+Large team → Can handle complexity
+```
+
+**Step 4: Check for red flags**
+
+Does your choice have known failure modes?
+
+* Full Stack with casual players → Cognitive overload
+* Narrative Arc with limited writing → Story falls flat
+* Exploration with small budget → Empty world
+* Pure progression with no gameplay → Numbers without meaning
+
+**Step 5: Validate against constraints**
+
+Does this pattern fit your Phase 0 constraints?
+
+* Time constraints (can you build this in timeframe?)
+* Platform constraints (does medium support this?)
+* Audience constraints (will they engage with this?)
+
+**If multiple patterns seem viable:** Choose the simpler one. You can always add complexity later, but you can't simplify easily.
+
+***
+
+## Step 2.2: Design Temporal Structure
+
+Now that you've chosen your structural pattern, specify the actual time values and pacing.
+
+### For Loop-Based Architecture
+
+**Define each loop scale:**
+
+#### Micro Loop
+
+**What it is:** The smallest repeating action/decision cycle
+
+**Questions to answer:**
+
+* How long is one micro loop? (typically 30 seconds - 5 minutes)
+* What's the core action? (shoot enemy, play card, make move)
+* What's the success condition? (kill enemy, win hand, capture piece)
+* What's the failure condition? (take damage, lose hand, lose piece)
+* Does micro success contribute to meso? (must answer YES)
+
+**Based on player profile:**
+
+* Casual: 1-3 minutes (simple decisions)
+* Midcore: 2-5 minutes (moderate complexity)
+* Hardcore: 3-10 minutes (complex decisions acceptable)
+
+**Based on aesthetic:**
+
+* Challenge: Short cycles with clear feedback (30s - 2min)
+* Mastery: Can be longer if decision depth rewards (2-5min)
+* Discovery: Can vary (exploration isn't timed)
+
+**Example specifications:**
+
+"Daily puzzle game micro loop: 2-3 minutes per puzzle attempt"
+
+* Action: Swap tiles
+* Success: Match target pattern
+* Failure: Run out of moves
+* Contribution: Each attempt teaches, completed puzzle = meso complete
+
+"Roguelike combat micro loop: 1-2 minutes per combat encounter"
+
+* Action: Use abilities, position
+* Success: Defeat enemies
+* Failure: Take damage, use resources
+* Contribution: Gain gold/XP toward meso goal
+
+#### Meso Loop
+
+**What it is:** The medium-term goal that structures a session
+
+**Questions to answer:**
+
+* How long is one meso loop? (typically 10-60 minutes)
+* How many micro loops per meso? (typically 5-20)
+* What's the meso goal? (complete level, win match, clear dungeon)
+* What's the reward for meso completion? (unlock, story beat, satisfaction)
+* Does meso success contribute to macro? (YES if macro exists)
+
+**Based on player profile:**
+
+* Casual: 10-30 minutes (must complete in session)
+* Midcore: 20-60 minutes (can span session)
+* Hardcore: 30-90 minutes (complex goals)
+
+**Based on aesthetic:**
+
+* Completion: Must complete in available session time
+* Challenge: Should feel achievable but not trivial (60-80% success rate)
+* Mastery: Can be longer if failure teaches
+
+**Example specifications:**
+
+"Daily puzzle game meso loop: 15-20 minutes to complete daily puzzle"
+
+* Composed of: 5-8 attempts (micro loops)
+* Goal: Solve today's puzzle
+* Reward: Completion satisfaction, streak maintained, share result
+* No macro contribution (one-shot per day)
+
+"Roguelike meso loop: 30-45 minutes per run attempt"
+
+* Composed of: 15-25 combat encounters (micro)
+* Goal: Defeat final boss (or reach new area)
+* Reward: Meta-currency, permanent unlocks, story progression
+* Contributes to macro: Unlocks carry between runs
+
+#### Macro Loop (if applicable)
+
+**What it is:** Long-term progression or overarching goal
+
+**Questions to answer:**
+
+* How long is full macro loop? (hours to weeks)
+* How many meso loops per macro? (varies widely)
+* What's the macro goal? (complete game, max level, full collection)
+* Is macro loop required or optional? (completion vs. engagement)
+* Does macro loop reset? (prestige/new game+)
+
+**Based on player profile:**
+
+* Casual: Optional (statistics, cosmetics) or absent
+* Midcore: Present but not grindy (weeks to months)
+* Hardcore: Core progression (months to years acceptable)
+
+**Based on aesthetic:**
+
+* Mastery: Essential (track improvement)
+* Discovery: Helpful (reveal long-term secrets)
+* Completion: Can be harmful (feels never-ending)
+
+**Example specifications:**
+
+"Daily puzzle game macro loop: ABSENT"
+
+* Why: Unpredictable play schedule (busy parents)
+* Optional: Statistics tracking, cosmetic unlocks
+* No required progression
+
+"Roguelike macro loop: 20-40 hours to unlock all content"
+
+* Composed of: 40-80 run attempts (meso)
+* Goal: Unlock all weapons, story endings, characters
+* Reward: Completion, mastery satisfaction
+* Resets: Optional new game+ with modifiers
+
+### For Narrative Arc Architecture
+
+**Define act structure and pacing:**
+
+#### Act Breakdown
+
+**Act 1 (Setup):**
+
+* **Duration:** 15-25% of total time
+* **Decision points:** 2-4 (low-stakes choices)
+* **Purpose:** Establish premise, create investment
+* **Pacing:** Moderate (not rushed)
+
+**Act 2 (Complication):**
+
+* **Duration:** 50-60% of total time
+* **Decision points:** 5-10 (escalating stakes)
+* **Purpose:** Develop tension, reveal information
+* **Pacing:** Varies (accelerates toward end)
+
+**Act 3 (Resolution):**
+
+* **Duration:** 20-25% of total time
+* **Decision points:** 2-3 (major choices)
+* **Purpose:** Climax and conclusion
+* **Pacing:** Intense then resolves
+
+**Optional Epilogue:**
+
+* **Duration:** 5-10% of total time
+* **Decision points:** 0-1 (reflection)
+* **Purpose:** Processing, closure
+* **Pacing:** Calm
+
+#### Decision Point Density
+
+**Questions to answer:**
+
+* How many decision points total? (typically 8-15 for one-shot)
+* How much time per decision point? (5-15 minutes discussion/resolution)
+* How many branches per decision? (2-4 typical, more increases content needs)
+* Do decisions have long-term consequences? (should answer YES for meaningful narrative)
+
+**Example specification:**
+
+"Horror one-shot TTRPG (3.5 hours):"
+
+* Act 1 (45 min): 3 decisions, establish colony and "natives"
+* Act 2 (90 min): 6 decisions, escalating moral complexity
+* Act 3 (60 min): 3 decisions, final confrontation and consequences
+* Epilogue (15 min): Debrief
+* Total: 12 decision points across 3.5 hours
+
+#### Revelation Structure
+
+**If Discovery aesthetic is present:**
+
+* Map information reveals to acts
+* Early reveals: Surface information
+* Mid reveals: Complicating information
+* Late reveals: Truth/recontextualization
+
+**Example:**
+
+* Act 1: Natives seem primitive/hostile
+* Act 2: Evidence of native intelligence, cultural complexity
+* Act 3: Reveal natives were original inhabitants, sentient, peaceful
+
+### For Puzzle Architecture
+
+**Define puzzle parameters:**
+
+**Puzzle Complexity:**
+
+* How long to solve one puzzle? (2-30 minutes)
+* How many puzzles per session? (player decides, but estimate)
+* Is there time pressure? (arcade-style) or untimed? (contemplative)
+
+**Difficulty Progression:**
+
+* How many difficulty tiers? (typically 3-5)
+* How many puzzles per tier?
+* How is difficulty conveyed? (explicit or implicit)
+
+**Example specification:**
+
+"Daily puzzle game:"
+
+* Puzzle complexity: 5-20 minutes per puzzle
+* Puzzles per session: 3-5 (player decides)
+* No time pressure (busy adult context)
+* Difficulty: 5 tiers (Easy to Master), unlock progressively
+
+### For Exploration Architecture
+
+**Define world structure:**
+
+**World Size and Density:**
+
+* How large is explorable space? (areas, rooms, zones)
+* How dense is content? (discovery frequency)
+* How much backtracking? (gating structure)
+
+**Gating Structure:**
+
+* How many abilities/keys/gates? (typically 5-10 major gates)
+* Are gates explicit or hidden? (player awareness)
+* Can players sequence-break? (speedrun potential)
+
+**Session Length:**
+
+* How long until meaningful discovery? (15-30 min ideal)
+* Can players save anywhere? (accessibility)
+* How does game guide without railroading? (environmental cues)
+
+### Pacing Principles Across All Patterns
+
+**Regardless of pattern, consider:**
+
+**Tension and Release:**
+
+* Tension: Challenge, uncertainty, stakes
+* Release: Success, discovery, safety
+* Rhythm: Alternate between tension and release
+* Don't maintain constant intensity (leads to exhaustion)
+
+**Escalation:**
+
+* Early: Low stakes, tutorial, learning
+* Mid: Increasing complexity and stakes
+* Late: Highest intensity, most challenging
+* Resolution: Wind down (if appropriate)
+
+**Player Agency:**
+
+* When can players make choices? (density of decision points)
+* When are they following the path? (guided sections)
+* Balance: Too much agency = overwhelming, too little = boring
+
+**Surprise and Expectation:**
+
+* Establish patterns, then break them (controlled surprise)
+* Signal upcoming challenges (preparation time)
+* Unexpected moments land harder if most is expected
+
+***
+
+## Step 2.3: Allocate Cognitive Load
+
+Your players have a limited cognitive budget. You must spend it wisely.
+
+### Understanding the Budget
+
+**Reference:** Cognitive Load chapter for deep dive
+
+**Player Profile Budgets:**
+
+* **Casual:** 3±2 trackable elements (can handle 1-5 things)
+* **Midcore:** 5-7 trackable elements
+* **Hardcore:** 7+ trackable elements (high tolerance)
+
+**What counts as "trackable element":**
+
+* A resource you must monitor (HP, mana, gold)
+* A goal you must remember (quest objective, puzzle solution)
+* A system you must understand (combat rules, upgrade paths)
+* A relationship you must track (faction standing, character bonds)
+
+**What doesn't count:**
+
+* Purely cosmetic choices (appearance, flavor text)
+* Automated systems (passive income, auto-saves)
+* One-time tutorials (learned then forgotten)
+
+### Distribution Across Game Elements
+
+You need to allocate your cognitive budget across:
+
+1. **Core Mechanic** (largest allocation)
+   * The primary interaction
+   * What players do moment-to-moment
+   * Gets 30-50% of budget
+
+2. **Goal Tracking** (essential)
+   * What am I trying to achieve right now?
+   * Short-term and medium-term goals
+   * Gets 20-30% of budget
+
+3. **Resource Management** (if present)
+   * What am I spending/conserving?
+   * Can be multiple resources (each costs)
+   * Gets 15-25% of budget
+
+4. **Meta-Progression** (optional)
+   * Long-term advancement tracking
+   * What unlocks are available?
+   * Gets 10-20% of budget if present
+
+5. **Social/Communication** (if multiplayer)
+   * Coordinating with others
+   * Reading opponents
+   * Gets 15-25% of budget if synchronous
+
+6. **Context/Setting** (optional)
+   * Understanding theme/story
+   * Environmental awareness
+   * Gets 5-15% of budget if narrative-heavy
+
+### Allocation by Aesthetic Priority
+
+**Your primary aesthetic should get priority in allocation:**
+
+**Challenge-Primary:**
+
+* Core mechanic: 40% (understanding skill requirements)
+* Goal tracking: 25% (clear objectives)
+* Resources: 20% (managing constraints)
+* Other: 15%
+
+**Discovery-Primary:**
+
+* Goal tracking: 15% (where to explore next)
+* Context/setting: 30% (understanding world)
+* Core mechanic: 25% (navigation/interaction)
+* Meta-progression: 20% (tracking discoveries)
+* Other: 10%
+
+**Mastery-Primary:**
+
+* Core mechanic: 50% (deep system understanding)
+* Goal tracking: 20% (improvement targets)
+* Meta-progression: 20% (tracking advancement)
+* Other: 10%
+
+**Narrative-Primary:**
+
+* Context/setting: 40% (story comprehension)
+* Goal tracking: 25% (narrative objectives)
+* Core mechanic: 20% (minimal - shouldn't distract)
+* Other: 15%
+
+**Horror-Primary:**
+
+* Context/setting: 35% (understanding situation)
+* Resources: 25% (vulnerability tracking)
+* Core mechanic: 20% (survival actions)
+* Goal tracking: 20% (escape/survive goals)
+
+### Example Allocations
+
+**Daily Puzzle Game (Casual, Challenge + Completion):**
+
+* Budget: 3-5 elements
+* Core mechanic (tile swapping): 40% (2 elements - grid state, moves remaining)
+* Goal tracking: 30% (1 element - target pattern)
+* Progress tracking: 20% (1 element - completion percentage)
+* Optional meta: 10% (0-1 elements - cosmetic unlocks)
+* **Total: 4 primary elements**
+
+**Roguelike (Midcore, Challenge + Mastery):**
+
+* Budget: 5-7 elements
+* Core mechanic (combat): 35% (2 elements - abilities, positioning)
+* Resources: 30% (2 elements - HP, currency)
+* Goal tracking: 20% (1 element - floor objective)
+* Meta-progression: 15% (1-2 elements - unlocks, weapon choices)
+* **Total: 6-7 elements**
+
+**Horror TTRPG (Adult, Horror + Discovery):**
+
+* Budget: 5-7 elements (but simpler mechanics)
+* Context/setting: 40% (3 elements - situation, NPCs, moral stakes)
+* Goal tracking: 30% (2 elements - colony survival, personal complicity)
+* Core mechanic: 20% (1 element - resolution system)
+* Resources: 10% (1 element - colony stability)
+* **Total: 7 elements but mostly narrative, not mechanical**
+
+### Validation Questions
+
+**Is your allocation appropriate?**
+
+* [ ] Does core mechanic get enough attention to be interesting?
+* [ ] Can players always answer "what am I trying to do right now?"
+* [ ] Are there resources players must track but tend to forget?
+* [ ] Does meta-progression distract from core gameplay?
+* [ ] Is context/setting helping or overwhelming?
+* [ ] Does total allocation fit player profile budget?
+
+**Red flags:**
+
+* Core mechanic \<25% of budget (probably not interesting enough)
+* Goal tracking \<15% of budget (players will feel lost)
+* Total elements exceed budget (cognitive overload)
+* Important elements get \<10% (probably frustrating to track)
+* Multiple systems compete for attention (split focus)
+
+### Reducing Cognitive Load
+
+**If you're over budget:**
+
+**Option 1: Cut Elements**
+
+* Remove entire systems (most effective)
+* Consolidate similar resources (HP + Stamina → just HP)
+* Eliminate optional tracking (statistics, achievements)
+
+**Option 2: Automate**
+
+* Make systems work without player input
+* Example: Auto-manage inventory, auto-save, auto-advance dialogue
+
+**Option 3: Make Information Visible**
+
+* Don't require memorization
+* Show all trackable info on screen/board
+* Clear UI reduces cognitive load
+
+**Option 4: Simplify Complexity**
+
+* Reduce number of choices per decision
+* Clarify relationships between systems
+* Remove edge cases and exceptions
+
+**Option 5: Stage Complexity**
+
+* Introduce systems gradually
+* First hour: 2-3 elements
+* After tutorial: Add 1-2 more
+* Late game: Full complexity unlocked
+
+### Cognitive Load and Interruptions
+
+**If your context includes interruptions (mobile, busy adults):**
+
+**Must have:**
+
+* Clear state restoration (what was I doing?)
+* No memorization requirements (everything visible)
+* Aggressive session recaps
+* Pause/save anywhere
+
+**Budget reduction:**
+
+* Reduce budget by 1-2 elements
+* Players can't maintain full attention
+* Simpler is better in interrupted contexts
+
+***
+
+## Step 2.4: Validation Checkpoint
+
+Before proceeding to Phase 3 (Mechanical Specification), verify your scaffold architecture:
+
+### Architecture Validation Checklist
+
+**Aesthetic Alignment:**
+
+* [ ] Does chosen pattern support primary aesthetic?
+* [ ] Can secondary aesthetics work within this pattern?
+* [ ] Are excluded aesthetics truly absent from this structure?
+
+**Player Profile Match:**
+
+* [ ] Does temporal structure fit available session time?
+* [ ] Is cognitive load within player capacity?
+* [ ] Can players engage with this structure given their context?
+
+**Structural Integrity:**
+
+* [ ] Do loop scales connect properly? (micro → meso → macro)
+  * OR: Do narrative acts escalate properly?
+  * OR: Does chosen pattern have internal logic?
+* [ ] Is pacing appropriate for aesthetic goals?
+* [ ] Are there meaningful goals at each time scale?
+
+**Practical Feasibility:**
+
+* [ ] Can you build this in your constraints (time/budget)?
+* [ ] Does medium support this structure?
+* [ ] Is content volume achievable?
+
+### Common Architecture Failures
+
+**Symptom: "Players don't know what to do next"**
+
+* Problem: Missing or unclear goal tracking allocation
+* Fix: Increase goal tracking cognitive allocation, clarify objectives
+
+**Symptom: "Players quit mid-session"**
+
+* Problem: Meso loop doesn't complete in available time
+* Fix: Shorten meso loop or change to Compressed architecture
+
+**Symptom: "Players say it's too simple/boring"**
+
+* Problem: Architecture too simple for player profile
+* Fix: Add macro loop, increase depth, target harder players
+
+**Symptom: "Players overwhelmed/confused"**
+
+* Problem: Cognitive overload or too many systems
+* Fix: Reduce elements, simplify architecture, target easier players
+
+**Symptom: "Nothing feels meaningful"**
+
+* Problem: Loops don't connect or failure has no stakes
+* Fix: Ensure micro contributes to meso, meso to macro
+
+### Decision Point: Proceed or Revise?
+
+**Proceed to Phase 3 if:**
+
+* Architecture clearly serves aesthetics
+* Temporal structure matches player capacity
+* Cognitive load allocated and within budget
+* You can articulate what players do moment-to-moment
+
+**Revise architecture if:**
+
+* Aesthetic mismatch is apparent
+* Player profile can't handle this structure
+* Cognitive budget exceeded significantly
+* Implementation is clearly infeasible
+
+**If revising:** Return to Step 2.1, consider simpler pattern or different aesthetic.
+
+***
+
+## Output of Phase 2
+
+By completing Phase 2, you should have:
+
+**Structural Specification:**
+
+* Chosen pattern (Loop-based, Narrative Arc, Puzzle, Exploration, Progression, or Hybrid)
+* Specific architecture (if loop-based: Full Stack, Compressed, Inverted, or Constrained)
+
+**Temporal Specification:**
+
+* Defined time scales (micro/meso/macro or acts/beats)
+* Specified durations for each scale
+* Pacing rhythm identified
+
+**Cognitive Budget:**
+
+* Total budget from player profile
+* Allocation across game elements
+* Priority given to aesthetic-critical elements
+
+**Validation:**
+
+* Confirmed architecture serves aesthetics
+* Confirmed structure matches player capacity
+* Confirmed feasibility within constraints
+
+**You're now ready to proceed to Phase 3: Mechanical Specification, where you'll choose the actual mechanics that operate within this scaffold.**
+
+***
+
+**Continue to Phase 3 when ready.**

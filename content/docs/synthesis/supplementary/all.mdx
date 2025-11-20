@@ -1,0 +1,2709 @@
+---
+title: All
+---
+## Key Insights from New Materials
+
+**From Aesthetic Paradigm Recipes:**
+
+* You already have validated aesthetic combinations (Discovery+Wonder, Challenge+Mastery, etc.)
+* These recipes include mechanical implications
+* This is a huge head start on the mechanic selection problem
+
+**From Dynamics:**
+
+* Clear definition: patterns that emerge from mechanics + player agency
+* You have a framework for *identifying* dynamics but not necessarily *designing for* them
+* The "fiction → mechanics → dynamics → experience" chain is articulated
+
+**From Game Design Scenarios:**
+
+* These are gold for testing the framework
+* They show the diversity of starting points (theme-first, mechanic-first, aesthetic-first, constraint-first)
+* They reveal what information designers actually need
+
+**From Experiential Scaffolds:**
+
+* The core thesis is clear and compelling
+* Games exist to create specific experiences
+* The scaffold metaphor works
+
+## Initial Brainstorm: The Genre Problem
+
+Looking at the scenarios, I see three distinct relationships to genre:
+
+**Type 1: Genre as Starting Constraint** (Scenario 3 - Space Horror)
+
+* "I want to make a horror game in space"
+* Genre = aesthetic + thematic constraint + mechanical expectations
+* Framework must respect genre conventions OR explicitly justify breaking them
+
+**Type 2: Genre as Output** (Scenario 1 - Busy Parents)
+
+* "Busy parents need engaging 20-min sessions"
+* Following framework → probably creates a puzzle or casual strategy game
+* Genre emerges from aesthetic + constraints
+
+**Type 3: Genre as Reference Point** (Scenario 5 - Anthem Fix)
+
+* "Like Destiny but..."
+* Genre = shorthand for "scaffold pattern that's been validated"
+* Framework must handle "start from existing scaffold, modify it"
+
+### Proposed Solution: Genre as Scaffold Templates
+
+Genre is a **pre-packaged scaffold pattern** that bundles:
+
+* Validated aesthetic combinations
+* Expected mechanics
+* Known content requirements
+* Established player expectations
+* Proven loop architectures
+
+**In the framework:**
+
+* **Phase 0 (Optional)**: "Do you want to work within a genre?"
+  * YES → Start with genre template, note what you're keeping/changing
+  * NO → Build from scratch, note what genre you're closest to (for reference)
+* Genre templates live in an **appendix** with:
+  * Primary aesthetics
+  * Expected mechanics
+  * Typical loop structure
+  * Content volume norms
+  * "What makes this genre feel right"
+
+This lets designers:
+
+* Use genre as a starting point (efficiency)
+* Understand genre as accumulated design knowledge (learning)
+* Break genre deliberately (innovation)
+
+**Does this resolve the genre tension?**
+
+***
+
+## The Two-Pass Framework Hypothesis
+
+Your instinct about "solve down, then solve up, then verify" is really interesting. Let me elaborate:
+
+### Pass 1: Top-Down (Aesthetic → Mechanics)
+
+**"What experience do I want to create?"**
+
+1. **Aesthetic Crystallization**
+
+   * Primary aesthetic(s)
+   * Target player cognitive capacity
+   * Available play time
+   * Success criteria
+2. **Architectural Selection**
+
+   * Which scaffold pattern? (loop-based, puzzle-based, progression-based)
+   * Which loop scales needed?
+   * Temporal pacing
+3. **Mechanical Implications**
+
+   * Use aesthetic recipes → mechanic categories
+   * Resource types needed (from aesthetic paradigms)
+   * Core verbs (what do players DO?)
+   * **Result: Incomplete mechanical sketch**
+
+### Pass 2: Bottom-Up (Mechanics → Experience)
+
+**"What do these mechanics actually create?"**
+
+4. **Mechanical Completion**
+
+   * Specify exact mechanics
+   * Design resource flows
+   * Set initial parameters
+5. **Dynamic Mapping**
+
+   * What patterns will emerge?
+   * Do these dynamics serve aesthetics?
+   * What unintended dynamics might arise?
+6. **Content Specification**
+
+   * How much content do mechanics consume?
+   * What variety is needed?
+   * **Result: Complete system specification**
+
+### Pass 3: Validation
+
+**"Does this actually work?"**
+
+7. **Coherence Audit**
+
+   * Everything serves aesthetic?
+   * Cognitive load appropriate?
+   * No contradictions?
+8. **Paper Playtest**
+
+   * Walk through micro/meso/macro loops
+   * Identify failure points
+   * **Result: Revision list**
+9. **Iteration Protocol**
+
+   * What level needs changing? (parameters, mechanics, architecture, aesthetic)
+   * Revise and re-validate
+
+**This structure makes sense because:**
+
+* Top-down ensures purpose drives design
+* Bottom-up ensures mechanics actually work
+* The gap between passes reveals problems
+* Validation happens on complete system, not fragments
+
+**Thoughts on this structure?**
+
+***
+
+## Critical Questions to Resolve
+
+Before we formalize, I think we need to answer:
+
+### 1. The Mechanic Selection Problem
+
+You have aesthetic recipes that suggest mechanics, but how detailed does this get?
+
+**Example from Scenario 1 (Busy Parents):**
+
+* Aesthetics: Challenge + Completion + Discovery
+* Recipes suggest: Clear goals, skill-based challenges, findable secrets
+* But: Cards? Dice? Tiles? Grid? Real-time? Turn-based?
+
+**Question**: Do we need a **mechanic vocabulary** that maps:
+
+```
+Aesthetic Need + Cognitive Constraint + Platform → Mechanic Options
+```
+
+Or do we leave this as "designer intuition/genre knowledge"?
+
+### 2. The Content Quantity Problem
+
+You say measurables should answer this, but I'm not seeing the connection yet.
+
+**Example from Scenario 2 (Metroidvania):**
+
+* Aesthetic: Discovery + Mastery
+* Discovery consumes content (new rooms, secrets, abilities)
+* Mastery re-uses content (getting better at same challenges)
+* But: How many rooms? How many abilities? How much optional content?
+
+**Question**: Do we need formulas like:
+
+```
+Discovery Hours = (Core Content × Exploration Multiplier) / Discovery Rate
+Mastery Hours = (Core Content × Difficulty Curve) / Improvement Rate
+```
+
+Or are there heuristics? (10 hours of Discovery needs 100+ unique locations, etc.)
+
+### 3. The Dynamics Prediction Problem
+
+Dynamics emerge from play, but designers should anticipate them.
+
+**Example from Scenario 5 (Anthem Fix):**
+
+* Problem: Meso loop gave no meaningful reward
+* Dynamic: Players avoid engaging with core systems
+* Should have been predicted from: "30-minute loop with no progress → disengagement"
+
+**Question**: Do we need a **dynamics checklist** at the mechanical specification phase?
+
+```
+- Does success in micro loop contribute to meso loop progress?
+- Does failure provide value?
+- Can players see long-term goals from short-term actions?
+- Do resources create interesting tensions?
+```
+
+### 4. The Iteration Trigger Problem
+
+When do you iterate what?
+
+**Possible framework:**
+
+* **Parameters off** (win rates, damage values) → Tune numbers, iterate quickly
+* **Mechanics don't create intended dynamics** → Change mechanics, re-test dynamics
+* **Architecture doesn't support aesthetic** → Change scaffold, re-design
+* **Aesthetic doesn't match players** → Change audience or aesthetic
+
+**Question**: Can we make this diagnostic? Like a troubleshooting flowchart?
+
+***
+
+## Proposed Brainstorming Approach
+
+Let's test the framework by **actually using it on one of the scenarios**. I suggest:
+
+**Scenario 1: Busy Parents Game**
+
+* It's well-defined
+* It's practical
+* It exercises multiple framework aspects
+* It has no existing genre baggage
+
+We could:
+
+1. Work through Pass 1 together (Aesthetic → Mechanics)
+2. Identify every decision point
+3. Note what information we needed
+4. Spot the gaps
+5. Build the framework from the actual process
+
+**Alternative:** Pick the hardest scenario (Anthem Fix?) and see if framework handles it.
+
+**Which approach appeals to you?** Or do you want to tackle the critical questions first, then do a worked example?
+
+Ah, this is really helpful. Reading through this...
+
+## The Terminology Problem is Real
+
+You have a conflict between:
+
+**"Genre" in Context Chapter:**
+
+* Mostly about **thematic categorization** (fantasy, sci-fi, horror)
+* Plus **medium** (TTRPG, video game, board game)
+* Used for Build/Suggest/Omit decisions
+* About *flavor* and *content expectations*
+
+**"Genre" in Common Usage:**
+
+* Often means **mechanical category** (roguelike, 4X, MOBA, metroidvania)
+* Implies specific gameplay patterns
+* About *structure* and *systems*
+
+**"Genre" in Your Scenarios:**
+
+* Sometimes theme: "space horror"
+* Sometimes mechanics: "roguelike"
+* Sometimes both: "metroidvania" (exploration structure + specific abilities)
+
+## The Real Distinction
+
+I think you actually have **three different concepts** that all get called "genre":
+
+### 1. **Thematic Genre** (What the Context Chapter Covers)
+
+* Fantasy, Sci-Fi, Horror, Historical, etc.
+* Determines: Setting details, enemy types, visual style, narrative tone
+* Affects: Build/Suggest/Omit framework
+* Example: "Space horror" → suggests darkness, isolation, alien threats
+
+### 2. **Mechanical Genre** (What Designers Usually Mean)
+
+* Roguelike, Metroidvania, 4X, MOBA, Soulslike, etc.
+* Determines: Loop structure, core verbs, progression systems
+* Affects: Scaffold architecture, resource patterns, content needs
+* Example: "Roguelike" → permadeath, procedural, meta-progression
+
+### 3. **Player Experience Genre** (What Your Framework Actually Needs)
+
+* "Cozy crafting game," "Sweaty competitive game," "Narrative exploration game"
+* Determines: Aesthetic priorities, pacing, cognitive load
+* Affects: Everything in the framework
+* Example: "Cozy crafting" → low stress, self-paced, creative expression
+
+## The Proposed Solution
+
+**Rename things to avoid collision:**
+
+### Option A: Three Distinct Terms
+
+* **Setting** = Thematic genre (fantasy, sci-fi, horror)
+* **Archetype** = Mechanical genre (roguelike, metroidvania, 4X)
+* **Experience Type** = Aesthetic genre (cozy, sweaty, narrative-driven)
+
+### Option B: Genre + Modifiers
+
+* **Thematic Genre** = Setting/theme
+* **Structural Genre** or **Game Archetype** = Mechanical patterns
+* **Aesthetic Genre** = Experience type
+
+### Option C: Drop "Genre" Entirely for Some
+
+* **Setting** = What the Context chapter calls genre
+* **Scaffold Pattern** or **Game Pattern** = Mechanical genre
+* **Aesthetic Profile** = Experience type
+
+## My Recommendation
+
+I'd go with **Option A** or a variant:
+
+**Setting** (replaces thematic genre)
+
+* Fantasy, Sci-Fi, Horror, Western, etc.
+* Lives in Context chapter
+* Determines Build/Suggest/Omit
+
+**Archetype** (replaces mechanical genre)
+
+* Roguelike, Metroidvania, 4X, MOBA, etc.
+* Lives in synthesis chapter as "pre-validated scaffold patterns"
+* Optional starting point, not required
+
+**Aesthetic Profile** (replaces experience genre)
+
+* Primary aesthetics + player type + cognitive load
+* Lives at the start of synthesis framework
+* Required, drives everything else
+
+## How This Works in Practice
+
+**Scenario 1: Busy Parents**
+
+* Setting: Probably abstract or light theme
+* Archetype: Might emerge as "puzzle game" or "casual strategy"
+* Aesthetic Profile: Challenge + Completion + Discovery, casual cognitive load, 20-min sessions
+
+**Scenario 3: Space Horror**
+
+* Setting: Sci-fi horror (space station, aliens)
+* Archetype: Maybe "survival horror" or custom
+* Aesthetic Profile: Fear + Discovery + Narrative, moderate cognitive load
+
+**Scenario 5: Anthem Fix**
+
+* Setting: Sci-fi (mechs, alien worlds)
+* Archetype: "Looter shooter" (the scaffold pattern it started with)
+* Aesthetic Profile: Should be Mastery + Fellowship + Power, but failed to deliver
+
+## Framework Integration
+
+In the Synthesis Chapter:
+
+**Phase 1: Define Your Game**
+
+1. What experience? (Aesthetic Profile - required)
+2. What setting? (Setting - optional, can be "abstract")
+3. Starting from existing pattern? (Archetype - optional, can be "custom")
+
+**Phase 2: Build/Modify Scaffold**
+
+* If using archetype: Start with its validated pattern, note what you're changing
+* If custom: Build from aesthetic profile requirements
+* Either way: Setting informs Build/Suggest/Omit for content
+
+**Appendices:**
+
+* **Appendix A: Common Settings** (fantasy, sci-fi, horror, etc. - from Context chapter)
+* **Appendix B: Validated Archetypes** (roguelike, metroidvania, etc. - mechanical patterns)
+* **Appendix C: Aesthetic Profiles** (combinations that work well together)
+
+## Benefits of This Approach
+
+1. **Removes ambiguity**: "Genre" no longer means three different things
+2. **Makes archetype optional**: You can design without starting from existing pattern
+3. **Clarifies dependencies**: Aesthetic Profile → Archetype → Setting (not the reverse)
+4. **Preserves Context chapter**: Just rename "genre" to "setting" there
+5. **Enables mixing**: "Roguelike archetype in a cozy aesthetic profile with fantasy setting"
+
+## Questions This Raises
+
+1. **Is "Archetype" the right word?** (Alternative: Pattern, Template, Structure?)
+2. **Do we need all three terms?** (Could Setting just be part of Context application?)
+3. **How detailed should Archetype definitions be?** (Just high-level patterns, or specific mechanical requirements?)
+4. **What about medium?** (TTRPG vs video game vs board game - where does this fit?)
+
+## The Medium Question
+
+Actually, **medium** might be another hidden variable here. In your Context chapter, you combine setting and medium as "genre" (Fantasy TTRPG vs Fantasy Video Game).
+
+**Medium probably needs its own spot because it affects:**
+
+* Available mechanics (can't do real-time in board games)
+* Cognitive load limits (mobile vs PC)
+* Content authorship (procedural vs hand-crafted)
+* Social dynamics (async vs sync)
+
+So maybe it's actually **four concepts**:
+
+1. **Setting** (theme/flavor)
+2. **Medium** (delivery platform)
+3. **Archetype** (mechanical pattern)
+4. **Aesthetic Profile** (experience type)
+
+***
+
+**What do you think?** Should we:
+
+* Adopt this terminology separation?
+* Rename "genre" to "setting" in Context chapter?
+* Add "archetype" as optional starting point in synthesis?
+* Figure out where "medium" lives?
+
+Good. Let's keep terminology crisp and practical.
+
+## Remaining Critical Questions
+
+### 4. The Iteration Trigger Problem
+
+**When you playtest and something's wrong, what do you change?**
+
+Hypothesis: There's a hierarchy of fixes based on symptoms:
+
+* Numbers feel wrong → Tune parameters
+* Mechanics don't create intended feel → Change mechanics
+* Loops don't support aesthetics → Restructure architecture
+* Players can't/won't engage → Wrong aesthetic or audience
+
+**Question: Can we create a diagnostic flowchart?** "If players say X, check Y first"
+
+### 5. The Starting Point Problem
+
+**Real designers start from different places:**
+
+* "I want to make players feel X" (aesthetic-first)
+* "I have this cool mechanic" (mechanic-first)
+* "I want to do fantasy heists" (setting-first)
+* "I need a mobile game in 6 months" (constraint-first)
+
+**Question: Does the framework accommodate all starting points, or mandate aesthetic-first?** If it's flexible, how do different starts converge into the same process?
+
+### 6. The "Enough" Detection Problem
+
+**How does a designer know when they have:**
+
+* Enough mechanics (not too few, not bloated)
+* Enough resources (3-5 rule, but when exactly?)
+* Enough content (you mentioned formulas, need to validate)
+* Enough loops (micro/meso/macro - when do you need all three?)
+
+**Question: Are there specific tests/signals for sufficiency at each phase?**
+
+***
+
+## Let's Work Scenario 1: Busy Parents Game
+
+Here's what we know:
+
+**Given Constraints:**
+
+* Target: Parents with young kids
+* Time: 20-30 minute sessions
+* Context: Home, frequent interruptions
+* Platform: Probably mobile or browser
+* Must feel complete in one session
+* Should support episodic play
+
+**Aesthetic Goal:**
+
+* Engagement despite interruptions
+* Meaningful progress each session
+* (Implied: probably Challenge + Completion + Discovery from recipes)
+
+Let me walk through what I *think* the framework should do, and you tell me where my assumptions break or where information is missing:
+
+***
+
+### Phase 1: Aesthetic Crystallization
+
+**Step 1.1: Define Primary Aesthetics**
+
+From constraints, I'd guess:
+
+* **Completion** (must finish something in 20 min)
+* **Challenge** (engaging = has stakes/difficulty)
+* **Discovery** (variety keeps episodic play fresh)
+
+**Missing info needed:**
+
+* Is this the right aesthetic combo for "busy parents"?
+* Are there recipes that validate Challenge+Completion+Discovery?
+* Should Fellowship be considered (playing with kids? or alone time?)
+
+**Step 1.2: Define Aesthetic Profile**
+
+* Cognitive Load: LOW (interruptions = can't maintain complex state)
+* Session Time: 20-30 minutes
+* Player Type: Experienced gamers but rusty, need immediate clarity
+* Medium: Mobile/browser (presumed)
+
+**Step 1.3: Success Criteria**
+
+What does "perfect" look like?
+
+* Player completes a meaningful goal in 20 min
+* Can drop and resume without frustration
+* Wants to come back tomorrow
+* Feels smart/accomplished
+
+**Questions at this phase:**
+
+* How do we validate these aesthetics against "busy parents"?
+* Is there a player archetype that maps to this profile?
+* What measurables do we set here? (completion rate? session length?)
+
+***
+
+### Phase 2: Scaffold Architecture
+
+**Step 2.1: Choose Structural Pattern**
+
+Given constraints:
+
+* 20-30 min = complete one meso loop
+* Interruptions = need short micro loops (1-3 min)
+* Episodic = probably no macro loop, or very loose one
+
+**This suggests:**
+
+* **Compressed Loop Architecture** (micro = 1-3 min, meso = 20-30 min, macro optional)
+* OR **Puzzle-based Architecture** (each session = one puzzle)
+
+**Missing info:**
+
+* Is there an "archetype" that fits this? Daily puzzle games?
+* How do archetypes map to loop architectures?
+* When is macro loop optional vs essential?
+
+**Step 2.2: Design Temporal Structure**
+
+Micro Loop (1-3 min):
+
+* Must provide immediate feedback
+* Can be interrupted without losing progress
+* Contributes to meso goal
+
+Meso Loop (20-30 min):
+
+* Complete in one session
+* Provides sense of accomplishment
+* Sets up next session
+
+Macro Loop (optional):
+
+* Meta-progression? (unlock new content over days/weeks)
+* Or just "come back tomorrow for new puzzle"
+
+**Questions at this phase:**
+
+* How many micro loops per meso? (6-10 micro loops in 20 min = 2-3 min each)
+* Does meso loop MUST complete? Or can it persist across sessions?
+* What makes macro loop optional vs required?
+
+**Step 2.3: Allocate Cognitive Load**
+
+Budget: LOW capacity (maybe 3-5 trackable elements max)
+
+Distribution:
+
+* Core mechanic: 40% of cognitive load
+* Goal tracking: 20%
+* Resource management: 20%
+* Meta-progression: 20%
+
+**Missing info:**
+
+* Are these percentages meaningful? Or is this just "prioritize X over Y"?
+* How do you measure cognitive load allocation?
+* What if you violate the budget?
+
+***
+
+### Phase 3: Mechanical Selection
+
+**Step 3.1: Map Aesthetics to Mechanics**
+
+From Aesthetic Recipes:
+
+* **Challenge** needs: Meaningful decisions, skill differentiation, clear failure
+* **Completion** needs: Visible progress, achievable goals, closure
+* **Discovery** needs: Hidden content, variety, surprises
+
+**Mechanical Categories That Fit:**
+
+* Spatial puzzle (move things to goal)
+* Pattern matching (find combinations)
+* Resource optimization (limited actions to achieve goal)
+
+**But which specific mechanics?**
+
+* Cards? Tiles? Grid-based? Match-3? Word puzzle?
+
+**Missing info:**
+
+* How do we narrow from category to specific mechanic?
+* Is there a Setting or Archetype that constrains this?
+* Do we need examples of each category?
+
+**Step 3.2: Design Resource Systems**
+
+For Challenge + Completion:
+
+* Need **limited resource** (creates tension)
+* Need **recovery mechanism** (enables retries)
+* Need **progress resource** (shows completion)
+
+**Possible resources:**
+
+* Actions per puzzle (like moves in Wordle)
+* Time (can we do time-pressure with interruptions?)
+* Lives/retries
+* Unlock currency (for meta-progression)
+
+**Missing info:**
+
+* How many resources? (3-5 rule, but which ones?)
+* Scarcity patterns from aesthetic requirements?
+* Recovery rates calculated how?
+
+**Step 3.3: Set Initial Parameters**
+
+This is where measurables come in:
+
+* Challenge → Win rate target? (70%? 50%?)
+* Completion → How many micro loops per meso?
+* Discovery → Variety needed? (new puzzle daily? new mechanics weekly?)
+
+**Missing info:**
+
+* Which measurables apply here?
+* What are the formulas from aesthetic to numbers?
+* How do we know if parameters are in "tuning range"?
+
+***
+
+### Phase 4: Content Specification
+
+**Step 4.1: Calculate Content Needs**
+
+From temporal structure:
+
+* One meso loop = one puzzle
+* If daily play expected = 365 puzzles per year
+* If procedural possible = fewer hand-crafted puzzles + generation rules
+
+**But how much is enough?**
+
+* Discovery aesthetic consumes novelty faster
+* Completion aesthetic re-uses same structure
+* What's the formula?
+
+**Step 4.2: Information Architecture**
+
+What do players need to know?
+
+* Tutorial: First puzzle teaches rules (integrated, not separate)
+* Onboarding: First week gradually reveals depth
+* Feedback: Immediate (action results), short-term (micro completion), long-term (meta progress)
+
+**Step 4.3: Context Integration (Build/Suggest/Omit)**
+
+If we choose a **Setting**:
+
+* Abstract puzzle: Build mechanics only, omit theme
+* Themed puzzle: Build theme that supports mechanics (garden? city-building? recipe?)
+
+**Missing info:**
+
+* When do we choose Setting?
+* How much does Setting affect mechanics?
+* Can we design mechanics-first, add Setting later?
+
+***
+
+### Phase 5: Validation
+
+**Step 5.1: Coherence Check**
+
+* Do all mechanics serve Challenge+Completion+Discovery? ✓
+* Is cognitive load within budget? \[Need to check]
+* Are there contradictions? \[Need to identify]
+
+**Step 5.2: Dynamics Checklist**
+
+From your suggested checklist:
+
+* ✓ Does micro loop success contribute to meso progress?
+* ✓ Does failure provide value? (information, retry, learning)
+* ✓ Can players see long-term goals from short-term actions?
+* ? Do resources create interesting tensions?
+
+**Step 5.3: Paper Playtest**
+
+Walk through:
+
+* First session (tutorial + 3 puzzles)
+* Fifth session (familiar with mechanics)
+* Interruption scenario (mid-puzzle interruption)
+
+Look for:
+
+* Where does it break?
+* What's confusing?
+* What feels unsatisfying?
+
+***
+
+## What This Exercise Reveals
+
+### Clear Gaps:
+
+1. **Mechanic selection is still too vague** - We go from "spatial puzzle" to... what exactly? Need more granular decision tree or examples.
+
+2. **Content formulas missing** - "How many puzzles?" needs concrete answer based on aesthetics + session structure.
+
+3. **Setting integration unclear** - When does theme/setting enter the process? Before mechanics or after?
+
+4. **Parameter setting needs more detail** - "Use measurables" is mentioned but not operationalized here.
+
+5. **Cognitive load allocation** - The percentages feel made up. Is there a real way to measure/allocate?
+
+### Questions for You:
+
+1. **At Phase 3.1 (Mechanical Selection)**: How does a designer get from "needs spatial puzzle" to "specifically a grid-based tile-matching game"? Is this where archetypes help? Or examples? Or designer intuition?
+
+2. **At Phase 4.1 (Content Needs)**: Should there be a formula like: `Discovery Hours × Novelty Rate = Required Unique Content`? Or heuristics like "daily puzzle games need 30-90 days of unique content for retention"?
+
+3. **Setting/Theme**: Should this be chosen in Phase 1 (alongside aesthetics) or Phase 4 (when applying Build/Suggest/Omit)? Or does it not matter?
+
+4. **The diagnostic question**: If this game playtests poorly, how do we know what to fix? The framework should help identify "this is a parameter problem" vs "wrong mechanics" vs "wrong aesthetic fit".
+
+**What am I missing or misunderstanding? Where does the framework need more specificity?**
+
+Good, this clarifies a lot. Let me refocus:
+
+## Updated Understanding
+
+### 1. Mechanic Selection
+
+**Solution: Archetypes + Templates**
+
+* Provide library of validated archetypes (roguelike, daily puzzle, etc.)
+* Each archetype includes: typical mechanics, loop structure, resource patterns
+* Designer can start from archetype or use as reference point
+* Templates show "if aesthetic X + constraints Y, archetype Z often works"
+
+### 2. Content Formulas
+
+**Solution: Heuristics + Conversion Example**
+
+* Provide rules of thumb: "Discovery-focused games need 3x more unique content than Mastery-focused"
+* Show ONE detailed example converting heuristic to formula
+* Reference importance of pacing + aesthetic consumption rates
+* Let designers adapt the method
+
+### 3. Setting Integration (from context-part-8)
+
+**The answer is in the attached file - it's about coherence, not timing:**
+
+* Mechanics and context are **interdependent** (spiral, not linear)
+* Start with one (aesthetic → mechanics OR theme → mechanics)
+* Iterate until coherent
+* Build/Suggest/Omit helps maintain coherence
+
+So Setting can be chosen early OR late, as long as final result is coherent. The framework should support both paths.
+
+### 4. Diagnostic/Iteration
+
+**Solution: Separate Playtest Protocol Section**
+
+* Design tests based on calculated metrics
+* Map symptoms to likely causes
+* If metrics are properly defined upfront, source of problem becomes deducible
+
+***
+
+## Revised Framework Structure (Based on This)
+
+Let me propose a cleaner structure that accommodates these solutions:
+
+### Phase 0: Starting Point (Flexible Entry)
+
+**"Where are you starting from?"**
+
+Choose your primary driver:
+
+* **Aesthetic-First**: "I want players to feel X" → Define aesthetic profile
+* **Constraint-First**: "20-min mobile game for busy adults" → Define limits, infer aesthetics
+* **Theme-First**: "Space horror game" → Define setting, choose compatible aesthetics
+* **Mechanic-First**: "I have this cool card system" → Identify what aesthetics it serves
+
+**Output**: Clear aesthetic profile + any fixed constraints (setting, medium, time, etc.)
+
+### Phase 1: Scaffold Selection
+
+**"What pattern fits your goals?"**
+
+**Option A: Start from Archetype**
+
+* Browse archetype library (roguelike, daily puzzle, cozy sim, etc.)
+* Each archetype shows: aesthetics it serves, typical structure, content needs
+* Choose archetype as starting template
+* Note what you'll keep vs. change
+
+**Option B: Build Custom**
+
+* Use aesthetic profile to determine:
+  * Which loop scales needed (based on session time + cognitive load)
+  * Which structural pattern (loop-based, puzzle-based, progression-based)
+  * Temporal pacing requirements
+
+**Output**: Scaffold architecture (loop structure or alternative pattern)
+
+### Phase 2: Mechanical Specification
+
+**"What are the actual mechanics?"**
+
+**Step 2.1: Core Mechanics**
+
+* If from archetype: Start with its typical mechanics
+* If custom: Use aesthetic recipes to identify mechanic categories
+* Specify: Core verbs, interaction model, decision space
+
+**Step 2.2: Resource Systems**
+
+* Identify resource types needed (from aesthetic requirements)
+* Define scarcity/abundance patterns
+* Set recovery mechanisms
+* Apply 3-5 resource guideline
+
+**Step 2.3: Initial Parameters**
+
+* Use measurables catalog (aesthetic → target numbers)
+* Set parameter ranges for tuning
+* Define success/failure conditions
+
+**Output**: Complete mechanical specification with initial parameters
+
+### Phase 3: Content & Context
+
+**"How much content, what's the dressing?"**
+
+**Step 3.1: Calculate Content Needs**
+
+* Use heuristics based on:
+  * Aesthetic consumption rates (Discovery burns fast, Mastery re-uses)
+  * Session structure (micro/meso/macro loop counts)
+  * Expected play duration
+* Provide worked example of heuristic → formula conversion
+* Decide procedural vs. authored
+
+**Step 3.2: Apply Context (Build/Suggest/Omit)**
+
+* If setting already chosen: Ensure mechanics/setting coherence
+* If setting not chosen: Select one that fits mechanics OR go abstract
+* Build essential context, suggest supporting context, omit contradictory context
+* Iterate mechanics ↔ context until coherent
+
+**Output**: Content requirements + integrated setting/theme
+
+### Phase 4: Validation & Iteration
+
+**"Does this actually work?"**
+
+**Step 4.1: Pre-Playtest Checks**
+
+* Coherence audit (aesthetics, mechanics, setting all aligned?)
+* Cognitive load audit (within budget? Properly distributed?)
+* Dynamics checklist (likely patterns serve aesthetics?)
+
+**Step 4.2: Playtest Protocol**
+
+* Design tests for specific metrics (from measurables)
+* Map expected results to aesthetic goals
+* Run paper/digital tests
+
+**Step 4.3: Diagnostic Iteration**
+
+* Compare actual vs. expected metrics
+* Identify failure source (parameters, mechanics, architecture, aesthetic mismatch)
+* Apply appropriate fix level
+* Re-validate
+
+**Output**: Validated game system ready for implementation
+
+***
+
+## The Archetype Library Concept
+
+Each archetype would be a 1-2 page reference with:
+
+**Archetype Name**: Daily Puzzle Game
+
+**Primary Aesthetics**: Challenge + Completion + Discovery (light)
+
+**Typical Structure**:
+
+* Micro loop: 2-3 minutes per puzzle attempt
+* Meso loop: 5-15 minutes per daily puzzle
+* Macro loop: Return daily for new content
+
+**Common Mechanics**:
+
+* Constrained action space (limited moves/time)
+* Clear success criteria
+* Retry-friendly failure
+* Optional meta-progression (streaks, cosmetics)
+
+**Resource Patterns**:
+
+* Attempts/moves (scarce per puzzle)
+* Daily refresh (abundant across sessions)
+* Hints/skips (very scarce, monetizable)
+
+**Content Needs**:
+
+* Minimum 30 unique puzzles for launch
+* Ideally 90-365 for daily retention
+* Procedural generation possible but requires careful difficulty curve
+
+**Examples**: Wordle, Connections, Mini Crossword, Two Dots
+
+**Common Variations**:
+
+* Competitive (daily leaderboards)
+* Narrative (puzzles unlock story)
+* Collection (puzzles unlock cosmetics)
+
+***
+
+## Key Questions Remaining
+
+### About Archetypes:
+
+1. **How many archetypes do we include?** (10? 20? More?)
+2. **How detailed should they be?** (The above template, or more/less?)
+3. **Do we organize them by aesthetic, by structure, or alphabetically?**
+
+### About Content Formulas:
+
+4. **Which specific heuristic should we convert to formula as the example?**
+
+   * Discovery content consumption?
+   * Challenge difficulty ramping?
+   * Something else?
+5. **Where do pacing rules live?** (Separate section? Integrated with content calculation?)
+
+### About Framework Flow:
+
+6. **Does Phase 0 (flexible entry) work?** Or does it overcomplicate things?
+
+7. **Should Setting/Context always be Phase 3?** Or does it need to be earlier for theme-first designers?
+
+8. **Is the dynamics checklist part of Phase 4, or should it be earlier?** (You could predict dynamics at Phase 2, check them at Phase 4)
+
+***
+
+## Proposed Next Steps
+
+**Option A: Build One Archetype Template**
+
+* Pick an archetype (daily puzzle? roguelike? cozy sim?)
+* Flesh out the complete template
+* Use it to validate what information is actually useful
+
+**Option B: Work the Busy Adults Scenario Completely**
+
+* Apply the revised framework step-by-step
+* Document every decision and information source
+* Extract the framework from the actual process
+
+**Option C: Design the Content Formula Example**
+
+* Pick one aesthetic (Discovery? Challenge?)
+* Show heuristic → formula conversion
+* Validate against real games
+
+**Which approach should we take to make progress?** Or something else entirely?
+
+Looking at what you've uploaded and the bootstrap...
+
+## What's Actually There
+
+**Temporal Architecture (Loops Chapter):**
+
+* Complete chapter exists
+* Covers loop scales (micro/meso/macro)
+* Identifies loop architectures (Full Stack, Compressed, Inverted, Constrained)
+* Provides design process for loops
+* Has 5 detailed game analyses
+
+**Players and Contexts:**
+
+* Complete section exists
+* Covers cognitive investment profiles (casual/midcore/hardcore)
+* Player type taxonomies (Bartle, Quantic Foundry)
+* Platform contexts (mobile/PC/console/VR)
+* Social dynamics (sync/async multiplayer)
+
+## Are They Missing from Framework? YES
+
+Looking at the proposed synthesis structure in the bootstrap, I see:
+
+**Phase 2: Scaffold Architecture** mentions:
+
+* "Which loop scales do you need?"
+* "What pacing serves your aesthetic?"
+
+But it doesn't explicitly reference:
+
+* The loop architectures from Temporal Architecture chapter
+* The cognitive investment profiles from Players chapter
+* The specific patterns and constraints
+
+**Phase 1: Aesthetic Crystallization** mentions:
+
+* "Identify Target Players"
+* "Cognitive investment capacity"
+
+But it's very brief - doesn't leverage the detailed player profiles you already have.
+
+## The Problem
+
+These chapters contain **critical operational knowledge** but aren't integrated as **decision tools** in the synthesis framework.
+
+**Example of the gap:**
+
+* Bootstrap says: "Which loop scales do you need?"
+* But doesn't say: "If casual players (5-30 min sessions), use Compressed Architecture (micro + meso only)"
+* Or: "If Discovery aesthetic + hardcore players, Full Stack architecture with macro loop for long-term goals"
+
+## Proposed Fix: Make Them Prominent Decision Points
+
+### Phase 1: Should Include Player Profile Selection
+
+**Current (vague):** "Identify Target Players: Cognitive investment capacity, time availability..."
+
+**Should Be (concrete):** "Select Player Profile from Players & Contexts chapter:
+
+* Casual (5-30 min, 3±2 cognitive load) → suggests certain architectures
+* Midcore (30-90 min, 5-7 systems) → suggests different architectures
+* Hardcore (2+ hours, high complexity tolerance) → enables Full Stack
+* Busy Adult (special case) → requires specific solutions"
+
+### Phase 2: Should Explicitly Use Loop Architectures
+
+**Current (vague):** "Design Temporal Structure: Which loop scales do you need?"
+
+**Should Be (concrete):** "Choose Loop Architecture from Temporal Architecture chapter:
+
+* **Full Stack** (micro + meso + macro): Long-term progression games
+  * When: Hardcore players, high cognitive load, extended play sessions
+  * Examples: Hades, traditional RPGs
+* **Compressed** (micro + meso only): Session-complete games
+  * When: Casual/midcore, limited time, episodic play
+  * Examples: Wordle, daily puzzles
+* **Inverted** (macro only or macro-heavy): Incremental/idle games
+  * When: Very casual, async play, minimal active engagement
+  * Examples: Cookie Clicker, idle games
+* **Constrained** (single loop scale): Focused experiences
+  * When: Specific aesthetic, pure gameplay, no meta-progression
+  * Examples: Tetris, pure puzzle games"
+
+## Revised Framework Structure
+
+### Phase 0: Constraints & Context
+
+* Platform/Medium (from Players chapter - affects available mechanics)
+* Time constraints (affects loop architecture)
+* Social structure (single/multi, sync/async)
+* Other fixed constraints
+
+### Phase 1: Aesthetic Profile
+
+* Primary aesthetic(s) (from recipes)
+* **Player Profile** (from Players chapter - determines cognitive budget)
+* Success criteria (measurable outcomes)
+
+### Phase 2: Scaffold Architecture
+
+* **Loop Architecture Selection** (from Temporal Architecture chapter)
+  * Use player profile + aesthetics + time constraints → choose architecture
+  * Each architecture has implications for content, mechanics, progression
+* Temporal pacing specifics
+* Cognitive load allocation (using player profile budget)
+
+### Phase 3: Mechanical Specification
+
+* Core mechanics (using aesthetic recipes + archetype templates)
+* Resource systems (types, scarcity, recovery)
+* Parameters (from measurables)
+
+### Phase 4: Content & Context
+
+* Content calculation (using loop architecture + aesthetic consumption rates)
+* Setting/theme integration (Build/Suggest/Omit)
+* Information architecture
+
+### Phase 5: Validation
+
+* Coherence check
+* Dynamics checklist
+* Playtest protocol
+
+## The Decision Matrix Concept
+
+We could create explicit decision matrices:
+
+**Matrix 1: Player Profile + Aesthetics → Loop Architecture**
+
+```
+              | Discovery | Challenge | Mastery | Fellowship
+--------------|-----------|-----------|---------|------------
+Casual        | Compressed| Compressed| Inverted| Compressed
+Midcore       | Full Stack| Compressed| Full Stack| Full Stack
+Hardcore      | Full Stack| Full Stack| Full Stack| Full Stack
+Busy Adult    | Compressed| Compressed| [special]| Async only
+```
+
+**Matrix 2: Loop Architecture + Aesthetic → Content Needs**
+
+```
+Full Stack + Discovery = High variety across all scales
+Compressed + Challenge = Moderate variety, high replayability
+Inverted + Collection = Low variety, numerical progression
+```
+
+## Answer to Your Question
+
+**YES, they're missing as prominent decision points.**
+
+The knowledge exists in those chapters, but it's not operationalized in the synthesis framework. The framework should:
+
+1. **Reference them explicitly** - "See Temporal Architecture chapter for loop patterns"
+2. **Integrate them as decision tools** - "Choose your loop architecture based on player profile"
+3. **Show the connections** - "Casual players + Discovery aesthetic → Compressed architecture → content implications"
+
+**Should loops be MORE prominent?**
+
+* YES for loop-based games (action, roguelikes, most video games)
+* NO for puzzle games, exploration games, narrative games (they use different architectures)
+* The framework should identify WHEN loops are the right tool, not assume they always are
+
+**The fix:** Phase 2 should be called "Scaffold Architecture Selection" and explicitly offer:
+
+* Loop-based architectures (reference Temporal Architecture chapter)
+* Puzzle-based architectures
+* Progression-based architectures
+* Exploration-based architectures
+
+With clear guidance on which fits which aesthetic + player profile combinations.
+
+**Does this resolve the concern?** Should we revise Phase 1 and 2 to make these chapters more prominent?
+
+Perfect. Let's build a **Daily Puzzle Game Archetype Template** first, then apply the framework to the Busy Parents scenario.
+
+***
+
+## Archetype Template: Daily Puzzle Game
+
+### Overview
+
+Games designed for single-session completion with daily refresh. Players solve one challenge per day, often competing against friends or global leaderboards.
+
+### Primary Aesthetics
+
+* **Challenge** (skill-based problem solving)
+* **Completion** (finish the daily puzzle)
+* **Discovery** (light - new puzzle each day)
+* Optional: **Fellowship** (sharing results, comparing scores)
+
+### Player Profile Match
+
+**Best For:**
+
+* Casual players (5-30 min sessions)
+* Busy Adults (fits between obligations)
+* Midcore players (as daily ritual alongside other games)
+
+**Cognitive Load:** Low to Moderate (3-5 trackable elements)
+
+* Simple rules, complex execution
+* No memory required between sessions
+* State resets daily
+
+### Temporal Structure (Loop Architecture)
+
+**Architecture Type:** Compressed (micro + meso only)
+
+**Micro Loop** (1-3 minutes):
+
+* Single attempt at puzzle
+* Immediate feedback on actions
+* Clear success/failure state
+* Can retry if failed
+
+**Meso Loop** (5-20 minutes):
+
+* Complete today's puzzle
+* Achieve daily goal (win, streak, score)
+* Share results (optional social moment)
+* Returns tomorrow for new puzzle
+
+**Macro Loop:** None or very light
+
+* Streak tracking (consecutive days)
+* Cosmetic unlocks
+* Statistical history
+* NO gameplay progression required between days
+
+### Common Mechanics
+
+**Core Verbs:**
+
+* Place/arrange (Wordle, Connections)
+* Match/combine (Two Dots, Threes)
+* Deduce/eliminate (Sudoku, Logic puzzles)
+* Navigate/plan (Mini Crossword)
+
+**Typical Mechanics:**
+
+* Limited actions/moves per attempt
+* Constrained solution space (exact answer exists)
+* Pattern recognition or logical deduction
+* Retry-friendly (failure is learning)
+
+### Resource Patterns
+
+**Primary Resources:**
+
+* **Attempts/Moves** (scarce within puzzle)
+  * Limited per puzzle or unlimited with time cost
+  * Creates tension and planning requirement
+* **Time** (optional pressure)
+  * Hard time limit, or
+  * Time as score factor, or
+  * No time pressure (casual approach)
+* **Hints/Skips** (very scarce)
+  * 1-3 per day (renewable)
+  * Monetization opportunity
+  * Social sharing can earn more
+
+**Secondary Resources:**
+
+* Streak counter (daily login reward)
+* Score/statistics (comparison, not gameplay)
+* Cosmetic currency (optional engagement)
+
+### Content Needs
+
+**Minimum Viable:**
+
+* 30 unique puzzles (one month of daily content)
+* Difficulty curve over first week (onboarding)
+* Repeatable content after 30 days acceptable if well-designed
+
+**Sustainable:**
+
+* 90-365 puzzles (3 months to 1 year)
+* Procedural generation if possible (requires careful balancing)
+* User-generated content potential
+
+**Content Consumption Rate:**
+
+* 1 puzzle per player per day (hard cap)
+* Discovery aesthetic satisfied by novelty, not volume
+* Replayability comes from daily refresh, not content variety
+
+### Platform Considerations
+
+**Best Platforms:**
+
+* Mobile (primary - fits lifestyle)
+* Browser (secondary - at work/school)
+* Can work on any platform but design for smallest screen
+
+**Technical Requirements:**
+
+* Fast load times (\<3 seconds)
+* Works offline (puzzle downloaded once)
+* Minimal data usage
+* One-handed play preferred
+
+### Monetization Patterns
+
+**Free-to-Play:**
+
+* Core puzzle always free
+* Ads between attempts (if failed)
+* Hints/skips as premium currency
+* Cosmetics/themes
+* Remove ads subscription
+
+**Premium:**
+
+* One-time purchase removes all friction
+* Typically $1-5 price point
+* Must compete with free alternatives
+
+### Social Features
+
+**Asynchronous Competition:**
+
+* Daily leaderboards (friends or global)
+* Share results without spoiling (emoji/color codes)
+* Streak comparisons
+* Optional ghost/replay viewing
+
+**No Synchronous Features:**
+
+* Would contradict solo puzzle-solving aesthetic
+* Async sharing preserves challenge integrity
+
+### Success Metrics
+
+**Core KPIs:**
+
+* Daily Active Users (DAU) - primary metric
+* Completion rate (70-90% ideal for casual)
+* Streak length (3+ days indicates habit formation)
+* Return rate next day (60%+ is strong)
+
+**Secondary Metrics:**
+
+* Time to complete (tracks difficulty appropriateness)
+* Hint usage (indicates difficulty tuning need)
+* Social shares (organic growth)
+
+### Common Variations
+
+**Competitive Variant:**
+
+* Timed mode with leaderboards
+* Rewards for speed AND accuracy
+* Appeals to midcore players
+
+**Narrative Variant:**
+
+* Puzzles unlock story snippets
+* Adds Discovery aesthetic
+* Requires more content investment
+
+**Collection Variant:**
+
+* Completing puzzles unlocks collectibles
+* Meta-game of completion
+* Extends engagement
+
+### Design Pitfalls to Avoid
+
+**Too Hard:**
+
+* Completion rate \<50% → players quit
+* Must balance challenge with accessibility
+* Provide hint system safety net
+
+**Too Easy:**
+
+* Completion rate >95% → no satisfaction
+* Need difficulty variance or increasing challenge
+
+**Too Much Grind:**
+
+* Daily commitment feels like job, not game
+* Keep session under 20 minutes
+* Respect player time
+
+**Poor Difficulty Progression:**
+
+* Monday hardest puzzle → players never return
+* Start week easy, ramp to weekend
+* Or consistent difficulty with variance
+
+**Forcing Social:**
+
+* Requiring shares/friends to progress
+* Ruins solo puzzle-solving aesthetic
+* Keep social optional
+
+### Example Games
+
+* **Wordle** (word deduction)
+* **Connections** (category grouping)
+* **Mini Crossword** (crossword solving)
+* **Two Dots** (dot connecting)
+* **Sudoku** (logic puzzle)
+* **Spelling Bee** (word formation)
+
+### When This Archetype Fails
+
+**Wrong Player Profile:**
+
+* Hardcore players want more depth/progression
+* Very casual players may not return daily
+
+**Wrong Aesthetic:**
+
+* Power fantasy (no progression to become stronger)
+* Narrative (limited story capacity)
+* Mastery (resets daily, can't improve at same challenge)
+
+**Wrong Context:**
+
+* Requires consistent daily access
+* Poor fit for sporadic players
+* Needs stable internet for daily refresh
+
+***
+
+## Now Let's Apply the Framework to Busy Parents Scenario
+
+### Scenario Reminder
+
+**Target:** Parents with young kids\
+**Context:** Home, frequent interruptions\
+**Time:** 20-30 minute sessions\
+**Goal:** Engaging despite interruptions, meaningful progress each session
+
+***
+
+### Phase 0: Constraints & Context
+
+**Fixed Constraints:**
+
+* **Platform:** Mobile (can play while watching kids)
+* **Time:** 20-30 min sessions, not daily necessarily
+* **Interruptions:** Frequent, must pause instantly
+* **Social:** Probably solo (parenting is social time)
+* **Cognitive State:** Tired, distracted, but experienced gamers
+
+**Key Insight:** This is close to Daily Puzzle archetype BUT differs in:
+
+* Not necessarily daily (unpredictable schedule)
+* Must handle mid-session interruptions
+* May play multiple sessions in one day (kids napping)
+
+***
+
+### Phase 1: Aesthetic Profile
+
+**Primary Aesthetics** (from Busy Adult constraints):
+
+* **Challenge** - Want to feel smart, capable (rare in parenting)
+* **Completion** - Need to FINISH something (rare in parenting)
+* **Discovery** - Light novelty keeps it fresh across sessions
+
+**Player Profile:**
+
+* Cognitive Load: LOW (max 3-5 trackable elements)
+* Time per session: 20-30 minutes
+* Session frequency: Unpredictable (1-5x per week)
+* Experience level: Experienced but rusty
+* Special needs: Instant pause/resume, progress in every session
+
+**Success Criteria:**
+
+* Player completes a satisfying goal in 20-30 min
+* Can pause instantly and resume without context loss
+* Wants to return when they have another 20 min
+* Feels accomplished (not frustrated)
+
+***
+
+### Phase 2: Scaffold Architecture
+
+**Loop Architecture Analysis:**
+
+Using Player Profile + Aesthetics:
+
+* Casual/Low cognitive load + Challenge + Completion = **Compressed Architecture**
+* Need: Micro (1-3 min) + Meso (20-30 min)
+* No Macro needed (unpredictable schedule makes meta-progression frustrating)
+
+**BUT:** Daily Puzzle archetype assumes daily play. This doesn't.
+
+**Architecture Decision:** Compressed, but with **on-demand content** instead of daily refresh
+
+**Micro Loop** (1-3 minutes):
+
+* Solve one sub-puzzle or complete one challenge
+* Immediate feedback
+* Can pause/resume mid-micro if needed
+* Provides sense of incremental progress
+
+**Meso Loop** (20-30 minutes):
+
+* Complete 6-10 micro loops = one complete puzzle
+* Clear victory condition
+* Shareable result (optional social moment)
+* Next puzzle available immediately (not tomorrow)
+
+**Macro Loop:** None
+
+* No streak tracking (would punish irregular play)
+* No meta-progression (would require commitment memory)
+* Optional: Statistics tracking (total solved, win rate)
+
+**Temporal Pacing:**
+
+* 2-3 min per micro attempt
+* 7-10 micro loops per meso completion
+* Meso completes in 20-30 minutes
+* New meso available instantly after completion
+
+**Cognitive Load Allocation** (Budget: 3-5 elements):
+
+* Core mechanic: 40% (2 elements - main action + constraint)
+* Current goal: 30% (1 element - what am I solving right now?)
+* Progress tracking: 20% (1 element - how close to completion?)
+* Optional meta: 10% (cosmetic unlocks, if included)
+
+***
+
+### Phase 3: Mechanical Specification
+
+**From Aesthetic Recipes:**
+
+* Challenge needs: Skill-based decisions, clear difficulty, fair failure
+* Completion needs: Visible progress, achievable goals, closure
+* Discovery needs: Variety in puzzles, some surprises
+
+**Archetype Template suggests:**
+
+* Pattern recognition OR logical deduction OR spatial puzzles
+* Limited actions/moves creates tension
+* Retry-friendly failure
+
+**Specific Mechanical Choice:** Let's choose **Spatial Tile Puzzles**
+
+**Core Mechanic:**
+
+* Grid-based (4x4 to 6x6)
+* Move/swap tiles to achieve goal state
+* Limited moves create planning requirement
+
+**Why This Fits:**
+
+* Visual/spatial (works on mobile, one-handed possible)
+* Clear goal state (completion aesthetic)
+* Skill-based (challenge aesthetic)
+* Can be varied (discovery aesthetic)
+* Pause-friendly (grid state is entire game state)
+
+**Core Verbs:**
+
+* Swap adjacent tiles
+* Rotate sections (variant)
+* Clear matched patterns (variant)
+
+**Specific Mechanics:**
+
+1. **Grid:** 5x5 tiles (moderate complexity)
+2. **Goal:** Create specific pattern (match target image)
+3. **Constraint:** 20 moves maximum
+4. **Feedback:** Remaining moves, current pattern vs target
+5. **Retry:** Unlimited, reset to start
+
+**Resource Systems:**
+
+**Primary Resources:**
+
+* **Moves** (scarce resource within puzzle)
+  * 20 moves per puzzle
+  * Creates planning requirement
+  * Can be "undone" (1 undo per puzzle as help)
+* **Puzzles** (abundant resource)
+  * Unlimited puzzles available
+  * No energy system (respects unpredictable schedule)
+  * Procedurally generated with difficulty tiers
+
+**Secondary Resources:**
+
+* **Hints** (very scarce)
+  * 3 hints per puzzle
+  * Shows optimal next move
+  * Renewable: +1 hint per puzzle completed
+* **Cosmetic Currency** (optional engagement)
+  * Earn 10 per puzzle completed
+  * Unlock tile themes, background colors
+  * No gameplay impact
+
+**Parameters (Initial Values from Measurables):**
+
+From Challenge measurables:
+
+* **Target completion rate:** 70-80% (accessible but satisfying)
+* **Moves budget:** 20 moves (3-4 more than optimal solution)
+* **Difficulty progression:** 5 tiers (Easy to Expert)
+* **Grid size:** 5x5 (moderate complexity - 25 total tiles)
+
+From Completion measurables:
+
+* **Progress indicator:** Show completion percentage (how close to target pattern)
+* **Victory condition:** 90%+ match to target pattern (allows imperfect solutions)
+* **Session goal:** 3-5 puzzles completed per session
+
+From Discovery measurables:
+
+* **Pattern variety:** 50+ target patterns per difficulty tier
+* **Procedural generation:** Ensure solvable within move budget
+* **Visual themes:** 5+ tile sets (cosmetic variety)
+
+***
+
+### Phase 4: Content & Context
+
+**Content Calculation:**
+
+**Using Loop Architecture + Aesthetics:**
+
+* Micro loop = 1 puzzle
+* Meso loop = 3-5 puzzles (20-30 min session)
+* No macro loop
+
+**Discovery Consumption Rate:**
+
+* Discovery is LIGHT (patterns vary, core mechanic constant)
+* Players tolerate repetition if puzzles feel different
+* Need variety in challenge, not core mechanics
+
+**Content Formula (Heuristic → Formula):**
+
+**Heuristic:** "Light Discovery games need enough variety that returning players see novelty, but core loop can repeat"
+
+**Formula Conversion:**
+
+```
+Sessions before repetition fatigue = (Unique Patterns) / (Patterns per session)
+Target: 20-30 sessions before seeing repeats
+
+If 4 puzzles per session average:
+Needed unique patterns = 20 sessions × 4 puzzles = 80 patterns minimum
+
+Tiered by difficulty:
+- Easy (Tier 1): 20 patterns
+- Medium (Tier 2): 25 patterns  
+- Hard (Tier 3): 25 patterns
+- Expert (Tier 4): 20 patterns
+- Master (Tier 5): 10 patterns
+Total: 100 unique patterns
+
+With procedural generation: 10-20 hand-crafted templates per tier, infinite variations
+```
+
+**Procedural vs Authored Decision:**
+
+* **Authored:** 10-20 pattern templates per difficulty tier
+* **Procedural:** Generate tile start positions algorithmically
+* **Validation:** All generated puzzles solvable in move budget
+* **Difficulty Control:** More scrambling = harder puzzle
+
+**Information Architecture:**
+
+**Tutorial (First Session):**
+
+* Puzzle 1: 3x3 grid, 10 moves, simple pattern (learn swap mechanic)
+* Puzzle 2: 4x4 grid, 15 moves, moderate pattern (learn planning)
+* Puzzle 3: 5x5 grid, 20 moves, full complexity
+* Total tutorial time: 8-12 minutes
+
+**Onboarding (First Week):**
+
+* Only Tier 1 (Easy) and Tier 2 (Medium) available
+* Tier 3+ unlock after 10 puzzles completed
+* Hint system explained on first use
+* Undo mechanic explained on first mistake
+
+**Feedback Systems:**
+
+* **Immediate:** Tile swap animation, updated grid
+* **Micro:** Moves remaining counter, progress percentage
+* **Meso:** Victory screen, statistics (time, moves used, efficiency)
+* **Long-term:** Total puzzles solved, win rate by tier
+
+**Context Integration (Build/Suggest/Omit):**
+
+**Setting Choice:** Abstract Puzzle (mechanics-first)
+
+* Could theme it (garden planting, recipe building, room decoration)
+* But abstract allows focus on pure puzzle
+
+**Build:**
+
+* Clear grid visuals
+* Distinct tile colors/shapes
+* Target pattern display
+* Move counter
+* Progress indicator
+
+**Suggest:**
+
+* Satisfying tile swap sounds
+* Completion celebration
+* Calming background music (optional)
+* Gentle color palette (reduces stress)
+
+**Omit:**
+
+* Narrative (cognitive load)
+* Characters (unnecessary)
+* Time pressure (contradicts pause-friendly)
+* Social features (solo experience)
+* Achievements/notifications (respects busy schedule)
+
+***
+
+### Phase 5: Validation
+
+**Coherence Check:**
+
+Does everything serve Challenge + Completion + Discovery?
+
+* ✓ **Challenge:** Limited moves, skill-based planning
+* ✓ **Completion:** Clear goals, 20-30 min sessions finish something
+* ✓ **Discovery:** Pattern variety provides novelty
+* ✓ **Cognitive Load:** 3 elements (grid state, moves, goal pattern) = within budget
+* ✓ **Context:** Pause-friendly, mobile, interruption-resistant
+
+**Contradictions:**
+
+* None identified
+
+**What can be cut:**
+
+* Cosmetic currency system (optional, not core to aesthetics)
+* Could ship without it, add later if engagement data shows need
+
+**Dynamics Checklist:**
+
+* ✓ **Does micro loop success contribute to meso progress?**
+  * Yes: Each puzzle completed = progress toward session goal (3-5 puzzles)
+* ✓ **Does failure provide value?**
+  * Yes: Can retry immediately (information learned)
+  * Hints available (3 per puzzle)
+  * Failure doesn't cost anything (no energy system)
+* ✓ **Can players see long-term goals from short-term actions?**
+  * Yes: Progress percentage shows distance to victory
+  * Moves remaining shows planning horizon
+* ✓ **Do resources create interesting tensions?**
+  * Yes: Moves are scarce, must plan
+  * Hints create choice (use now or save?)
+  * But: No punishing scarcity (unlimited puzzles)
+
+**Expected Dynamics:**
+
+* Players will learn pattern recognition over time (mastery emergence)
+* Higher tiers become accessible as skill improves (organic progression)
+* Short sessions feel complete (meso loop closure)
+* Can drop in/out without penalty (no daily pressure)
+
+**Paper Playtest:**
+
+**Session 1 (Tutorial):**
+
+* Minute 0-4: Complete first 3x3 puzzle (learn mechanic)
+* Minute 4-8: Complete first 4x4 puzzle (learn planning)
+* Minute 8-12: Complete first 5x5 puzzle (full complexity)
+* Minute 12-30: Complete 3 more Tier 1 puzzles
+* Result: 5 puzzles completed, feel accomplished
+
+**Session 5 (Returning Player):**
+
+* Knows mechanics, jumps to Tier 2 (Medium)
+* Minute 0-6: Complete first Tier 2 puzzle
+* Minute 6-12: Complete second (using 1 hint)
+* Minute 12-18: Fail third (ran out of moves), retry
+* Minute 18-24: Complete third on retry
+* Minute 24-30: Start fourth, pause mid-puzzle (kid needs attention)
+* Resume later: Grid state saved, continues where left off
+* Result: 3 completed, 1 in-progress, still satisfying
+
+**Interruption Scenario:**
+
+* Mid-puzzle, child needs attention
+* Player hits home button (auto-saves)
+* Returns 2 hours later
+* Game shows: Current grid, moves remaining, target pattern
+* No context loss, continues immediately
+
+**Failure Points:**
+
+* If puzzles too hard (completion rate \<70%) → adjust move budgets or pattern difficulty
+* If puzzles too easy (completion rate >90%) → tighten move budgets
+* If variety insufficient (\<20 sessions) → add more pattern templates
+* If cognitive load too high → simplify feedback or reduce grid size
+
+***
+
+## What This Process Reveals
+
+### Framework Successfully Answered:
+
+1. ✓ **Which mechanics?** Spatial tile puzzles (from aesthetic + player profile + archetype)
+2. ✓ **How many resources?** 2 primary (Moves, Puzzles), 2 secondary (Hints, Cosmetics)
+3. ✓ **How much content?** 100 pattern templates, procedurally varied
+4. ✓ **Loop structure?** Compressed (micro + meso), no macro
+5. ✓ **Parameters?** 5x5 grid, 20 moves, 70-80% completion target, 5 difficulty tiers
+6. ✓ **Should there be zombies?** No (abstract puzzle, omit narrative/theme)
+
+### Framework Gaps Revealed:
+
+1. **Archetype Selection:** We knew it was "daily puzzle-like" but had to modify for non-daily play
+
+   * **Need:** Decision tree for "when to modify archetype vs choose different one"
+2. **Mechanic Specificity:** Jump from "spatial puzzle" to "5x5 tile swap" was intuition
+
+   * **Need:** More granular examples or sub-archetypes within categories
+3. **Content Formula:** Had to derive the 100 patterns number from first principles
+
+   * **Need:** More worked examples of heuristic → formula conversion
+4. **Dynamics Prediction:** Checklist worked but was applied retrospectively
+
+   * **Need:** Integrate dynamics thinking earlier (Phase 3 with mechanics?)
+5. **Iteration Triggers:** Didn't encounter failure, so couldn't test diagnostic process
+
+   * **Need:** Separate playtest protocol section with symptom → fix mapping
+
+### What Worked Well:
+
+1. **Archetype as starting point** - Daily Puzzle template gave us 80% of the answer
+2. **Player Profile** - Busy Adult profile directly constrained architecture choice
+3. **Loop Architecture** - Compressed pattern was obvious from constraints
+4. **Aesthetic Recipes** - Challenge + Completion + Discovery mapped cleanly to mechanics
+5. **Build/Suggest/Omit** - Made "abstract puzzle" choice concrete and justified
+
+### Next Steps:
+
+Should we:
+
+1. **Formalize this as the worked example** in the synthesis chapter?
+2. **Extract the decision trees** we implicitly used?
+3. **Build more archetype templates** to validate the pattern?
+4. **Create the content formula section** with this as the example?
+
+**What do you think? Does this process feel right? What's missing?**
+
+*Reading the scenarios and aliens horror game design...*
+
+This is excellent - a very different challenge. Let's work through this without a template, pure framework application.
+
+***
+
+## Scenario: Aliens One-Shot TTRPG
+
+### Given Information (from scenarios file):
+
+**Core Goal:** Teach colonial horror through play
+
+* Show (not tell) how colonialism creates horror
+* Players experience being colonizers
+* Horror emerges from their own actions/choices
+* One-shot (single 3-4 hour session)
+
+**Medium:** Tabletop RPG (GM + players)
+
+**Key Constraint:** Educational purpose must not feel didactic
+
+***
+
+## Phase 0: Constraints & Context
+
+**Fixed Constraints:**
+
+* **Medium:** TTRPG (human GM, synchronous, social)
+* **Session:** Single session, 3-4 hours
+* **Player Count:** 3-5 players (typical RPG table)
+* **Setting:** Sci-fi colonial (already chosen - theme-first entry)
+* **Educational Goal:** Teach through experience, not lecture
+
+**Context Implications:**
+
+* GM must maintain horror tone (Build/Suggest/Omit critical)
+* Social dynamics matter (player interactions create meaning)
+* Time pressure (must complete arc in one session)
+* Can't rely on mechanical complexity (must learn in minutes)
+* Improvisation required (GM can't script everything)
+
+***
+
+## Phase 1: Aesthetic Profile
+
+### Primary Aesthetics
+
+**From aliens-horror-game-design.md, the goal is:**
+
+**Primary: Horror** (specifically dread/complicity horror)
+
+* Not jump-scare horror
+* Not survival horror
+* **Moral horror** - "I am the monster"
+
+**Secondary: Discovery** (narrative/thematic)
+
+* Discovering the truth about the colony
+* Discovering their own complicity
+* Uncovering what the "natives" actually are
+
+**Tertiary: Fellowship** (social/collaborative)
+
+* Shared decision-making about colony
+* Collective guilt/responsibility
+* Discussion and debate
+
+**Explicitly NOT:**
+
+* Challenge (not about difficulty/skill)
+* Mastery (not about getting better at systems)
+* Power fantasy (undermines horror)
+* Competition (players vs players breaks tone)
+
+### Player Profile
+
+**Target:** Adults interested in thoughtful play
+
+* **Cognitive Load:** MEDIUM (can handle themes, metaphor, ambiguity)
+* **Time:** 3-4 hour commitment (one session)
+* **Experience:** Any (must be accessible to TTRPG novices)
+* **Social Maturity:** Required (discusses colonialism, violence, complicity)
+
+**Special Needs:**
+
+* Safety tools (X-card, Lines & Veils)
+* Session 0 discussion (consent on themes)
+* Debriefing after (processing experience)
+
+### Success Criteria
+
+**The experience succeeds if:**
+
+1. Players feel **dread** as they make colony decisions
+2. Players have "oh no, *I'm* the colonizer" realization
+3. Players understand colonialism *viscerally*, not academically
+4. Group discusses themes after (not during) play
+5. Horror comes from choices, not GM railroading
+
+**The experience fails if:**
+
+* Feels preachy/didactic
+* Players feel blamed/attacked
+* Becomes action/combat focused
+* Horror is external (monster) not internal (complicity)
+* Choices don't matter
+
+***
+
+## Phase 2: Scaffold Architecture
+
+### Structural Pattern Analysis
+
+**NOT Loop-Based:**
+
+* No repeating micro loops (one-shot session)
+* No meso loop (no "complete a mission, repeat")
+* Progression-based is wrong (no power curve)
+
+**This is: Narrative Arc Structure** (not loop-based)
+
+**Act Structure for One-Shot:**
+
+**Act 1: Arrival (30-45 min)**
+
+* Establish premise and roles
+* Create investment in colony success
+* Introduce "natives" as obstacle/resource
+* Players make first decisions
+
+**Act 2: Complications (60-90 min)**
+
+* Consequences of Act 1 choices manifest
+* Information reveals complexity
+* Horror builds as truth emerges
+* Players make increasingly difficult choices
+
+**Act 3: Revelation (45-60 min)**
+
+* Full truth revealed (natives are/were sentient, or players are the invaders, etc.)
+* Players confront what they've done
+* Final choice: double down or change course
+* Resolution (probably tragic)
+
+**Epilogue: Processing (15-30 min)**
+
+* Out-of-character discussion
+* What did we learn?
+* How do we feel?
+
+### Temporal Pacing
+
+**NOT measured in loops, but in narrative beats:**
+
+**Micro "Loops" = Decision Points** (10-15 min each)
+
+* GM presents situation
+* Players discuss and decide
+* GM describes outcome
+* Repeat
+
+**Meso "Loop" = Act** (30-90 min)
+
+* Multiple decision points
+* Escalating stakes
+* Act climax/revelation
+
+**Macro "Loop" = Full Session Arc**
+
+* Complete story from arrival to revelation
+* No continuation (one-shot)
+
+**Critical Pacing Elements:**
+
+* Start with optimism/confidence (we're helping!)
+* Gradually introduce dissonance (wait, what?)
+* Accelerate toward horror realization (oh no)
+* Slow down for final choice (what do we do?)
+
+### Cognitive Load Allocation
+
+**Budget:** MEDIUM (thematic complexity, but simple mechanics)
+
+**Distribution:**
+
+* **Narrative tracking:** 40% (what's happening, what have we done)
+* **Decision-making:** 30% (weighing moral choices)
+* **Role-playing:** 20% (staying in character, social dynamics)
+* **Mechanics:** 10% (should be minimal - supporting, not focus)
+
+**Implication:** Mechanics must be nearly invisible
+
+***
+
+## Phase 3: Mechanical Specification
+
+### Core Challenge: Mechanics That Create Horror Without Feeling Mechanical
+
+**From Aesthetic Recipes:**
+
+* **Horror** needs: Vulnerability, lack of control, dread of consequences, complicity
+* **Discovery** needs: Hidden information, reveals, ambiguity
+* **Fellowship** needs: Shared decision-making, collective responsibility
+
+**What Horror Needs Mechanically:**
+
+* Choices with irreversible consequences
+* Information asymmetry (GM knows truth, players don't)
+* No "reset button"
+* Success at a cost (winning feels bad)
+
+### Mechanical Approach: Dramatic Resolution System
+
+**Core Mechanic: Consequence Tokens**
+
+Instead of traditional success/failure, track **types of harm**:
+
+**Two Resource Pools (Colony-Level):**
+
+1. **Exploitation Points** (invisible to players initially)
+
+   * Earned when players: extract resources, ignore native welfare, prioritize efficiency
+   * Tracked by GM secretly
+   * Represents degree of colonial violence
+2. **Colony Stability** (visible to players)
+
+   * Starts at 10
+   * Decreases when: natives resist, resources scarce, internal conflict
+   * Players think this is the "health" of their colony
+   * Actually represents how much they've suppressed the truth
+
+**Individual Player Resource:**
+
+3. **Complicity** (secret, personal)
+   * Each player tracks privately
+   * Gained when: make harmful choice, benefit from exploitation, ignore warnings
+   * At end, reveals degree of personal responsibility
+
+### Decision Resolution
+
+**When players make choices:**
+
+**Step 1: GM frames situation**
+
+* "The survey team found rich mineral deposits, but the native settlement is in the way. What do you do?"
+
+**Step 2: Players discuss and decide** (no roll yet)
+
+* Social dynamics, role-playing, debate
+* Consensus or majority vote
+
+**Step 3: GM asks: "What are you willing to risk?"**
+
+* Frame consequences in colonial terms: "This might upset the natives" (not: "this is evil")
+* Players choose level of force/coercion
+
+**Step 4: Resolution (roll if needed)**
+
+* Success = get what you want (but Exploitation Points increase)
+* Failure = complications (Colony Stability decreases)
+* Either way, something happens
+
+**No "good choice" option** - the game is rigged. Being colonizers means causing harm.
+
+### Example Mechanics
+
+**Simple Roll System:**
+
+* 2d6 + relevant modifier
+* 7-9: Success, but complication
+* 10+: Full success
+* 6-: Failure, things get worse
+
+**Modifiers:**
+
+* +1 if using force
+* +1 if ignoring native concerns
+* +1 if prioritizing efficiency
+* (i.e., mechanically reward colonial behavior)
+
+**The Horror:** Players realize the most effective approach is the most harmful one.
+
+### Information Mechanics
+
+**Revelation Structure:**
+
+**Act 1 Information:**
+
+* Natives seem primitive/hostile
+* Colony needs resources
+* Company expects results
+* Initial surveys show valuable minerals
+
+**Act 2 Information (gradual reveals):**
+
+* Natives have complex language/culture (if investigated)
+* Their "attacks" are defensive responses
+* Mineral deposits are sacred sites
+* Company knew this already
+
+**Act 3 Information (final reveal):**
+
+* Natives are/were space-faring civilization (or other twist)
+* Colony is on *their* world, they were here first
+* Everything players thought was justified wasn't
+* Players' actions caused irreversible harm
+
+**Mechanical Implementation:**
+
+* GM has "revelation cards" prepared
+* Triggered by Exploitation Points thresholds
+* Or by player investigation
+* Each reveal recontextualizes previous actions
+
+### Resource Systems Summary
+
+**Primary Resources:**
+
+1. **Exploitation Points** (invisible, accumulated by colonial actions)
+2. **Colony Stability** (visible, what players think matters)
+3. **Complicity** (personal, secret)
+
+**No traditional RPG resources:**
+
+* No HP (not survival horror)
+* No equipment lists (not about gear)
+* No experience points (not about improvement)
+* No character advancement (one-shot, undermines horror)
+
+**Why these resources work:**
+
+* Create mechanical incentive for harmful choices
+* Track degree of harm without judging players
+* Reveal player complicity at end
+* Support horror aesthetic (dread of consequences)
+
+### Parameters (Initial Values)
+
+**Colony Stability:**
+
+* Starts at: 10
+* Reaches 0: Colony collapses (but maybe that's mercy?)
+* Threshold at 5: Major crisis point
+* Threshold at 3: Point of no return
+
+**Exploitation Points (GM Tracking):**
+
+* Start at: 0
+* Thresholds trigger revelations:
+  * 3 points: First hint of native sentience
+  * 6 points: Evidence of colonial violence consequences
+  * 10 points: Full truth revealed
+  * 15+ points: Irreversible atrocity committed
+
+**Complicity (Personal):**
+
+* Each player starts at: 0
+* Gained when:
+  * Propose exploitative solution: +1
+  * Vote for harmful action: +1
+  * Stay silent when could object: +1
+  * Benefit directly from exploitation: +2
+* Revealed at end, creates personal reckoning
+
+***
+
+## Phase 4: Content & Context
+
+### Content Calculation
+
+**For One-Shot TTRPG:**
+
+* Not about volume of content
+* About **prepared situations** and **branching responses**
+
+**Content Needs:**
+
+**GM Preparation:**
+
+* 8-12 **decision scenarios** (situations requiring player choice)
+* 3-5 **revelation moments** (information reveals)
+* 2-3 **crisis escalations** (forced difficult choices)
+* 1 **final confrontation** (ultimate choice)
+
+**Content Formula (Heuristic → Calculation):**
+
+**Heuristic:** "One-shot narrative needs enough prepared material for 4 hours of play, with contingencies for player choices"
+
+**Formula:**
+
+```
+Decision Points = (Session Hours × 60 minutes) / (15 min per decision point)
+4 hours × 60 = 240 minutes
+240 / 15 = 16 decision points maximum
+
+But: Players may skip some, linger on others
+Prepare: 12 scenarios (3 per act + final)
+Have 4-5 backup situations for improvisation
+```
+
+**Act Structure Content:**
+
+**Act 1: Arrival (45 min = 3 decision points)**
+
+1. How to approach native settlement initially
+2. What to do about first resource opportunity
+3. Response to first "native aggression"
+
+**Act 2: Escalation (90 min = 6 decision points)** 4. How to handle growing native resistance 5. Company demands faster results - how to respond? 6. Discovery of native artifacts - what to do? 7. Internal colony conflict - resolve how? 8. Resource scarcity - who suffers? 9. Major native confrontation - violence or negotiation?
+
+**Act 3: Revelation (60 min = 3 decision points)** 10. Truth revealed - how to process? 11. Final choice: double down or stop? 12. Consequences manifest - how to face them?
+
+**Epilogue: Processing (15-30 min)**
+
+* Out-of-character discussion
+* Debrief and learning
+
+### Context Integration (Build/Suggest/Omit)
+
+**Setting: Sci-Fi Colonial Horror**
+
+**Build (Essential to Experience):**
+
+*What Must Be Present:*
+
+* **Colonial power dynamic:** Players are authorities, natives are "problems"
+* **Resource extraction:** Physical reason for conflict
+* **Information control:** Company/authority withholds truth
+* **Sentience ambiguity:** Natives' humanity not immediately obvious
+* **Irreversible consequences:** Actions have permanent effects
+* **Modern parallels:** Recognizable to real colonialism (but displaced to sci-fi)
+
+*Mechanical Support:*
+
+* Exploitation Points track colonial violence
+* Complicity tracks personal responsibility
+* "Success" mechanics reward harmful behavior
+
+**Suggest (Supports Experience):**
+
+*What Enhances But Isn't Essential:*
+
+* **Corporate bureaucracy:** Forms, reports, quotas (creates mundane evil)
+* **Communication gap:** Language barrier with natives (enables dehumanization)
+* **Frontier mythology:** "We're pioneers/heroes" rhetoric (player self-justification)
+* **Economic pressure:** Company demands, investors, families back home
+* **Small comforts:** Recreation, food, relationships (humanizes colonizers too)
+
+*How to Implement:*
+
+* GM descriptions emphasize normalcy of exploitation
+* NPCs casually reference colonial violence
+* Paperwork and procedures make atrocity bureaucratic
+
+**Omit (Contradicts Experience):**
+
+*What Would Break Horror:*
+
+* **Combat focus:** Detailed tactical systems (makes violence exciting, not horrifying)
+* **Power fantasy:** Upgrades, levels, getting stronger
+* **Easy solutions:** "Diplomacy option that costs nothing"
+* **External evil:** "The real villain is X" (lets players off hook)
+* **Redemption arc:** Mechanical way to "fix" complicity
+* **Humor/levity:** Until epilogue (horror needs sustained tone)
+
+*Anti-Patterns to Avoid:*
+
+* Making natives "savage" in ways that justify violence
+* Allowing players to be "good colonizers"
+* Providing moral escape hatches
+* Letting players blame GM for outcomes
+
+### Thematic Coherence Elements
+
+**Visual/Descriptive Language:**
+
+* Sterile corporate language for violence ("relocation," "pacification," "resource optimization")
+* Contrast with visceral descriptions of consequences
+* Slowly shift from corporate euphemism to acknowledging reality
+
+**NPC Perspectives:**
+
+* **Company Rep:** Efficient, amoral, sees only numbers
+* **Veteran Colonist:** Jaded, "this is how it's done," defensive
+* **New Arrival:** Still optimistic, rationalizing, wants to believe
+* **Native Leader:** Desperate, trying to communicate, increasingly hostile
+
+**Pacing Through Description:**
+
+* Act 1: Clean, professional, optimistic descriptions
+* Act 2: Cracks appear, descriptions become uncomfortable
+* Act 3: Stark reality, no more euphemisms
+
+***
+
+## Phase 5: Validation
+
+### Coherence Check
+
+**Do all elements serve Horror + Discovery + Fellowship?**
+
+✓ **Horror (Complicity):**
+
+* Mechanics reward harmful choices
+* Information reveals increase dread
+* No escape from consequences
+* Players face their own actions
+
+✓ **Discovery (Narrative):**
+
+* Gradual revelation structure
+* Hidden information mechanics
+* Truth recontextualizes everything
+* Players uncover, not told
+
+✓ **Fellowship (Social):**
+
+* Shared decision-making
+* Group responsibility
+* Post-game discussion
+* Collective experience
+
+**Cognitive Load Appropriate?**
+
+* Narrative complexity: Medium (adults can handle themes)
+* Mechanical complexity: Low (simple roll system)
+* Social complexity: Medium (requires mature discussion)
+* Total: Within budget for target audience
+
+**Contradictions:**
+
+* None major identified
+* Potential: If players find loopholes, becomes puzzle game (addressed by GM framing)
+
+**What can be cut:**
+
+* Individual Complicity tracking (simplify to group-only)
+* Detailed roll system (could use pure narrative)
+* But: Keep resource tracking (mechanical feedback essential)
+
+### Dynamics Checklist (Adapted for Narrative Structure)
+
+**Does micro (decision point) success contribute to meso (act) progress?**
+
+* Yes: Each decision accumulates Exploitation Points → triggers revelations
+* Each choice shapes narrative → builds toward climax
+
+**Does failure provide value?**
+
+* Yes: Failure means complications, not dead end
+* Failure creates interesting dilemmas
+* No "game over" until final act
+
+**Can players see long-term goals from short-term actions?**
+
+* NO - and this is intentional
+* Horror comes from not knowing consequences
+* Discovery comes from realization later
+
+**Do resources create interesting tensions?**
+
+* Yes: Colony Stability (what players see) vs Exploitation (what matters)
+* Complicity creates personal stakes
+* Mechanically rewarding harmful behavior creates moral tension
+
+### Expected Dynamics
+
+**Social Dynamics:**
+
+* Players will debate choices (fellowship emerges)
+* Some players will rationalize, others object (creates tension)
+* Group will collectively construct justifications (mirrors real colonialism)
+* Post-game discussion will be intense (horror lingers)
+
+**Emergent Horror:**
+
+* Early decisions seem reasonable
+* Consequences accumulate invisibly
+* Revelation recontextualizes everything
+* Players can't "reload" - stuck with choices
+
+**Learning Dynamics:**
+
+* Players experience colonialism from inside
+* Understand how "normal people" cause atrocities
+* Feel difference between knowing abstractly and feeling viscerally
+* (Hopefully) transfer understanding to real-world contexts
+
+### Pre-Playtest Checks
+
+**Safety Protocols:**
+
+* Session 0: Discuss themes, get consent
+* X-Card available (anyone can pause/skip content)
+* Lines & Veils (establish boundaries)
+* Check-ins during play
+* Mandatory debrief after
+
+**GM Preparation Checklist:**
+
+* [ ] 12 decision scenarios prepared
+* [ ] Revelation cards/notes ready
+* [ ] Exploitation Point threshold triggers defined
+* [ ] Native perspective/truth clearly established
+* [ ] Backup improvisation scenarios
+* [ ] Safety tools explained and accessible
+* [ ] Debrief questions prepared
+
+**Player Materials Needed:**
+
+* Character sheets (minimal - name, role, motivation)
+* Complicity tracking (private notecard)
+* Safety tools reference card
+* Setting primer (1-page colony overview)
+
+### Paper Playtest (Predicted Flow)
+
+**Act 1: 45 minutes**
+
+* 0-10 min: Setup, character creation, premise
+* 10-25 min: First decision (approach natives)
+  * Predict: Players choose "peaceful contact" but with precautions
+  * Result: Natives defensive, language barrier, players frustrated
+* 25-40 min: Second decision (resource extraction vs native territory)
+  * Predict: Players justify "we need this, they don't understand"
+  * Result: +3 Exploitation Points, Colony Stability unchanged
+* 40-45 min: Third decision (respond to "native aggression")
+  * Predict: Players escalate, citing self-defense
+  * Result: +2 Exploitation Points, first hint of native sentience
+
+**Act 2: 90 minutes**
+
+* 45-60 min: Fourth decision (handle resistance)
+  * Predict: Players use force, rationalize as "restoring order"
+  * Result: +3 Exploitation Points, cross threshold → major revelation
+* 60-75 min: REVELATION 1: Natives have complex language/culture
+  * Players reassess, but economic pressure remains
+* 75-90 min: Fifth decision (company demands)
+  * Predict: Players compromise - try to be "better colonizers"
+  * Result: Still accumulates Exploitation Points (no good option exists)
+* 90-105 min: Sixth decision (native artifacts discovery)
+  * Predict: Some players want to stop, others press on
+  * Internal group conflict emerges
+* 105-120 min: Crisis - major confrontation
+  * Players forced to choose: violence or catastrophic failure
+  * Predict: Most choose violence, rationalize as "necessary"
+  * Result: Cross Exploitation Point threshold for final revelation
+
+**Act 3: 60 minutes**
+
+* 120-135 min: REVELATION 2: Full truth (natives were here first, sentient, peaceful)
+  * Players confront what they've done
+  * Horror manifests: "We are the monsters"
+* 135-150 min: Final decision - double down or stop?
+  * Predict: Group debates intensely
+  * Some want to stop, but Colony Stability critical
+  * Probably choose to continue (can't undo past harm anyway)
+* 150-165 min: Consequences manifest
+  * Whatever choice made has costs
+  * No redemption available
+  * Tragic conclusion (colony survives but at moral cost, or colony fails but conscience intact)
+* 165-180 min: Resolution scene, final beats
+
+**Epilogue: 15-30 minutes**
+
+* 180-195 min: Out-of-character discussion
+  * "How do we feel?"
+  * "What did we learn?"
+  * "How does this relate to real colonialism?"
+* 195-210 min: Debrief, process emotions, safety check
+
+**Total: 210 minutes (3.5 hours)**
+
+### Failure Points to Watch For
+
+**If horror fails:**
+
+* Players find it funny → GM needs to hold tone, safety check
+* Players find loophole → GM reframes to close escape
+* Becomes action game → GM emphasizes consequences, not tactics
+* Players feel judged → GM emphasizes system creates choices, not player morality
+
+**If education fails:**
+
+* Too obvious → Feels didactic (reduce on-the-nose commentary)
+* Too subtle → Players miss point (ensure revelation is clear)
+* Defensive players → Safety tools, reframe as exploring topic not blaming
+
+**If pacing fails:**
+
+* Too fast → Players don't invest in decisions (slow down, ask questions)
+* Too slow → Loses momentum (skip to next crisis, accelerate)
+* Act 2 drags → Have crisis ready to inject urgency
+
+***
+
+## What This Process Revealed
+
+### Framework Adapted Successfully for Non-Loop Structure
+
+**Instead of loops, we used:**
+
+* **Narrative arc** structure (3 acts)
+* **Decision points** as micro-moments
+* **Acts** as meso-structure
+* **Full session** as macro-arc
+
+**Framework still provided:**
+
+* Aesthetic guidance (Horror + Discovery + Fellowship)
+* Resource systems (Exploitation, Stability, Complicity)
+* Content calculation (12 scenarios, revelation structure)
+* Build/Suggest/Omit (what to include/exclude)
+* Validation process (coherence, dynamics, playtest prediction)
+
+### Unique Challenges of TTRPG One-Shot
+
+**Different from video games:**
+
+* GM as flexible system (not rigid code)
+* Social dynamics are primary mechanic
+* Content is situations, not assets
+* Balance is about narrative pacing, not numbers
+* Replay value not relevant (one-shot)
+
+**Framework accommodated by:**
+
+* Emphasizing narrative structure over loops
+* Using resource systems abstractly
+* Focusing on aesthetic coherence
+* Building in safety/social considerations
+
+### What Worked Without Template
+
+**The framework still provided:**
+
+1. **Aesthetic → Mechanics mapping** (Horror needs complicity, Discovery needs reveals)
+2. **Resource systems** (tracked exploitation and consequences)
+3. **Content scoping** (12 scenarios calculated from time budget)
+4. **Context integration** (Build/Suggest/Omit guided what to include)
+5. **Validation** (coherence check, dynamics prediction)
+
+**What required adaptation:**
+
+* Loop terminology → narrative structure
+* Cognitive load → thematic complexity
+* Playtesting → GM preparation
+* Iteration → flexible GMing
+
+### Questions This Raises
+
+**For the Framework:**
+
+1. **Should we explicitly include "Narrative Arc Structure" as an alternative to loops?**
+
+   * Most TTRPGs and story games use this
+   * Walking simulators, visual novels use this
+   * Framework handled it, but wasn't explicit
+2. **How do we handle "GM as system"?**
+
+   * In TTRPGs, human GM is the flexible response system
+   * Different from coded video games
+   * Framework should acknowledge this
+3. **What about safety tools and social considerations?**
+
+   * Critical for TTRPGs with serious themes
+   * Not relevant for all games
+   * Where do these fit in framework?
+4. **Content calculation for TTRPGs different from video games?**
+
+   * Scenarios vs assets
+   * Preparation vs implementation
+   * Improvisation buffer
+5. **Should "Educational goals" be a separate aesthetic?**
+
+   * Or is "learning" part of Discovery?
+   * Games that teach (without being didactic)
+
+### What's Missing from Framework
+
+**For TTRPG Design:**
+
+* **Social dynamics section** (how player interaction affects design)
+* **GM tools** (what to prepare, how to respond)
+* **Safety frameworks** (Lines & Veils, X-Card, etc.)
+* **Improvisation budget** (how much to prep vs wing it)
+
+**For Narrative-Driven Games:**
+
+* **Story beats structure** (alternative to loops)
+* **Pacing guides** (tension/release rhythm)
+* **Information architecture** (revelations, discoveries, twists)
+
+### Success of This Exercise
+
+**Did we answer the design questions?**
+
+* ✓ Which mechanics? (Consequence tokens, exploitation tracking)
+* ✓ How many resources? (3 pools: Exploitation, Stability, Complicity)
+* ✓ How much content? (12 decision scenarios, 3-5 revelations)
+* ✓ Should there be zombies? (No - omit external threats, horror is internal)
+* ✓ Loop structure? (Narrative arc, not loops)
+* ✓ Does it teach colonialism? (Yes, through complicity mechanics and revelation structure)
+
+**The framework worked, even without a template.**
+
+***
+
+## Proposed Next Steps
+
+**For the Synthesis Chapter:**
+
+1. **Add "Narrative Arc Structure" as scaffold option**
+
+   * Alongside loop-based, puzzle-based, etc.
+   * Describe act structure, beats, pacing
+2. **Include TTRPG considerations**
+
+   * GM as flexible system
+   * Social dynamics
+   * Safety tools
+3. **Create second worked example** (this one)
+
+   * Shows framework without template
+   * Shows adaptation to different medium
+   * Shows educational design
+4. **Extract decision patterns**
+
+   * Horror → complicity mechanics
+   * Education → experience, not lecture
+   * One-shot → scoped content calculation
+
+**Should we:**
+
+* Formalize this as worked example #2?
+* Create decision tree for "loop vs narrative arc"?
+* Build TTRPG-specific guidance section?
+* Something else?
+
+**What do you think? Does this feel like the framework successfully handled a very different design challenge?**

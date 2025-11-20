@@ -1,0 +1,1132 @@
+---
+title: synthesis-framework-phase3
+---
+# The Design Framework: Phase 3 - Mechanical Specification
+
+## Part 6: Phase 3 - Mechanical Specification
+
+### What Are the Actual Rules?
+
+You've defined your aesthetic goals (Phase 1) and chosen your structural pattern (Phase 2). Now comes the critical work: selecting the specific mechanics that will create your intended experience.
+
+This is where design becomes concrete. You're no longer talking about "Challenge aesthetic" or "Compressed loop architecture"—you're specifying exactly what players do, what resources they manage, and what numbers govern the system.
+
+**By the end of Phase 3, you'll have:**
+
+* Specific core mechanics (the verbs of your game)
+* Complete resource systems (3-5 resources typical)
+* Initial parameter values (HP, damage, costs, timers, etc.)
+* Justification for each mechanical element
+
+### The Two Paths Through Phase 3
+
+Just as Phase 0 offered multiple entry points, Phase 3 offers two approaches based on whether you're using an archetype template:
+
+**Path A: Starting from Archetype**
+
+* You've chosen an archetype in Phase 2 (Daily Puzzle, Roguelike, MOBA, etc.)
+* Begin with archetype's typical mechanics
+* Modify based on your specific aesthetic goals
+* Faster but requires understanding what to keep vs. change
+
+**Path B: Building from First Principles**
+
+* No archetype template, or building something novel
+* Derive mechanics directly from aesthetic requirements
+* Slower but more creative freedom
+* Requires careful validation against aesthetic goals
+
+Both paths converge on the same outputs. Choose based on whether you have a useful archetype or are building something new.
+
+***
+
+## Step 3.1: Select Core Mechanics
+
+### Path A: Starting from Archetype
+
+**If you're using an archetype template:**
+
+1. **Review the archetype's typical mechanics**
+   * See Appendix A for full archetype descriptions
+   * Note which mechanics are considered "core" vs. "optional"
+   * Understand why those mechanics exist (what aesthetic they serve)
+
+2. **Decide what to keep**
+   * Keep mechanics that serve your aesthetic goals
+   * Keep mechanics that define the archetype (if you want that recognition)
+   * Keep mechanics that your target player profile expects
+
+3. **Decide what to change**
+   * Modify mechanics that partially fit (adjust, don't replace)
+   * Replace mechanics that fight your aesthetics
+   * Simplify mechanics if cognitive load demands it
+
+4. **Justify each decision**
+   * "Keeping X because it creates Y aesthetic"
+   * "Changing X to Y because our players need Z"
+   * "Removing X because it contradicts Y aesthetic"
+
+**Example: Modifying Daily Puzzle Archetype**
+
+**Archetype typical mechanics:**
+
+* Limited moves per puzzle
+* Pattern matching or spatial reasoning
+* Hint system
+* Daily refresh with new puzzle
+* Streak tracking
+
+**Our modification for "Busy Parents" scenario:**
+
+* ✓ **Keep:** Limited moves (creates Challenge aesthetic)
+* ✓ **Keep:** Spatial reasoning (tile swapping)
+* ✓ **Keep:** Hint system (safety valve for frustration)
+* ✗ **Change:** Daily refresh → On-demand puzzles (unpredictable schedule)
+* ✗ **Remove:** Streak tracking (punishes irregular play)
+* **Justification:** Busy parents have unpredictable schedules, so daily commitment mechanics hurt more than help
+
+**Warning signs you're modifying wrong archetype:**
+
+* Removing more than 50% of core mechanics (pick different archetype)
+* Adding complexity archetype doesn't support (cognitive load mismatch)
+* Fighting fundamental structure (maybe custom build is better)
+
+### Path B: Building from Aesthetics
+
+**If you're building without an archetype:**
+
+1. **Map aesthetics to mechanical requirements**
+   * Reference: Aesthetic Paradigm Recipes chapter
+   * Reference: Chapter 1 (System Components and Functions)
+   * Identify what mechanics each aesthetic needs
+
+2. **Start with primary aesthetic requirements**
+   * What does the primary aesthetic absolutely require?
+   * What mechanics create that specific feeling?
+   * What's the minimum viable mechanical set?
+
+3. **Add secondary aesthetic support**
+   * What mechanics support (not compete with) secondary aesthetics?
+   * What mechanics bridge multiple aesthetics?
+   * What's the cognitive load cost of each addition?
+
+4. **Remove mechanics that don't justify themselves**
+   * Does this mechanic serve an aesthetic goal?
+   * Does it create interesting dynamics?
+   * Is its cognitive load cost worth its benefit?
+
+**Aesthetic to Mechanic Mapping Guide:**
+
+**Challenge Aesthetic Needs:**
+
+* Meaningful decisions (choices with different outcomes)
+* Skill differentiation (better play = better results)
+* Clear failure states (know when you've lost)
+* Fair difficulty (challenging but achievable)
+* Feedback on performance (how well am I doing?)
+
+**Typical Challenge Mechanics:**
+
+* Resource limitations (moves, time, HP, actions)
+* Risk/reward tradeoffs (safe vs. aggressive plays)
+* Planning requirements (think ahead or fail)
+* Execution tests (timing, precision, accuracy)
+* Optimization opportunities (find better solutions)
+
+**Discovery Aesthetic Needs:**
+
+* Hidden information (things to uncover)
+* Exploration space (places/systems to investigate)
+* Reveals and surprises (eureka moments)
+* Variety and novelty (something new to find)
+* Depth beneath surface (more to learn)
+
+**Typical Discovery Mechanics:**
+
+* Hidden areas or content (locked doors, secret rooms)
+* Information asymmetry (GM knows, players discover)
+* Layered systems (surface rules → deep interactions)
+* Procedural variation (different each time)
+* Unlockable content (rewards exploration)
+
+**Mastery Aesthetic Needs:**
+
+* Skill improvement (get better over time)
+* Depth and complexity (always more to learn)
+* Execution challenges (hard to do perfectly)
+* Optimization space (find better strategies)
+* Performance feedback (track improvement)
+
+**Typical Mastery Mechanics:**
+
+* High skill ceiling (room for improvement)
+* Complex interactions (system depth)
+* Muscle memory requirements (practice pays off)
+* Meta-knowledge value (experience helps)
+* Difficulty scaling (keeps challenging you)
+
+**Completion Aesthetic Needs:**
+
+* Clear goals (know what to achieve)
+* Visible progress (see advancement)
+* Achievable milestones (not impossibly hard)
+* Closure and satisfaction (feeling of "done")
+* Next goal clarity (what's next?)
+
+**Typical Completion Mechanics:**
+
+* Progress bars and percentages
+* Checklists and collections
+* Tiered objectives (bronze/silver/gold)
+* Campaign/story progression
+* Achievement systems
+
+**Horror Aesthetic Needs:**
+
+* Vulnerability (can't just power through)
+* Consequences (actions matter permanently)
+* Dread (anticipation of bad outcomes)
+* Lack of control (can't always win)
+* Complicity (player is involved in horror)
+
+**Typical Horror Mechanics:**
+
+* Limited resources (scarcity creates tension)
+* Irreversible choices (can't undo mistakes)
+* Hidden consequences (learn cost later)
+* Escalating stakes (gets worse over time)
+* Moral choices (player is responsible)
+
+**Fellowship Aesthetic Needs:**
+
+* Communication tools (talk to others)
+* Shared challenges (work together)
+* Coordination requirements (need teamwork)
+* Social recognition (others see your contributions)
+* Relationship building (bonds form)
+
+**Typical Fellowship Mechanics:**
+
+* Cooperative objectives (win/lose together)
+* Role specialization (different strengths)
+* Complementary abilities (synergies)
+* Communication channels (chat, signals)
+* Social rewards (praise, recognition)
+
+**Expression Aesthetic Needs:**
+
+* Creation tools (make something)
+* Customization options (make it yours)
+* Sharing mechanisms (show others)
+* Variability (different outcomes possible)
+* Player agency (meaningful choices)
+
+**Typical Expression Mechanics:**
+
+* Build/craft systems (create content)
+* Character customization (appearance, loadout)
+* Player-generated content (mods, levels)
+* Multiple valid strategies (playstyle variety)
+* Cosmetic options (purely aesthetic choices)
+
+**Narrative Aesthetic Needs:**
+
+* Story progression (plot advances)
+* Meaningful choices (affect story)
+* Character development (growth and change)
+* Consequences visible (choices matter)
+* Coherent fiction (makes sense)
+
+**Typical Narrative Mechanics:**
+
+* Branching storylines (choices create paths)
+* Character stats/relationships (track story state)
+* Dialogue systems (conversation choices)
+* Consequence tracking (remember past actions)
+* Revelation mechanisms (uncover truth)
+
+### Mechanic Selection Process (Step-by-Step)
+
+**Step 1: List required functions**
+
+* From Chapter 1, identify which 7 functions your game needs
+* Most games need: Adjudication, Information Management, Pacing
+* Some games need: Randomness, Social Dynamics, Progression, Content Generation
+
+**Step 2: For each aesthetic, list minimum viable mechanics**
+
+* Primary aesthetic: What mechanics are absolutely required?
+* Secondary aesthetics: What mechanics support them?
+* Write down specific mechanics, not categories
+
+**Step 3: Check for redundancy**
+
+* Do multiple mechanics serve the same purpose?
+* Can one mechanic serve multiple aesthetics?
+* Which mechanics can be combined or cut?
+
+**Step 4: Calculate cognitive load cost**
+
+* How many elements does each mechanic add to player's mental model?
+* Does this fit within cognitive load budget (from Phase 2)?
+* Which mechanics give best aesthetic-per-cognitive-cost ratio?
+
+**Step 5: Specify core verbs**
+
+* What do players actually DO in your game?
+* List 3-7 core verbs (move, attack, build, solve, explore, etc.)
+* Ensure verbs map to mechanics map to aesthetics
+
+**Example: Building Alien One-Shot Horror TTRPG from Aesthetics**
+
+**Aesthetic Requirements:**
+
+* Horror (complicity): Mechanics must make players responsible for harm
+* Discovery (narrative): Mechanics must reveal truth gradually
+* Fellowship (social): Mechanics must encourage group decisions
+
+**Step 1: Required functions**
+
+* Adjudication: Yes (resolve player actions)
+* Information Management: Yes (GM reveals truth gradually)
+* Social Dynamics: Yes (group decision-making)
+* Randomness: Minimal (horror works better with inevitable consequences)
+* Pacing: Yes (escalation toward revelation)
+* Progression: No (one-shot, no advancement)
+* Content Generation: No (GM-authored scenarios)
+
+**Step 2: Minimum viable mechanics per aesthetic**
+
+For Horror (complicity):
+
+* Decision resolution that rewards harmful choices mechanically
+* Resource tracking that shows accumulating harm
+* No "undo" or "reload" mechanics
+* Consequences that manifest later
+
+For Discovery (narrative):
+
+* Information reveal triggers
+* GM tracking of what players know vs. truth
+* Investigation mechanics (if players seek info)
+
+For Fellowship (social):
+
+* Group decision-making (consensus or voting)
+* Shared responsibility tracking
+* No individual "save the day" mechanics
+
+**Step 3: Check for synergies**
+
+* Exploitation Points track both horror (harm done) and discovery (triggers reveals)
+* Decision-making serves both fellowship (group choice) and horror (shared responsibility)
+* Can use one core mechanic (group decisions → consequences) for all three aesthetics
+
+**Step 4: Cognitive load check**
+
+* Group decision-making: Low (just discussion and vote)
+* Exploitation Points: Low (GM tracks secretly)
+* Colony Stability: Low (single visible number)
+* Complicity: Low (personal secret tracking)
+* Total: 3-4 elements, within "Medium" budget for adult players
+
+**Step 5: Core verbs**
+
+* Discuss (group consideration of options)
+* Decide (collective choice)
+* Discover (uncover information)
+* Face (confront consequences)
+
+**Result: Minimal mechanical overhead, maximum aesthetic impact**
+
+### Common Mechanical Selection Mistakes
+
+**Mistake: "This mechanic is cool, so I'll include it"**
+
+* Cool ≠ serves aesthetic
+* Solution: Every mechanic must justify itself aesthetically
+
+**Mistake: "Games like mine have this mechanic"**
+
+* Genre convention ≠ requirement
+* Solution: Keep conventions that serve you, break those that don't
+
+**Mistake: "More mechanics = more depth"**
+
+* More mechanics = more cognitive load
+* Solution: Depth comes from interactions, not quantity
+
+**Mistake: "I need mechanics for everything players might do"**
+
+* Over-specification kills flexibility (especially in TTRPGs)
+* Solution: Core mechanics only, let edge cases resolve through principles
+
+**Mistake: "Balancing will fix this later"**
+
+* If mechanics fight aesthetics, tuning won't help
+* Solution: Wrong mechanics must be replaced, not tuned
+
+***
+
+## Step 3.2: Design Resource Systems
+
+Resources are the trackable elements that create scarcity, enable choice, and structure progression. Most games need 3-5 resources. More than that risks cognitive overload; fewer limits strategic depth.
+
+**Reference: Resource Management chapters for detailed analysis**
+
+### Resource Type Selection
+
+**The Four Resource Categories:**
+
+**1. Limiters (Create Tension Through Scarcity)**
+
+* **What they do:** Constrain player actions, create risk, force planning
+* **Examples:** HP, mana, moves per turn, time limits, ammunition
+* **Best for:** Challenge, Horror (vulnerability), Mastery (resource management)
+* **Design questions:**
+  * What should be scarce and why?
+  * How does scarcity create tension?
+  * What happens when depleted?
+
+**2. Currencies (Enable Choice and Strategy)**
+
+* **What they do:** Spent to gain benefits, create trade-offs, accumulate over time
+* **Examples:** Gold, XP, crafting materials, action points, influence
+* **Best for:** Mastery (optimization), Challenge (decision-making), Expression (customization)
+* **Design questions:**
+  * What do players spend this on?
+  * How is it earned?
+  * Is there optimal spending strategy?
+
+**3. Trackers (Show Progress and State)**
+
+* **What they do:** Record what's been achieved, unlock new content, provide feedback
+* **Examples:** Quest completion, map explored %, relationship values, skill levels
+* **Best for:** Completion, Discovery (what's been found), Narrative (story state)
+* **Design questions:**
+  * What needs tracking?
+  * Is tracking visible to players?
+  * Does tracking affect gameplay?
+
+**4. Meta-Resources (Cross-Session Persistence)**
+
+* **What they do:** Carry between sessions, enable long-term progression, unlock content
+* **Examples:** Unlocked characters, persistent upgrades, skill points, achievements
+* **Best for:** Mastery (long-term improvement), Completion (collection), Progression
+* **Design questions:**
+  * What persists between sessions?
+  * How is it earned?
+  * Does it create power progression or just variety?
+
+### Applying the 3-5 Resource Guideline
+
+**Why 3-5 resources?**
+
+* Fewer than 3: Limited strategic depth, feels shallow
+* More than 5: Cognitive overload for most players, hard to balance
+* 3-5: Sweet spot of depth without overwhelming
+
+**Exceptions:**
+
+* **Hardcore games:** Can handle 6-8 resources (Path of Exile, Civilization)
+* **Casual games:** Often better with 2-3 resources (Wordle has moves, that's it)
+* **TTRPGs with GM:** Can be more flexible (GM handles complexity)
+
+### Resource Design Process
+
+**Step 1: Identify aesthetic needs**
+
+* Which resources does each aesthetic require?
+* What creates the intended feeling?
+
+**Step 2: Choose resource types**
+
+* Need limitation/scarcity → Limiters
+* Need choice/trade-offs → Currencies
+* Need progress visibility → Trackers
+* Need cross-session growth → Meta-resources
+
+**Step 3: Specify each resource**
+
+For each resource, define:
+
+* **Name and type:** What is it called, what category?
+* **Starting value:** How much do players begin with?
+* **Maximum value:** Is there a cap? Why?
+* **Gain mechanisms:** How is it earned/acquired?
+* **Spend mechanisms:** What consumes it?
+* **Recovery patterns:** Does it regenerate? When? How much?
+* **Depletion consequence:** What happens at zero?
+
+**Step 4: Check interactions**
+
+* Do resources interact with each other? (Spend X to gain Y)
+* Are there interesting conversion opportunities?
+* Do resources create feedback loops? (Rich get richer problems?)
+
+**Step 5: Validate against cognitive load**
+
+* Can players track all resources simultaneously?
+* Are any resources too similar? (Merge them)
+* Are any resources non-interactive? (Cut or make them matter)
+
+### Resource Design Examples
+
+**Example 1: Daily Puzzle Game (Casual)**
+
+**Resource Count: 3** (minimal for casual)
+
+**Resource 1: Moves (Limiter)**
+
+* Type: Limiter (creates Challenge aesthetic)
+* Starting value: 20 per puzzle
+* Maximum: 20 (resets each puzzle)
+* Gain: None (fixed budget)
+* Spend: Each tile swap costs 1 move
+* Recovery: None within puzzle (forces planning)
+* Depletion: Puzzle fails, can retry unlimited
+
+**Resource 2: Hints (Currency)**
+
+* Type: Currency (enables player agency)
+* Starting value: 3 per puzzle
+* Maximum: 3 per puzzle (prevents hoarding)
+* Gain: +1 for each puzzle completed
+* Spend: 1 hint reveals optimal next move
+* Recovery: Renewable across puzzles (not within)
+* Depletion: Must solve without help
+
+**Resource 3: Puzzles (Meta-resource)**
+
+* Type: Tracker/Currency hybrid
+* Starting value: Unlimited available
+* Maximum: No maximum
+* Gain: Always available (no energy system)
+* Spend: "Completing" consumes one puzzle
+* Recovery: N/A (abundance, not scarcity)
+* Depletion: Never (respects unpredictable schedule)
+
+**Why these 3:**
+
+* Moves: Creates Challenge (planning required)
+* Hints: Safety valve (prevents frustration blocking Completion)
+* Puzzles: Respects Busy Adult constraints (play when available)
+* Cognitive load: Very low (3 simple numbers)
+
+**Example 2: Alien Horror One-Shot TTRPG (Adult)**
+
+**Resource Count: 3** (minimal for narrative focus)
+
+**Resource 1: Exploitation Points (Tracker - GM)**
+
+* Type: Hidden tracker (Horror aesthetic)
+* Starting value: 0
+* Maximum: 15+ (no cap, higher = worse)
+* Gain: Players make colonial/harmful decisions
+* Spend: Never spent (only accumulates)
+* Recovery: None (irreversible)
+* Thresholds: Trigger narrative reveals at 3, 6, 10, 15
+
+**Resource 2: Colony Stability (Limiter - Visible)**
+
+* Type: Limiter (what players think matters)
+* Starting value: 10
+* Maximum: 10
+* Gain: Successfully managing colony challenges
+* Spend: Complications, native resistance, failures
+* Recovery: Only through careful management
+* Depletion: Colony collapses (possible ending)
+
+**Resource 3: Complicity (Tracker - Personal)**
+
+* Type: Secret tracker (Horror aesthetic)
+* Starting value: 0 per player
+* Maximum: No cap
+* Gain: Individual harmful choices, silent acquiescence
+* Spend: Never spent
+* Recovery: None (creates personal reckoning)
+* Reveal: At session end (horror payoff)
+
+**Why these 3:**
+
+* Exploitation: Tracks Horror (complicity) and triggers Discovery (reveals)
+* Stability: Gives players visible goal (misdirection until revelation)
+* Complicity: Personal responsibility (Horror aesthetic)
+* Cognitive load: Medium (adults can handle moral complexity)
+
+**What's NOT included (and why):**
+
+* HP/Combat stats: Not survival horror, combat would distract from moral horror
+* Equipment/gear: Not relevant to complicity themes
+* XP/leveling: One-shot, no progression needed
+* Multiple currencies: Would dilute focus on consequences
+
+**Example 3: Hardcore Roguelike (Experienced Players)**
+
+**Resource Count: 5** (maximum for most audiences)
+
+**Resource 1: HP (Limiter)**
+
+* Type: Limiter (survival)
+* Starting value: 100
+* Maximum: Increases with character development
+* Gain: Healing items, rest, level-ups
+* Spend: Taking damage
+* Recovery: Scarce (intentionally tense)
+* Depletion: Permadeath (run ends)
+
+**Resource 2: Gold (Currency)**
+
+* Type: Currency (economic choices)
+* Starting value: 0
+* Maximum: No cap
+* Gain: Combat, chests, selling items
+* Spend: Buying items, services
+* Recovery: Earned each run, not persistent
+* Depletion: Limits strategic options
+
+**Resource 3: Energy/Stamina (Limiter)**
+
+* Type: Limiter (action economy)
+* Starting value: 3 per turn
+* Maximum: 3 (some items modify)
+* Gain: 3 per turn
+* Spend: Actions cost 1-3 energy
+* Recovery: Full refresh each turn
+* Depletion: Limits actions per turn
+
+**Resource 4: Metaprogression Currency (Meta-resource)**
+
+* Type: Meta-resource (persistent unlocks)
+* Starting value: 0 at account level
+* Maximum: No cap
+* Gain: Small amounts each run regardless of success
+* Spend: Permanent unlocks between runs
+* Recovery: Always earning (even from failures)
+* Depletion: N/A (only grows)
+
+**Resource 5: Run Progress (Tracker)**
+
+* Type: Tracker (completion visibility)
+* Starting value: Floor 1 of 10
+* Maximum: Floor 10 (win condition)
+* Gain: Completing floors
+* Spend: N/A (progress marker)
+* Recovery: Resets each run
+* Depletion: N/A (binary complete/incomplete)
+
+**Why these 5:**
+
+* HP: Core survival tension (Challenge, Horror)
+* Gold: Economic strategy layer (Mastery)
+* Energy: Tactical decision layer (Challenge)
+* Meta-currency: Progression despite failure (Mastery, Completion)
+* Run Progress: Clear goals and closure (Completion)
+* Cognitive load: High but acceptable for hardcore players
+
+**What creates depth:**
+
+* HP and Energy both limit actions (different timescales)
+* Gold creates trade-offs (spend now or save?)
+* Meta-currency makes failure valuable (aesthetic requirement)
+* Resources interact (gold can buy HP, but energy limits when)
+
+### Resource Scarcity Patterns
+
+**From Resource Management chapter, scarcity patterns by aesthetic:**
+
+**Challenge Aesthetic:**
+
+* **Scarcity pattern:** Tight but manageable
+* **Example:** Exactly enough moves to solve puzzle optimally, or just barely enough HP to win if played well
+* **Effect:** Forces planning and skill expression
+
+**Horror Aesthetic:**
+
+* **Scarcity pattern:** Insufficient (intentional shortage)
+* **Example:** Never quite enough ammunition, always low on resources
+* **Effect:** Creates vulnerability and dread
+
+**Mastery Aesthetic:**
+
+* **Scarcity pattern:** Tight but renewable
+* **Example:** Mana that regenerates, stamina that refreshes
+* **Effect:** Encourages learning optimal resource usage
+
+**Completion Aesthetic:**
+
+* **Scarcity pattern:** Abundant but capped per session
+* **Example:** Unlimited attempts but only 20 minutes available
+* **Effect:** Guarantees progress, prevents grinding
+
+**Discovery Aesthetic:**
+
+* **Scarcity pattern:** Abundant (enables exploration)
+* **Example:** Plenty of health, generous inventory, forgiving failures
+* **Effect:** Removes barriers to exploration
+
+### Recovery Mechanisms
+
+**How and when resources replenish:**
+
+**No Recovery (Permanent Scarcity):**
+
+* Best for: Horror (desperation), Challenge (puzzle resource budget)
+* Example: Puzzle moves don't regenerate within puzzle
+* Effect: Every decision matters permanently
+
+**Turn/Round Recovery (Regular Refresh):**
+
+* Best for: Challenge (tactical layer), Mastery (rhythm)
+* Example: 3 action points per turn
+* Effect: Creates micro-scale planning
+
+**Time-Based Recovery (Gradual Return):**
+
+* Best for: Challenge (pacing), Mastery (patience)
+* Example: HP regenerates 1 per second
+* Effect: Rewards waiting, punishes rushing
+
+**Event-Based Recovery (Contextual Refresh):**
+
+* Best for: Challenge (reward moments), Discovery (exploration incentive)
+* Example: Full heal at save points or after boss fights
+* Effect: Creates rhythm of tension and release
+
+**Session Reset (Abundance Across Sessions):**
+
+* Best for: Completion (no punishment for breaks), Casual players
+* Example: Daily puzzles, energy refreshes overnight
+* Effect: Respects player schedule
+
+**Meta-Persistence (Never Depletes):**
+
+* Best for: Mastery (long-term growth), Completion (collection)
+* Example: Unlocked characters stay unlocked
+* Effect: Permanent progress
+
+### Common Resource Design Mistakes
+
+**Mistake: "Players can grind for resources indefinitely"**
+
+* Turns Challenge into time investment
+* Solution: Cap grinding or make resources time-based, not effort-based
+
+**Mistake: "This resource never matters"**
+
+* If players ignore a resource, it's wasting cognitive load
+* Solution: Make it matter or cut it
+
+**Mistake: "Rich get richer" feedback loops**
+
+* Early advantage snowballs into guaranteed victory
+* Solution: Catch-up mechanics or cap advantages
+
+**Mistake: "Too many similar resources"**
+
+* Multiple currencies that function identically
+* Solution: Merge into one or differentiate clearly
+
+**Mistake: "Resource recovery breaks tension"**
+
+* Horror game where you can always wait for full HP
+* Solution: Match recovery to aesthetic (horror needs scarcity)
+
+**Mistake: "No interaction between resources"**
+
+* Resources exist in isolation
+* Solution: Create conversion, trade-offs, or synergies
+
+***
+
+## Step 3.3: Set Initial Parameters
+
+Now that you have mechanics and resources, you need numbers. How much HP? How much damage? How long does a session last? How many moves per puzzle?
+
+This is where the Measurables Catalog (From Principles to Numbers chapter) becomes essential.
+
+**Reference: Measurables Catalog for aesthetic → numeric target mappings**
+
+### The Parameter-Setting Process
+
+**Step 1: Identify what needs numbers**
+
+* Health/damage values (if combat exists)
+* Resource quantities (starting gold, max energy, etc.)
+* Costs (how much things cost to do/buy)
+* Timers (session length, turn duration, cooldowns)
+* Probabilities (hit chances, drop rates, proc rates)
+* Scaling (difficulty curves, level-up gains)
+* Victory conditions (score to win, floors to complete)
+
+**Step 2: Map aesthetics to target ranges**
+
+Use measurables to establish initial targets:
+
+**Challenge Aesthetic Parameters:**
+
+* **Target win rate:** 60-80% for casual, 30-50% for hardcore
+* **Time to mastery:** 10-20 hours to feel competent
+* **Failure recovery:** 30-60 seconds to retry
+* **Optimal strategy advantage:** 10-20% better than average strategy
+
+**Discovery Aesthetic Parameters:**
+
+* **Hidden content percentage:** 20-40% of content off main path
+* **Time to discover secrets:** 10-30% longer than main path
+* **Variety needed:** 3-5x base content in different forms
+* **Reveal pacing:** Major discovery every 30-60 minutes
+
+**Mastery Aesthetic Parameters:**
+
+* **Skill ceiling distance:** 2-3x improvement possible from novice to expert
+* **Practice time for competence:** 20-40 hours
+* **Execution difficulty:** Perfect play 30-50% better than good play
+* **Depth emergence time:** Discovering optimal strategies takes 50+ hours
+
+**Completion Aesthetic Parameters:**
+
+* **Session completion rate:** 80-90% of sessions end with goal completion
+* **Clear progress increments:** Visible progress every 5-10 minutes
+* **Goal clarity:** Player can state goal in 5 seconds
+* **Satisfying closure:** End state feels definitively "done"
+
+**Horror Aesthetic Parameters:**
+
+* **Resource sufficiency:** 60-80% of what feels comfortable (intentional shortage)
+* **Failure consequence severity:** Permanent or very costly
+* **Safe moments ratio:** 20-30% of time feels safe (rest is tension)
+* **Control reduction:** 30-50% of outcomes not fully in player control
+
+**Fellowship Aesthetic Parameters:**
+
+* **Communication necessity:** 60-80% of challenges require coordination
+* **Role dependency:** Each role contributes 15-25% of success
+* **Social interaction frequency:** Meaningful interaction every 2-5 minutes
+* **Failure attribution:** No single player can be solely blamed
+
+### Setting Specific Parameters
+
+**For Video/Board Games with Combat:**
+
+**Starting HP:**
+
+```
+Formula: HP = Expected Hits to Kill × Damage Per Hit
+Where: Expected Hits to Kill comes from aesthetic target win rate
+
+Challenge (70% win rate): 5-7 hits to kill
+Horror (vulnerable feel): 3-4 hits to kill
+Mastery (execution matters): 8-10 hits to kill
+
+Example: Challenge game, enemies deal 20 damage
+HP = 6 hits × 20 damage = 120 HP
+```
+
+**Damage Values:**
+
+```
+Damage should create meaningful but not overwhelming swings
+
+Basic attack: 10-20% of enemy HP
+Strong attack: 25-40% of enemy HP
+Ultimate attack: 50-75% of enemy HP
+
+Example: If enemies have 100 HP:
+Basic: 15 damage
+Strong: 30 damage
+Ultimate: 60 damage
+```
+
+**Resource Costs:**
+
+```
+Cost relative to income determines frequency
+
+If player earns 100 gold per session:
+Common purchase: 10-20 gold (buy several)
+Meaningful choice: 40-60 gold (buy one per session)
+Major investment: 100-200 gold (save multiple sessions)
+
+Adjust based on aesthetic:
+- Challenge: Tight economy (hard choices)
+- Mastery: Optimization opportunities (many viable paths)
+- Completion: Generous (progress feels good)
+```
+
+**For TTRPGs:**
+
+**Roll Target Numbers:**
+
+```
+2d6 system (7-9 partial success, 10+ full success):
+
+For Challenge aesthetic:
+- Routine tasks: +2 modifier (83% full success)
+- Challenging tasks: +0 modifier (58% full success)
+- Difficult tasks: -1 modifier (42% full success)
+- Nearly impossible: -2 modifier (28% full success)
+
+Adjust modifiers to hit desired success rates
+```
+
+**Resource Pools:**
+
+```
+Abstract quantities that feel substantial but trackable
+
+Low granularity: 3-5 points (every point matters)
+Medium granularity: 10-20 points (comfortable tracking)
+High granularity: 50-100 points (for complex systems)
+
+Match granularity to aesthetic:
+- Horror: Low (every loss hurts)
+- Challenge: Medium (strategy space)
+- Mastery: High (optimization opportunities)
+```
+
+**For Puzzle Games:**
+
+**Move Budgets:**
+
+```
+Moves needed = Optimal solution + Buffer
+
+Buffer size by aesthetic:
+- Challenge (tight): Optimal + 10-20%
+- Casual (generous): Optimal + 30-50%
+- Mastery (execution): Optimal + 5-10% (perfection required)
+
+Example: Puzzle solvable in 15 moves optimally
+Challenge: 17-18 moves (forces planning)
+Casual: 20-22 moves (room for mistakes)
+```
+
+**Difficulty Progression:**
+
+```
+Increase challenge by 5-10% per level
+
+Early levels (1-10): 5% increase (learning)
+Mid levels (11-30): 8% increase (engagement)
+Late levels (31+): 10% increase (mastery)
+
+Measure difficulty by: moves needed, complexity, time to solve
+```
+
+### Establishing Tuning Ranges
+
+Don't just set a single value—set a range you expect to tune within.
+
+**For each parameter:**
+
+* **Minimum value:** Below this, mechanic doesn't function
+* **Maximum value:** Above this, mechanic becomes degenerate
+* **Initial target:** Your best guess for launch
+* **Tuning range:** Expected adjustment range (±20-30% typical)
+
+**Example: HP Tuning Range**
+
+```
+Minimum: 80 HP (dies too fast, frustrating)
+Maximum: 150 HP (takes too long, boring)
+Initial target: 100 HP
+Tuning range: 90-120 HP (±20%)
+
+Plan to test: 90, 100, 110, 120
+Playtest will reveal optimal value
+```
+
+### Using Measurables for Validation
+
+**After setting initial parameters, validate against measurables:**
+
+**Question 1: Does this create intended aesthetic?**
+
+* If Challenge aesthetic, does target win rate match?
+* If Horror aesthetic, does resource scarcity create dread?
+* If Completion aesthetic, do sessions end satisfyingly?
+
+**Question 2: Are parameters in realistic ranges?**
+
+* Can players actually track these numbers?
+* Do calculations stay simple enough?
+* Are ranges too tight (no room to tune) or too loose (anything works)?
+
+**Question 3: Do parameters interact sensibly?**
+
+* If damage is 20 and HP is 100, that's 5 hits to kill (reasonable?)
+* If session is 20 minutes and puzzles take 5 minutes, that's 4 puzzles (enough?)
+* Do resource costs match income rates appropriately?
+
+### Platform-Specific Parameter Considerations
+
+**Video Games:**
+
+* Can have precise decimal values (17.5 damage is fine)
+* Can calculate complex formulas invisibly
+* Can adjust dynamically based on player performance
+* Frame rate affects timing parameters
+
+**Board Games:**
+
+* Must use whole numbers (fractions are cumbersome)
+* Must be human-calculable (no complex formulas)
+* Physical components limit parameter ranges
+* Setup/teardown time matters
+
+**TTRPGs:**
+
+* Must be memorable (GM can't reference constantly)
+* Must be narratively justifiable (numbers should make sense)
+* Can be more flexible (GM adjudicates edge cases)
+* Social dynamics affect parameter feel
+
+### Common Parameter-Setting Mistakes
+
+**Mistake: "I'll just use nice round numbers"**
+
+* 100 HP, 10 damage is common but not necessarily right
+* Solution: Derive numbers from aesthetic goals, not arbitrary preferences
+
+**Mistake: "I'll tune it later"**
+
+* Setting wildly wrong initial values wastes testing time
+* Solution: Use measurables to get close first, then tune
+
+**Mistake: "More numbers = more depth"**
+
+* Granular parameters don't automatically create depth
+* Solution: Use simplest numbers that create intended dynamics
+
+**Mistake: "Players will understand complex formulas"**
+
+* Hidden complexity is fine, visible complexity isn't
+* Solution: Show simple numbers, calculate complexity invisibly
+
+**Mistake: "These numbers worked in another game"**
+
+* Different aesthetics need different parameters
+* Solution: Every game needs its own parameter derivation
+
+***
+
+## Decision Point: Mechanical Completeness Check
+
+Before proceeding to Phase 4, verify you have complete mechanical specification:
+
+**Core Mechanics:**
+
+* [ ] Specific mechanics chosen (not categories)
+* [ ] Core verbs identified (3-7 verbs typical)
+* [ ] Each mechanic serves stated aesthetic
+* [ ] Mechanics within cognitive load budget
+* [ ] Decision: **Can you describe exactly what players do?**
+
+**Resource Systems:**
+
+* [ ] 3-5 resources specified (casual games may have fewer)
+* [ ] Each resource has clear purpose
+* [ ] Resource types appropriate for aesthetics
+* [ ] Scarcity/abundance patterns defined
+* [ ] Recovery mechanisms specified
+* [ ] Decision: **Can you track all resources on one sheet?**
+
+**Parameters:**
+
+* [ ] All needed numeric values identified
+* [ ] Initial values set based on measurables
+* [ ] Tuning ranges established
+* [ ] Parameters interact sensibly
+* [ ] Platform constraints respected
+* [ ] Decision: **Could you playtest this on paper right now?**
+
+**If you answered "no" to any decision question:**
+
+* Incomplete mechanics: Return to Step 3.1, be more specific
+* Incomplete resources: Return to Step 3.2, define all resources fully
+* Incomplete parameters: Return to Step 3.3, set actual numbers
+
+**If you answered "yes" to all decision questions:**
+
+* You have complete mechanical specification
+* You're ready for Phase 4: Content Specification
+* You should be able to paper prototype this immediately
+
+***
+
+## Output from Phase 3
+
+**You should now have:**
+
+1. **Complete Mechanical Specification Document:**
+   * List of all mechanics with descriptions
+   * Core verbs (what players do)
+   * Justification (which aesthetic each serves)
+
+2. **Resource System Specification:**
+   * 3-5 resources listed
+   * Type, starting value, max, gain/spend/recovery for each
+   * Resource interaction map
+
+3. **Parameter Sheet:**
+   * All numeric values listed
+   * Tuning ranges established
+   * Platform-specific considerations noted
+
+4. **Aesthetic Validation:**
+   * Confirmation each mechanic serves aesthetic goal
+   * Cognitive load audit passed
+   * No contradictory mechanics identified
+
+**Example Output Format:**
+
+```
+MECHANICAL SPECIFICATION
+
+Core Mechanics:
+1. Tile Swapping: Adjacent tiles can swap positions (Challenge)
+2. Pattern Matching: Goal is to match target pattern (Completion)
+3. Move Limitation: 20 moves per puzzle (Challenge)
+4. Hint System: Reveals optimal next move, 3 per puzzle (Safety valve)
+
+Core Verbs:
+- Swap (tiles)
+- Match (patterns)
+- Plan (move sequences)
+- Reset (retry puzzle)
+
+Resources:
+1. Moves (Limiter): 20 per puzzle, decreases to 0, no recovery
+2. Hints (Currency): 3 per puzzle, +1 per completion, spend 1 for help
+3. Puzzles (Abundant): Unlimited available, respects schedule
+
+Parameters:
+- Grid size: 5×5 (25 tiles)
+- Move budget: 20 moves (tuning range: 18-24)
+- Optimal solution: ~15 moves (buffer: +5)
+- Target completion rate: 70-80%
+- Session length: 20-30 minutes
+- Puzzles per session: 3-5
+
+Aesthetic Validation:
+✓ Challenge: Move limitation + planning requirement
+✓ Completion: Clear goal + achievable in session
+✓ Discovery: Pattern variety provides novelty
+✓ Cognitive load: 3 resources, simple rules = LOW (appropriate for casual)
+```
+
+***
+
+## Moving to Phase 4
+
+With complete mechanical specification, you're ready to answer:
+
+* How much content do you need?
+* Should content be procedural or authored?
+* How should content be organized and paced?
+* What theme/setting (if any) should dress the mechanics?
+
+**Phase 4: Content Specification will address all of these questions.**
+
+Turn to Phase 4 when ready to continue.

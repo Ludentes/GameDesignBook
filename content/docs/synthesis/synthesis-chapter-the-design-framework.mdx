@@ -1,0 +1,773 @@
+---
+title: Synthesis Chapter The Design Framework
+---
+# Synthesis Chapter: The Design Framework
+
+## Proposed Structure
+
+### Part 1: Introduction (2-3 pages)
+
+**"From Vision to System"**
+
+* What this chapter does: Takes you from aesthetic goal to complete game system
+* How to use it: Follow phases sequentially, reference other chapters as needed
+* Multiple entry points: Aesthetic-first, constraint-first, theme-first, mechanic-first
+* The framework is a conversation, not a checklist
+* Expected output: Specific mechanics, parameters, content requirements, validation criteria
+
+***
+
+### Part 2: Terminology Foundations (1-2 pages)
+
+**"What We're Building"**
+
+**The Four Contexts:**
+
+* **Medium:** TTRPG, video game, board game, etc. (delivery mechanism)
+* **Setting:** Fantasy, sci-fi, horror, abstract, etc. (thematic dressing)
+* **Archetype:** Roguelike, daily puzzle, 4X, one-shot, etc. (structural pattern)
+* **Aesthetic Profile:** Primary aesthetics + player type + cognitive load (experience goal)
+
+**Why These Matter:**
+
+* Medium constrains mechanics and content
+* Setting informs Build/Suggest/Omit
+* Archetype provides starting template (optional)
+* Aesthetic Profile drives all decisions
+
+***
+
+### Part 3: Phase 0 - Starting Point (3-4 pages)
+
+**"Where Are You Beginning?"**
+
+**Flexible Entry Paths:**
+
+**Path A: Aesthetic-First**
+
+* "I want players to feel X"
+* Define aesthetic profile first
+* Derive constraints and structure from aesthetics
+* Example prompt: "I want players to feel clever and accomplished in 20-minute sessions"
+
+**Path B: Constraint-First**
+
+* "I have 6 months, mobile platform, solo dev"
+* Define constraints first
+* Derive appropriate aesthetics and structure
+* Example prompt: "Mobile game, casual audience, no budget for content"
+
+**Path C: Theme-First**
+
+* "I want to make a space horror game"
+* Define setting first
+* Derive compatible aesthetics and mechanics
+* Example prompt: "Colonial horror in space, teaching through play"
+
+**Path D: Mechanic-First**
+
+* "I have this cool card system"
+* Define mechanics first
+* Derive what aesthetics they serve
+* Example prompt: "Deck-building with resource conversion"
+
+**Convergence Point:** All paths must produce:
+
+* Clear aesthetic profile (primary aesthetics defined)
+* Known constraints (medium, time, audience, resources)
+* Optional: Setting or archetype preference
+
+**Output:** Complete starting specification
+
+***
+
+### Part 4: Phase 1 - Aesthetic Crystallization (4-5 pages)
+
+**"What Experience Are You Creating?"**
+
+**Step 1.1: Define Primary Aesthetics**
+
+* Use Aesthetic Paradigm Recipes (reference Part 3: Aesthetic Paradigm Recipes)
+* Identify primary (main experience goal)
+* Identify secondary (supporting experiences)
+* Identify exclusions (what this is NOT)
+* Validate compatibility (do these aesthetics work together?)
+
+**Step 1.2: Select Player Profile**
+
+* Reference Players & Contexts section
+* Choose cognitive investment level:
+  * **Casual:** 5-30 min sessions, 3±2 trackable elements
+  * **Midcore:** 30-90 min sessions, 5-7 systems
+  * **Hardcore:** 2+ hour sessions, high complexity tolerance
+  * **Special cases:** Busy adults, accessibility needs
+* Consider platform context (mobile, PC, console, tabletop)
+* Consider social context (solo, multiplayer, sync/async)
+
+**Step 1.3: Set Success Criteria**
+
+* What does perfect success feel like?
+* What measurable outcomes indicate success? (reference Measurables Catalog)
+* What is minimum viable aesthetic? (what MUST work?)
+* How will you know if you've failed?
+
+**Decision Point:** Can you clearly state: "This game creates \[aesthetic] for \[player type] in \[context]"?
+
+**Output:** Complete aesthetic profile with validation criteria
+
+***
+
+### Part 5: Phase 2 - Scaffold Architecture (6-8 pages)
+
+**"What Structure Supports Your Aesthetics?"**
+
+**Step 2.1: Choose Structural Pattern**
+
+**Pattern A: Loop-Based Architecture**
+
+* Best for: Action games, roguelikes, strategy games, most video games
+* Reference: Temporal Architecture: Loops chapter
+* Architectures:
+  * **Full Stack** (micro + meso + macro): Long-term progression
+  * **Compressed** (micro + meso): Session-complete games
+  * **Inverted** (macro-heavy): Incremental/idle games
+  * **Constrained** (single scale): Pure gameplay focus
+
+**Pattern B: Narrative Arc Architecture**
+
+* Best for: Story games, TTRPGs, walking simulators, one-shots
+* Structure: Acts with decision points/story beats
+* Pacing: Tension/release rhythm
+* No repeating loops, but clear progression
+
+**Pattern C: Puzzle Architecture**
+
+* Best for: Pure puzzle games, brain teasers
+* Structure: Discrete challenges with solutions
+* Minimal or no meta-progression
+* Focus on problem-solving moment
+
+**Pattern D: Exploration Architecture**
+
+* Best for: Walking simulators, metroidvanias, open-world discovery
+* Structure: Space-based progression, gating, revelation
+* Discovery-driven, player-paced
+
+**Pattern E: Progression Architecture**
+
+* Best for: RPGs, character builders, incremental games
+* Structure: Numerical advancement, power curves
+* Long-term growth focus
+
+**Decision Matrix: Aesthetic + Player Profile → Architecture**
+
+| Aesthetic Primary | Casual Players             | Midcore Players        | Hardcore Players       |
+| ----------------- | -------------------------- | ---------------------- | ---------------------- |
+| Challenge         | Compressed Loops           | Full Stack Loops       | Full Stack Loops       |
+| Discovery         | Compressed/Exploration     | Full Stack/Exploration | Full Stack/Exploration |
+| Mastery           | Compressed/Puzzle          | Full Stack/Loops       | Full Stack/Complex     |
+| Narrative         | Narrative Arc              | Narrative Arc/Loops    | Narrative Arc/Loops    |
+| Horror            | Narrative Arc              | Narrative Arc          | Narrative Arc          |
+| Fellowship        | Varies by social structure |                        |                        |
+
+**Step 2.2: Design Temporal Structure**
+
+**For Loop-Based:**
+
+* Define micro loop (1-5 min): What's the moment-to-moment action?
+* Define meso loop (10-60 min): What's the medium-term goal?
+* Define macro loop (hours to weeks): What's the long-term progression?
+* Specify loop lengths based on player profile
+* Ensure each loop scale serves primary aesthetic
+
+**For Narrative Arc:**
+
+* Define acts (3-5 acts typical)
+* Define decision points/story beats per act
+* Specify pacing (escalation, climax, resolution)
+* Calculate time per act
+
+**For Other Patterns:**
+
+* Define equivalent structural elements
+* Specify progression logic
+* Determine pacing requirements
+
+**Step 2.3: Allocate Cognitive Load**
+
+* Reference: Cognitive Load chapter
+* Total budget from player profile (casual = low, hardcore = high)
+* Distribute across:
+  * Core mechanic (largest allocation)
+  * Goal tracking
+  * Resource management
+  * Meta-progression/context
+  * Social/communication (if multiplayer)
+* Ensure primary aesthetic gets priority in allocation
+* Validate: Does total stay within budget?
+
+**Decision Point:** Does your chosen architecture support your aesthetics within your player's cognitive capacity?
+
+**Output:** Complete scaffold specification with temporal structure and load allocation
+
+***
+
+### Part 6: Phase 3 - Mechanical Specification (8-10 pages)
+
+**"What Are the Actual Rules?"**
+
+**Step 3.1: Select Core Mechanics**
+
+**Option A: Start from Archetype (if chosen)**
+
+* Reference archetype template (see Appendices)
+* Note typical mechanics for this archetype
+* Decide what to keep vs. change
+* Justify changes based on aesthetic goals
+
+**Option B: Build from Aesthetics (if no archetype)**
+
+* Reference: Chapter 1 (System Components)
+* Reference: Aesthetic Paradigm Recipes
+* Map aesthetics to mechanical categories:
+  * Challenge → skill-based decisions, meaningful failure
+  * Discovery → hidden information, exploration, reveals
+  * Mastery → skill curves, optimization, improvement
+  * Expression → creation tools, customization, sharing
+  * Narrative → choices, consequences, story progression
+  * Fellowship → communication, cooperation, shared goals
+  * Horror → vulnerability, consequences, dread
+  * (etc. for other aesthetics)
+
+**Mechanic Selection Process:**
+
+1. Identify required mechanical functions (from Chapter 1)
+2. Choose specific mechanics that serve aesthetics
+3. Ensure each mechanic justifies its cognitive cost
+4. Remove mechanics that don't serve primary aesthetic
+
+**Step 3.2: Design Resource Systems**
+
+* Reference: Resource Management chapters
+* Identify resource types needed:
+  * **Limiters:** Create scarcity and tension (HP, mana, moves, time)
+  * **Currencies:** Enable choice and strategy (gold, XP, materials)
+  * **Trackers:** Show progress and state (quest completion, map explored)
+  * **Meta-resources:** Cross-session persistence (unlocks, skill points)
+
+**Resource Design Questions:**
+
+* How many resources? (Apply 3-5 resource guideline)
+* Scarcity or abundance for each?
+* Recovery mechanisms? (regeneration, rewards, persistence)
+* Cross-resource interactions? (spend X to gain Y)
+* Which resources serve which aesthetics?
+
+**Step 3.3: Set Initial Parameters**
+
+* Reference: From Principles to Numbers (Measurables catalog)
+* Map aesthetic goals to numeric targets:
+  * Challenge → target win rate, difficulty curve
+  * Discovery → content variety, hidden percentage
+  * Mastery → skill ceiling, improvement rate
+  * Completion → session length, goal clarity
+* Set parameter ranges for tuning (min/max values)
+* Define success/failure conditions
+* Establish progression curves (if applicable)
+
+**For Video Games:**
+
+* Specific numeric values (HP, damage, costs)
+* Difficulty scaling formulas
+* Randomness ranges
+
+**For TTRPGs:**
+
+* Roll mechanics (dice pools, target numbers)
+* Resource pools (abstract quantities)
+* GM guidance ranges
+
+**For Board Games:**
+
+* Component counts
+* Action economies
+* Scoring systems
+
+**Decision Point:** Can you play this on paper/in your head? If not, what's still undefined?
+
+**Output:** Complete mechanical specification with resources and initial parameters
+
+***
+
+### Part 7: Phase 4 - Content Specification (6-8 pages)
+
+**"How Much Content Do You Need?"**
+
+**Step 4.1: Calculate Content Needs**
+
+**Content Formula Framework:**
+
+**Base Formula:**
+
+```
+Required Content = (Session Length × Expected Sessions) / Content Consumption Rate
+```
+
+**But consumption rate varies by aesthetic:**
+
+**Discovery-Heavy Games:**
+
+* Consume content fastest (novelty required)
+* Formula: High variety needed
+* Heuristic: "Discovery games need 3x more unique content than Mastery games"
+* Example calculation:
+
+  ```
+  If target is 20 hours of Discovery gameplay:- Each hour needs 10 unique discoveries- Total needed: 200 unique elements- With procedural variation: 50 templates × 4 variations = 200
+  ```
+
+**Mastery-Heavy Games:**
+
+* Re-use content (improvement is the content)
+* Formula: Moderate variety, high replayability
+* Heuristic: "Mastery games need depth over breadth"
+* Example calculation:
+
+  ```
+  If target is 20 hours of Mastery gameplay:- Need 5-10 distinct challenges- Each replayed 20-40 times with increasing difficulty- Total needed: 10 core scenarios with difficulty scaling
+  ```
+
+**Challenge-Heavy Games:**
+
+* Balance required (neither pure novelty nor pure repetition)
+* Formula: Moderate variety with tuning
+* Heuristic: "Challenge games need enough variety to prevent pattern memorization"
+* Example calculation:
+
+  ```
+  If target is 20 hours of Challenge gameplay:- Each challenge encountered 2-5 times- Need 40-100 distinct challenges- Organized into difficulty tiers
+  ```
+
+**Narrative-Heavy Games:**
+
+* Linear consumption (story beats)
+* Formula: Story length × branching factor
+* Heuristic: "Linear stories need X hours of content for X hours of play; branching stories need more"
+* Example calculation:
+
+  ```
+  If target is 10 hours of Narrative gameplay:- Linear: 10 hours of story content- Branching (3 paths): 15-20 hours of story content- Heavy branching (meaningful choices): 25-30 hours of story content
+  ```
+
+**Content Calculation by Architecture:**
+
+**Loop-Based Games:**
+
+* Micro loop: Content per attempt (e.g., 10 enemy types)
+* Meso loop: Content per session (e.g., 5 level themes)
+* Macro loop: Content for progression (e.g., 50 unlockables)
+
+**Narrative Arc Games:**
+
+* Decision points × branches = scenario count
+* Example: 12 decision points × 2 branches average = 24 scenarios
+
+**Puzzle Games:**
+
+* Puzzles needed = (Days active × Puzzles per day)
+* Example: 90 days × 1 puzzle = 90 unique puzzles
+
+**Worked Example (included in chapter):** "Daily Puzzle Game Content Calculation"
+
+* Target: 90 days of daily puzzles
+* Discovery (light) + Challenge aesthetic
+* Formula: 90 days × 1 puzzle = 90 puzzles minimum
+* But: With procedural generation: 20 templates × 5 variations = 100 puzzles
+* Implementation: 20 hand-crafted patterns, procedural difficulty scaling
+
+**Step 4.2: Procedural vs. Authored Decision**
+
+**Decision Matrix:**
+
+**Go Procedural When:**
+
+* High content volume needed (100+ elements)
+* Content is systemic (follows rules)
+* Budget/time limited
+* Aesthetic tolerates variation (Discovery, Challenge)
+
+**Go Authored When:**
+
+* Narrative-heavy (story requires coherence)
+* Quality critical (each piece must be perfect)
+* Lower volume needed (\<100 elements)
+* Aesthetic requires precision (Narrative, Horror)
+
+**Hybrid Approach (Most Common):**
+
+* Authored templates
+* Procedural variation
+* Hand-tuned edge cases
+
+**Step 4.3: Information Architecture**
+
+**Tutorial Design:**
+
+* What must players know immediately?
+* What can be discovered?
+* What should never be explained?
+* Tutorial length from cognitive load budget
+
+**Onboarding Sequence:**
+
+* First session goals
+* First week goals
+* Complexity ramping schedule
+
+**Feedback Systems:**
+
+* Immediate feedback (action results)
+* Short-term feedback (micro loop completion)
+* Long-term feedback (macro progression)
+
+**Step 4.4: Context Integration (Build/Suggest/Omit)**
+
+* Reference: Context chapter (Build/Suggest/Omit framework)
+
+**If Setting Already Chosen:**
+
+* Apply Build/Suggest/Omit to ensure coherence
+* Build: Essential thematic elements
+* Suggest: Supporting atmospheric elements
+* Omit: Contradictory or distracting elements
+* Iterate until mechanics and setting mutually reinforce
+
+**If Setting Not Chosen:**
+
+* Option 1: Select setting that fits mechanics
+* Option 2: Go abstract (mechanics-only)
+* Option 3: Minimal dressing (just enough context)
+
+**Thematic Coherence Questions:**
+
+* Do mechanics and theme reinforce each other?
+* Does setting serve aesthetics or fight them?
+* Can players intuit mechanics from theme?
+* Does theme add cognitive load or reduce it?
+
+**Decision Point:** Can you list everything that needs to be created? Do you know how much is enough?
+
+**Output:** Content specification (quantity, type, authorship), information architecture, thematic integration
+
+***
+
+### Part 8: Phase 5 - Validation & Iteration (6-8 pages)
+
+**"Does This Actually Work?"**
+
+**Step 5.1: Coherence Audit**
+
+**Aesthetic Coherence:**
+
+* [ ] Every mechanic serves primary aesthetic
+* [ ] No mechanics fight against primary aesthetic
+* [ ] Secondary aesthetics support, not compete with primary
+* [ ] Excluded aesthetics are truly absent
+
+**Structural Coherence:**
+
+* [ ] Loop scales (or narrative beats) connect properly
+* [ ] Micro success contributes to meso progress
+* [ ] Meso success contributes to macro progress (if exists)
+* [ ] Pacing serves aesthetic goals
+
+**Thematic Coherence:**
+
+* [ ] Setting and mechanics reinforce each other
+* [ ] No "space coffee" (theme contradicts mechanics)
+* [ ] Players can intuit mechanics from theme
+* [ ] Theme adds to experience, not just decoration
+
+**Cognitive Load Coherence:**
+
+* [ ] Total load within player profile budget
+* [ ] Priority elements get most cognitive space
+* [ ] Complexity ramps appropriately
+* [ ] No unnecessary complexity
+
+**Step 5.2: Dynamics Prediction**
+
+**Expected Dynamics Checklist:**
+
+For Loop-Based Games:
+
+* [ ] Does micro loop success contribute to meso progress?
+* [ ] Does meso loop success contribute to macro progress?
+* [ ] Does failure provide value? (information, resources, or progress)
+* [ ] Can players see long-term goals from short-term actions?
+* [ ] Do resources create interesting tensions?
+* [ ] Are there meaningful choices at each scale?
+
+For Narrative Arc Games:
+
+* [ ] Do early decisions have consequences later?
+* [ ] Is there escalating tension across acts?
+* [ ] Do revelations recontextualize previous events?
+* [ ] Can players affect outcomes meaningfully?
+* [ ] Does structure support aesthetic pacing?
+
+For All Games:
+
+* [ ] What will players optimize? (Is this desired?)
+* [ ] What strategies will emerge? (Are they interesting?)
+* [ ] Where will players get stuck? (Is this intentional?)
+* [ ] What will players ignore? (Should they?)
+
+**Unintended Dynamics Watch List:**
+
+* Dominant strategies that trivialize challenge
+* Exploits that break progression
+* Social dynamics that create toxicity (multiplayer)
+* Grinding that replaces skill
+* Confusion that blocks progress
+
+**Step 5.3: Paper Playtest**
+
+**For Video/Board Games:**
+
+* Walk through complete session on paper
+* Track all resources manually
+* Simulate decision points
+* Note where rules unclear or break
+
+**For TTRPGs:**
+
+* Outline complete session beat-by-beat
+* Identify prep needed
+* Note improvisation points
+* Check pacing realistic
+
+**Playtest Questions:**
+
+* First 5 minutes: Is it clear what to do?
+* First hour: Is it engaging?
+* Mid-session: Is progress meaningful?
+* End of session: Was it satisfying?
+* Return decision: Would I play again?
+
+**Step 5.4: Iteration Protocol**
+
+**When Playtest Reveals Problems:**
+
+**Symptom: Numbers feel wrong (too easy/hard, too fast/slow)** → **Fix Level: Parameters** → **Action:** Tune values, adjust curves, retest → **Timeline:** Quick iteration (hours to days)
+
+**Symptom: Mechanics don't create intended feel** → **Fix Level: Mechanics** → **Action:** Change specific mechanics, keep structure → **Timeline:** Moderate iteration (days to weeks)
+
+**Symptom: Loop/arc structure doesn't support aesthetic** → **Fix Level: Architecture** → **Action:** Restructure temporal elements → **Timeline:** Major iteration (weeks to months)
+
+**Symptom: Players can't/won't engage with core concept** → **Fix Level: Aesthetic Match** → **Action:** Change target player profile OR change aesthetic goal → **Timeline:** Fundamental pivot (restart framework)
+
+**Iteration Decision Tree:**
+
+```
+Problem identified
+    ↓
+Is it a numbers problem? (win rates, timing, costs)
+    YES → Tune parameters
+    NO ↓
+Is it a mechanic problem? (rules don't create desired dynamics)
+    YES → Change mechanics, keep structure
+    NO ↓
+Is it a structure problem? (loops/pacing don't work)
+    YES → Restructure architecture
+    NO ↓
+Is it an aesthetic mismatch? (wrong game for these players, or wrong players for this game)
+    YES → Pivot aesthetic or audience
+```
+
+**When to Persist vs. Pivot:**
+
+* Persist: If core aesthetic moments land, but execution needs work
+* Pivot: If core aesthetic moments don't land even when executed well
+
+**Decision Point:** Is this game ready for implementation, or does something fundamental need to change?
+
+**Output:** Validated design with clear iteration plan or pivot decision
+
+***
+
+### Part 9: Quick Reference (2-3 pages)
+
+**"The One-Page Framework"**
+
+**Phase-by-Phase Checklist:**
+
+**Phase 0: Starting Point**
+
+* [ ] Entry path chosen (aesthetic/constraint/theme/mechanic)
+* [ ] Aesthetic profile defined
+* [ ] Constraints documented
+* [ ] Optional: Archetype or setting selected
+
+**Phase 1: Aesthetic Crystallization**
+
+* [ ] Primary aesthetic(s) identified
+* [ ] Player profile selected
+* [ ] Success criteria defined
+* [ ] Measurable targets set
+
+**Phase 2: Scaffold Architecture**
+
+* [ ] Structural pattern chosen (loops/narrative/puzzle/etc.)
+* [ ] Temporal structure specified
+* [ ] Cognitive load allocated
+* [ ] Architecture serves aesthetics confirmed
+
+**Phase 3: Mechanical Specification**
+
+* [ ] Core mechanics selected
+* [ ] Resource systems designed (3-5 resources)
+* [ ] Initial parameters set
+* [ ] Each mechanic serves aesthetic confirmed
+
+**Phase 4: Content Specification**
+
+* [ ] Content quantity calculated
+* [ ] Procedural vs. authored decided
+* [ ] Information architecture designed
+* [ ] Setting/theme integrated (Build/Suggest/Omit)
+
+**Phase 5: Validation**
+
+* [ ] Coherence audit passed
+* [ ] Dynamics predicted
+* [ ] Paper playtest completed
+* [ ] Iteration plan or implementation ready
+
+**Critical Questions at Each Phase:**
+
+* Phase 0: "What experience for whom in what context?"
+* Phase 1: "What aesthetics and how will I measure success?"
+* Phase 2: "What structure supports these aesthetics for these players?"
+* Phase 3: "What specific mechanics create the intended dynamics?"
+* Phase 4: "How much content is enough and how is it dressed?"
+* Phase 5: "Does this actually work and what needs fixing?"
+
+***
+
+### Part 10: Appendices (Variable Length)
+
+**Appendix A: Archetype Library**
+
+* Daily Puzzle Game
+* Roguelike
+* 4X Strategy
+* MOBA
+* Cozy Sim
+* One-Shot TTRPG
+* Metroidvania
+* Idle/Incremental
+* Battle Royale
+* (10-20 total archetypes)
+
+**Appendix B: Decision Matrices**
+
+* Aesthetic + Player Profile → Architecture
+* Architecture + Aesthetic → Content Needs
+* Medium → Mechanic Constraints
+* Aesthetic → Resource Type Requirements
+
+**Appendix C: Content Formulas Reference**
+
+* Discovery content consumption rates
+* Mastery replayability factors
+* Challenge variety requirements
+* Narrative branching calculations
+
+**Appendix D: Common Pitfalls**
+
+* "Space Coffee" (theme contradicts mechanics)
+* Dominant Strategy (trivializes challenge)
+* Cognitive Overload (too many systems)
+* Missing Meso Loop (no medium-term goals)
+* Wrong Audience (aesthetic doesn't match players)
+
+**Appendix E: Reference Chapter Connections**
+
+* When to read Chapter 1 (System Components)
+* When to read Resource Management
+* When to read Cognitive Load
+* When to read Context
+* When to read Measurables
+* When to read Temporal Architecture
+
+***
+
+## Chapter Metadata
+
+**Estimated Length:** 40-50 pages
+
+* Introduction: 2-3 pages
+* Terminology: 1-2 pages
+* Phase 0: 3-4 pages
+* Phase 1: 4-5 pages
+* Phase 2: 6-8 pages
+* Phase 3: 8-10 pages
+* Phase 4: 6-8 pages
+* Phase 5: 6-8 pages
+* Quick Reference: 2-3 pages
+* Appendices: Variable (10-20 pages)
+
+**Prerequisites:**
+
+* Read Chapter 1 (System Components)
+* Familiar with Aesthetic Paradigm Recipes
+* Understand Cognitive Load basics
+
+**Recommended Reading Order:**
+
+1. Introduction + Terminology
+2. Skim all phases to understand flow
+3. Return to Phase 0 and work through step-by-step
+4. Reference other chapters as needed
+5. Use Quick Reference for subsequent designs
+
+**Key Features:**
+
+* Multiple entry points (aesthetic/constraint/theme/mechanic)
+* Explicit decision points at each phase
+* Clear outputs from each phase
+* Validation built into process
+* Iteration guidance included
+* Works across mediums (video/board/TTRPG)
+* Works across architectures (loops/narrative/puzzle/etc.)
+
+***
+
+## Does This Structure Work?
+
+**What it provides:**
+
+* Clear sequential process
+* Flexibility for different starting points
+* Explicit connections to other chapters
+* Practical decision-making tools
+* Validation and iteration guidance
+* Reference materials for common patterns
+
+**What it avoids:**
+
+* Worked examples (those go in second half)
+* Excessive theory (framework is practical)
+* Prescriptive rigidity (provides options, not mandates)
+* Medium-specific details (works across games)
+
+**Questions:**
+
+1. Is the phase progression logical?
+2. Are any phases missing or redundant?
+3. Is the balance right between prescription and flexibility?
+4. Should any sections be longer/shorter?
+5. Are the appendices sufficient?
+
+**Ready to start writing, or should we adjust the structure first?**

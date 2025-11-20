@@ -1,0 +1,641 @@
+---
+title: synthesis-framework-part1
+---
+# The Design Framework: From Vision to System
+
+## Part 1: Introduction - From Vision to System
+
+You have an idea. Maybe it's a feeling you want players to experience, a theme you want to explore, a mechanic that excites you, or a constraint you must work within. Whatever your starting point, you need a path from that initial spark to a complete, playable game system.
+
+This chapter provides that path.
+
+### What This Framework Does
+
+This framework guides you from any starting point to a complete game system specification. By the end, you'll know:
+
+* **Which mechanics** to include (and which to cut)
+* **How many resources** your game needs (and what they do)
+* **How much content** is enough (and how to create it)
+* **What parameters** to set (HP values, move counts, session lengths)
+* **Whether your design works** (and how to fix it if it doesn't)
+
+The framework works across mediums (video games, board games, TTRPGs), across genres (roguelikes, puzzles, narrative games), and across scales (small indie projects to large productions).
+
+### What This Framework Doesn't Do
+
+This framework doesn't:
+
+* Make creative decisions for you (you decide what experience you want to create)
+* Guarantee your game will be fun (execution still matters)
+* Replace playtesting (it prepares you for effective testing)
+* Eliminate iteration (it helps you iterate productively)
+
+Think of it as a structured conversation with an experienced designer who asks the right questions in the right order.
+
+### How to Use This Chapter
+
+**First Time Through:**
+
+1. Read this introduction and the terminology section
+2. Skim all phases to understand the complete flow
+3. Return to Phase 0 and work through step-by-step
+4. Reference other book chapters when directed
+5. Complete each phase before moving to the next
+
+**Subsequent Uses:**
+
+* Start at Phase 0 with your new concept
+* Use the Quick Reference (Part 9) as a checklist
+* Jump directly to specific phases as needed
+* Reference Appendices for common patterns
+
+**When Stuck:**
+
+* Check the relevant chapter reference (listed at each phase)
+* Review worked examples in the second half of the book
+* Consult the decision matrices in Appendix B
+* Consider if you're at the wrong phase (maybe need to back up)
+
+### Multiple Entry Points
+
+Real designers don't always start with "I want to create this aesthetic experience." Sometimes you start with:
+
+* A constraint: "Mobile game, 6 months, solo developer"
+* A theme: "Colonial horror in space"
+* A mechanic: "This card system is interesting"
+* An aesthetic: "I want players to feel clever"
+
+The framework accommodates all these starting points. Phase 0 shows you how to begin from wherever you are.
+
+### The Framework as Pathway, Not Prescription
+
+This framework is:
+
+* **Sequential** - Each phase builds on previous phases
+* **Flexible** - Multiple valid paths through each phase
+* **Iterative** - You'll revisit phases as you learn
+* **Practical** - Focused on actionable decisions
+
+This framework is not:
+
+* **Rigid** - You can adapt it to your needs
+* **Exhaustive** - It doesn't cover every edge case
+* **Prescriptive** - It offers choices, not mandates
+* **One-size-fits-all** - Different games need different approaches
+
+Use it as a guide, not a straitjacket. Experienced designers will find places to shortcut or elaborate. Novice designers will find structure and clarity.
+
+### Expected Output
+
+By completing this framework, you'll have:
+
+**From Phase 1 (Aesthetic Crystallization):**
+
+* Defined primary and secondary aesthetics
+* Selected target player profile
+* Set measurable success criteria
+
+**From Phase 2 (Scaffold Architecture):**
+
+* Chosen structural pattern (loops, narrative arc, puzzle, etc.)
+* Specified temporal structure (session lengths, pacing)
+* Allocated cognitive load budget
+
+**From Phase 3 (Mechanical Specification):**
+
+* Selected specific mechanics
+* Designed resource systems (3-5 resources typical)
+* Set initial parameters (numeric values, ranges)
+
+**From Phase 4 (Content Specification):**
+
+* Calculated content requirements
+* Decided procedural vs. authored approach
+* Integrated theme/setting (or justified abstract approach)
+
+**From Phase 5 (Validation):**
+
+* Completed coherence audit
+* Predicted likely dynamics
+* Identified iteration needs or implementation readiness
+
+You'll have a complete specification ready for prototyping and playtesting.
+
+### Why Aesthetic-First Design Works
+
+This framework prioritizes aesthetics (the experiences you want to create) over mechanics (the rules that create them) for a critical reason: **mechanics are tools to create experiences**.
+
+If you start with mechanics and hope they create good experiences, you're designing backwards. If you start with desired experiences and choose mechanics to create them, you're designing with purpose.
+
+This doesn't mean mechanics aren't important—they're essential. But they serve your aesthetic goals. Every mechanic, resource, and parameter should justify itself by asking: "Does this serve my aesthetic goals?" If not, cut it.
+
+### A Note on Terminology
+
+This book uses specific terms to avoid confusion. Before diving into the framework, make sure you understand these distinctions (covered in Part 2). Common sources of confusion:
+
+* "Genre" can mean three different things (setting, archetype, or aesthetic)
+* "Game" can mean the system or an instance of play
+* "Balance" means different things in different contexts
+
+Read Part 2 for clarity on the terminology used throughout this framework.
+
+### On Failure and Iteration
+
+No one gets their design right the first time. This framework will help you fail faster and more productively by:
+
+* Catching problems early (before implementation)
+* Identifying what level to fix (parameters vs. mechanics vs. architecture)
+* Providing clear validation criteria
+* Showing you where to iterate
+
+Expect to cycle through phases multiple times. This is normal. Each iteration makes your design stronger.
+
+### A Word on LLMs and Game Design
+
+Throughout this framework, you'll see occasional notes marked \[LLM-Assistable]. These indicate decisions where Large Language Models can potentially help—not by making the decision for you, but by:
+
+* Generating options to choose from
+* Calculating content requirements
+* Suggesting parameter ranges
+* Identifying edge cases
+
+The second half of this book explores LLM integration in depth. For now, focus on understanding the framework itself.
+
+***
+
+## Part 2: Terminology Foundations - What We're Building
+
+Before diving into the framework, we need clarity on four terms that are often conflated but mean different things in this book.
+
+### The Four Contexts
+
+#### Medium
+
+**What it is:** The delivery mechanism for your game.
+
+**Examples:**
+
+* Video game (PC, console, mobile)
+* Board game (cards, tiles, dice)
+* Tabletop RPG (with human GM)
+* Mixed reality (AR/VR)
+
+**Why it matters:** Medium constrains available mechanics and defines implementation requirements. You can't do real-time action in a board game. You can't rely on a flexible GM in a video game. Mobile demands different interface design than PC.
+
+**When you choose it:** Usually fixed at the start (often a constraint you're working within).
+
+#### Setting
+
+**What it is:** The thematic dressing—the fictional world, tone, and aesthetic style.
+
+**Examples:**
+
+* Fantasy (medieval, magic, dragons)
+* Sci-fi (space, technology, aliens)
+* Horror (gothic, psychological, cosmic)
+* Historical (specific era and culture)
+* Abstract (no theme, pure mechanics)
+
+**Why it matters:** Setting informs content creation through the Build/Suggest/Omit framework (Context chapter). It affects what players expect and how they interpret mechanics.
+
+**When you choose it:** Can be chosen early (theme-first design) or late (after mechanics are solid). Some games work best with abstract settings.
+
+#### Archetype
+
+**What it is:** A validated structural pattern—a pre-packaged scaffold that's been proven to work.
+
+**Examples:**
+
+* Roguelike (permadeath, procedural, meta-progression)
+* Daily Puzzle (one challenge per day, compressed loops)
+* 4X Strategy (explore, expand, exploit, exterminate)
+* MOBA (team-based, lane-focused, hero abilities)
+* One-Shot TTRPG (single session, narrative arc)
+* Metroidvania (gated exploration, ability unlocks)
+
+**Why it matters:** Archetypes provide starting templates with known patterns for loops, resources, content needs, and common pitfalls. Using an archetype accelerates design by leveraging accumulated knowledge.
+
+**When you choose it:** Optional. You can start from an archetype (modify an existing pattern) or build custom (use framework without template).
+
+#### Aesthetic Profile
+
+**What it is:** The complete specification of the experience you're creating—primary aesthetics, target players, and cognitive load expectations.
+
+**Components:**
+
+* **Primary aesthetics** (Challenge, Discovery, Mastery, Horror, etc.)
+* **Player profile** (Casual/Midcore/Hardcore, cognitive capacity)
+* **Context** (session length, interruption tolerance, social structure)
+
+**Examples:**
+
+* "Challenge + Completion for casual players in 20-minute sessions"
+* "Horror + Discovery for adults in 3-hour one-shot"
+* "Mastery + Competition for hardcore players in 60-minute matches"
+
+**Why it matters:** This is what drives every subsequent decision. Your aesthetic profile determines which architectures work, which mechanics to choose, how much content you need, and how to validate success.
+
+**When you choose it:** Always defined in Phase 1 (even if you started elsewhere, you crystallize it here).
+
+### How These Four Relate
+
+Think of them as different dimensions of your game:
+
+```
+Medium × Setting × Archetype × Aesthetic Profile = Your Game System
+
+"Mobile × Fantasy × Daily Puzzle × Challenge+Completion(Casual)" 
+= Puzzle Quest-style match-3 RPG
+
+"TTRPG × Sci-fi Horror × One-Shot × Horror+Discovery(Adult)" 
+= Alien colonial horror game
+
+"Video × Abstract × Roguelike × Challenge+Mastery(Hardcore)" 
+= Slay the Spire-style deck-builder
+```
+
+**Not all are required:**
+
+* Medium: Always required (you have to deliver the game somehow)
+* Setting: Optional (can be abstract)
+* Archetype: Optional (can build custom)
+* Aesthetic Profile: Always required (this is your purpose)
+
+### Common Confusions to Avoid
+
+**"Genre" is ambiguous** - People use "genre" to mean setting (fantasy), archetype (roguelike), or aesthetic profile (horror game). This book uses the specific terms above to avoid confusion.
+
+**Archetype ≠ Setting** - "Roguelike" is an archetype (structure). "Fantasy" is a setting (theme). You can make a fantasy roguelike OR a sci-fi roguelike. They're independent dimensions.
+
+**Medium ≠ Platform** - Medium is broader than platform. "Video game" is the medium; "PC/console/mobile" are platforms within that medium. Different platforms within the same medium have different constraints.
+
+**Aesthetic ≠ Setting** - Horror is an aesthetic (experience type). Gothic horror vs. cosmic horror are settings (thematic styles). You can create horror aesthetics in many settings—or fail to create horror even in a horror setting.
+
+### Why This Terminology Matters
+
+Precise language enables precise thinking. When you can clearly state:
+
+"I'm making a **mobile** (medium) **fantasy** (setting) **daily puzzle** (archetype) game that creates **Challenge + Completion for casual players** (aesthetic profile)"
+
+...you've already answered dozens of design questions and can move forward with clarity.
+
+Conversely, "I'm making a casual fantasy game" is too vague to provide design direction.
+
+### Using This Terminology in the Framework
+
+As you move through the phases:
+
+* **Phase 0** identifies which of these you're starting with
+* **Phase 1** crystallizes your Aesthetic Profile (required)
+* **Phase 2** chooses your structural pattern (uses Archetype if available)
+* **Phase 4** integrates your Setting (if chosen)
+* **Medium** constrains choices throughout all phases
+
+Now that terminology is clear, let's begin the framework.
+
+***
+
+## Part 3: Phase 0 - Starting Point
+
+### Where Are You Beginning?
+
+Real game design doesn't always start with "I want to create this specific aesthetic experience." You might start with:
+
+* A feeling: "I want players to feel clever"
+* A constraint: "Mobile game, casual audience, 6-month timeline"
+* A theme: "Space horror about colonialism"
+* A mechanic: "I prototyped this interesting card system"
+* A business need: "We need a free-to-play game with social features"
+
+All of these are valid starting points. This phase shows you how to get from wherever you are to a clear aesthetic profile that can drive the rest of the framework.
+
+### The Four Entry Paths
+
+#### Path A: Aesthetic-First
+
+**"I want players to feel X"**
+
+**Starting point:** You know the experience you want to create.
+
+**Examples:**
+
+* "I want players to feel clever when they solve puzzles"
+* "I want players to feel dread as they make morally complex choices"
+* "I want players to feel the satisfaction of mastering a difficult skill"
+* "I want players to feel connected to friends through shared challenges"
+
+**Strengths of this path:**
+
+* Clearest design direction
+* Easiest to validate (did you achieve the feeling?)
+* Most likely to result in cohesive design
+* Recommended for first-time framework users
+
+**Next steps:**
+
+1. Identify which aesthetic(s) map to your desired feeling (use Aesthetic Paradigm Recipes)
+2. Consider who can experience this aesthetic (player profile)
+3. Note any known constraints (medium, time, budget)
+4. Proceed to Phase 1 to formalize aesthetic profile
+
+**Example progression:**
+
+```
+"I want players to feel clever" 
+→ Challenge aesthetic (skill-based problem solving)
+→ Probably casual to midcore players (hardcore want deeper challenge)
+→ Probably mobile or browser (accessible, short sessions)
+→ Proceed to Phase 1 with: Challenge + Completion, Casual players, Mobile
+```
+
+#### Path B: Constraint-First
+
+**"I have specific limitations I must work within"**
+
+**Starting point:** You know your constraints but not yet what experience fits within them.
+
+**Common constraints:**
+
+* **Medium:** Must be mobile / Must be tabletop / Must be browser-based
+* **Time:** 3-month development / Single 4-hour session / 20-minute daily sessions
+* **Audience:** Kids 8-12 / Busy adults / Hardcore strategy fans
+* **Resources:** Solo developer / No budget for art / Must use existing IP
+* **Technical:** No internet required / Must work on low-end phones / Async multiplayer only
+
+**Strengths of this path:**
+
+* Realistic (most commercial projects start here)
+* Prevents over-scoping (constraints force focus)
+* Leads to practical designs
+
+**Challenges:**
+
+* Need to derive appropriate aesthetics from constraints
+* Risk of designing to limitations rather than aspirations
+
+**Next steps:**
+
+1. List all fixed constraints
+2. Determine what's possible within those constraints
+3. Choose aesthetics that fit constraints (use decision matrices)
+4. Proceed to Phase 1 to formalize aesthetic profile
+
+**Example progression:**
+
+```
+"Mobile game, casual audience, 6 months, solo dev" 
+→ Mobile = short sessions, simple controls, interruption-tolerant
+→ Casual = low cognitive load, clear goals, immediate satisfaction
+→ 6 months solo = limited content, must scope carefully
+→ Suggests: Compressed loops, daily puzzle archetype, Challenge+Completion
+→ Proceed to Phase 1 with: Challenge + Completion, Casual players, Mobile
+```
+
+**Decision matrix for constraints → aesthetics:**
+
+| Constraint                     | Suggested Aesthetics                | Avoid Aesthetics                      |
+| ------------------------------ | ----------------------------------- | ------------------------------------- |
+| Very short sessions (\<10 min) | Challenge, Completion               | Narrative, Immersion                  |
+| Long sessions (2+ hours)       | Mastery, Discovery, Narrative       | Completion (unless episodic)          |
+| Casual audience                | Challenge (moderate), Completion    | Mastery (deep), Competition           |
+| Hardcore audience              | Mastery, Challenge, Competition     | Completion (trivial goals)            |
+| Interruption-prone             | Completion, Discovery               | Challenge (timing), Fellowship (sync) |
+| Limited content budget         | Mastery, Challenge                  | Discovery, Narrative                  |
+| Social platform                | Fellowship, Expression, Competition | Horror, Immersion (broken by chat)    |
+
+#### Path C: Theme-First
+
+**"I want to explore this setting/topic/story"**
+
+**Starting point:** You know what world, theme, or topic you want to explore.
+
+**Examples:**
+
+* "I want to make a game about colonial horror in space"
+* "I want players to experience being inside a Miyazaki film"
+* "I want to explore the ethics of AI consciousness"
+* "I want a game set in 1920s archaeological digs"
+
+**Strengths of this path:**
+
+* Strong creative vision
+* Clear content direction
+* Marketing/pitch clarity
+
+**Challenges:**
+
+* Must find mechanics that serve theme (avoid "space coffee")
+* Theme can constrain mechanics inappropriately
+* Risk of prioritizing flavor over function
+
+**Next steps:**
+
+1. Identify what about this theme excites you (the core appeal)
+2. Determine what aesthetics match that appeal
+3. Ensure mechanics will reinforce (not fight) theme
+4. Proceed to Phase 1 with compatible aesthetics
+
+**Example progression:**
+
+```
+"Colonial horror in space" 
+→ What's exciting? Moral complicity, dread, historical parallels
+→ Maps to: Horror (complicity type), Discovery (uncover truth)
+→ Audience: Adults who engage with serious themes
+→ Medium: Probably TTRPG (allows moral complexity, GM flexibility)
+→ Proceed to Phase 1 with: Horror + Discovery, Adult players, TTRPG
+```
+
+**Theme → Aesthetic mapping guide:**
+
+**If your theme is about...**
+
+* **Exploration/Discovery:** Discovery aesthetic (obviously)
+* **Moral choices:** Horror (complicity) or Narrative (consequences)
+* **Mastering a skill:** Mastery aesthetic (sword fighting, magic, etc.)
+* **Overcoming obstacles:** Challenge aesthetic
+* **Building/creating:** Expression aesthetic
+* **Competition/conflict:** Competition aesthetic
+* **Relationships/community:** Fellowship aesthetic
+* **Becoming powerful:** Power progression (Mastery subset)
+
+**Warning signs of theme-first problems:**
+
+* "It's set in space because space is cool" (no aesthetic reason)
+* "The theme requires these 15 mechanics" (theme dictating bloat)
+* "Players must read this 10-page lore doc" (theme overwhelming play)
+* "It's horror-themed but upbeat" (theme contradicting aesthetic)
+
+#### Path D: Mechanic-First
+
+**"I have this interesting mechanic/system"**
+
+**Starting point:** You've prototyped or conceived a mechanic that excites you.
+
+**Examples:**
+
+* "I made a card system where cards transform based on adjacency"
+* "I have a dice mechanic where you roll for consequences, not success"
+* "I prototyped a movement system that feels really smooth"
+* "I designed a resource conversion system with interesting decisions"
+
+**Strengths of this path:**
+
+* Already have working prototype
+* Mechanic is validated as interesting
+* Can build around known constraints
+
+**Challenges:**
+
+* Must identify what aesthetics the mechanic actually serves
+* Risk of building a game around a mechanic that doesn't support broader experience
+* May need to cut favorite mechanics if they don't serve aesthetic
+
+**Next steps:**
+
+1. Play with the mechanic extensively
+2. Identify what feels good about it (the aesthetic it creates)
+3. Determine what player profile enjoys this aesthetic
+4. Decide if this mechanic is the core or just a component
+5. Proceed to Phase 1 with aesthetics the mechanic serves
+
+**Example progression:**
+
+```
+"Card system where cards transform based on adjacency" 
+→ What feels good? Planning combos, seeing transformations unfold
+→ Maps to: Challenge (planning), Discovery (finding combos), Mastery (optimization)
+→ Who enjoys this? Midcore to hardcore (requires thinking ahead)
+→ Could be digital or physical
+→ Proceed to Phase 1 with: Challenge + Mastery, Midcore players, Medium TBD
+```
+
+**Critical questions for mechanic-first:**
+
+* **What does this mechanic make you feel?** (Identify aesthetic)
+* **Who would enjoy this feeling?** (Identify player profile)
+* **How long does the interesting decision take?** (Informs loop structure)
+* **Does this need to be the core, or could it be a subsystem?** (Scope)
+* **What other mechanics does this require?** (Dependencies)
+* **What would make this mechanic fail?** (Risks)
+
+**Warning signs of mechanic-first problems:**
+
+* "I have 8 cool mechanics" (probably too many)
+* "This mechanic is complex but important" (cognitive load issue)
+* "Players will understand it after a few hours" (onboarding problem)
+* "It's technically interesting" (but does it feel good?)
+
+### Convergence Point: What You Need Before Phase 1
+
+Regardless of which path you started on, before proceeding to Phase 1 you must have:
+
+**Required:**
+
+* [ ] **Aesthetic direction** (even if tentative): What experience(s) are you creating?
+* [ ] **Player profile** (even if broad): Who is this for?
+* [ ] **Known constraints** (documented): What must you work within?
+
+**Optional but helpful:**
+
+* [ ] **Medium** chosen (or options narrowed)
+* [ ] **Setting** preference (or decision to go abstract)
+* [ ] **Archetype** consideration (starting template or building custom)
+
+**Example complete starting specification:**
+
+From Aesthetic-First:
+
+```
+Primary Aesthetic: Challenge + Completion
+Player Profile: Casual players (20-30 min sessions, low cognitive load)
+Constraints: Mobile platform, solo developer, 6-month timeline
+Medium: Mobile video game
+Setting: TBD (probably abstract)
+Archetype: Considering daily puzzle archetype
+```
+
+From Constraint-First:
+
+```
+Primary Aesthetic: Horror + Discovery (derived from constraints)
+Player Profile: Adults, single 3-4 hour session
+Constraints: TTRPG medium, one-shot format, teaching tool
+Medium: Tabletop RPG
+Setting: Sci-fi colonial horror
+Archetype: One-shot narrative arc
+```
+
+From Theme-First:
+
+```
+Primary Aesthetic: Discovery + Wonder (from theme appeal)
+Player Profile: Midcore players, exploration-focused
+Constraints: PC/console, narrative-heavy, indie budget
+Medium: Video game (PC primary)
+Setting: Miyazaki-inspired fantasy
+Archetype: Exploration-based (Metroidvania-adjacent)
+```
+
+From Mechanic-First:
+
+```
+Primary Aesthetic: Challenge + Mastery (what mechanic creates)
+Player Profile: Midcore to hardcore
+Constraints: Digital or physical, mechanic is card-based
+Medium: TBD (could be video or board game)
+Setting: TBD (abstract or light theme)
+Archetype: Custom (no exact match for this mechanic)
+```
+
+### Common Starting Point Problems
+
+**Problem: "I want to make a fun game"**
+
+* Too vague. "Fun" isn't an aesthetic—it's the result of achieving your aesthetic goals.
+* Solution: Identify specific feeling ("fun" how? Clever? Excited? Satisfied? Connected?)
+
+**Problem: "I want to make a game like X but with Y"**
+
+* Derivative starting point, but workable.
+* Solution: Identify what aesthetic X provides, how Y changes it, proceed from there.
+
+**Problem: "I have 12 constraints and 8 mechanics I want to include"**
+
+* Over-constrained and over-scoped.
+* Solution: Prioritize. What's actually required? What's actually core?
+
+**Problem: "I'm not sure what aesthetics my mechanic creates"**
+
+* Need more experimentation.
+* Solution: Prototype and play. What feels good? When? Why?
+
+**Problem: "My theme requires mechanics that fight each other"**
+
+* Theme is over-determining design.
+* Solution: Simplify theme or abstract it. Theme serves aesthetic, not vice versa.
+
+### Moving Forward
+
+Once you have your starting specification (aesthetic direction + player profile + constraints), you're ready for Phase 1: Aesthetic Crystallization.
+
+Phase 1 will take your tentative aesthetic direction and formalize it into a complete aesthetic profile with measurable success criteria. This profile will drive every subsequent decision in the framework.
+
+**If your starting specification feels incomplete or uncertain, that's okay.** Phase 1 will help you clarify. The important thing is having a direction to start from.
+
+**If you have multiple possible directions, choose one.** You can always run through the framework multiple times to compare options. Trying to design two games simultaneously leads to confusion.
+
+**If you're genuinely stuck between paths, default to Aesthetic-First.** Start with "I want players to feel X" and work from there. This is the clearest path through the framework.
+
+***
+
+**You're now ready to proceed to Phase 1: Aesthetic Crystallization.**
+
+Phase 1 will help you:
+
+* Precisely define your primary and secondary aesthetics
+* Select your target player profile
+* Set measurable success criteria
+* Validate that your aesthetic goals are achievable
+
+Turn to Phase 1 when ready to continue.
