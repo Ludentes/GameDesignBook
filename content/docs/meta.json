@@ -3,13 +3,12 @@
   "pages": [
     "./games-as-experiential-scaffolds",            
     "./game-system",
+    "./context.-from-setting-to-experience",
     "./resource-management",
     "./cognitive-load",
-    "./from-principles-to-numbers",
-    "./context.-from-setting-to-experience",
+    "./from-principles-to-numbers",    
     "./temporal-architecture",
-    "./synthesis",
-    "./megabonk-hypothesis",
+    "./synthesis",    
     "./rough-drafts-and-ideas"
     
   ]

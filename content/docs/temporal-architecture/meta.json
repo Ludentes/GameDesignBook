@@ -1,7 +1,18 @@
 {
   "title": "temporal-architecture",
   "pages": [
-    "./temporal-architecture-loops-chapter",            
+    "./part-01-intro-why-time-matters",
+    "./part-2-loop-fundamentals",
+    "./part-3-loops-as-aesthetic-delivery",
+    "./part-4-loop-architecture-patterns",
+    "./part-5-investment-escalation",
+    "./part-6-flow-management",
+    "./part-7-content-and-variety",
+    "./part-8-loop-validation",
+    "./part-9-common-problems-solutions",
+    "./part-10-operationalizing-loops",
+    "./part-11-quick-reference",
+    "./part-12-conclusion",    
     "./supplementary"    
   ]
 }

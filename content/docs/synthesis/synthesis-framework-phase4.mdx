@@ -1,0 +1,1268 @@
+---
+title: synthesis-framework-phase4
+---
+# The Design Framework: Phase 4 - Content Specification
+
+## Part 7: Phase 4 - Content Specification
+
+### "How Much Content Do You Need?"
+
+You have your mechanics, resources, and parameters defined. Now you face the practical question: how much content must you create?
+
+This isn't about perfection—it's about sufficiency. Too little content and players exhaust your game quickly. Too much and you waste resources creating content players never see. This phase helps you calculate "enough."
+
+Content needs vary dramatically based on:
+
+* **Aesthetics** (Discovery consumes content fast, Mastery re-uses it)
+* **Architecture** (loops require different content than narrative arcs)
+* **Medium** (video games vs. TTRPGs have different content types)
+* **Budget** (what's realistic to create?)
+
+This phase provides calculation methods, heuristics, and decision frameworks to determine your content requirements.
+
+***
+
+## Step 4.1: Calculate Content Needs
+
+### The Base Challenge
+
+Content is expensive to create but easy to consume. Players can exhaust hours of authored content in minutes if they're looking for novelty. But content that supports mastery or challenge can be replayed hundreds of times.
+
+The key question: **What is your content consumption rate?**
+
+This depends primarily on your aesthetic profile and scaffold architecture.
+
+### Content Consumption by Aesthetic
+
+#### Discovery-Heavy Games
+
+**Consumption Pattern:** Fast—novelty is the content
+
+**Why:** Discovery aesthetic requires new things to discover. Once discovered, content is "spent."
+
+**Heuristic:** "Discovery games need 3x more unique content than Mastery games for the same play hours"
+
+**Calculation Method:**
+
+```
+Target Play Hours × Discovery Rate = Required Unique Content
+
+If target = 20 hours of Discovery gameplay:
+- Discovery Rate (typical) = 10 unique elements per hour
+- Required content = 20 × 10 = 200 unique elements minimum
+
+With procedural variation:
+- Hand-craft 50 templates
+- Procedural system creates 4+ variations each
+- Total: 200+ unique-feeling discoveries
+```
+
+**Examples:**
+
+* **Subnautica:** Hundreds of unique biomes, creatures, crafting recipes, story beats
+* **Outer Wilds:** Every planet has unique mechanics and secrets
+* **No Man's Sky:** Procedural generation creates unlimited variety (but struggled with "sameness")
+
+**Content Types for Discovery:**
+
+* New locations/biomes
+* New mechanics/interactions
+* Hidden secrets
+* Lore/story reveals
+* Unique encounters
+* Novel combinations
+
+**Warning Signs:**
+
+* Players report "seeing everything" too quickly
+* Repetition noticed within first 10 hours
+* Reddit posts: "Is this all there is?"
+
+#### Mastery-Heavy Games
+
+**Consumption Pattern:** Slow—improvement is the content
+
+**Why:** Mastery aesthetic comes from getting better at same challenges. Content is replayable.
+
+**Heuristic:** "Mastery games need depth over breadth—few challenges, many replays"
+
+**Calculation Method:**
+
+```
+Target Play Hours ÷ Average Replays per Challenge = Required Challenges
+
+If target = 20 hours of Mastery gameplay:
+- Typical replays = 10-50 times per challenge
+- If 20 replays average: 20 hours ÷ 20 replays = 1 hour of unique content
+- But organize into difficulty tiers for progression
+
+Practical: 5-20 core challenges with difficulty scaling
+```
+
+**Examples:**
+
+* **Into the Breach:** 8 island campaigns, replayed hundreds of times
+* **Slay the Spire:** 4 characters × 3 acts = 12 runs, but players do 100+ runs
+* **Dark Souls bosses:** 20-30 bosses, each fought dozens of times while learning
+
+**Content Types for Mastery:**
+
+* Core challenges with depth
+* Difficulty variations
+* Scoring/ranking systems
+* Optimization opportunities
+* Skill expression variance
+
+**Warning Signs:**
+
+* Content exhausted but no reason to replay
+* Skill ceiling reached too quickly
+* No interesting optimization space
+
+#### Challenge-Heavy Games
+
+**Consumption Pattern:** Moderate—variety prevents pattern memorization
+
+**Why:** Challenge aesthetic needs enough variety that solutions don't become rote, but can re-use content if difficulty scales.
+
+**Heuristic:** "Challenge games need enough variety to prevent memorization, plus difficulty progression"
+
+**Calculation Method:**
+
+```
+Target Play Hours × Challenges per Hour ÷ Average Replays = Required Unique Challenges
+
+If target = 20 hours of Challenge gameplay:
+- Challenges per hour = 3-6 (depends on difficulty)
+- Average replays = 2-3 (some repetition okay)
+- Required: 20 × 4 ÷ 2.5 = 32 unique challenges minimum
+
+Organize into difficulty tiers:
+- Easy: 8 challenges (tutorial/onboarding)
+- Medium: 12 challenges (core experience)
+- Hard: 8 challenges (for skilled players)
+- Expert: 4 challenges (mastery goal)
+```
+
+**Examples:**
+
+* **Wordle:** 1 challenge per day, solution exists but finding it is the challenge
+* **Portal:** 19 test chambers, most played 1-3 times
+* **Celeste:** 200+ screens, organized into difficulty tiers
+
+**Content Types for Challenge:**
+
+* Puzzles with solutions
+* Skill-based obstacles
+* Strategic scenarios
+* Difficulty-scaled variations
+
+**Warning Signs:**
+
+* Players memorize patterns (challenge becomes execution)
+* Too hard too fast (players quit)
+* Too easy throughout (boredom)
+
+#### Narrative-Heavy Games
+
+**Consumption Pattern:** Linear—story consumed once (branching increases needs)
+
+**Why:** Narrative aesthetic is about experiencing story beats. Unlike mechanics, story doesn't replay well without branching.
+
+**Heuristic:** "Linear narratives need 1:1 content-to-playtime ratio; branching narratives need more"
+
+**Calculation Method:**
+
+```
+Linear Story:
+Target Play Hours × 1 = Content Hours
+10-hour game = 10 hours of story content
+
+Branching Story:
+Target Play Hours × (1 + Branch Factor) = Content Hours
+Where Branch Factor = (Average Branches - 1) × Branch Depth
+
+Example: 10-hour game with 3 major branches (33% unique each):
+Branch Factor = (3 - 1) × 0.33 = 0.66
+Content needed = 10 × 1.66 = 16.6 hours
+
+Heavy branching (meaningful choice throughout):
+Can require 2-3x target play hours of content
+```
+
+**Examples:**
+
+* **The Last of Us:** \~15 hour game, \~15 hours of content (linear)
+* **Disco Elysium:** \~25 hour game, \~40 hours of written content (branching dialogue)
+* **80 Days:** \~2 hour playthroughs, but 500+ cities and events for replayability
+
+**Content Types for Narrative:**
+
+* Story beats/scenes
+* Dialogue trees
+* Character development arcs
+* Environmental storytelling
+* Branching paths
+
+**Warning Signs:**
+
+* Second playthrough feels identical
+* Choices don't matter (false branching)
+* Padding between story beats
+
+#### Fellowship-Heavy Games
+
+**Consumption Pattern:** Content is context—social interaction is the real content
+
+**Why:** Fellowship aesthetic comes from player interaction. Your content creates situations for interaction, but players generate the experiences.
+
+**Heuristic:** "Social games need enough content to contextualize interaction, not to be the main attraction"
+
+**Calculation Method:**
+
+```
+Social games need:
+- Core activity content (what players do together)
+- Social infrastructure (tools for communication/cooperation)
+- Variety to keep context fresh (but less than solo games)
+
+Rough guide: 30-50% of solo equivalent content
+Target 20 hours = 6-10 hours of unique content if social-focused
+```
+
+**Examples:**
+
+* **Among Us:** 4 maps, but social deduction is the content
+* **D\&D:** Same dungeon played multiple times with different groups feels different
+* **MMO raids:** 10-20 raid encounters can entertain for hundreds of hours
+
+**Content Types for Fellowship:**
+
+* Social situations/scenarios
+* Cooperative challenges
+* Competition frameworks
+* Communication tools
+* Shared goals
+
+**Warning Signs:**
+
+* Players want to socialize but game doesn't provide context
+* Content so consuming it overshadows social
+* No tools for coordination/communication
+
+#### Horror-Heavy Games
+
+**Consumption Pattern:** Single-use—horror depends on not knowing what's coming
+
+**Why:** Horror aesthetic requires surprise, dread of unknown. Replay undermines horror unless mechanics create emergent fear.
+
+**Heuristic:** "Horror games must complete their arc in one playthrough OR have systemic horror that stays scary"
+
+**Calculation Method:**
+
+```
+Single-Playthrough Horror:
+Target Hours × 1 = Content Hours
+6-hour horror game = 6 hours of content (no replay value)
+
+Systemic Horror (rare):
+Target Hours × 0.5 = Content Hours (if horror emerges from systems, not scripted scares)
+```
+
+**Examples:**
+
+* **Alien: Isolation:** 15-hour campaign, designed for one playthrough
+* **Amnesia:** 8 hours, single playthrough
+* **Phasmophobia:** Systemic horror (AI behavior) allows replay
+* **Aliens TTRPG (our example):** 3-4 hour one-shot, no replay
+
+**Content Types for Horror:**
+
+* Revelation sequences
+* Environmental horror
+* Scripted scares (limited replay)
+* Systemic threat behavior (replayable)
+* Consequence systems
+
+**Warning Signs:**
+
+* Second playthrough not scary
+* Horror becomes routine
+* Players learn to "game" the fear
+
+### Content Needs by Architecture
+
+#### Loop-Based Games (Full Stack, Compressed, etc.)
+
+**Content Distribution Across Loops:**
+
+**Micro Loop Content:**
+
+* **What it is:** Moment-to-moment actions, immediate choices
+* **Volume needed:** Moderate variety (prevent repetition within session)
+* **Example:** Enemy types, card varieties, action options
+
+**Calculation:**
+
+```
+Micro loops per session = Session minutes ÷ Micro loop minutes
+Content needed = Micro loops per session × Variety factor
+
+Example (Hades-style):
+- Session = 30 minutes
+- Micro loop = 2 minutes (one room/encounter)
+- Loops per session = 15 rooms
+- Variety factor = 0.5 (some repetition okay in micro)
+- Content needed = 15 × 0.5 = 7-8 unique room types per run
+
+Over multiple sessions, need 20-30 room types total
+```
+
+**Meso Loop Content:**
+
+* **What it is:** Session goals, mission variety, medium-term challenges
+* **Volume needed:** Depends heavily on aesthetic (Discovery needs more, Mastery needs less)
+* **Example:** Mission types, level themes, quest varieties
+
+**Calculation:**
+
+```
+Meso loops until repetition fatigue = Discovery priority × Base repetition tolerance
+
+High Discovery game:
+- Base tolerance = 10-15 unique meso loops
+- Discovery factor = 2x
+- Need 20-30 unique meso experiences
+
+High Mastery game:
+- Base tolerance = 5-10 unique meso loops
+- Mastery factor = 0.5x
+- Need 3-5 unique meso experiences (with depth)
+```
+
+**Macro Loop Content:**
+
+* **What it is:** Long-term progression, unlocks, narrative beats
+* **Volume needed:** Paces out to match total intended playtime
+* **Example:** Character unlocks, story chapters, meta-progression tiers
+
+**Calculation:**
+
+```
+Macro progression markers = Target total hours ÷ Hours per unlock
+
+Example (roguelike with 50-hour target):
+- Unlock every 2-3 hours feels good
+- Need 15-25 major unlocks
+- Each unlock changes experience (new character, weapon, area)
+```
+
+**Full Example - Roguelike (Hades-style):**
+
+```
+Target: 50 hours total gameplay
+Architecture: Full Stack Loops
+
+Micro Loop (2 min per room):
+- 30 room types (enough variety per run)
+- 50 enemy types (combined into encounters)
+
+Meso Loop (30 min per run):
+- 4 biomes × 3 sub-zones = 12 unique zone types
+- 10 boss encounters (some repeated with variations)
+- 20 narrative scenes (discovered across runs)
+
+Macro Loop (50 hours total):
+- 6 weapon types (unlocked over ~30 hours)
+- 4 complete story arcs
+- 20 character relationship progressions
+- 50 mirror upgrades (meta-progression)
+- 30 "prophecy" objectives (structured goals)
+
+Total content estimate: ~100-150 hours to create
+```
+
+#### Narrative Arc Games (One-Shots, Story Games)
+
+**Content as Situations:**
+
+Unlike loop-based games, narrative arc games need **prepared scenarios** and **branching responses**, not repeating content.
+
+**Calculation:**
+
+```
+Required Scenarios = (Session Hours × 60 minutes) ÷ Average Scene Length
+
+Example (TTRPG One-Shot):
+- Session: 4 hours = 240 minutes
+- Average decision scene: 15-20 minutes
+- Scenarios needed: 240 ÷ 15 = 16 decision points
+
+Prepare: 12 core scenarios + 4-5 backup scenarios
+```
+
+**Act Structure Content:**
+
+For 3-act structure (typical):
+
+```
+Act 1 (Introduction): 25% of time → 25% of content
+- 3-4 scenarios establishing situation
+
+Act 2 (Complication): 50% of time → 50% of content  
+- 6-8 scenarios with escalating stakes
+
+Act 3 (Resolution): 25% of time → 25% of content
+- 3-4 scenarios for climax and resolution
+
+Total: 12-16 prepared scenarios
+Plus: 3-5 "revelation moments" (information reveals)
+Plus: 4-5 backup/improvisation scenarios
+```
+
+**Example - Colonial Horror One-Shot (from our walkthrough):**
+
+```
+Target: 3.5 hours
+Architecture: Narrative Arc (3 acts)
+
+Act 1 (45 min): 3 decision scenarios
+Act 2 (90 min): 6 decision scenarios  
+Act 3 (60 min): 3 decision scenarios
+Epilogue (15 min): Debrief (no prep needed)
+
+Revelation Content:
+- 5 revelation cards (information reveals at thresholds)
+- Native perspective document (GM reference)
+- Colony statistics (tracking systems)
+
+GM Preparation: ~8-10 hours for content creation
+Session Execution: 3.5 hours
+```
+
+#### Puzzle-Based Games
+
+**Content as Discrete Challenges:**
+
+**Calculation:**
+
+```
+Puzzles Needed = Target Days Active × Puzzles per Day
+
+Daily Puzzle Game:
+- Target: 90 days active
+- Rate: 1 puzzle per day
+- Minimum: 90 unique puzzles
+- Safe target: 120 puzzles (buffer)
+
+With procedural generation:
+- Hand-craft: 20-30 puzzle templates
+- Procedural variations: 5-10 per template
+- Total: 100-300 puzzles
+```
+
+**Difficulty Progression:**
+
+```
+Tutorial (Easy): 10% of content
+Core (Medium): 50% of content
+Advanced (Hard): 30% of content  
+Expert (Very Hard): 10% of content
+```
+
+**Example - Daily Puzzle Game:**
+
+```
+Target: 90 days of daily play
+Architecture: Puzzle (one per day)
+
+Content Needed:
+- 100 unique puzzle patterns (90 + 10 buffer)
+- Organized into 5 difficulty tiers
+- Procedural start positions (infinite variety)
+
+Difficulty Distribution:
+- Tier 1 (Easy): 20 patterns
+- Tier 2 (Medium): 25 patterns
+- Tier 3 (Hard): 25 patterns
+- Tier 4 (Expert): 20 patterns
+- Tier 5 (Master): 10 patterns
+
+Creation time: 10-15 minutes per pattern = 25-30 hours total
+```
+
+#### Exploration-Based Games
+
+**Content as Spatial Discovery:**
+
+**Calculation:**
+
+```
+Locations Needed = Discovery Hours × Locations per Hour
+
+Metroidvania-style:
+- Target: 15 hours of exploration
+- Discovery rate: 2-3 new areas per hour
+- Required: 30-45 distinct locations
+
+Plus gating/backtracking design:
+- Some locations revisited with new abilities
+- Multiply unique locations × 1.5 for revisit factor
+- Total spatial design: 45-70 area designs
+```
+
+**Content Layering:**
+
+```
+Primary path (critical): 40% of locations
+Side content (optional): 40% of locations
+Secrets (discovery reward): 20% of locations
+```
+
+**Example - Metroidvania:**
+
+```
+Target: 12 hours of exploration
+Architecture: Exploration-based
+
+Spatial Content:
+- 6 major biomes
+- 40 individual rooms (critical path)
+- 30 optional rooms (secrets, collectibles)
+- 10 boss arenas
+- Total: 80 unique spaces
+
+Ability Gates:
+- 8 ability unlocks (each opens new areas)
+- 60% of map accessible without abilities
+- 100% requires all abilities
+
+Power-ups:
+- 30 health/energy upgrades (exploration rewards)
+- 20 cosmetic finds (discovery satisfaction)
+
+Creation time: ~120-180 hours (spatial design intensive)
+```
+
+***
+
+## Step 4.2: Procedural vs. Authored Decision
+
+### When to Use Procedural Generation
+
+**Procedural Generation Strengths:**
+
+* Creates large content volumes efficiently
+* Enables unlimited variety
+* Reduces storage/download size
+* Allows dynamic difficulty adjustment
+* Cheaper to produce at scale
+
+**Procedural Generation Weaknesses:**
+
+* Often feels "samey" despite variety
+* Requires complex systems to feel hand-crafted
+* Difficult to balance difficulty
+* Can't tell authored stories well
+* Emergent bugs hard to predict
+
+**Use Procedural When:**
+
+* High content volume needed (100+ elements)
+* Content follows systemic rules
+* Budget/timeline limited
+* Aesthetic tolerates variation (Discovery, Challenge, Mastery)
+* Replayability is priority
+
+**Examples of Good Procedural:**
+
+* **Slay the Spire:** Card encounters procedurally arranged
+* **Spelunky:** Level layouts generated but hand-crafted feeling
+* **Minecraft:** Terrain generation allows infinite worlds
+* **Hades:** Room combinations from template pools
+
+### When to Use Authored Content
+
+**Authored Content Strengths:**
+
+* Every piece can be perfect
+* Enables precise narrative beats
+* Supports unique/memorable moments
+* Easier to balance exactly
+* Can break systemic rules for effect
+
+**Authored Content Weaknesses:**
+
+* Expensive to create (time and money)
+* Limited volume possible
+* Requires storage space
+* Fixed content can be exhausted
+* Replay value limited
+
+**Use Authored When:**
+
+* Narrative is primary aesthetic
+* Quality critical over quantity
+* Lower volume needed (\<100 elements)
+* Aesthetic requires precision (Narrative, Horror)
+* Budget allows handcrafting
+
+**Examples of Good Authored:**
+
+* **The Last of Us:** Every story beat handcrafted
+* **Portal:** Every test chamber designed precisely
+* **Disco Elysium:** Every conversation written specifically
+* **Inside:** Every sequence authored for specific experience
+
+### The Hybrid Approach (Most Common)
+
+**Reality:** Most games use both.
+
+**Common Patterns:**
+
+**Pattern 1: Authored Templates, Procedural Variations**
+
+* Hand-craft 20 puzzle templates
+* Procedurally vary start conditions, difficulty
+* Result: Feels authored but has variety
+* Example: Daily puzzle games, Tetris variants
+
+**Pattern 2: Procedural Layout, Authored Content**
+
+* Procedurally generate dungeon layouts
+* Hand-craft all enemies, items, encounters
+* Result: Feels fresh but quality consistent
+* Example: Binding of Isaac, Enter the Gungeon
+
+**Pattern 3: Authored Critical Path, Procedural Side Content**
+
+* Hand-craft main story/missions
+* Procedurally generate side quests, collectibles
+* Result: Story beats perfect, bulk content acceptable
+* Example: Assassin's Creed, many open-world games
+
+**Pattern 4: Procedural with Authored "Showpieces"**
+
+* Mostly procedural generation
+* Hand-craft boss fights, special encounters
+* Result: Variety with memorable highlights
+* Example: Risk of Rain 2, Dead Cells
+
+### Decision Matrix
+
+| Aesthetic Primary | Content Need  | Best Approach                                   |
+| ----------------- | ------------- | ----------------------------------------------- |
+| Discovery         | Very High     | Hybrid (authored templates, procedural variety) |
+| Challenge         | Moderate      | Authored (precise difficulty) or Hybrid         |
+| Mastery           | Low           | Authored (depth over breadth)                   |
+| Narrative         | Moderate-High | Authored (story needs precision)                |
+| Horror            | Moderate      | Authored (surprises need craft)                 |
+| Fellowship        | Low           | Authored scenarios (social does work)           |
+| Expression        | Variable      | Tools for player creation (different approach)  |
+
+### Procedural Generation Pitfalls
+
+**Pitfall 1: "Sameness Despite Variety"**
+
+* Problem: 1000 statistically different dungeons that feel identical
+* Solution: Procedural constraints that create distinct archetypes
+* Example: Spelunky themes (jungle, ice, temple) with different mechanics
+
+**Pitfall 2: "Impossible or Trivial Generations"**
+
+* Problem: RNG creates unwinnable or boring scenarios
+* Solution: Validation passes, playtest procedural seeds extensively
+* Example: Into the Breach guarantees solvability
+
+**Pitfall 3: "No Memorable Moments"**
+
+* Problem: Nothing stands out when everything is generated
+* Solution: Hybrid approach with authored peaks
+* Example: Hades' boss fights are always authored and placed
+
+**Pitfall 4: "Difficulty Spikes"**
+
+* Problem: Random generation creates unfair difficulty jumps
+* Solution: Difficulty budgets, escalation rules
+* Example: Slay the Spire's act structure controls escalation
+
+### Implementation Notes
+
+**For Procedural:**
+
+* Build robust testing tools (need to test thousands of generations)
+* Plan for edge cases (RNG will find them)
+* Include designer controls (seed specific generations, adjust weightings)
+* Budget more time than expected (procedural systems complex)
+
+**For Authored:**
+
+* Create content pipelines (tools, templates, workflows)
+* Plan for localization (if applicable)
+* Budget storage/download costs
+* Accept volume limitations
+
+**For Hybrid:**
+
+* Clearly define boundary (what's authored, what's procedural)
+* Ensure seamless integration (transitions shouldn't feel jarring)
+* Test both systems independently and together
+
+***
+
+## Step 4.3: Information Architecture
+
+### What Players Need to Know
+
+Information is content. Teaching players what they need to know, when they need to know it, is as important as creating the content itself.
+
+**The Information Problem:**
+
+* Tell too much up front → cognitive overload, boredom
+* Tell too little → confusion, frustration
+* Tell at wrong time → information forgotten when needed
+
+**The Goal:** Players know what they need, when they need it, without overwhelming them or leaving them lost.
+
+### Tutorial Design
+
+**Philosophy:** Tutorials should be invisible. Best case: players learn by playing, never realize they're being taught.
+
+**Tutorial Content Questions:**
+
+**What must players know immediately? (First 60 seconds)**
+
+* Core verb (what button makes things happen)
+* Primary goal (what am I trying to do)
+* Failure condition (how do I know if I'm doing it wrong)
+
+**What can be learned through play? (First 10 minutes)**
+
+* Secondary mechanics
+* Resource management basics
+* Success strategies
+
+**What should be discovered? (After comfort established)**
+
+* Advanced techniques
+* Optimization strategies
+* Hidden systems
+
+**What should never be explained?**
+
+* Things intuitive from context
+* Discovery content (ruins the surprise)
+* Optional systems (only explain if player engages)
+
+**Tutorial Length by Cognitive Load:**
+
+**Low Cognitive Load (Casual):**
+
+* Tutorial: 2-5 minutes maximum
+* Complexity adds gradually over first hour
+* Heavy use of visual cues, minimal text
+
+**Moderate Cognitive Load (Midcore):**
+
+* Tutorial: 5-15 minutes
+* Can introduce multiple systems if clear
+* Mix of guided and experimental learning
+
+**High Cognitive Load (Hardcore):**
+
+* Tutorial: 10-30 minutes (or optional)
+* Can explain complex systems upfront
+* May include reference materials
+* Players expect and tolerate learning curve
+
+**Tutorial Integration Strategies:**
+
+**Integrated Tutorial (Best):**
+
+* Tutorial IS the first level/session
+* Real gameplay from the start, but simplified
+* Teaches through doing, not telling
+* Example: Portal's first 10 chambers, Mega Man X's opening stage
+
+**Separated Tutorial (Acceptable):**
+
+* Distinct tutorial mode/level
+* Clear transition to "real game"
+* Can be skipped on replay
+* Example: Most fighting games, strategy games
+
+**No Tutorial (Risky but Valid):**
+
+* Players learn entirely through experimentation
+* Requires extremely intuitive design
+* Works for very simple games or specific audiences
+* Example: Tetris, many early arcade games
+
+**Teaching Methods:**
+
+**Method 1: Contextual Prompts**
+
+* Show information when relevant
+* Dismiss when understood
+* Don't block gameplay
+* Example: "Press X to jump" appears near first gap
+
+**Method 2: Forced Success**
+
+* Make failure impossible during teaching moment
+* Guide player to correct action
+* Remove training wheels after demonstrated
+* Example: First enemy has 1 HP, teaches combat
+
+**Method 3: Safe Experimentation**
+
+* Create no-stakes environment for testing
+* Encourage trying things out
+* Explain results of actions
+* Example: Shooting range, practice mode
+
+**Method 4: Demonstrate, Then Challenge**
+
+* Show the mechanic in action (NPC does it, cutscene)
+* Ask player to replicate
+* Introduce challenge using that mechanic
+* Example: NPC companion teaches by example
+
+### Onboarding Sequence
+
+**Beyond Tutorial: First Week (or equivalent)**
+
+Tutorials teach basics. Onboarding reveals depth gradually.
+
+**Onboarding Goals:**
+
+* Player reaches competence (not mastery)
+* All core systems introduced
+* First meaningful success achieved
+* Player decides to continue
+
+**Onboarding Timeline by Player Profile:**
+
+**Casual (Multiple Short Sessions):**
+
+* Session 1: Core loop only
+* Session 2: First additional system
+* Session 3: Second additional system
+* Session 4-5: Full feature set revealed
+* Session 6+: Comfortable with everything
+
+**Midcore (Fewer, Longer Sessions):**
+
+* Session 1 (Hour 1): Core loop + first system
+* Session 1 (Hour 2): Second and third systems
+* Session 2: Full feature complexity
+* Session 3+: Mastering interactions
+
+**Hardcore (Long Sessions, High Tolerance):**
+
+* Session 1 (Hour 1-2): Most/all systems introduced
+* Session 1 (Hour 3-4): Practice and experimentation
+* Session 2+: Optimization and mastery
+
+**Complexity Ramping:**
+
+Start with minimal complexity, add layers:
+
+```
+Session 1: Core mechanic only (1 system)
+Session 2: + Resource system A (2 systems)
+Session 3: + Resource system B (3 systems)
+Session 4: + Meta-progression (4 systems)
+Session 5: + Advanced mechanics (5 systems)
+```
+
+Don't add everything at once:
+
+```
+BAD: Session 1 introduces 8 systems simultaneously
+GOOD: Session 1 introduces 1-2 systems, rest phase in
+```
+
+**Feature Gating:**
+
+**Progressive Unlock:**
+
+* Lock advanced features initially
+* Unlock as player demonstrates understanding
+* Each unlock feels like progression (Discovery aesthetic)
+* Example: New weapons unlock as you master previous ones
+
+**Context-Triggered Explanations:**
+
+* Don't explain until player encounters
+* "Just-in-time" information delivery
+* Reduces upfront cognitive load
+* Example: Explain crafting when player picks up first ingredient
+
+**Optional Depth:**
+
+* Core systems mandatory
+* Advanced systems optional
+* Game playable without mastering everything
+* Example: Can finish game without learning advanced combos
+
+### Feedback Systems
+
+**Feedback is information about game state. Players need feedback at multiple time scales.**
+
+**Immediate Feedback (Micro Loop)**
+
+* Action results shown instantly (\<100ms)
+* Visual/audio confirmation
+* State changes visible
+* Examples: Hit effects, card played animation, health bar change
+
+**Short-Term Feedback (Meso Loop)**
+
+* Progress toward session goal
+* Resource accumulation/depletion
+* Victory/defeat conditions approaching
+* Examples: Boss health bar, mission progress percentage, time remaining
+
+**Long-Term Feedback (Macro Loop)**
+
+* Overall progression
+* Unlocks approaching
+* Mastery improvement
+* Examples: Level up progress, achievement progress, skill rating trends
+
+**Feedback Design Principles:**
+
+**Clarity:** Is it obvious what the feedback means?
+
+* Bad: Vague visual effect (what did that do?)
+* Good: Clear numeric change (+10 HP, -5 MP)
+
+**Immediacy:** Does feedback appear when needed?
+
+* Bad: Damage numbers appear 2 seconds after hit
+* Good: Damage numbers appear instantly
+
+**Appropriate Detail:** Right amount of information for player type?
+
+* Casual: Simple (health bar)
+* Midcore: Moderate (health numbers)
+* Hardcore: Detailed (damage types, resistances, DPS meter)
+
+**Consistency:** Does same feedback always mean same thing?
+
+* Bad: Red flash means damage sometimes, low health other times
+* Good: Red flash always damage, red screen edge always low health
+
+**Non-Intrusive:** Does feedback help without blocking gameplay?
+
+* Bad: Modal popup interrupts action
+* Good: Peripheral information visible but not blocking
+
+### Information Overload Prevention
+
+**Signs of Too Much Information:**
+
+* Players ignore important information
+* Tutorial completion rate low
+* Support requests about "how do I...?"
+* Players don't use available systems
+
+**Solutions:**
+
+**Progressive Disclosure:**
+
+* Show only what's needed now
+* Reveal complexity gradually
+* Gate advanced features
+
+**Reduce Necessary Information:**
+
+* Cut unnecessary systems
+* Simplify mechanics
+* Make more things intuitive
+
+**Better Presentation:**
+
+* Icons over text
+* Visual language
+* Contextual help
+
+**Allow Ignorance:**
+
+* Game playable without knowing everything
+* Advanced info optional
+* No punishment for ignoring optional systems
+
+***
+
+## Step 4.4: Context Integration (Build/Suggest/Omit)
+
+### When Does Setting Enter?
+
+**If you started Theme-First:** Setting was chosen early, now ensure coherence.
+
+**If you started other ways:** Setting can be chosen now (after mechanics solid) or game can remain abstract.
+
+**The Question:** Does your game need thematic dressing?
+
+**Abstract is Valid:**
+
+* Tetris, Chess, Go, Wordle
+* Mechanics are the content
+* Theme would add cognitive load without benefit
+* Player focus is pure gameplay
+
+**Theme Adds Value When:**
+
+* Helps players understand mechanics (theme makes rules intuitive)
+* Supports aesthetic goals (horror theme for horror aesthetic)
+* Creates market appeal (players attracted to theme)
+* Provides content structure (theme suggests content)
+
+### The Build/Suggest/Omit Framework
+
+**Reference: Context Chapter (Part 5: Build/Suggest/Omit)**
+
+This framework helps ensure mechanics and setting reinforce each other rather than fight.
+
+**Build: Essential Thematic Elements**
+
+* What MUST be present for setting to work?
+* What makes the setting recognizable?
+* What supports the mechanics directly?
+
+**Suggest: Supporting Atmospheric Elements**
+
+* What adds flavor without adding complexity?
+* What reinforces the mood/tone?
+* What fills in the world peripherally?
+
+**Omit: Contradictory or Distracting Elements**
+
+* What would players expect but fights mechanics?
+* What would add cognitive load without value?
+* What contradicts aesthetic goals?
+
+### Applying Build/Suggest/Omit
+
+**Example 1: Spatial Puzzle Game (from our Busy Parents scenario)**
+
+**If Abstract (mechanics-first):**
+
+* Build: Clear grid, distinct tiles, goal pattern visibility
+* Suggest: Pleasant colors, satisfying sounds
+* Omit: All narrative, character, backstory
+
+**If Themed (garden planting):**
+
+* Build: Tiles as plants, grid as garden plot, goal as desired arrangement
+* Suggest: Seasons changing, growth animations, nature sounds
+* Omit: Dialogue, story, characters (keep focus on puzzle)
+
+**Trade-off:** Theme adds understanding (plants in garden intuitive) but adds cognitive load (memorizing which tile is which plant).
+
+**Decision:** For casual players with low cognitive budget, probably stay abstract. For slightly higher budget, light theme acceptable.
+
+**Example 2: Colonial Horror TTRPG (from our Aliens scenario)**
+
+**Setting: Sci-fi Colonial Horror (theme-first)**
+
+**Build:**
+
+* Colonial power dynamic (players are authorities)
+* Resource extraction (reason for conflict)
+* Native population (source of horror)
+* Information control (company withholds truth)
+* Irreversible consequences (horror from permanence)
+
+**Suggest:**
+
+* Corporate bureaucracy (forms, reports)
+* Communication barriers (language/culture)
+* Economic pressure (quotas, investors)
+* Frontier mythology ("pioneers" rhetoric)
+* Environmental details (dust, stars, isolation)
+
+**Omit:**
+
+* Combat focus (would make violence exciting, not horrifying)
+* Power fantasy elements (upgrades, getting stronger)
+* Easy moral solutions ("be nice" doesn't work)
+* Humor/levity (until epilogue debrief)
+* Redemption mechanics (can't undo complicity)
+
+**Result:** Mechanics and setting mutually reinforce horror aesthetic. Setting isn't decoration—it's essential to the experience.
+
+### Mechanics and Setting Coherence
+
+**Coherent:** Mechanics and setting make sense together
+
+* **Example:** Deck-building in a game about building a criminal empire (Griftlands)
+* Card play = making plans, combinations = complex schemes
+* Theme makes mechanics intuitive
+
+**Incoherent ("Space Coffee"):** Mechanics and setting contradict
+
+* **Example:** Farming simulation where you can't grow coffee because you're in space
+* Setting suggests coffee should exist, mechanics arbitrarily remove it
+* Players confused by contradiction
+
+**Testing Coherence:**
+
+* Can players intuit mechanics from setting?
+* Does setting explain why mechanics work this way?
+* Are there contradictions that confuse players?
+* Does theme add clarity or cognitive load?
+
+### Theme Affects Content
+
+**Content Creation Changes with Setting:**
+
+**Abstract Game:**
+
+* Content is mechanical variations
+* No need for visual uniqueness
+* Can reuse assets freely
+* Creation time: Faster
+
+**Themed Game:**
+
+* Content needs thematic justification
+* Visual/narrative uniqueness expected
+* Asset variety required
+* Creation time: Slower
+
+**Example: Enemy Varieties**
+
+**Abstract (Tetris-like):**
+
+* 7 piece shapes (all mechanical)
+* No need for unique appearances
+* Pieces can repeat
+
+**Themed (Fantasy RPG):**
+
+* 30 enemy types expected
+* Each needs unique appearance
+* Each needs thematic justification
+* Repeated enemies feel cheap
+
+**Budget Implications:**
+
+* Abstract: Mechanics-only budget
+* Themed: Mechanics + Art + Writing + Audio budget
+
+### Iterating Mechanics ↔ Setting
+
+**Theme and mechanics are interdependent.** Expect to iterate:
+
+**Iteration Pattern 1: Mechanics → Theme Adjustment**
+
+* Mechanics suggest theme: "This plays like heist planning" → crime theme
+* Mechanics constrain theme: "Turn-based combat" → can't be real-time shooter theme
+* Mechanics create opportunities: "Resource conversion" → alchemy/crafting theme
+
+**Iteration Pattern 2: Theme → Mechanics Adjustment**
+
+* Theme suggests mechanics: "Space exploration" → discovery mechanics
+* Theme constrains mechanics: "Horror" → avoid power fantasy mechanics
+* Theme creates expectations: "Ninja" → should have stealth, mobility
+
+**How to Iterate:**
+
+1. **Start with one (mechanics or theme)**
+2. **Apply the other**
+3. **Check coherence:** Do they reinforce or fight?
+4. **Adjust weaker element** (usually easier to adjust theme than mechanics)
+5. **Repeat until coherent**
+
+**When to Pivot:**
+
+* If mechanics keep breaking theme, consider different theme
+* If theme keeps constraining mechanics, consider abstract approach
+* If iteration isn't converging, one element is wrong
+
+***
+
+## Decision Point: Phase 4 Complete
+
+Before proceeding to Phase 5 (Validation), verify you have:
+
+**Content Specification:**
+
+* [ ] Calculated content quantity needed (formulas applied)
+* [ ] Decided procedural vs. authored (or hybrid approach)
+* [ ] Content volume is realistic for budget/timeline
+* [ ] Content serves aesthetic goals (not padding)
+
+**Information Architecture:**
+
+* [ ] Tutorial scope defined (what's taught when)
+* [ ] Onboarding sequence planned (complexity ramping)
+* [ ] Feedback systems designed (immediate, short-term, long-term)
+* [ ] Information load appropriate for player profile
+
+**Context Integration:**
+
+* [ ] Setting chosen (or abstract decision made)
+* [ ] Build/Suggest/Omit applied (if themed)
+* [ ] Mechanics and setting coherent (no "space coffee")
+* [ ] Theme adds value or is omitted entirely
+
+**Practical Requirements:**
+
+* [ ] You can list what needs to be created
+* [ ] You know how much is "enough"
+* [ ] Creation is feasible with resources
+* [ ] Content plan supports intended play hours
+
+**Output from Phase 4:**
+Complete content specification including quantity, type, authorship method, information delivery plan, and thematic integration (if applicable).
+
+***
+
+## Common Phase 4 Problems
+
+**Problem: "I calculated I need 500 hours of content but have 3 months"**
+
+* Solution: Reduce scope (lower target hours) or increase procedural generation
+* Or: Pivot to aesthetic that requires less content (Mastery vs. Discovery)
+
+**Problem: "My theme requires systems that blow the cognitive budget"**
+
+* Solution: Simplify theme or go abstract
+* Or: Accept higher cognitive load and adjust player profile target
+
+**Problem: "Players keep getting lost in my tutorial"**
+
+* Solution: Tutorial is too long or too complex
+* Reduce tutorial scope, teach through play instead
+
+**Problem: "Content feels repetitive despite variety"**
+
+* Solution: Variety isn't meaningful (statistical vs. experiential difference)
+* Create fewer types with more depth instead of many shallow types
+
+**Problem: "Procedural generation creates broken scenarios"**
+
+* Solution: Need validation passes, constraints, or hand-crafted templates
+* Or: Reduce procedural scope, hand-craft more
+
+**Problem: "Themed content creation taking 3x longer than expected"**
+
+* Solution: Theme is more expensive than anticipated
+* Simplify theme or reduce content volume
+
+***
+
+**You're now ready to proceed to Phase 5: Validation & Iteration.**
+
+Phase 5 will help you:
+
+* Audit coherence across all design elements
+* Predict likely dynamics before implementation
+* Design effective playtests
+* Identify what level needs iteration (parameters, mechanics, architecture, or aesthetic)
+
+Turn to Phase 5 when ready to validate your complete design.

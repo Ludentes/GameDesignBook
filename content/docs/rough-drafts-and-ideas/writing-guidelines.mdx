@@ -1,0 +1,4356 @@
+---
+title: writing-guidelines
+---
+# Writing Guidelines for "The Game Design Book"
+
+## Document Purpose
+
+This guide ensures coherence across all chapters as the book grows. It captures:
+
+* Core conceptual commitments (what we've decided and must maintain)
+* Terminology standards (consistent language throughout)
+* Structural patterns (how chapters are organized)
+* Formatting conventions (how examples, tests, hypotheses appear)
+* Tone and voice guidelines (how we communicate with readers)
+* LLM integration approach (when and how to reference AI assistance)
+* Cross-chapter validation (when assumptions need revision)
+
+**Use this document:**
+
+* Before writing new chapters (understand constraints)
+* When editing existing chapters (check consistency)
+* When core concepts evolve (document changes and propagate)
+* For handoffs to other authors (shared understanding)
+
+***
+
+## Part 1: Core Conceptual Commitments
+
+These are our foundational decisions. **Changes to these require propagating updates across all chapters.**
+
+### Aesthetics Framework
+
+**Primary Source:** MDA Framework (Hunicke, LeBlanc, Zubek, 2004)
+
+**MDA's Eight Aesthetics (Canonical):**
+
+1. **Sensation** - Sensory pleasure, beautiful, visceral, immersive
+2. **Fantasy** - Make-believe, imagining yourself in another world
+3. **Narrative** - Story and drama
+4. **Challenge** - Obstacle course, overcoming difficulty
+5. **Fellowship** - Social framework, playing with others
+6. **Discovery** - Exploration, finding new things
+7. **Expression** - Self-discovery, creativity
+8. **Submission** - Pastime, relaxation, "turning brain off"
+
+**Pragmatic Approach (2025-01 Update):**
+
+Through years of design practice, we've moved from "12 definitive aesthetics" to a **flexible, pragmatic framework**:
+
+**Common Aesthetics** (observed frequently in practice):
+
+**Activity-Based:**
+
+* Challenge, Discovery, Mastery, Expression, Fellowship, Submission, Progression, Completion
+
+**Emotion-Based:**
+
+* Tension, Wonder
+
+**Social-Structure:**
+
+* Competition
+
+**When to Go Deeper:**
+Sometimes common aesthetics aren't specific enough. Design for the precise experience:
+
+* **Horror** - Dread, fear, vulnerability, complicity (not just "tense Discovery")
+* **Grief** - Processing loss, moral weight (not just "sad Narrative")
+* **Wonder-primary** - Beauty/awe IS the point (not decoration on other aesthetics)
+* **Competition-primary** - Beating others IS the point (not Challenge with multiplayer)
+* **Roleplay/Simulation** - Inhabiting specific role (submarine captain, farmer, etc.)
+
+**Universal Principles** (work regardless of specific aesthetic):
+
+* Configuration coherence matters
+* Investment capacity constrains aesthetics
+* Loop architecture follows aesthetic
+* Functions serve aesthetics
+* Dynamics emerge from configuration
+
+**How to Reference:**
+
+```
+✓ Correct: "Using common aesthetics as starting vocabulary..."
+✓ Correct: "For horror game, define Horror aesthetic specifically..."
+✓ Correct: "Frameworks apply to any aesthetic"
+✗ Wrong: "The twelve aesthetics" (no longer claiming fixed number)
+✗ Wrong: "Our custom aesthetic framework" (loses MDA attribution)
+✗ Wrong: Forcing all games into common aesthetics if specific ones work better
+```
+
+**Key Philosophy Shift:**
+
+* **Old:** "Here are THE 12 aesthetics. Use them."
+* **New:** "Here are common aesthetics. Use them as starting vocabulary. Define your own when needed. Universal principles apply regardless."
+
+**Why This Works:**
+
+1. Intellectually honest (no false perfect taxonomy)
+2. Practically useful (starting vocabulary + permission to be specific)
+3. Explains variation (why chapters focus on different aesthetics)
+4. Opens edge cases (Horror, Grief, Wonder-primary are valid)
+5. Keeps examples usable (most use common aesthetics)
+
+**When to Revise:**
+
+* If common aesthetics inadequately cover most games
+* If universal principles don't apply to specific aesthetics
+* If practitioners consistently need different vocabulary
+
+**Current Status:** STABLE (pragmatic approach validated through synthesis work and operational design practice)
+
+**Special Notes:**
+
+* **Sensation** and **Fantasy** from MDA are execution quality and setting, not aesthetic goals
+* **Tension** might be pacing pattern rather than aesthetic (context-dependent)
+* **Collection** rarely primary, often secondary to Completion or Progression
+* Chapters may focus on subset of aesthetics most relevant to their topic
+
+### Four Context Dimensions Framework
+
+**Core Insight:** Context isn't monolithic—it's four independent dimensions that combine to create the game's experiential framework.
+
+**The Four Dimensions:**
+
+1. **Aesthetic (from Chapter 1):**
+   * Experiential goal (Challenge, Discovery, Tension, Submission, Mastery, etc.)
+   * Already chosen before Context chapter
+   * Determines everything else
+   * Cannot be cosmetic (it's the point)
+
+2. **Archetype (Structural Pattern):**
+   * How the game is structured mechanically
+   * Examples: Investigation, Tactical combat, Roguelike, Survival, 4X strategy, Metroidvania, Puzzle, Walking simulator, Social deduction, Heist planning
+   * **Load-bearing:** Determines what mechanics you need
+   * **Medium-agnostic:** Same archetype works across video games, TTRPGs, board games
+   * Cannot be easily swapped without redesign
+
+3. **Setting (Thematic Layer):**
+   * What the game looks like and sounds like
+   * Examples: Gothic horror, cosmic horror, noir detective, cyberpunk, medieval fantasy, space opera, western
+   * **Largely cosmetic:** Can often swap without changing core experience
+   * **Reinforces aesthetic:** But doesn't create it
+   * Can be swapped (reskins work)
+
+4. **Medium (Platform):**
+   * Where the game is played
+   * Examples: Video game, TTRPG, board game, mobile game
+   * **Constrains possibilities:** Different media enable different mechanics
+   * Not the same as platform (video game is medium; PC/console/mobile are platforms)
+
+**Key Principle:** These are INDEPENDENT dimensions.
+
+**Example combinations:**
+
+* Tension aesthetic + Investigation archetype + Gothic horror setting + Video game medium = Horror investigation game (Amnesia)
+* Tension aesthetic + Investigation archetype + Sci-fi setting + Video game medium = Sci-fi horror investigation (SOMA)
+* Discovery aesthetic + Investigation archetype + Fantasy setting + TTRPG medium = Fantasy mystery campaign
+
+**Design Flow:**
+Aesthetic (Ch 1) → Archetype (Ch 2) → Setting (Ch 2) → Resources (Ch 3) → Cognitive Load (Ch 4) → Balance (Ch 5) → Temporal (Ch 6)
+
+**How to Reference:**
+
+```
+✓ Correct: "Choose archetype that serves your aesthetic, then setting that reinforces"
+✓ Correct: "Investigation archetype needs evidence mechanics regardless of setting"
+✓ Correct: "Gothic horror setting reinforces Tension aesthetic but doesn't create it"
+✗ Wrong: "Horror genre" (ambiguous - which dimension?)
+✗ Wrong: "Setting determines mechanics" (no - archetype does)
+✗ Wrong: Conflating archetype with aesthetic with setting
+```
+
+**When to Revise:**
+
+* If dimensions prove NOT independent (evidence they're coupled)
+* If major archetype doesn't fit medium constraints (need new categorization?)
+* If setting proves load-bearing in ways we don't expect
+
+**Revision Protocol:**
+
+1. Document game/scenario where dimensions conflate
+2. Propose refinement to framework
+3. Update Context chapter (Chapter 2) first
+4. Update all chapters referencing context dimensions
+5. Update worked examples with new understanding
+
+**Current Status:** STABLE (synthesis work validated independence, resolved genre ambiguity)
+
+**Confidence Level:** HIGH - Four-dimension framework resolves ambiguities that plagued earlier "genre" terminology and maps cleanly to design practice.
+
+### Build/Suggest/Omit Framework
+
+**Core Principle:** Strategic detail management determines what players explicitly see, implicitly infer, and never discover.
+
+**The Three Approaches:**
+
+**BUILD: Explicit and Complete**
+
+* Fully specify this element, leave no ambiguity
+* When to use: Core mechanics, essential rules, information needed for strategy
+* Examples: Combat rules, resource costs, quest objectives, character abilities
+
+**SUGGEST: Hints and Fragments**
+
+* Provide pieces, let players assemble; imply without confirming
+* When to use: Backstory, character motivations, world cosmology, connections between events
+* Examples: Environmental storytelling, fragmentary documents, NPC hints, suggestive lore
+
+**OMIT: Deliberately Absent**
+
+* Refuse to explain, leave mysterious or unknown
+* When to use: Information that breaks perspective, irrelevant details, mysteries better unsolved, complexity that overwhelms
+* Examples: Complete supernatural explanations (kills horror), exhaustive world history, every character's story
+
+**Archetype-Specific Ratios:**
+
+**Investigation Archetype:**
+
+* Build: HIGH (core mysteries solvable, clues explicit)
+* Suggest: HIGH (connections between clues implied)
+* Omit: MEDIUM (some mysteries background flavor)
+* Why: Investigation requires sufficient information to deduce but benefits from suggestive connections
+
+**Survival Horror Archetype:**
+
+* Build: MEDIUM (rules clear enough to strategize)
+* Suggest: HIGH (threat nature implied, not confirmed)
+* Omit: HIGH (maintain unknowable threat)
+* Why: Players need tactical information but not threat explanation (ruins horror)
+
+**Cozy Simulation Archetype:**
+
+* Build: HIGH (mechanics clear and comfortable)
+* Suggest: LOW (don't want confusion or mystery)
+* Omit: HIGH (complexity hidden, only show what's needed)
+* Why: Submission aesthetic needs clarity and comfort, mystery creates uncertainty
+
+**Tactical Combat Archetype:**
+
+* Build: VERY HIGH (rules must be completely clear)
+* Suggest: LOW (ambiguity creates frustration)
+* Omit: MEDIUM (hide unnecessary complexity)
+* Why: Challenge aesthetic requires understanding rules to overcome difficulty
+
+**4X Strategy Archetype:**
+
+* Build: HIGH (complex systems need explanation)
+* Suggest: MEDIUM (some discovery through experimentation)
+* Omit: LOW (Mastery aesthetic wants depth revealed)
+* Why: Mastery requires understanding systems deeply
+
+**How to Reference:**
+
+```
+✓ Correct: "Investigation archetype needs HIGH Build for core clues, HIGH Suggest for connections"
+✓ Correct: "Using Build/Suggest/Omit framework to determine which lore to detail"
+✗ Wrong: "Build/Suggest/Omit without archetype context" (ratios are archetype-specific)
+✗ Wrong: "Always build more" (depends on archetype and aesthetic)
+```
+
+**Current Status:** STABLE (Chapter 2 provides comprehensive archetype-specific guidance)
+
+**Confidence Level:** HIGH - Framework successfully analyzes detail decisions across multiple archetypes.
+
+### Perspective Maintenance Framework
+
+**Core Principle:** Every element must serve the emotional lens through which players interpret the game.
+
+**Perspective by Aesthetic:**
+
+**Tension (Horror): "Unknowable Threat"**
+
+* Maintains: Threat dangerous/unpredictable, humans vulnerable, unknown > known, deaths serious
+* Breaks: Comedy, sympathetic framing, complete explanation, power fantasy, threat shown weak
+
+**Discovery (Mystery): "Solvable Puzzle"**
+
+* Maintains: Clues findable, investigation yields results, deduction possible, solution fair
+* Breaks: Random solutions, contradictory clues, deus ex machina, no path forward, arbitrary revelations
+
+**Submission (Cozy): "Safe and Pleasant"**
+
+* Maintains: No real threats, progress guaranteed, mistakes forgivable, warm atmosphere
+* Breaks: Sudden threats, permanent consequences, time pressure, dark themes, harsh judgment
+
+**Challenge: "Fair and Conquerable"**
+
+* Maintains: Rules clear, failure understandable, success through skill, patterns learnable
+* Breaks: Random failure, unclear rules, unwinnable scenarios, inconsistent difficulty, unearned victory
+
+**The Iron Rule:** Perspective over realism.
+
+* Your game serves aesthetic, not documentary accuracy
+* "But it's realistic!" is never sufficient justification for breaking perspective
+* Horror can't have pratfalls even if "aliens realistically struggle with ladders"
+* Mystery must have solvable puzzles even if "real investigations are messy"
+
+**Validation Test:** "Does this element serve my perspective?"
+
+* YES → Keep, proceed to Build/Suggest/Omit decisions
+* NO → Cut or reframe, regardless of how "interesting" or "realistic"
+
+**How to Reference:**
+
+```
+✓ Correct: "Maintains horror perspective by keeping threat unknowable"
+✓ Correct: "This scene breaks mystery perspective (random solution)"
+✗ Wrong: "But realistically the alien would..." (perspective > realism)
+✗ Wrong: "Perspective is just tone" (no - it's comprehensive emotional lens)
+```
+
+**Current Status:** STABLE (Chapter 2 provides comprehensive perspective guidance)
+
+**Confidence Level:** HIGH - Consistent perspective predicts engagement; broken perspective predicts failure.
+
+### Space Coffee Test (Five Integration Levels)
+
+**Core Principle:** Test whether your setting actually matters or is just cosmetic decoration.
+
+**The Five Integration Levels:**
+
+**Level 1: Pure Cosmetic**
+
+* Setting has ZERO mechanical impact, could swap for anything
+* Examples: Chess piece designs, poker card art, Tetris texture packs
+* When acceptable: Abstract games where theme is explicitly optional
+
+**Level 2: Mechanical Flavor**
+
+* Setting provides variety within same mechanical category
+* Examples: Borderlands weapon elements, fighting game characters, D\&D races
+* When acceptable: When variety creates tactical options without excessive complexity
+
+**Level 3: Constrained Mechanics**
+
+* Setting limits what's mechanically possible, removes options
+* Examples: Historical wargames (era-appropriate weapons), low-magic fantasy, hard sci-fi
+* When works: Constraints create interesting problems, limitation breeds creativity
+
+**Level 4: Generative Mechanics**
+
+* Setting creates UNIQUE mechanics that couldn't exist elsewhere
+* Examples: Cultist Simulator (occult horror → paranoia mechanics), Papers Please (1980s border crossing → document verification), Return of the Obra Dinn (1800s ship → identity deduction from setting-specific clues)
+* When works: Always—this is ideal integration
+
+**Level 5: Inseparable**
+
+* Remove setting, game ceases to function; setting IS the system
+* Examples: Disco Elysium (fragmented detective mind in specific place), Outer Wilds (time loop solar system), Her Story (video database interface)
+* When works: Almost always—creates unforgettable unique experiences
+
+**Target Integration by Aesthetic:**
+
+* Discovery: Level 4-5 (context must create discoverable content)
+* Narrative: Level 4-5 (story inseparable from world)
+* Challenge: Level 2-3 acceptable (mechanics can be abstract)
+* Mastery: Level 1-3 acceptable (system optimization primary)
+* Tension: Level 3-5 preferred (threat must feel real and specific)
+* Submission: Level 1-2 often best (deep context adds unwanted complexity)
+
+**How to Reference:**
+
+```
+✓ Correct: "Testing with Space Coffee Test reveals Level 2 integration (mechanical flavor only)"
+✓ Correct: "Target Level 4 for Discovery aesthetic (generative mechanics)"
+✗ Wrong: "Our setting isn't space coffee" (without specifying which level achieved)
+✗ Wrong: "Level 6 integration" (only five levels exist)
+```
+
+**Current Status:** STABLE (Chapter 2 Space Coffee Test is proven diagnostic tool)
+
+**Confidence Level:** HIGH - Five-level framework accurately diagnoses setting integration across thousands of games.
+
+### Balance Paradigms
+
+**The Three Working Paradigms:**
+
+1. **Framework-Based Balance**
+   * Definition: Explicit decision frameworks create consistent adjudication
+   * Key mechanism: Negotiated stakes (Position/Effect style)
+   * Canonical example: Blades in the Dark
+   * Serves: Narrative, Discovery aesthetics primarily
+
+2. **Consistency-Based Balance**
+   * Definition: Static, repeatable challenges enable pattern learning
+   * Key mechanism: Fixed parameters, learnable patterns
+   * Canonical example: Dark Souls
+   * Serves: Challenge, Mastery aesthetics primarily
+
+3. **Adaptive Balance**
+   * Definition: Dynamic systems adjust to player performance
+   * Key mechanism: Real-time difficulty adjustment
+   * Canonical example: Left 4 Dead 2 AI Director
+   * Serves: Fellowship, Discovery aesthetics primarily
+
+**Plus:** Hybrid approaches (different paradigms for different subsystems)
+
+**How to Reference:**
+
+```
+✓ Correct: "The three paradigms (Framework, Consistency, Adaptive)..."
+✓ Correct: "Using Framework paradigm for investigation phase..."
+✗ Wrong: "The three balance types" (not specific enough)
+✗ Wrong: Inventing new paradigm names (confuses readers)
+✗ Wrong: "Dynamic balance" instead of "Adaptive" (terminology drift)
+```
+
+**When to Revise:**
+
+* If a major game doesn't fit any paradigm (need new category?)
+* If two paradigms consistently conflate (might need to merge)
+* If one paradigm never appears in practice (might be theoretical only)
+
+**Revision Protocol:**
+
+1. Document game/scenario that doesn't fit
+2. Propose new paradigm or paradigm merger with clear definition
+3. Update Balance chapter (Part 2) first
+4. Update all chapters referencing paradigms
+5. Update worked examples to use new terminology
+
+**Current Status:** STABLE (validated in Balance chapter, works for analyzed games)
+
+### Pacing Framework
+
+**Core Insight:** Pacing is emergent property of temporal dynamics, not a separate mechanism.
+
+**Five Pacing Patterns:**
+
+1. **Attrition** - Gradual pressure buildup, slow resource depletion, strategic decisions compound
+2. **Episodic** - Self-contained scenes, fast recovery, fresh start each encounter
+3. **Wave** - Cyclical intensity (build → peak → relief → repeat), multiple cycles per session
+4. **Continuous** - Steady state, no clear breaks, real-time or seamless flow
+5. **Punctuated** - Long calm periods interrupted by sudden intense moments
+
+**Key Measurables:**
+
+* **Cycle Length** - Duration of one pacing cycle (micro to macro)
+* **Recovery Frequency** - How often relief periods occur
+* **Recovery Speed** - How quickly resources restore (PRIMARY determinant of pattern)
+* **Tension Gradient** - How intensity varies over time
+
+**How to Reference:**
+
+```
+✓ Correct: "Wave pacing creates natural rhythm through build-peak-relief cycles..."
+✓ Correct: "Recovery Speed determines pacing pattern: fast → Episodic, slow → Attrition..."
+✗ Wrong: "Flow pacing" (not one of our five patterns)
+✗ Wrong: "Pacing system" (it's emergent, not a system)
+✗ Wrong: Treating pacing as separate from temporal dynamics
+```
+
+**Integration Approach:**
+
+* Pacing discussed within Temporal Dynamics sections (not standalone chapter)
+* Patterns referenced in aesthetic-specific guidance
+* Measurables used to target and validate pacing
+
+**When to Revise:**
+
+* If pattern doesn't fit real game well (need new pattern or refinement?)
+* If measurables insufficient to target pacing (need new measurables?)
+* If paradigm-pacing relationships break (Framework doesn't always create Wave?)
+
+**Revision Protocol:**
+
+1. Document game/scenario that doesn't fit patterns
+2. Propose new pattern or pattern refinement
+3. Update Balance chapter (Part 5: Measurables) first
+4. Update all aesthetic-paradigm recipes
+5. Update worked examples with new pacing terminology
+
+**Current Status:** STABLE (integrated throughout Balance chapter)
+
+### Temporal Architecture Framework
+
+**Core Insight:** Loops are the temporal geometry of experiential scaffolds—how systems unfold across seconds, minutes, hours, and days.
+
+**The Four Loop Scales:**
+
+1. **Micro loops** (seconds to minutes): Moment-to-moment action-feedback cycles
+2. **Meso loops** (minutes to half hour): Satisfying chunks of progress, structural goals
+3. **Macro loops** (session to run): Session-appropriate closure, major achievement
+4. **Meta loops** (between sessions): Long-term investment, return motivation
+
+**Key principle:** Not all games need all scales. Match loop architecture to aesthetic goals and player capacity.
+
+**How to Reference:**
+
+```
+✓ Correct: "Design micro loops to create flow state for Challenge aesthetic"
+✓ Correct: "Compressed architecture (1-2 scales) for casual players"
+✗ Wrong: "All games need all four loop scales"
+✗ Wrong: "Loops are just mechanics" (loops are temporal structure)
+```
+
+**When to Revise:**
+
+* If loop scale definitions need refinement
+* If new loop scales identified (unlikely—these are well-established)
+* If loop-aesthetic mappings require adjustment
+
+**Revision Protocol:**
+
+1. Document why change needed (which games/analyses don't fit)
+2. Update Temporal Architecture chapter (Parts 2-3) first
+3. Propagate to other chapters referencing loops
+4. Update worked examples
+
+**Current Status:** STABLE (validated across hundreds of games, decades of design practice)
+
+### Investment Trajectory Patterns
+
+**Core Insight:** Cognitive and time investment changes across loop scales. Investment trajectory must match aesthetic goals and player capacity.
+
+**The Four Patterns:**
+
+1. **Flat Low Investment** (Submission, Casual)
+   * Investment stays low at all scales
+   * Example: Vampire Survivors, Wordle, Animal Crossing
+   * Serves: Casual players, Submission aesthetic
+
+2. **Learning Curve** (Challenge, Narrative)
+   * High micro initially → LOW through mastery
+   * Meso/macro moderate and consistent
+   * Example: Dark Souls, Celeste, The Last of Us
+   * Serves: Midcore players, Challenge/Narrative aesthetics
+
+3. **Escalating Depth** (Mastery, Discovery)
+   * Micro stabilizes, meso/macro/meta increase
+   * Example: Civilization VI, Factorio, Slay the Spire
+   * Serves: Hardcore players, Mastery/Discovery aesthetics
+
+4. **Exponential Trap** (AVOID - exploitative)
+   * Macro/meta investment explodes through FOMO/obligation
+   * Example: Destiny 2, mobile gacha games
+   * Serves: Business model, NOT aesthetic goals
+
+**Critical principle: Mastery Reduction**
+
+* Micro-loop investment should DECREASE as players gain skill
+* Muscle memory, automation, internalization
+* If investment stays high despite mastery → friction problem (RDR2 animation issue)
+
+**How to Reference:**
+
+```
+✓ Correct: "Submission aesthetic requires Flat Low investment pattern"
+✓ Correct: "Micro investment decreased through mastery (Dark Souls combat)"
+✗ Wrong: "All games should have escalating investment"
+✗ Wrong: "Investment trajectory doesn't matter"
+```
+
+**Current Status:** STABLE (patterns observable across many successful and failed games)
+
+### Stopping Point Framework
+
+**Core Insight:** Good stopping points provide closure and respect player time. Poor stopping points trap players or create obligation.
+
+**Six Elements of Closure:**
+
+1. **Clear completion signal** - Ceremony appropriate to scale
+2. **Immediate reward delivery** - No withholding for manipulation
+3. **No forced cliffhangers** - Unless intentional narrative beat
+4. **Return hook without obligation** - Curiosity not FOMO
+5. **Session-appropriate scale** - Matches expected session length
+6. **Resume-friendly state** - Easy to pick up later
+
+**Player Capacity and Stopping Points:**
+
+* Casual players: Need stops every 5-15 minutes
+* Midcore players: Need stops every 30-45 minutes
+* Hardcore players: Can tolerate 60-90 minute intervals (but still need rest points)
+
+**Intrinsic vs. Extrinsic Return Motivation:**
+
+* **Intrinsic (good):** Curiosity, mastery desire, social connection, story continuation
+* **Extrinsic (problematic):** FOMO through deletion, scheduled obligations, social guilt, sunk cost
+
+**How to Reference:**
+
+```
+✓ Correct: "Stopping points every 30 minutes for midcore audience"
+✓ Correct: "Return motivation is intrinsic (curiosity about unlocks)"
+✗ Wrong: "FOMO mechanics are acceptable retention strategies"
+✗ Wrong: "Players should never want to stop playing"
+```
+
+**Current Status:** STABLE (six elements validated, intrinsic/extrinsic distinction established)
+
+### Resource Classification
+
+**Core Categories (From Resource Management Chapter):**
+
+1. **Renewable vs. Consumable**
+   * Renewable: Regenerates over time (HP, mana)
+   * Consumable: One-use, gone when spent (potions, items)
+
+2. **Recovery Rate**
+   * Fast: Seconds to minutes (modern HP recovery)
+   * Slow: 10+ minutes to between sessions (old-school healing)
+   * Permanent Loss: Never recovers (permadeath, destroyed units)
+
+3. **Abstraction Level**
+   * Concrete: Physical items (potions, arrows)
+   * Abstract: Mechanical constructs (HP, stress)
+   * Narrative: Story currencies (reputation, trauma)
+
+**How to Reference:**
+
+```
+✓ Correct: "HP is a renewable, fast-recovering, abstract resource..."
+✓ Correct: "Stress in Blades is renewable but with trauma tracking permanent losses..."
+✗ Wrong: Inventing new resource categories without documenting
+✗ Wrong: Using different terminology for same concepts
+```
+
+**When to Revise:**
+
+* If resource type doesn't fit categories (need new category?)
+* If categories overlap confusingly (need to refine?)
+
+**Current Status:** STABLE (from Resources chapter)
+
+### System Functions (From Game System Chapter)
+
+**Core Insight:** Game systems don't just resolve actions—they perform six distinct functions. Different aesthetics require different functions to work well.
+
+**The Six System Functions:**
+
+1. **Adjudication** - Resolving uncertainty (dice, GM fiat, algorithms, LLM)
+   * **LLM Opportunity:** Natural language action interpretation instead of fixed mechanics
+2. **Information Management** - Controlling what players know and when
+   * **LLM Opportunity:** Dynamic clue generation based on investigation approach
+3. **Content Generation** - Creating situations (pre-authored, procedural, improvised)
+   * **LLM Opportunity:** Coherent improvisation maintaining authorial voice and consistency
+4. **State Persistence** - Remembering across sessions/time
+   * **LLM Opportunity:** Contextual memory of narrative threads across sessions
+5. **Cognitive Framing** - Shaping how players think (through mechanics, stats, resources)
+   * **LLM Opportunity:** Frame problems in ways that guide player thinking
+6. \*\*Feedback Systems (Confirming Actions)
+   * **LLM Opportunity:** Adaptive constraints based on player behavior patterns
+
+**Function Priority by Aesthetic:**
+
+Not all functions matter equally for all aesthetics:
+
+* **Mystery aesthetic:** Information Management (critical), State Persistence (critical)
+* **Horror aesthetic:** Constraint Design (critical), Information Management (important), State Persistence (important)
+* **Tactical combat:** Adjudication (critical), Constraint Design (important)
+* **Exploration:** Content Generation (critical), Information Management (important), State Persistence (important)
+
+**How to Reference:**
+
+```
+✓ Correct: "Mystery games require strong Information Management function..."
+✓ Correct: "This aesthetic needs these three functions to work well: [list]..."
+✗ Wrong: Discussing systems without identifying which functions they provide
+✗ Wrong: Assuming all functions matter equally for all aesthetics
+```
+
+**Design Implication:**
+
+When analyzing a system for an aesthetic:
+
+1. Identify which functions that aesthetic requires
+2. Verify system provides those functions well
+3. If 2+ critical functions are missing/broken, system is wrong choice
+
+**Example Application:**
+
+"D\&D for mystery fails because Information Management function is broken (roll-to-find can miss core clues). Despite being good system for tactical combat, it lacks functions mystery requires."
+
+**When to Revise:**
+
+* If new function identified that doesn't fit the seven
+* If function proves unnecessary across multiple analyses
+* If function definitions need refinement
+
+**Revision Protocol:**
+
+1. Document which aesthetic/scenario revealed gap
+2. Propose new function or refinement with clear definition
+3. Update Game System chapter first
+4. Update all chapters discussing system selection
+5. Update worked examples
+
+**Confidence Level:** HIGH - System functions are observable across all games, from tabletop to digital, solo to multiplayer.
+
+### Core Loops Framework
+
+**Definition:** Core loops are the fundamental cycles of action and feedback that players repeat throughout play. Every game has nested loops operating at different timescales.
+
+**The Four Nested Loops:**
+**Micro Loops** (seconds to minutes) - Immediate action-feedback cycles:
+
+* **Vampire Survivors**: See enemies → abilities auto-fire → experience drops → level up → choose upgrade → see more enemies (30 seconds)
+* **DOOM**: See demon → aim → shoot → demon dies → find next demon (10 seconds)
+* **Wordle**: Think word → type guess → see colored feedback → think new word (30 seconds)
+
+Micro loops create flow state. When smooth, players lose track of time. When rough, every moment feels laborious. Micro loops answer: "What am I doing right now?"
+
+**Meso Loops** (minutes to half hour) - Satisfying chunks of progress:
+
+* **Hades**: Clear room → see reward options → choose path → defeat chamber → collect reward → reach next chamber (3-5 minutes)
+* **Slay the Spire**: Enter combat → play cards → resolve fight → choose reward → modify deck → enter next combat (5-10 minutes)
+* **Wordle**: Complete puzzle → share result → wait for tomorrow (1 minute of play, 24-hour wait)
+
+Meso loops provide structural goals. Each completion feels like meaningful progress. Meso loops answer: "What am I working toward this session?"
+
+**Macro Loops** (30 minutes to 4 hours) - Session-appropriate closure:
+
+* **Hades**: Start run → progress through chambers → defeat boss or die → earn permanent rewards → upgrade relationships → start new run (30-45 minutes)
+* **Civilization**: Start era → expand civilization → manage crises → reach next era (60-90 minutes)
+* **Monster Hunter**: Accept quest → prepare loadout → hunt monster → carve materials → craft upgrades → return to hub (45-60 minutes)
+
+Macro loops provide session closure. Players can stop satisfied even if the larger game isn't complete. Macro loops answer: "What did I accomplish today?"
+
+**Meta Loops** (hours to campaigns) - Long-term investment and progression:
+
+* **Dark Souls**: Explore area → die repeatedly to boss → learn patterns → defeat boss → unlock new area → face harder challenges (10-40 hours)
+* **Balatro**: Complete run → unlock new jokers/decks → experiment with new strategies → attempt harder stakes (20-100 hours)
+* **Disco Elysium**: Investigate case → uncover new leads → explore political/philosophical themes → resolve mysteries (20-30 hours)
+
+**How to Reference:**
+
+```
+✓ Correct: "The micro loop creates flow state through tight feedback"
+✓ Correct: "Macro loop defines what the game 'is about'"
+✗ Wrong: "Gameplay loop" (specify which: micro/meso/macro/meta)
+✗ Wrong: "Game loop" (too vague)
+```
+
+**Flow State Integration:**
+
+Different aesthetics require different flow profiles:
+
+* **Challenge:** High challenge-skill balance (edge of ability)
+* **Fellowship:** Low mechanical challenge (focus on social)
+* **Submission:** Gentle, predictable flow (meditative)
+* **Discovery:** Irregular rewards (breaks flow deliberately)
+
+**Current Status:** STABLE (fundamental to game design, validated across all types)
+
+**Revision Protocol:**
+
+1. Document game where loop framework doesn't apply
+2. Propose refinement or new loop type
+3. Update Chapter 1 first
+4. Update all aesthetic mappings
+5. Update worked examples
+
+**When to Use in Writing:**
+
+* Analyzing pacing: "How do loops create rhythm?"
+* Discussing engagement: "Micro loop tightness affects flow"
+* Evaluating mechanics: "Does this support the core loop?"
+* Aesthetic mapping: "What flow profile does this aesthetic need?"
+
+### Context Design Framework
+
+**Definition:** Context is the framing, setting, tone, and thematic elements that give mechanics meaning. It includes genre (load-bearing structure) and dressing (cosmetic layer).
+
+**Core Distinction:**
+
+* **Genre:** The structural type that determines mechanics and experience (mystery investigation, horror survival, political thriller, etc.)
+* **Dressing:** The cosmetic layer that can often be swapped (Star Wars, medieval fantasy, cyberpunk, etc.)
+
+**The Three Layers:**
+
+1. **Perspective:** The overall feeling/framing being maintained (unknowable threat, solvable puzzle, cosmic wonder, safe comfort)
+2. **Build/Suggest/Omit:** Strategic detail decisions about what to show explicitly, hint at, or deliberately leave mysterious
+3. **Dynamics:** The behaviors that emerge when players interact with mechanics within context
+
+**How to Reference:**
+
+```
+✓ Correct: "The genre (mystery investigation) is load-bearing; the dressing (Victorian London) is cosmetic"
+✓ Correct: "Maintain perspective throughout - every element must serve the overall feeling"
+✓ Correct: "Build what's mechanically necessary, Suggest what enables investigation, Omit what breaks perspective"
+✗ Wrong: "Setting" without distinguishing genre from dressing
+✗ Wrong: "Context is just worldbuilding" (ignores perspective and framing)
+✗ Wrong: Using specific designer names in principles (e.g., "Twohy Principle" - use descriptive names instead)
+```
+
+**When to Revise:**
+
+* If genre/dressing distinction proves insufficient for new game types
+* If Build/Suggest/Omit framework needs additional categories
+* If perspective maintenance requires more structured guidance
+
+**Current Status:** STABLE (validated through Context chapter development)
+
+**Dynamics Framework Enhancement:**
+
+**Definition to use consistently:**
+Dynamics are the behaviors that emerge when players interact with mechanics within context. Not what players CAN do (mechanics), but what they DO do (behavior).
+
+**Framework chain:**
+
+```
+Mechanics (rules) 
+    + Context (framing) 
+    → Dynamics (behavior) 
+    → Aesthetics (experience)
+```
+
+**Examples to cite consistently:**
+
+* Weather Factory: Same mechanics + different context = different dynamics (careful vs exploratory)
+* Star Wars universes: Same dressing + different genre = different dynamics (hero's journey vs war vs political thriller)
+
+**Integration across chapters:**
+
+* Chapter 1: Enhance existing dynamics discussion with context interaction
+* Resource Chapter: How resource mechanics create behavioral dynamics
+* Balance Chapter: How paradigm choice affects competitive dynamics
+* Context Chapter: How context shapes which dynamics emerge
+* Synthesis Chapter: How all systems interact to create complex dynamics
+
+### Resource Design Principles (From Resource Management Chapter)
+
+**Core Insight:** Resources are tools for creating aesthetic experiences, not default game elements.
+
+**The Central Question:** "What experience do we want, and what resources create it?"
+NOT: "What resources should this game have?"
+
+**Five Resource Types (Canonical):**
+
+1. **Consumable** - Depletes with use, gone when spent
+   * Examples: HP, spell slots, gold, ammunition
+   * Creates: Scarcity pressure, strategic allocation
+
+2. **Buffer** - Protects from consequences, renewable
+   * Examples: Blades stress, shield points, armor
+   * Creates: Active choice (spend buffer vs accept consequence)
+   * Innovation: Can separate from consequence resources (Blades harm)
+
+3. **Accumulation** - Collects over time, rarely depletes
+   * Examples: XP, reputation, collection items
+   * Creates: Progression narrative, milestone satisfaction
+
+4. **Composition** - Quality of combination > quantity
+   * Examples: Slay the Spire deck, item builds, team synergy
+   * Creates: Curation skill ("less is more" optimization)
+
+5. **Capacity** - Limits what's possible, not what's used
+   * Examples: Inventory slots, hand size, load capacity
+   * Creates: Opportunity costs, forced prioritization
+
+**Recovery Patterns (Determines Pacing):**
+
+* **No Recovery** (Permanent loss) → Conservative play, high stakes
+* **Slow Recovery** (Session/campaign) → Attrition, lasting consequences
+* **Moderate Recovery** (Per-encounter) → Tactical optimization, episodic
+* **Fast Recovery** (Constant) → Aggressive play, forgiving
+* **Mixed Recovery** (Different rates) → Multiple strategic layers
+
+**Primary Insight:** Recovery speed is PRIMARY determinant of resource play patterns
+
+* Fast recovery enables aggressive tactics (modern D\&D, WoW)
+* Slow recovery demands conservation (HoMM3, old-school D\&D)
+* No recovery creates maximum stakes (roguelikes, permadeath)
+
+**Psychological Effects (Must Be Intentional):**
+
+1. **Possession** - What "having" creates experientially
+   * Security, identity, potential, status, power
+   * Different aesthetics need different possession experiences
+
+2. **Greed** - Accumulation beyond need, hoarding
+   * Emerges when accumulation > spending in rewards
+   * Good for Collection/Progression, bad for Challenge if prevents spending
+
+3. **FOMO** - Fear of missing out, irreversible scarcity
+   * Productive: Meaningful choices, bounded consequences, multiple paths
+   * Unproductive: Time-gating, obligation, optimization anxiety
+
+**How to Reference:**
+
+```
+✓ Correct: "Stress is a buffer resource (protects from harm) with fast recovery (per-score)..."
+✓ Correct: "This creates greed behavior, which serves Collection aesthetic but harms Challenge..."
+✗ Wrong: "Player attention is a resource" (it's a constraint, not a resource)
+✗ Wrong: Using resource terminology for cognitive load, time, or other constraints
+✗ Wrong: Inventing new resource types without documenting
+```
+
+**Critical Distinctions to Maintain:**
+
+**Resources vs. Constraints:**
+
+* Resources: In-game entities, tracked by system, can be spent/recovered/traded
+* Constraints: Player capacity (cognitive load, time, attention) - external to game state
+* Tools for resources (scarcity, recovery) DON'T apply to constraints
+* See Cognitive Load section for constraint handling
+
+**Resources vs. Pacing:**
+
+* Resources CREATE pacing through recovery patterns
+* Pacing is emergent from resource dynamics
+* Recovery speed determines pacing pattern (fast → Episodic, slow → Attrition)
+
+**When to Revise:**
+
+* If resource pattern doesn't fit five types (need new type?)
+* If psychological effect not covered (new phenomenon?)
+* If recovery-pacing relationship breaks (paradigm shift?)
+
+**Revision Protocol:**
+
+1. Document game/system that doesn't fit
+2. Propose addition with clear definition and examples
+3. Update Resource Management chapter first
+4. Validate across other chapters (does this help or confuse?)
+5. Update all chapters referencing resources
+6. Add to game analysis repository
+
+**Current Status:** STABLE (validated across Blades, HoMM3, Catan, WoW, Slay the Spire)
+
+**Canonical Examples by Type:**
+
+* Consumable: Modern D\&D spell slots (moderate scarcity, per-encounter recovery)
+* Buffer: Blades stress (separates protection from consequence)
+* Accumulation: WoW reputation (permanent gains, milestone unlocks)
+* Composition: Slay the Spire deck (curation > accumulation)
+* Capacity: Catan hand limit (forces spending, prevents hoarding)
+
+### Cognitive Load Framework
+
+**Core Insight:** Cognitive load is a CONSTRAINT (external to game state), not a resource (internal game mechanic).
+
+**Critical Distinction:**
+
+* **Resources:** In-game entities (HP, gold, spell slots) - can be spent, recovered, traded
+* **Cognitive Load:** Player mental capacity - cannot be "spent" or "recovered" within game mechanics
+* Tools for resource design (scarcity, recovery) don't apply to cognitive load
+* Must use different strategies: offloading, simplification, support systems
+
+**Seven Load Types:**
+
+1. **Simultaneity Load** - Tracking multiple things at once (real-time pressure, parallel threads)
+2. **Decision Load** - Evaluating options and making choices (how many options? how deep?)
+3. **Memory/Knowledge Load** - Recalling information (rules, lore, previous state)
+4. **Tracking Load** - Monitoring ongoing game state (positions, resources, conditions)
+5. **Calculation Load** - Mathematical processing and computation (formulas, probabilities)
+6. **Pattern Recognition Load** - Learning through repeated experience (boss patterns, strategic meta)
+7. **Social/Communication Load** - Interpersonal coordination, deception, negotiation, reputation
+
+**Load-Aesthetic Relationships:**
+
+* **Challenge aesthetic** → HIGH decision/pattern load (but must be conquerable)
+* **Fellowship aesthetic** → LOW mechanical load, HIGH social load (brainspace for socializing)
+* **Narrative aesthetic** → LOW calculation load (math breaks immersion)
+* **Mastery aesthetic** → HIGH load that DECREASES with practice (front-loaded difficulty)
+* **Discovery aesthetic** → Variable load (tolerates "messy" complexity for exploration)
+* **Submission aesthetic** → VERY LOW load (relaxation, not mental effort)
+
+**Player Type Preferences (Bartle + Load):**
+
+* **Achievers** → Want conquerable high load (optimization, mastery through effort)
+* **Explorers** → Tolerate messy load (discovery-driven, depth over clarity)
+* **Socializers** → Prefer low mechanical load (brainspace for social interaction)
+* **Killers** → Embrace competitive load (management as competitive advantage)
+
+**Investment Changes Load Over Time:**
+
+* **Load Reduction Pattern** (Dark Souls): Practice internalizes patterns → less cognitive load
+* **Load Revelation Pattern** (StarCraft): Basics automate → notice deeper complexity
+* **Load Independence Pattern** (Cookie Clicker): Time passes, load stays constant
+* **Load Creep Pattern** (Trading Card Games): Complexity accumulates over game's lifecycle
+
+**Core Design Principles:**
+
+1. Match cognitive load to aesthetic goal (Challenge ≠ Fellowship ≠ Narrative)
+2. Time pressure reduces complexity budget (real-time vs. turn-based is fundamental)
+3. Offload strategically (player/GM/computer/LLM handle different load types)
+4. Support necessary load, remove unnecessary load (tools vs. simplification)
+5. Load must be perceivable (players must comprehend balanced systems)
+6. Design for learning curve (load changes from beginner to expert)
+
+**How to Reference:**
+
+```
+✓ Correct: "This creates high simultaneity load appropriate for Challenge aesthetic..."
+✓ Correct: "Offload tracking load to character sheet (externalization)..."
+✓ Correct: "Socializers prefer low mechanical load, high social load..."
+✓ Correct: "Load decreases with practice (Dark Souls pattern)..."
+✓ Correct: "Cognitive load is a constraint, not a resource..."
+✗ Wrong: "Mental burden" (vague - use specific load type)
+✗ Wrong: "Complexity" without specifying which load type
+✗ Wrong: "Cognitive tax" (imprecise - specify load type and whether necessary/unnecessary)
+✗ Wrong: "Players manage cognitive load" (they manage resources; designers accommodate load)
+✗ Wrong: Conflating "difficulty" with "cognitive load" (difficulty is aesthetic, load is constraint)
+```
+
+**When to Revise:**
+
+* If new load type emerges that doesn't fit seven categories (document game that breaks framework)
+* If aesthetic-load relationships contradict observations (Challenge doesn't need high load?)
+* If player type preferences don't hold (Achievers avoid high load?)
+* If investment patterns don't match real games (need new pattern?)
+
+**Revision Protocol:**
+
+1. Document game/scenario that doesn't fit framework (specific example with analysis)
+2. Propose new load type or refinement with clear definition and scope
+3. Update Cognitive Load chapter (Parts 1-3) first
+4. Update all chapters referencing load (Resources, Balance, case studies)
+5. Update game analysis repository with new load categorizations
+6. Update design process framework (Part 9) with new considerations
+7. Validate changes don't contradict existing examples
+
+**Current Status:** STABLE (validated across Resources, Balance chapters; two case studies; 15+ game analyses)
+
+***
+
+## Part 2: Terminology Standards
+
+### Mandatory Terms (Never Substitute)
+
+**Aesthetic** (not "experience goal," "feeling," "vibe")
+
+* Use: "Challenge aesthetic" ✓
+* Not: "Challenge experience" ✗
+
+**Paradigm** (not "approach," "method," "style")
+
+* Use: "Framework paradigm" ✓
+* Not: "Framework approach" ✗
+
+**Measurable** (not "metric," "variable," "stat")
+
+* Use: "Pattern Consistency measurable" ✓
+* Not: "Pattern Consistency metric" ✗
+
+**Pacing Pattern** (not "rhythm," "flow," "tempo")
+
+* Use: "Wave pacing pattern" ✓
+* Not: "Wave rhythm" ✗
+
+**Resource** (not "currency," "commodity," unless specifically about in-world abstraction level)
+
+* Use: "HP is a resource" ✓
+* Not: "HP is a currency" ✗ (unless discussing narrative framing)
+
+**Cognitive Load Terms** (always use specific types):
+
+**The Seven Load Types (Mandatory - Never Substitute):**
+
+* "Simultaneity load" (not "multitasking," "parallel processing," "concurrent demands")
+* "Decision load" (not "choice complexity," "option overload," "decision space")
+* "Memory load" or "Knowledge load" (not "recall burden," "knowledge requirements," "memorization")
+* "Tracking load" (not "state management," "bookkeeping," "monitoring burden")
+* "Calculation load" (not "math burden," "computational complexity," "arithmetic overhead")
+* "Pattern recognition load" (not "learning curve," "skill development," "mastery requirement")
+* "Social load" or "Communication load" (not "coordination overhead," "social complexity")
+
+**Load Management Terms:**
+
+* "Support load" (not "reduce burden," "help players") - when providing tools/UI/externalization
+* "Remove load" (not "simplify," "dumb down") - when eliminating unnecessary complexity
+* "Offload" (not "delegate," "transfer") - when moving load to GM/computer/LLM
+* "Externalize" (not "document," "write down") - when moving memory to physical/digital aids
+* "Necessary load" (not "good complexity") - load that serves experience
+* "Unnecessary load" (not "bad complexity," "friction") - load that obstructs experience
+
+**Resource-Related Terms (From Resource Management Chapter):**
+
+* "Buffer resource" (not "protective resource," "shield resource") - Blades stress-type resources
+* "Composition resource" (not "build resource," "synergy resource") - deck-building type resources
+* "Consumable resource" (not "spent resource," "used-up resource") - depletes with use
+* "Accumulation resource" (not "progression resource," "growth resource") - collects over time
+* "Capacity resource" (not "limit resource," "slot resource") - constrains what's possible
+* "Recovery pattern" (not "regeneration," "refresh rate," "restoration") - how resources replenish
+* "Possession effect" (not "having experience," "ownership feeling") - psychological state from owning
+* "Greed behavior" (not "hoarding," "accumulation syndrome") - psychological pattern
+* "FOMO" (not "anxiety," "scarcity stress") - Fear of Missing Out, only for time-limited content
+
+**Resource Recovery Terms:**
+
+* "Fast recovery" (not "quick refresh," "instant regen") - seconds to minutes
+* "Moderate recovery" (not "medium refresh") - per-encounter, per-scene
+* "Slow recovery" (not "long cooldown") - per-session, per-campaign
+* "No recovery" (not "permanent loss" in adjective form) - never recovers
+* "Mixed recovery" (not "variable recovery") - different rates for different resources
+
+**Core Loop Terminology (Mandatory - Never Substitute):**
+
+* "Micro loop" (NOT: "moment-to-moment gameplay," "immediate feedback")
+* "Core loop" (NOT: "main gameplay loop," "primary loop")
+* "Meta loop" (NOT: "progression system," "long-term loop")
+* "Flow state" (NOT: "being in the zone," "immersion")
+* "Challenge-skill balance" (for flow - NOT: "difficulty curve")
+
+**Dynamics Terminology (Mandatory):**
+
+* "Dynamics emerge from components" (NOT: "dynamics are designed")
+* "Components create dynamics" (NOT: "mechanics create gameplay")
+* "Configuration coherence" (NOT: "system harmony," "design coherence")
+
+**Scaffolding Metaphor (Mandatory):**
+
+* "Experiential scaffold" (NOT: "game framework," "system structure")
+* "The scaffold supports the experience" (consistent metaphor)
+* "Purpose-built scaffold" (emphasizing intentional design)
+
+**Critical Distinctions:**
+
+* "Cognitive load is a constraint" (not "resource," "currency," "cost")
+* "Players have cognitive capacity" (not "manage cognitive load," "spend attention")
+* "Designers accommodate load" (not "players control load," "balance complexity")
+* **"Resource" vs. "Constraint"** (CRITICAL - never confuse these):
+  * Resource: In-game entity (HP, gold, stress) - tracked by system, can be spent/recovered/traded
+  * Constraint: External limitation (cognitive load, time, attention) - player capacity, not game mechanic
+
+### Temporal Architecture Terminology
+
+**Loop vs. Cycle:**
+
+* **Loop:** The complete repeating structure (micro loop, meso loop)
+* **Cycle:** One iteration of a loop (one cycle through the micro loop)
+* Use "loop" for the structure, "cycle" for specific instances
+
+**Hook vs. Return Mechanic:**
+
+* **Hook:** What pulls player INTO a loop cycle (entry point)
+* **Return mechanic:** What brings player back AFTER stopping (between sessions)
+* Don't conflate—hooks are moment-to-moment, return is long-term
+
+**Stopping Point vs. Ending:**
+
+* **Stopping point:** Natural place to pause/quit (can be mid-game)
+* **Ending:** Final completion (game over, campaign complete)
+* Stopping points should exist throughout, not just at ending
+
+**Investment vs. Cognitive Load:**
+
+* **Investment:** Total effort required (cognitive + time)
+* **Cognitive load:** Mental effort only (separate from time commitment)
+* Investment includes both load and duration
+
+**Intrinsic vs. Extrinsic Motivation:**
+
+* **Intrinsic:** Internal desire (curiosity, mastery, fun)
+* **Extrinsic:** External pressure (FOMO, obligation, rewards)
+* Use these terms for return mechanics, not just motivation generally
+
+**Correct usage:**
+
+```
+✓ "Micro-loop hooks should be frictionless"
+✓ "Stopping points every 30 minutes"
+✓ "Investment decreases at micro scale through mastery"
+✓ "Return motivation is intrinsic (curiosity about unlocks)"
+✗ "Loop hooks bring players back tomorrow" (that's return mechanics)
+✗ "Ending points every 15 minutes" (that's stopping points)
+✗ "Cognitive investment" (use "investment" which includes both)
+```
+
+**System Functions Terminology (From Game System Chapter):**
+
+**Always use these exact function names:**
+
+1. **Adjudication** (NOT: resolution, judgment, arbitration)
+2. **Information Management** (NOT: clue distribution, knowledge control)
+3. **Content Generation** (NOT: world-building, scenario creation)
+4. **State Persistence** (NOT: memory, continuity, tracking)
+5. **Cognitive Encoding** (NOT: mindset shaping, perspective framing)
+6. **Constraint Design** (NOT: limitation creation, restriction)
+7. **Procedural Content** (NOT: oracle systems, solo play)
+
+**When discussing system analysis:**
+
+```
+✓ Correct: "Mystery requires three critical functions: Information Management, State Persistence"
+✓ Correct: "This system provides weak Information Management function"
+✗ Wrong: "This system has poor clue distribution" (use Information Management)
+✗ Wrong: "Memory system is broken" (use State Persistence)
+```
+
+**Critical distinction:**
+
+* **Function** = What system does (Information Management, Adjudication)
+* **Mechanism** = How system does it (core clues, dice rolls, oracle tables)
+* **Component** = What system is made of (Mechanics, Parameters, Context, Pacing)
+
+Don't conflate these three levels.
+
+**Configuration and Coherence Terminology:**
+
+**Configuration** (noun) - How components combine to create system
+
+* NOT: "configuration" as verb (use "configure" or "design")
+* NOT: "setup" or "arrangement" (too generic)
+
+**Coherence** (adjective: coherent/incoherent)
+
+* Describes whether components align toward same aesthetic
+* NOT: "consistent" (different concept - internal logic consistency)
+* NOT: "unified" (too vague)
+
+**The Five Components** (always reference in order):
+
+1. Mechanics
+2. Parameters
+3. Context
+4. Pacing
+5. Configuration
+
+**Usage:**
+
+```
+✓ Correct: "Configuration coherence test shows mechanics contradict context"
+✓ Correct: "Coherent configuration: all five components serve same aesthetic"
+✗ Wrong: "System configuration is inconsistent" (use incoherent)
+✗ Wrong: "Mechanics setup" (use component or configuration)
+```
+
+**Test phrasing:**
+
+"Does \[component] serve target aesthetic?" → Answer determines coherence
+
+* NEVER say: "Attention is a resource" or "Cognitive load is a resource"
+* ALWAYS say: "Attention is a constraint" or "Cognitive load is a design constraint"
+* Rationale: Tools for resource design (scarcity, recovery) don't apply to constraints
+
+**Context Design Terminology (From Context Chapter - CRITICAL MIGRATION):**
+
+**IMPORTANT: The "Genre" Problem**
+
+The term "genre" conflates three independent dimensions:
+
+* Structural pattern (archetype)
+* Thematic layer (setting)
+* Experiential goal (aesthetic)
+
+**Required Terminology Migration:**
+
+**Archetype (mandatory - replaces "genre" for structure):**
+
+* Use for: Load-bearing structural pattern
+* Examples: Investigation, Tactical combat, Roguelike, Survival horror, 4X strategy, Metroidvania, Cozy simulation, Puzzle, Walking simulator, Social deduction, Heist planning
+* Correct: "Investigation archetype determines evidence mechanics needed"
+* Wrong: "Horror genre" (ambiguous - archetype? aesthetic? setting?)
+
+**Setting (mandatory - replaces "genre" for thematics):**
+
+* Use for: Thematic/fictional layer, largely cosmetic
+* Examples: Gothic horror, cosmic horror, noir detective, cyberpunk, medieval fantasy, space opera, western, contemporary urban fantasy
+* Correct: "Gothic horror setting reinforces Tension aesthetic"
+* Wrong: "Fantasy genre determines mechanics" (no - setting is cosmetic, archetype determines mechanics)
+
+**Medium (mandatory):**
+
+* Use for: Platform/delivery mechanism
+* Examples: Video game, TTRPG, board game, mobile game, web game
+* Correct: "Video game medium enables real-time automation"
+* Wrong: "Platform" when discussing fundamental constraints (platform = PC/console within video game medium)
+
+**Critical Replacements Throughout All Chapters:**
+
+```
+❌ OLD (ambiguous):
+- "Horror genre"
+- "Mystery genre"
+- "Genre determines mechanics"
+- "Choose genre for aesthetic"
+- "Genre vs. dressing"
+
+✅ NEW (precise):
+- "Horror investigation" = Survival horror archetype + Tension aesthetic + Gothic setting
+- "Mystery investigation" = Investigation archetype + Discovery aesthetic + Noir setting
+- "Archetype determines mechanics"
+- "Choose archetype for aesthetic, then setting to reinforce"
+- "Archetype vs. setting" (archetype is load-bearing, setting is cosmetic)
+```
+
+**When Archetype + Aesthetic Combinations Have Names:**
+
+* "Horror investigation" = Investigation archetype + Tension aesthetic
+* "Tactical RPG" = Tactical combat archetype + Progression aesthetic
+* "Cozy farming" = Cozy simulation archetype + Collection aesthetic
+
+Use compound names when clearer, but decompose into archetype + aesthetic when precision matters.
+
+**Perspective (mandatory in Context discussions):**
+
+* Use for: Overall feeling/framing being maintained
+* Examples: "Unknowable threat," "Solvable puzzle," "Safe comfort"
+* Correct: "Every element must serve the perspective"
+* Wrong: "Point of view" (too narrow, implies camera angle)
+
+**Build/Suggest/Omit (mandatory for detail decisions):**
+
+* Use for: Strategic detail decisions
+* Build = explicit detail
+* Suggest = fragments and hints
+* Omit = deliberately absent/mysterious
+* Correct: "Build mechanically necessary facts, Suggest optional depth, Omit perspective-breaking information"
+* Wrong: "Show/hint/hide" (less precise)
+
+**Consistency Checks:**
+
+* Archetype vs Setting: Always distinguish structural (load-bearing) from cosmetic (thematic)
+* Context vs Worldbuilding: Context includes framing/perspective, worldbuilding is craft execution
+* Dynamics consistently: Behavioral layer, not mechanical layer
+* Perspective consistently: Overall feeling, not just narrative perspective
+
+### Archetype Reference (Context Chapter Integration)
+
+**Core Archetypes with Requirements:**
+
+**Investigation:**
+
+* Requires: Evidence gathering, clue analysis, deduction mechanics, findable clues
+* Serves: Discovery + Narrative aesthetics primarily
+* Resources: Evidence trackers, light currencies (investigation points)
+* Examples: Return of the Obra Dinn, Disco Elysium, Call of Cthulhu (TTRPG)
+
+**Tactical Combat:**
+
+* Requires: Positioning mechanics, action economy, learnable enemy patterns
+* Serves: Challenge + Mastery aesthetics primarily
+* Resources: Action points, positioning resources, health buffers
+* Examples: XCOM, Into the Breach, Fire Emblem
+
+**Survival Horror:**
+
+* Requires: Scarcity systems, constant threat, vulnerability mechanics
+* Serves: Tension aesthetic primarily
+* Resources: Scarce limiters (ammunition, saves, health)
+* Examples: Alien: Isolation, Resident Evil, Amnesia
+
+**Roguelike:**
+
+* Requires: Permadeath, procedural generation, run structure, meta-progression
+* Serves: Challenge + Mastery + Progression aesthetics
+* Resources: Per-run consumables, permanent meta-unlocks
+* Examples: Hades, Slay the Spire, Binding of Isaac
+
+**4X Strategy:**
+
+* Requires: Explore/Expand/Exploit/Exterminate mechanics, territory control, resource economy, tech trees
+* Serves: Mastery + Progression + Challenge aesthetics
+* Resources: Multiple currencies, territory, units
+* Examples: Civilization, Stellaris, Endless Legend
+
+**Metroidvania:**
+
+* Requires: Interconnected world, ability-gated progress, backtracking mechanics
+* Serves: Discovery + Progression + Challenge aesthetics
+* Resources: Ability unlocks, map completion trackers
+* Examples: Hollow Knight, Metroid Dread, Ori series
+
+**Cozy Simulation:**
+
+* Requires: Safe systems, no failure states, collection/creation mechanics
+* Serves: Submission aesthetic primarily
+* Resources: Abundant currencies, collection trackers
+* Examples: Animal Crossing, Stardew Valley, Book of Hours
+
+**Puzzle:**
+
+* Requires: Logic challenges, clear solution space, learnable rules
+* Serves: Challenge aesthetic primarily
+* Resources: Minimal (maybe undo/hint systems)
+* Examples: Portal, The Witness, Baba Is You
+
+**Social Deduction:**
+
+* Requires: Hidden roles, persuasion mechanics, trust dynamics
+* Serves: Fellowship + Tension aesthetics
+* Resources: Information (hidden/revealed states)
+* Examples: Among Us, Werewolf, Blood on the Clocktower
+
+**Heist Planning:**
+
+* Requires: Flashback mechanics, consequence tracking, score structure
+* Serves: Challenge + Narrative + Tension aesthetics
+* Resources: Flashback points, stress/heat trackers
+* Examples: Blades in the Dark, Monaco, Payday 2
+
+**Walking Simulator:**
+
+* Requires: Navigable space, environmental storytelling
+* Serves: Narrative + Discovery + Submission aesthetics
+* Resources: Minimal (maybe progression trackers)
+* Examples: What Remains of Edith Finch, Firewatch, Gone Home
+
+**How to Use:**
+
+* Refer to these when discussing archetype-specific mechanics
+* Use consistent examples across chapters
+* Add new archetypes as needed (document clearly)
+* Always specify which aesthetic(s) each archetype serves
+
+**Context-Specific (Cognitive Load):**
+
+* "Load profile" (not "complexity level," "difficulty curve") - overall cognitive demand pattern
+* "Load mismatch" (not "complexity problem," "difficulty issue") - when load doesn't serve aesthetic
+* "Load appropriate" (not "well-designed," "balanced") - when load matches intended experience
+
+### Preferred Terms (Use Consistently)
+
+**"Player" vs. "User"**
+
+* Use: "Player" for games
+* Use: "User" only when discussing software/tools
+* Never: "Gamer" (unnecessary specificity)
+
+**"Designer" vs. "Developer"**
+
+* Use: "Designer" for decision-maker
+* Use: "Developer" when specifically about implementation
+* Context: "Designer decides HP values, developer implements HP system"
+
+**"Session" vs. "Game"**
+
+* Use: "Session" for single play period
+* Use: "Game" for overall design
+* Example: "5-hour session of a campaign game"
+
+**"System" vs. "Mechanism"**
+
+* Use: "System" for interconnected components
+* Use: "Mechanism" for specific rule/procedure
+* Example: "Resource management system uses depletion mechanisms"
+
+**Resource Design Terminology:**
+
+* "Creates meaningful choices" (not "makes players think," "adds strategy")
+* "Serves \[Aesthetic] aesthetic" (not "makes game more \[aesthetic]," "improves \[aesthetic]")
+* "Forces prioritization" (not "requires planning," "demands decisions")
+* "Recovery pattern" (not "refresh cycle," "regeneration system")
+* "Permanent loss" (not "no recovery" as noun) - when describing the result
+* "No recovery" (not "permanent loss" as adjective) - when describing the pattern
+
+**Framework" (overloaded term)**
+
+* Context clarifies:
+  * "MDA framework" (aesthetic theory)
+  * "Framework paradigm" (balance approach)
+  * "Constraint satisfaction framework" (our overall methodology)
+  * Always specify which framework if ambiguous
+
+### Capitalization Rules
+
+**Capitalize:**
+
+* Aesthetic names: Challenge, Narrative, Fellowship, Discovery, Expression, Submission, Sensation, Fantasy, Mastery, Tension, Progression, Collection
+* Paradigm names: Framework, Consistency, Adaptive
+* Pacing pattern names: Attrition, Episodic, Wave, Continuous, Punctuated
+* Measurable names when used as proper reference: "Time-to-Kill measurable," "Pattern Consistency"
+* Game titles: Dark Souls, Blades in the Dark, Left 4 Dead 2
+
+**Don't capitalize:**
+
+* Common usage: "the aesthetic of challenge" (as concept, not proper name)
+* Generic terms: "pattern consistency" (as quality, not measurable name)
+* Methodological terms: "constraint satisfaction," "balance design"
+
+### Abbreviations (Sparingly)
+
+**Acceptable:**
+
+* MDA (only after first use spells out "Mechanics-Dynamics-Aesthetics")
+* HP (only after first use spells out "Hit Points" or "Health Points")
+* DPR (only in Balance chapter after defining "Damage Per Round")
+* TTK (only in Balance chapter after defining "Time-to-Kill")
+
+**Not acceptable:**
+
+* PC/NPC (spell out "player character," "non-player character")
+* GM/DM (spell out "game master" or "dungeon master")
+* RPG (spell out "role-playing game" first time in chapter)
+
+**Rationale:** Book is reference material, readers may skip to middle chapters
+
+***
+
+## Part 3: Structural Patterns
+
+### Chapter Structure Template
+
+**Standard chapter organization:**
+
+````markdown
+# Chapter Title: [Concept]
+
+## Introduction (1-2 pages)
+- What problem does this chapter solve?
+- Why it matters for game design
+- What you'll learn
+- Prerequisites (what chapters to read first)
+
+## Conceptual Foundation (3-5 pages)
+- Core concepts introduced
+- Definitions and distinctions
+- Theoretical grounding (cite sources if applicable)
+- Connection to aesthetics/paradigms
+
+## Practical Application (5-10 pages)
+- How to apply concepts
+- Step-by-step processes
+- Decision frameworks
+- Examples from real games
+
+## Cognitive Load Considerations (2-4 pages) **[NEW - REQUIRED]**
+- What cognitive load types does this system/concept create?
+  - Rate each: Simultaneity, Decision, Memory, Tracking, Calculation, Pattern Recognition, Social
+  - Justify why each is HIGH/MEDIUM/LOW
+- How does cognitive load scale?
+  - Beginner experience (first session)
+  - Intermediate experience (learning phase)
+  - Expert experience (mastered)
+- How can necessary load be supported?
+  - Externalization tools (reference cards, journals, maps)
+  - UI/information design (hierarchy, clarity, feedback)
+  - Automation/offloading (what GM/computer/LLM can handle)
+- What unnecessary load can be removed?
+  - Simplification opportunities (without losing depth)
+  - Calculation reduction (simple math or automation)
+- Which aesthetics does this load profile serve?
+  - Primary aesthetic match (Challenge, Fellowship, Narrative, etc.)
+  - Secondary aesthetics supported
+  - Aesthetics that conflict with this load
+- Which player types will this serve/exclude?
+  - Achievers, Explorers, Socializers, Killers
+  - Load tolerance and preferences
+- Load integration considerations:
+  - How does this compound with other systems?
+  - Total cognitive budget impact
+  - Load distribution opportunities (if multiplayer)
+
+**Rationale:** Every game system creates cognitive load. Explicit analysis prevents unintentional load mismatches and helps designers make intentional choices about where players should spend mental effort.
+
+## Common Patterns/Recipes (optional, 5-8 pages)
+- Reusable templates
+- Common combinations
+- When to use which approach
+
+## Case Studies/Deep Dives (3-6 pages)
+
+### System Analysis Section Template
+
+When analyzing a game system in any chapter, include these elements:
+
+**1. Aesthetic Goal**
+- State what aesthetic(s) system serves
+- Reference 12 aesthetics framework
+- Identify primary vs. secondary aesthetics
+
+**2. Function Analysis**
+- List which of 7 functions system provides
+- Identify which functions are critical for stated aesthetic
+- Note any missing/broken functions
+
+**3. Configuration Analysis**
+- Mechanics: What players do
+- Parameters: How much, how fast, how scarce
+- Context: What it means
+- Pacing: When things happen
+- Coherence: Do all components serve same aesthetic?
+
+**4. Information Management** (if aesthetic requires)
+- Core vs. optional information structure
+- Can players miss critical information?
+- How is discovery gated?
+
+**Example structure:**
+
+```markdown
+## [Game Name] System Analysis
+
+**Aesthetic Goal:** [Primary aesthetics] with [secondary aesthetics]
+
+**Function Provision:**
+- Adjudication: [mechanism] - ✓ Works well / ⚠️ Has issues / ✗ Broken
+- Information Management: [mechanism] - [assessment]
+- [Continue for relevant functions]
+
+**Configuration:**
+- Mechanics: [description] → Serves [aesthetic]? ✓/✗
+- Parameters: [description] → Serves [aesthetic]? ✓/✗
+- Context: [description] → Serves [aesthetic]? ✓/✗
+- Pacing: [description] → Serves [aesthetic]? ✓/✗
+- Coherence: ✓ Coherent / ✗ Incoherent
+
+**Information Management:** (if relevant)
+- Model: [Traditional RPG / Core-Optional Split / Hybrid]
+- Assessment: [How well does it work?]
+
+**Key Insights:**
+- [What this system teaches about aesthetic-mechanic alignment]
+- [What this system does well]
+- [What this system struggles with]
+````
+
+**Use this template consistently** to enable cross-chapter comparison of systems.
+
+* Real game analysis
+* What worked, what didn't
+* Lessons for designers
+
+## Integration with Other Concepts (2-3 pages)
+
+* How this connects to other chapters
+* Cross-references
+* Holistic view
+
+## Common Pitfalls (2-3 pages)
+
+* What goes wrong
+* How to avoid mistakes
+* Red flags to watch for
+
+## Quick Reference (1-2 pages)
+
+* Summary tables
+* Decision trees
+* Key takeaways
+* Checklists
+
+## Next Steps
+
+* What to read next
+* How to practice
+* Resources for deeper dive
+
+````
+
+**Flexibility:** Not all chapters need all sections, but use this as default structure
+
+**Chapter Length Targets:**
+- Foundational chapters: 20-30 pages (Game Systems, Aesthetics, Resources)
+- Practical chapters: 30-50 pages (Cognitive Load, Balance)
+- Synthesis chapters: 15-25 pages (Integration, Takeaways)
+
+**Context Chapter Structure Pattern:**
+
+The Context chapter established an 11-part structure useful for certain chapter types:
+
+1. Introduction (why this matters, what we cover)
+2. Decision framework (how to choose)
+3. Validation framework (how to test)
+4. Strategic framework (how to decide details)
+5. Practical framework (how to create)
+6. Integration (how it connects)
+7. Dynamics (how it creates behavior)
+8. Coherence (how everything aligns)
+9. Validation (how to test it works)
+10. Pitfalls (common mistakes)
+11. Quick Reference (practical tools)
+
+**This pattern works well for:**
+- Topics with decision trees (choice frameworks needed)
+- Topics with creative output (producing design documents)
+- Topics requiring integration (cross-system topics)
+- Topics with common mistakes (anti-patterns to document)
+
+### Temporal Architecture Chapter References
+
+**When other chapters reference temporal concepts:**
+
+**From Balance Chapter:**
+- Pacing patterns (defined in Temporal Architecture Part 2, measured in Balance Part 5)
+- "See Temporal Architecture Chapter Part 2 for pacing pattern definitions"
+- "See Balance Chapter Part 5 for measurable pacing parameters"
+
+**From Cognitive Load Chapter:**
+- Investment trajectories (defined in Temporal Architecture Part 5)
+- Total cognitive load across loop scales
+- "See Temporal Architecture Chapter Part 5 for investment patterns"
+
+**From Context Chapter:**
+- How context transforms loop requirements
+- Genre-specific temporal structures
+- "See Temporal Architecture Chapter Part 3 for aesthetic-loop mappings"
+
+**From Synthesis Chapter:**
+- Loop architecture as integration point
+- Complete temporal design process
+- "See Temporal Architecture Chapter Part 10 for operationalization process"
+
+**From Chapter 1 (Game Systems):**
+- Loops introduced in Chapter 1 Section 4 (Core Loops & Flow)
+- Temporal Architecture expands on this foundation
+- Configuration Coherence extends to temporal dimension
+
+
+**May not work for:**
+- Pure mechanical topics (might need different structure)
+- Highly technical topics (might need more math, less framework)
+- Synthesis chapters (different integration focus)
+
+**Quick Reference Section Standard:**
+
+All chapters should include a Quick Reference section with:
+1. One-page process summary
+2. Decision flowcharts/matrices
+3. Templates (if applicable)
+4. Checklists
+5. When-to-use-what guidance
+6. Common patterns
+7. Validation quick checks
+
+The Context chapter provides the template for this structure.
+
+- Reference chapters: 40-60 pages (if catalog/comprehensive)
+
+### Section Formatting
+
+**Headings:**
+```markdown
+# Chapter Title (H1, once per document)
+
+## Major Section (H2, 5-10 per chapter)
+
+### Subsection (H3, detailed breakdowns)
+
+#### Minor point (H4, use sparingly, only for deep nesting)
+````
+
+**Lists:**
+
+* Use numbered lists for sequential steps
+* Use bullet lists for unordered collections
+* Use sub-bullets sparingly (max 2 levels deep)
+* Keep list items parallel in structure
+
+**Tables:**
+
+* Use for comparisons, reference data
+* Maximum 5 columns (readability)
+* Include header row always
+* Caption above table explaining what it shows
+
+**Code blocks:**
+
+* Use for formulas, algorithms, pseudocode
+* Use for data structures
+* Always include comment explaining purpose
+* Example:
+  ```
+  Boss HP = Player DPR × Target Rounds
+  Where:
+    Player DPR = (Player Damage × Hit Rate) × Number of Players
+    Target Rounds = Desired fight duration
+  ```
+
+### Cross-Referencing
+
+**Internal references (within chapter):**
+
+```markdown
+See Section 3.2 for detailed explanation
+As discussed in the Paradigm section above
+Refer to the Measurables Catalog (Part 5)
+```
+
+**External references (to other chapters):**
+
+```markdown
+✓ Good: "As established in the Resources chapter..."
+✓ Good: "For cognitive load considerations, see Cognitive Load chapter, Section 2.3"
+✓ Good: "This connects to pacing (Balance chapter, Temporal Dynamics section)"
+
+✗ Bad: "See earlier chapter" (which one?)
+✗ Bad: "As mentioned before" (where?)
+✗ Bad: "Page 47 discusses this" (page numbers change in editing)
+```
+
+**Forward references:**
+
+```markdown
+✓ Good: "We'll explore this in depth in the Balance chapter"
+✓ Good: "Playtesting protocol covered in Balance chapter, Part 7"
+
+✗ Bad: "More on this later" (where later?)
+```
+
+**Bidirectional references:**
+
+* When chapter A references chapter B, check if B should reference A
+* Create reference map as book grows
+* Validate references don't create circular dependencies
+
+**Context Chapter Cross-References:**
+
+**When discussing Context, reference:**
+
+* Chapter 1: Aesthetic framework (what experience to create), Context as system component
+* Chapter 2: Context (Archetype selection, Setting reinforcement, Four Dimensions framework)
+* Chapter 3: Resources (what resources fit archetype)
+* Chapter 4: Cognitive Load (what complexity budget archetype supports)
+* Chapter 5: Balance (what paradigm fits archetype)
+* Chapter 6: Temporal Architecture (what loop architecture archetype requires)
+
+**When discussing Dynamics, reference:**
+
+* Chapter 1: MDA framework (Mechanics → Dynamics → Aesthetics)
+* Chapter 2 Context: How context shapes dynamics (behavioral emergence)
+* Chapter 3 Resources: How resource mechanics create behavioral dynamics
+* Chapter 5 Balance: How paradigm affects dynamics
+* Synthesis Chapter: How all systems create complex emergent dynamics
+
+**Standard phrasing:**
+
+```markdown
+"For context design guidance, see Chapter 2 Context (Archetype selection, Build/Suggest/Omit framework)"
+"For how archetype affects resource choice, see Chapter 3 Resources (Archetype Alignment section)"
+"For dynamics and behavioral emergence, see Chapter 2 Context"
+```
+
+### Context Chapter Integration Dependencies
+
+**Chapter 2 (Context) PROVIDES to subsequent chapters:**
+
+**To Chapter 3 (Resources):**
+
+* **Archetype determines appropriate resource types**
+* Investigation archetype → Evidence trackers + light currencies
+* Tactical combat archetype → Action points + positioning resources + health buffers
+* Survival horror archetype → Scarcity (ammunition, saves, health)
+* Cozy simulation archetype → Abundance + collection trackers
+* **How to reference:** "As established in Chapter 2, \[archetype] requires \[resource type]"
+
+**To Chapter 4 (Cognitive Load):**
+
+* **Archetype determines complexity budget**
+* Investigation archetype → High information tracking, medium decision complexity
+* Tactical combat archetype → Medium information tracking, high decision complexity
+* 4X strategy archetype → Very high information/decision complexity
+* Cozy simulation archetype → Low complexity across all dimensions
+* **How to reference:** "Following Chapter 2's archetype framework, \[archetype] allows \[complexity level]"
+
+**To Chapter 5 (Balance):**
+
+* **Archetype determines balance paradigm**
+* Investigation archetype → Framework balance (must provide solvable mysteries)
+* Tactical combat archetype → Consistency balance (learnable patterns)
+* Social games → Adaptive balance (dynamic adjustment)
+* **How to reference:** "Chapter 2's archetype determines paradigm: \[archetype] uses \[paradigm]"
+
+**To Chapter 6 (Temporal Architecture):**
+
+* **Archetype determines loop architecture**
+* Roguelike archetype → Clear run structure (meso loops), meta-progression
+* Investigation archetype → Case structure (meso/macro)
+* Cozy simulation archetype → Flexible pacing, player-driven
+* 4X strategy archetype → Long sessions, expansive architecture
+* **How to reference:** "Per Chapter 2, \[archetype] requires \[loop architecture]"
+
+### Context Chapter Integration Points
+
+**Document where each chapter should reference Chapter 2 (Context):**
+
+**Chapter 1 (What Is a Game System):**
+
+* Component 3 (Context): Add archetype/setting distinction
+* Dynamics discussion: Reference context's role in shaping behavior
+* Add forward reference: "Chapter 2 Context goes deeper on archetype selection and perspective maintenance"
+
+**Chapter 3 (Resources):**
+
+* Resource selection: Add archetype consideration (not just aesthetic fit)
+* Example: "Horror investigation archetype needs stress/dread resources, cozy simulation archetype doesn't"
+* Reference: Chapter 2 for archetype selection affecting resource choice
+
+**Chapter 4 (Cognitive Load):**
+
+* Load factors: Add archetype's effect on cognitive load
+* Example: "Cozy simulation archetype needs low load, Investigation archetype can support medium load"
+* Example: "Familiar setting (medieval fantasy) = lower memory load than alien setting"
+* Reference: Chapter 2 Part 6 (Integration with other systems)
+
+**Chapter 5 (Balance):**
+
+* Paradigm selection: Add archetype determines paradigm fit
+* Example: "Investigation archetype → Framework paradigm (investigation flexibility)"
+* Example: "Survival horror archetype → Consistency or Adaptive (depending on approach)"
+* Reference: Chapter 2 (Archetype selection and its implications)
+
+**Future Synthesis Chapter:**
+
+* Context as integration point across all systems
+* Dynamics from multiple sources (mechanics, context, resources, balance)
+* Complete coherence checking process
+
+***
+
+## Part 4: Example Formatting
+
+### Real Game Examples
+
+**First mention format:**
+
+```markdown
+**Game Title** (Genre, Year, Platform)
+- Brief description (1 sentence)
+- Primary Aesthetic(s)
+- Why relevant to this concept
+- Key design choice being illustrated
+
+Example: 
+**Dark Souls** (Action RPG, 2011, Multi-platform)
+- Known for high difficulty and pattern-learning boss fights
+- Primary Aesthetics: Challenge, Mastery
+- Illustrates Consistency paradigm with Challenge aesthetic
+- Key choice: Fixed enemy stats and behavior enabling mastery through repetition
+```
+
+**Full Analysis Format (For Detailed Examples):**
+
+```markdown
+**Game Title** (Genre, Year, Platform)
+
+**Core Information:**
+- Brief description
+- Primary Aesthetic(s)
+- Secondary Aesthetic(s) (if applicable)
+- Target Audience (Bartle types: Achievers, Explorers, Socializers, Killers)
+
+**Cognitive Load Profile:** **[NEW - REQUIRED for detailed analyses]**
+- **Simultaneity:** [LOW/MEDIUM/HIGH] - [specific justification]
+- **Decision:** [LOW/MEDIUM/HIGH] - [specific justification]
+- **Memory/Knowledge:** [LOW/MEDIUM/HIGH] - [specific justification]
+- **Tracking:** [LOW/MEDIUM/HIGH] - [specific justification]
+- **Calculation:** [LOW/MEDIUM/HIGH] - [specific justification]
+- **Pattern Recognition:** [LOW/MEDIUM/HIGH] - [specific justification]
+- **Social/Communication:** [LOW/MEDIUM/HIGH or N/A] - [specific justification]
+
+**Load Appropriateness:**
+- Does load serve intended aesthetic? [YES/NO/PARTIALLY]
+- Load strengths: [what works well]
+- Load weaknesses: [what could be improved]
+- Load management techniques: [how game supports players]
+- Load trajectory: [how load changes beginner → expert]
+
+**Core Loops (for detailed analyses):**
+- **Micro Loop:** [1-2 sentence immediate action-feedback cycle]
+- **Core Loop:** [2-3 sentence primary gameplay cycle]
+- **Meta Loop:** [2-3 sentence long-term progression cycle]
+- **Flow Profile:** [How loops create flow for target aesthetic]
+
+**System Analysis:**
+- Balance Paradigm (if applicable)
+- Pacing Pattern (if applicable)
+- Resource systems (if applicable)
+- Key mechanics
+- Notable design decisions
+
+**Example:**
+
+**Dark Souls** (Action RPG, 2011, Multi-platform)
+
+**Core Information:**
+- High-difficulty action RPG known for pattern-learning boss fights and "learning through dying"
+- Primary Aesthetics: Challenge, Mastery
+- Target Audience: Achievers (primarily), some Explorers (environmental storytelling)
+
+**Cognitive Load Profile:**
+- **Simultaneity:** LOW (enemies attack one at a time; turn-based enemy patterns despite real-time combat)
+
+### Temporal Architecture Examples
+
+**When providing loop structure examples:**
+
+Use consistent format:
+```
+
+**Game Name (Success/Failure - Genre):**
+
+Micro loop (duration): Description
+
+* Purpose: What it achieves
+* Serves: Which aesthetic
+
+Meso loop (duration): Description
+
+* Purpose: What it achieves
+* Serves: Which aesthetic
+
+Macro loop (duration): Description
+
+* Purpose: What it achieves
+* Serves: Which aesthetic
+
+Meta loop (duration): Description
+
+* Purpose: What it achieves
+* Serves: Which aesthetic
+
+**Why it works / Why it fails:** Analysis
+
+```
+
+**Example:**
+```
+
+**Vampire Survivors (Success - Action Roguelike):**
+
+Micro loop (continuous): Move → auto-attacks → enemies die → XP pickups
+
+* Purpose: Maintain flow state
+* Serves: Submission (zero friction), Sensation (satisfying feedback)
+
+Meso loop (60-90 seconds): Level up → choose upgrade → return to flow
+
+* Purpose: Strategic pauses within flow
+* Serves: Mastery (build optimization)
+
+Macro loop (15-30 minutes): Complete run → death or 30-min cap
+
+* Purpose: Session-appropriate closure
+* Serves: Progression (unlocks earned)
+
+Meta loop (20-60 hours): Unlock characters/weapons → try new builds
+
+* Purpose: Intrinsic return motivation
+* Serves: Discovery (variety), Collection (completion)
+
+**Why it works:** Investment pattern is Flat Low (perfect for casual audience), stopping points every 30 minutes (respects player time), return motivation purely intrinsic (no FOMO).
+
+```
+
+- **Decision:** MEDIUM (positioning, timing, when to heal; straightforward but meaningful)
+- **Memory/Knowledge:** LOW-MEDIUM (boss patterns learnable through repetition; no complex rules to memorize)
+- **Tracking:** LOW (simple stats: HP, stamina, equipment load; minimal UI clutter)
+- **Calculation:** MINIMAL (damage shown; no complex formulas required from player)
+- **Pattern Recognition:** VERY HIGH (core mechanic - learning enemy patterns through repeated death)
+- **Social:** LOW (primarily single-player; optional co-op summons don't require coordination)
+
+**Load Appropriateness:**
+- ✅ Load serves aesthetic: VERY HIGH pattern recognition = perfect for Challenge/Mastery
+- ✅ Load DECREASES with practice (front-loaded difficulty → mastery satisfaction)
+- ✅ Simple controls prevent execution load from competing with pattern learning
+- ✅ Turn-based enemy patterns give processing time despite real-time combat
+- ✅ Load trajectory: Overwhelming initially → manageable → trivial (demonstrates mastery)
+
+**Load Management:**
+- Simple, responsive controls (execution is easy once pattern known)
+- Clear visual feedback (can see why you died)
+- Consistent enemy behavior (patterns are learnable, not random)
+- Bonfires provide safe zones (cognitive recovery between challenges)
+
+**Core Loops:**
+- **Micro Loop:** Observe enemy → dodge/block → attack in opening → repeat until dead
+- **Core Loop:** Explore area → encounter boss → die repeatedly → learn patterns → defeat boss → unlock new area → explore
+- **Meta Loop:** Master area → progress through world → unlock shortcuts → face harder challenges → eventually complete game
+- **Flow Profile:** High challenge-skill balance creates flow at edge of player ability (Challenge aesthetic)
+
+**System Analysis:**
+- Balance Paradigm: Consistency-Based (fixed patterns enable learning)
+- Pacing Pattern: Episodic (death resets encounter, but knowledge persists)
+- Resources: HP (slow recovery via Estus), Stamina (fast recovery), Souls (currency + XP, lost on death)
+- Key mechanic: Pattern recognition through enforced repetition
+```
+
+**Subsequent mentions:**
+
+```markdown
+Shorter form: "In Dark Souls, boss patterns remain consistent..."
+Or: "Dark Souls demonstrates this with..."
+```
+
+**Analysis depth tiers:**
+
+**Tier 1: Brief mention (1-2 sentences)**
+
+* Use: When example supports a point
+* Format: "Dark Souls uses this approach by..."
+
+**Tier 2: Medium example (1 paragraph)**
+
+* Use: When example needs explanation
+* Format: Game name bold, concept explained, lesson extracted
+
+**Tier 3: Deep analysis (1-2 pages)**
+
+* Use: When example is central to chapter
+* Format:
+  * What the game does
+  * How it implements the concept
+  * What measurables it optimizes
+  * What paradigm/aesthetic it serves
+  * What we learn from it
+  * What could be improved
+
+**Tier 4: Complete worked example (5+ pages)**
+
+* Use: Once or twice per major chapter
+* Format: Full framework application (see Village Mystery + Boss Fight)
+
+### Resource Management Cross-References
+
+**When discussing resources in any chapter:**
+
+**Minimum references:**
+
+* Link to Resource Management chapter for detailed patterns
+* Specify resource type (consumable, buffer, accumulation, composition, capacity)
+* Note recovery pattern and what it creates (fast → episodic, slow → attrition)
+
+**Example:**
+
+```markdown
+Spell slots are consumable resources (consumed when cast) with moderate recovery 
+(per long rest), creating per-day strategic allocation. See Resource Management 
+chapter for recovery patterns and their effects on play.
+```
+
+**When discussing aesthetics + resources:**
+
+* Reference which resource patterns serve which aesthetics
+* Example: "Challenge aesthetic typically uses moderate scarcity + moderate recovery"
+* Link to Resource Management Part 9 (Aesthetic-to-Resource Mapping)
+
+**When discussing pacing:**
+
+* Note that recovery patterns determine pacing
+* Fast recovery → Episodic pacing
+* Slow recovery → Attrition pacing
+* See Resource Management Part 4 (Recovery Patterns)
+
+**When discussing cognitive load:**
+
+* NEVER call cognitive load a "resource"
+* If discussing resource tracking complexity, reference cognitive load as constraint
+* Example: "Complex resources increase cognitive load (constraint), not resource expenditure"
+
+**Common Cross-Reference Mistakes:**
+
+```markdown
+✗ "Players manage attention resource" → ✓ "Players face attention constraints"
+✗ "Time is a resource" → ✓ "Time is a constraint" (unless in-fiction time tracked as mechanic)
+✗ Discussing resources without specifying type or recovery pattern
+✗ Using Blades but not mentioning stress/harm separation
+✗ Using Slay the Spire but not mentioning composition resource pattern
+```
+
+**Resource Anti-Pattern References:**
+When identifying problems, reference anti-pattern codes:
+
+```markdown
+✓ "This creates AP-RM-1 (Critical Path Resources) because..."
+✓ "Design avoids AP-RM-4 (Resource Starvation) by providing..."
+✗ Describing problem without referencing anti-pattern catalog
+```
+
+### Temporal Architecture Anti-Patterns
+
+**Investment Problems:**
+
+* ❌ Micro investment never decreases despite mastery (RDR2 animation problem)
+* ❌ Meta investment exceeds micro without aesthetic justification (Destiny 2)
+* ❌ Exponential investment trajectory (FOMO/obligation replaces fun)
+* ❌ Casual game adds complex meta-loop (exceeds audience capacity)
+
+**Stopping Point Problems:**
+
+* ❌ No stopping points for hours (Civilization VI problem)
+* ❌ Stopping feels like failure (mid-strategy, incomplete checklist)
+* ❌ Forced cliffhangers without closure (TV-style episodic manipulation)
+* ❌ FOMO mechanics (content deletion, time-limited rewards)
+
+**Hook Problems:**
+
+* ❌ High micro-loop entry cost (friction prevents flow initiation)
+* ❌ Unclear goals (players don't know what to do)
+* ❌ Extrinsic return motivation (obligation not desire)
+* ❌ Social pressure as retention (guilt-based engagement)
+
+**Loop Architecture Problems:**
+
+* ❌ Missing meso loops (micro → macro gap creates aimlessness)
+* ❌ Too many nested loops (cognitive overload)
+* ❌ Loops don't serve aesthetic (configuration incoherence at temporal scale)
+* ❌ Player capacity mismatch (hardcore architecture for casual audience)
+
+**"One More" Problems:**
+
+* ❌ Sunk cost traps (already invested X hours/dollars)
+* ❌ Incomplete checklist syndrome (always more to do)
+* ❌ Time pressure (must finish before reset/expiration)
+* ❌ No good stopping points (feels bad to quit anywhere)
+
+**Resource-Specific Example Usage:**
+
+* **Blades stress/harm:** Always mention separation + different recovery rates
+* **Slay the Spire deck:** Always mention composition (quality > quantity)
+* **Catan hand limit:** Always mention forced spending mechanism
+* **HoMM3 armies:** Always mention permanent loss + weekly rhythm
+* **WoW time-gating:** Note both benefits (pacing) and problems (FOMO)
+
+### Context Design Examples
+
+**Canonical Genre/Dressing Separations:**
+
+**Star Wars trilogy (established in Context chapter):**
+
+* Original Trilogy: Hero's journey genre, space opera dressing
+* Rogue One: War movie genre, Star Wars dressing
+* Andor: Political thriller genre, Star Wars dressing
+* **Design lesson:** "Star Wars game" is insufficient - must specify genre first
+* **Use when:** Explaining why same IP needs different mechanics
+
+**Blades in the Dark (established in Balance chapter):**
+
+* Genre: Heist with consequences
+* Dressing: Victorian haunted city
+* Can reskin: Cyberpunk (The Sprawl), Sci-fi (Scum & Villainy)
+* **Design lesson:** Dressing swappable, genre mechanics required
+* **Use when:** Demonstrating genre/dressing independence
+
+**Weather Factory (established in Context chapter):**
+
+* Cultist Simulator: Discovery + Tension aesthetics, occult horror genre
+* Book of Hours: Submission + Discovery aesthetics, cozy restoration genre
+* Same mechanics, different genre/dressing, opposite experiences
+* **Design lesson:** Context transforms player behavior with identical systems
+* **Use when:** Showing how context creates dynamics
+
+**Canonical Build/Suggest/Omit Examples:**
+
+**Outer Wilds:**
+
+* Build: Physics rules, planet contents, ship logs
+* Suggest: Nomai story (fragments across planets), quantum phenomena (experienced not explained)
+* Omit: Nomai appearance, some final cosmic mysteries
+* **Use when:** Demonstrating strategic restraint in mystery/discovery
+
+**Obra Dinn:**
+
+* Build: Death scenes, dialogue, physical evidence
+* Suggest: Identities (deduced from clues), relationships
+* Omit: Full faces often, complete backstories
+* **Use when:** Showing deduction-focused mystery design
+
+**Weather Factory:**
+
+* Build: Card mechanics, immediate effects
+* Suggest: Cosmology (fragments in card text), deeper lore
+* Omit: Character appearance, complete answers, final mysteries
+* **Use when:** Illustrating mystery through suggestion
+
+**Disco Elysium:**
+
+* Build: Martinaise (exhaustively detailed district)
+* Suggest: Your past (pieced together), motivations
+* Omit: World outside Martinaise, easy redemption
+* **Use when:** Showing bounded depth vs infinite breadth
+
+**When citing these games:**
+
+* Always identify both genre AND dressing when relevant
+* Don't assume readers know which is load-bearing
+* Test by asking: "Could you swap this element without changing experience?"
+* Use these consistently across all chapters for cross-reference clarity
+
+### Hypothetical Examples
+
+**Format for teaching examples:**
+
+```markdown
+**Hypothetical: [Concept Being Illustrated]**
+
+Consider a game where:
+- [Setup clearly described]
+- [Key variables stated]
+- [Problem or question posed]
+
+Analysis:
+- [Walk through reasoning]
+- [Show calculations if applicable]
+- [Arrive at conclusion]
+
+Lesson: [What this teaches us about the concept]
+```
+
+**Example of good hypothetical:**
+
+```markdown
+**Hypothetical: Recovery Speed Determines Pacing**
+
+Consider a tactical combat game where:
+- Players have 100 HP
+- Each combat encounter deals ~30 damage
+- Question: How does recovery rate affect pacing?
+
+Scenario A (Fast Recovery):
+- HP restores to full in 30 seconds after combat
+- Result: Each encounter feels self-contained (Episodic pacing)
+- Players approach each fight fresh
+
+Scenario B (Slow Recovery):
+- HP restores at 5 HP per minute
+- Result: Pressure builds across encounters (Attrition pacing)
+- Players must manage HP across multiple fights
+
+Lesson: Recovery Speed is the primary determinant of whether pacing 
+feels Episodic or Attrition-based.
+```
+
+### Test/Validation Examples
+
+**Format for playtesting scenarios:**
+
+```markdown
+**Test: [What's Being Validated]**
+
+Setup:
+- [Game state described]
+- [Parameters tested]
+- [Success criteria defined]
+
+Expected Outcome:
+- [Hypothesis stated clearly]
+- [Metrics to track]
+
+Actual Outcome:
+- [What happened in playtest]
+- [Data collected]
+
+Analysis:
+- [Hypothesis confirmed/rejected]
+- [What this means for design]
+- [Adjustments needed if any]
+```
+
+### Counter-Examples (What Not To Do)
+
+**Format:**
+
+```markdown
+❌ **Anti-Pattern: [Problem Name]**
+
+What goes wrong:
+- [Description of flawed approach]
+- [Why designers do this]
+
+Symptoms:
+- [Observable problems]
+- [Player complaints]
+
+Why it fails:
+- [Underlying issue]
+- [Which principle violated]
+
+Fix:
+- [Correct approach]
+- [How to avoid this mistake]
+
+Example: [Brief real or hypothetical example]
+```
+
+### Resource Management Anti-Patterns (From Resource Management Chapter)
+
+**Standard anti-pattern codes for consistent reference across chapters:**
+
+**AP-RM-1: Critical Path Resources**
+
+* Problem: Gating progress-critical elements behind depletable/missable resources
+* Example: D\&D investigation (roll to find clues → can fail → investigation stalls)
+* Why it fails: Creates dead stops, not interesting challenges
+* Solution: Core elements automatic, optional elements cost resources (Gumshoe model)
+* Recognition: "If players run out of X, can game continue interestingly?" If NO → Don't make it depletable
+
+**AP-RM-2: System Selection Error**
+
+* Problem: Using resource system designed for different aesthetic
+* Example: D\&D (combat-focused) for mystery investigation (interpretation-focused)
+* Why it fails: Mechanics fight against intended experience
+* Solution: Choose system that serves aesthetic, or heavily modify
+* Recognition: "What is this system optimized for? Does it match my goal?"
+
+**AP-RM-3: Meaningless Accumulation**
+
+* Problem: Resources accumulate without creating decisions
+* Example: Grinding for levels (time investment, not skill expression)
+* Why it fails: Reduces Challenge to Submission (mindless activity)
+* Solution: Tie accumulation to choices, not just time
+* Recognition: "Could a bot do this?" If YES → Problem
+
+**AP-RM-4: Resource Starvation**
+
+* Problem: Players can't afford to use core mechanics
+* Example: Wizard with 2 spell slots saves them, never casts
+* Why it fails: Core fantasy inaccessible, reduces to basic actions
+* Solution: Increase abundance or add free baseline version (cantrips)
+* Recognition: Playtest shows players hoarding and never using abilities
+
+**AP-RM-5: Unintended Grinding**
+
+* Problem: Optimal play requires repetitive resource farming
+* Example: Need gold for potions → farm easy enemies repeatedly
+* Why it fails: Interrupts pacing, boring, feels necessary
+* Solution: Make farming impossible/inefficient, make resources abundant, or make farming fun
+* Recognition: "What's optimal way to get X?" If answer is "repeat boring thing" → Problem
+
+**AP-RM-6: Manipulative FOMO**
+
+* Problem: Creating anxiety through time-limited content for retention metrics
+* Example: Daily quest treadmills with exclusive rewards
+* Why it fails: Engagement through anxiety, not enjoyment; game becomes job
+* Solution: Make events recurring, remove exclusive rewards, no "use it or lose it" pressure
+* Recognition: "Does missing this create anxiety or disappointment?" Anxiety → Manipulative
+
+**How to Reference Anti-Patterns:**
+
+```
+✓ Correct: "This creates AP-RM-1 (Critical Path Resources) because investigation stalls if players fail..."
+
+### Temporal Architecture Tone
+
+**When discussing investment trajectories:**
+- Be honest about Exponential Trap being exploitative (don't sugar-coat)
+- But don't moralize excessively (save ethics chapter for deep dive)
+- Present business model conflicts clearly ("serves metrics, not aesthetics")
+- Acknowledge some players tolerate/enjoy high investment (hardcore audience exists)
+
+**When discussing stopping points:**
+- Frame as respect for player time (positive framing)
+- Not "players should be able to quit" but "players deserve satisfying closure"
+- FOMO is "problematic" not "evil" (avoid inflammatory language)
+- Present intrinsic motivation as best practice, not moral imperative
+
+**When discussing player capacity:**
+- No value judgments ("casual" is not inferior to "hardcore")
+- Present as design constraints (matching audience, not ranking players)
+- Acknowledge life context (busy adults ≠ less skilled, just less time)
+- Respect all player types (each deserves well-designed experiences)
+
+**Avoid:**
+- ✗ "Destiny 2 is bad because..." (focus on design patterns, not attacking games)
+- ✗ "Casual players can't handle..." (implies inferiority)
+- ✗ "Mobile games are exploitative" (some are, some aren't—be specific)
+- ✗ "You should never..." (prescriptive unless ethically critical)
+
+**Preferred:**
+- ✓ "Destiny 2's meta-loop creates obligation through FOMO mechanics"
+- ✓ "Casual players have limited time, requiring compressed architecture"
+- ✓ "Some mobile games use exploitative mechanics; others respect player time"
+- ✓ "Exponential Trap pattern should be avoided (serves metrics, not players)"
+
+✓ Correct: "Avoiding AP-RM-4 (Resource Starvation) by providing abundant cantrips..."
+✗ Wrong: Describing anti-pattern without referencing code (readers can't connect to catalog)
+✗ Wrong: Inventing new anti-patterns without documenting in guidelines
+```
+
+**When Anti-Pattern is Intentional:**
+Sometimes what looks like anti-pattern serves aesthetic:
+
+* Resource Starvation in survival horror (tension is the goal)
+* Permanent loss in roguelikes (stakes are the point)
+* System Selection Error if deliberately genre-bending
+
+**Note:** "This serves the aesthetic" requires explicit justification, not assumption
+
+**Adding New Anti-Patterns:**
+
+1. Propose code (AP-RM-7, AP-RM-8, etc.)
+2. Document: Problem, Example, Why it fails, Solution, Recognition test
+3. Add to this guidelines document
+4. Update Resource Management chapter
+5. Note in revision log
+
+***
+
+## Part 5: Tone and Voice Guidelines
+
+### Overall Voice
+
+**Characteristics:**
+
+* **Practical, not academic** - Focus on "how to do it" not "here's the theory"
+* **Confident but humble** - We know what works, but acknowledge limits
+* **Specific, not vague** - "Target 20-25 rounds" not "make it balanced"
+* **Honest about complexity** - Don't oversimplify, but don't overwhelm
+
+**Avoid:**
+
+* ✗ Lecturing tone ("You must understand that...")
+* ✗ Overly casual ("Hey, let's talk about balance!")
+* ✗ Defensive hedging ("Maybe possibly this might work...")
+* ✗ Marketing speak ("Revolutionary new framework!")
+
+### Addressing the Reader
+
+**Use "you" for direct guidance:**
+
+```markdown
+✓ "You should prioritize Pattern Consistency for Challenge aesthetic"
+✓ "When you encounter this problem..."
+✓ "Ask yourself: what aesthetic am I serving?"
+```
+
+**Use "we" for shared understanding:**
+
+```markdown
+✓ "We've identified three working paradigms"
+✓ "We can see this pattern in Dark Souls"
+✓ "Let's examine how this works"
+```
+
+**Use "the designer" for general principles:**
+
+```markdown
+✓ "The designer must choose between Framework and Consistency"
+✓ "Designers often skip this step"
+```
+
+**Never use:**
+
+* ✗ "One must consider..." (too formal)
+* ✗ "The reader should..." (too distant)
+* ✗ "We designers know\..." (creates in-group/out-group)
+
+### Technical Explanations
+
+**Complexity ladder:**
+
+1. **Introduce simply** - Core concept in plain language
+2. **Provide detail** - Technical explanation with examples
+3. **Show application** - Practical use
+4. **Reference for depth** - Point to resources for more
+
+**Example:**
+
+```markdown
+[Simple] Framework paradigm uses negotiated stakes.
+
+[Detail] The GM and player discuss the action, assign Risk level 
+(Controlled/Risky/Desperate) and Effect level (Limited/Standard/Great), 
+then roll to determine outcome within that framework.
+
+[Application] When a player says "I sneak past the guard," the GM 
+evaluates: How alert is the guard? How prepared is the player? This 
+determines if the action is Controlled (+1), Risky (+0), or Desperate (-1).
+
+[Reference] For complete framework application, see Blades in the Dark 
+Position and Effect system (Harper, 2017).
+```
+
+### Emphasis and Certainty
+
+**Strong claims (use sparingly):**
+
+```markdown
+✓ "This will cause problems" (when clearly harmful)
+✓ "Pattern Consistency is required for Challenge aesthetic" (when validated)
+✓ "This formula always works" (when mathematically certain)
+```
+
+**Moderate claims (default):**
+
+```markdown
+✓ "This typically works well"
+✓ "Most designs benefit from"
+✓ "Generally, you should consider"
+```
+
+**Tentative claims (when uncertain):**
+
+```markdown
+✓ "This might work if..."
+✓ "Early testing suggests..."
+✓ "One possible approach is..."
+```
+
+**When discussing cognitive load specifically:**
+
+**DO emphasize:**
+
+* **Intentionality:** "This HIGH load serves Challenge aesthetic" (not "this is complex")
+* **Trade-offs:** "High load creates depth but excludes casual players" (not "make it simpler")
+* **Support strategies:** "Externalize this with reference cards" (not "players will figure it out")
+* **Player differences:** "Achievers want this, Socializers don't" (not "players will struggle")
+* **Appropriateness:** "Load matches aesthetic" or "load mismatches aesthetic" (not "well-designed" or "poorly-designed")
+
+**DON'T imply:**
+
+* Load is inherently bad: "Too complex" → "Complex for Fellowship aesthetic"
+* One solution fits all: "Simplify" → "Match load to audience/aesthetic"
+* Players are uniform: "Players will struggle" → "Some players (Socializers) will struggle, others (Achievers) will enjoy"
+* Designers control everything: "Ensure players understand" → "Support understanding through tools/UI"
+* Complexity equals depth: "More mechanics = more interesting" → "Appropriate complexity for aesthetic"
+
+**Examples of good framing:**
+
+```markdown
+✓ "HIGH simultaneity load serves Challenge aesthetic in StarCraft"
+✓ "Fellowship aesthet requires LOW mechanical load (brainspace for socializing)"
+✓ "This tracking load can be offloaded to character sheets"
+✓ "Achievers want conquerable high load; Socializers prefer low mechanical load"
+✓ "Load mismatch: meditative gameplay + complex systems (Death Stranding)"
+
+✗ "This game is too complex" (for whom? in what way?)
+✗ "Simplify your design" (why? which load? which aesthetic?)
+✗ "Players can't handle this" (which players? all players?)
+✗ "Make it easier to understand" (how? externalize? simplify? support?)
+✗ "This is well-designed" (according to what criteria? which aesthetic?)
+```
+
+**Frame load as design choice, not problem:**
+
+```markdown
+✓ "Choose HIGH decision load for Challenge aesthetic"
+✓ "Choose LOW tracking load for Fellowship aesthetic"
+✓ "Choose pattern recognition load for Mastery aesthetic"
+
+✗ "Avoid high complexity" (when? why? for which aesthetic?)
+✗ "Keep it simple" (how simple? for which audience?)
+✗ "Don't overwhelm players" (depends on audience and aesthetic)
+```
+
+✓ "Generally, you should"
+
+````
+
+**Tentative claims (when appropriate):**
+```markdown
+✓ "This might work if..."
+✓ "Consider trying..."
+✓ "One approach is..."
+````
+
+**Caveats (when needed):**
+
+```markdown
+✓ "This works for small-to-medium games, but League-scale requires different approaches"
+✓ "Framework provides structure, but doesn't eliminate judgment"
+✓ "First-pass numbers will likely be 20-50% off"
+```
+
+### Encouragement vs. Warning
+
+**Encourage experimentation:**
+
+```markdown
+✓ "Try different approaches and see what works"
+✓ "Your first numbers will be wrong—that's expected and okay"
+✓ "Iterate based on playtesting feedback"
+```
+
+**Warn about pitfalls:**
+
+```markdown
+✓ "Avoid X because it causes Y"
+✓ "If you see Z, stop and reassess"
+✓ "This is a common mistake that breaks balance"
+```
+
+**Balance optimism and realism:**
+
+```markdown
+✓ Good: "Framework gets you close; playtesting fine-tunes"
+✗ Too optimistic: "Framework gives you perfect numbers!"
+✗ Too pessimistic: "Balance is impossible, you'll never get it right"
+
+### Principle Names
+
+**Avoid designer name principles:**
+- ✗ Avoid: "The Twohy Principle" "The Koster Rule" "Crawford's Law"
+- ✓ Use: Descriptive names that explain the concept
+- Example: Instead of "Twohy Principle" → "Strategic Restraint" or "Build/Suggest/Omit Framework"
+- Reason: Names are opaque to readers, descriptions are clear
+
+**Exception:** Well-established framework names (MDA, Bartle taxonomy) where the name IS the standard term
+
+**When citing influences:**
+- ✓ "As David Twohy noted in the Pitch Black screenplay..." (attribution in explanation)
+- ✗ "Using the Twohy Principle..." (name as if it's standard terminology)
+
+### Example Density in Context Discussions
+
+**When discussing context:**
+- Always provide concrete examples (not just abstract principles)
+- Use canonical games consistently (Weather Factory, Outer Wilds, Star Wars)
+- Show both success (what works) and failure (what breaks)
+- Demonstrate same concept across different genres
+
+**Pattern for complex concepts:**
+1. State principle
+2. Show example that works (Weather Factory proves context transforms mechanics)
+3. Show counter-example that fails (Mass Effect: Andromeda's incoherent context)
+4. Explain why (perspective maintained vs broken)
+
+**Example density standards:**
+- Complex concepts: 2-3 examples minimum
+- New frameworks: Examples from multiple genres
+- Anti-patterns: Always show what goes wrong AND how to fix
+
+```
+
+***
+
+## Part 6: LLM Integration Approach
+
+### When to Mention LLMs
+
+**Appropriate contexts:**
+
+1. **As design assistance tool** (calculate probabilities, simulate outcomes)
+2. **For rapid prototyping** (generate content variations to test)
+3. **For playtesting simulation** (run 100 virtual playthroughs)
+4. **For analysis** (identify patterns in large datasets)
+
+**Inappropriate contexts:**
+
+1. ✗ As replacement for designer judgment
+2. ✗ As source of aesthetic goals
+3. ✗ As arbiter of "what's fun"
+4. ✗ As excuse for not playtesting with real humans
+
+### How to Frame LLM Use
+
+**Standard framing template:**
+
+```markdown
+**LLMs can help with:** [Specific task clearly defined]
+
+**How to use:**
+1. [Step-by-step process]
+2. [What to prompt for]
+3. [How to validate output]
+
+**What LLMs can't do:** [Clear limitations]
+
+**Human still decides:** [What requires judgment]
+```
+
+**Example from Balance chapter:**
+
+```markdown
+**LLMs can help with:** Simulating many playthroughs
+
+Ask LLM to simulate:
+- 100 boss fights with given parameters
+- Track win rate, average duration, cause of death
+- Identify edge cases or exploits
+
+What LLMs can't do: Judge subjective "feel"
+
+### LLM Impact on System Functions
+
+When discussing LLM in context of game systems, reference which functions LLM enhances:
+
+**Functions LLM Strongly Enhances:**
+1. **Content Generation** - Dynamic scene/NPC creation
+2. **State Persistence** - Perfect memory across sessions
+3. **Information Management** - Dynamic clue distribution
+4. **Adjudication** - Natural language interpretation
+
+**Functions LLM Moderately Enhances:**
+5. **Cognitive Encoding** - Can enforce alien thinking patterns
+6. **Constraint Design** - Can track and enforce complex constraints
+
+**Functions LLM Weakly Affects:**
+7. **Procedural Content** - Enables solo play but quality concerns
+
+**How to Reference:**
+
+```
+
+✓ Correct: "LLM solves State Persistence function through perfect recall..."
+✓ Correct: "Information Management enhanced by LLM dynamic distribution..."
+✗ Wrong: "LLM improves the game" (too vague - specify which function)
+✗ Wrong: "LLM enables mystery" (specify: Information Management + State Persistence)
+
+```
+
+**Always specify:**
+- Which function LLM enhances
+- How it enhances (what becomes possible)
+- What remains as challenge (what LLM doesn't solve)
+- What validation needed (how to ensure LLM performs well)
+
+**Critical Note:** LLM enables new system architectures but doesn't change aesthetic-first design principle. Still start with aesthetic, use LLM to implement functions that serve it.
+
+- Does 65% hit rate feel good? (Need playtesting)
+- Is consequence satisfying? (Need player feedback)
+
+Human still decides: Whether math translates to fun
+```
+
+### LLM Prompt Templates
+
+**When providing prompts, use this format:**
+
+```markdown
+**Prompt Template: [Purpose]**
+
+```
+
+\[Prompt text in code block, with \[VARIABLES] marked clearly]
+
+```
+
+**Example usage:**
+- Replace [VARIABLE] with your specific values
+- Adjust for your context
+- Validate output before using
+
+**What to expect:**
+- [Typical output format]
+- [Accuracy limitations]
+- [When to rerun with adjustments]
+```
+
+### Caveats and Limitations
+
+**Always include when discussing LLM use:**
+
+1. **Validation required** - "Always validate LLM output with human judgment"
+2. **Iteration expected** - "First prompt rarely gives perfect output; refine iteratively"
+3. **Hallucination warning** - "LLMs may confidently state false information; verify critical details"
+4. **Context limits** - "LLMs have limited context; may need multiple prompts for complex tasks"
+5. **Not a substitute** - "LLM assistance supplements, doesn't replace, design thinking"
+
+### Evolving Technology Note
+
+**Include in chapters with significant LLM content:**
+
+```markdown
+**Note on LLM Technology:** This chapter references LLM capabilities as of [DATE]. 
+As LLM technology evolves, specific capabilities may change. The principles of 
+human judgment, validation, and iteration remain regardless of tool capabilities.
+```
+
+### LLM and Cognitive Load **\[NEW]**
+
+**LLMs have complex relationship with cognitive load:**
+
+**LLMs can REDUCE cognitive load by:**
+
+* **State tracking and memory management** (character history, NPC relationships, world state)
+* **Just-in-time information surfacing** (reminders when relevant, not constant overload)
+* **Content generation** (descriptions, complications, adaptive responses)
+* **Consistency maintenance** (tone, themes, world logic across sessions)
+
+**LLMs can INCREASE cognitive load by:**
+
+* **Choice paralysis** (generating too many options without clear framework)
+* **Ambiguity** (unclear what's possible, no explicit rules to reference)
+* **Trust issues** (inconsistency breaks immersion, requires mental validation)
+* **Meta-cognition** (figuring out how to interact with LLM is its own cognitive task)
+
+**When writing about LLM integration, ALWAYS specify:**
+
+**1. Which load types does LLM reduce?**
+
+```markdown
+✓ "LLM reduces memory load (tracks NPC relationships)"
+✓ "LLM reduces tracking load (maintains world state invisibly)"
+✗ "LLM reduces complexity" (which type? how?)
+✗ "LLM makes game easier" (easier how? for which aesthetic?)
+```
+
+**2. Which load types can LLM NOT handle?**
+
+```markdown
+✓ "LLM cannot handle calculation load reliably (use explicit formulas)"
+✓ "LLM cannot guarantee perfect consistency (use data structures for critical state)"
+✗ "LLM handles everything except..." (be specific)
+✗ "LLM can't do complex math" (without explaining alternative)
+```
+
+**3. Hybrid approaches (LLM + explicit systems):**
+
+```markdown
+✓ "LLM generates NPC dialogue; explicit system tracks reputation points"
+✓ "LLM creates complications; system determines when complications trigger"
+✗ "Use LLM and system together" (how? which does what?)
+```
+
+**4. Failure modes and mitigation:**
+
+```markdown
+✓ "If LLM generates inconsistent NPC, players notice: use explicit NPC fact sheet to constrain LLM"
+✓ "If LLM creates choice paralysis, limit to 3-5 options maximum"
+✗ "LLM might fail sometimes" (how? what happens? what to do?)
+```
+
+**Mark LLM roles clearly in designs:**
+
+```markdown
+[LLM_PRIMARY]: Core LLM responsibility (NPC behavior, atmosphere)
+[LLM_SUPPORT]: Supporting role (quick reference, suggestions)  
+[EXPLICIT_SYSTEM]: NOT LLM (rules, calculations, balance)
+[HYBRID]: Both LLM and system (generation + validation)
+```
+
+**Example integration description:**
+
+```markdown
+**Memory Management System:**
+- [EXPLICIT_SYSTEM]: Character sheet tracks stats, inventory (simple data)
+- [LLM_PRIMARY]: Character journal tracks narrative events, relationships (complex state)
+- [HYBRID]: Quest log - LLM generates quest descriptions, system tracks completion state
+- Result: Players don't need to remember session-to-session details (memory load offloaded)
+
+**But note:** 
+- LLM might forget details outside context window (use explicit data for critical info)
+- Players must trust LLM consistency (if NPC acts out of character, breaks immersion)
+```
+
+**DON'T assume:**
+
+* ✗ LLMs always reduce load (they can add choice paralysis, ambiguity, trust issues)
+* ✗ LLMs can handle everything (math, perfect memory, transparency all problematic)
+* ✗ Players will trust LLM (some find it "uncanny valley" or unreliable)
+* ✗ LLM integration is simple (requires careful design of what LLM handles vs. system)
+
+***
+
+## Part 7: Cross-Chapter Validation
+
+### Assumption Tracking
+
+**Create assumptions document (separate file) tracking:**
+
+```markdown
+# Core Assumptions Requiring Validation
+
+## Aesthetics List
+**Assumption:** MDA + 4 expansions covers all game experiences
+**Chapters relying on this:** All (foundation)
+**Validation needed when:** 
+- New chapter analyzes game that doesn't fit aesthetics
+- Multiple chapters find same aesthetic insufficient
+**Revision impact:** HIGH (must update all chapters)
+**Status:** STABLE as of [DATE]
+
+## Paradigms Model
+**Assumption:** Three paradigms (Framework, Consistency, Adaptive) cover all balance approaches
+**Chapters relying on this:** Balance, potentially others
+**Validation needed when:**
+- Game doesn't fit any paradigm
+- Paradigm distinctions break down in practice
+**Revision impact:** HIGH (must update Balance chapter)
+**Status:** STABLE as of [DATE]
+
+## Pacing as Emergent
+**Assumption:** Pacing is emergent from temporal dynamics, not separate system
+**Chapters relying on this:** Balance, potentially Resources
+**Validation needed when:**
+- Pacing requires separate mechanisms
+- Emergent framing insufficient for design
+**Revision impact:** MEDIUM (must update Balance chapter, possibly add Pacing chapter)
+**Status:** STABLE as of [DATE]
+
+## Cognitive Load as Constraint
+**Assumption:** Cognitive load is external constraint (not in-game resource)
+**Chapters relying on this:** All chapters (touches every design decision)
+**Validation needed when:**
+- System treats cognitive load as spendable resource
+- Load-resource distinction breaks down
+**Revision impact:** CRITICAL (foundational distinction)
+**Status:** STABLE as of [DATE]
+
+[Continue for each major assumption...]
+```
+
+### Cognitive Load Cross-Chapter Dependencies **\[NEW - CRITICAL]**
+
+**Core principle:** Cognitive load affects (and is affected by) every other game system. This is not a separate concern—it's woven through all design decisions.
+
+**Dependencies to validate:**
+
+**Resources ↔ Cognitive Load:**
+
+* More resources = more tracking load (must monitor each separately)
+* Complex resource interactions = higher decision load (optimization calculations)
+* Resource scarcity = higher decision load (must choose carefully when to spend)
+* **Validation check:** Does resource chapter account for cognitive overhead of each resource?
+* **Design question:** "Is this resource worth the cognitive cost it creates?"
+
+**Balance ↔ Cognitive Load:**
+
+* Balance must be PERCEIVABLE (players must comprehend it cognitively)
+* High-load options feel weaker (execution difficulty = practical cost)
+* Balanced system meaningless if too complex to understand
+* Different skill levels = different load = different effective balance
+* **Validation check:** Does balance analysis include "can players perceive this balance?"
+* **Design question:** "Is this balance comprehensible to target audience?"
+
+**Aesthetics ↔ Cognitive Load:**
+
+* Challenge aesthetic requires HIGH (but conquerable) load
+* Fellowship aesthetic requires LOW mechanical load (brainspace for socializing)
+* Narrative aesthetic requires load NOT in calculation (math breaks immersion)
+* Mastery aesthetic requires load that REVEALS depth over time
+* Discovery aesthetic tolerates "messy" load (complexity for exploration)
+* **Validation check:** Does aesthetic guidance specify appropriate load profile?
+* **Design question:** "Does this load serve the intended aesthetic?"
+
+**Pacing ↔ Cognitive Load:**
+
+* Real-time = higher simultaneity load (time pressure multiplies complexity)
+* Turn-based = can handle more decision/calculation load (time to think)
+* Recovery periods = cognitive rest (not just resource recovery)
+* Load accumulation affects session length tolerance
+* **Validation check:** Does pacing analysis account for cognitive fatigue?
+* **Design question:** "Can players sustain this load for intended session length?"
+
+**Player Types ↔ Cognitive Load:**
+
+* Achievers want conquerable high load (mastery through optimization)
+* Explorers tolerate messy load (discovery-driven)
+* Socializers want low mechanical load (brainspace for interaction)
+* Killers embrace competitive load (management as advantage)
+* **Validation check:** Does player type analysis include load preferences?
+* **Design question:** "Which player types will this load profile serve/exclude?"
+
+**LLM Integration ↔ Cognitive Load:**
+
+* LLMs can REDUCE: memory load, tracking load, state management
+* LLMs can INCREASE: choice paralysis, ambiguity, trust load
+* Hybrid approaches balance load types (LLM + explicit systems)
+* **Validation check:** Does LLM integration specify load impact (reduce/increase which types)?
+* **Design question:** "Does LLM reduce net cognitive load, or shift/add it?"
+
+### Cross-Chapter Validation Protocol
+
+**When writing any chapter, check:**
+
+1. **What cognitive load does this create?**
+   * Rate each type: Simultaneity, Decision, Memory, Tracking, Calculation, Pattern, Social
+   * Justify HIGH/MEDIUM/LOW for each
+
+2. **How does this interact with other systems?**
+   * Resources: Does this add tracking/decision load?
+   * Balance: Is this balance perceivable given load?
+   * Aesthetics: Does load match aesthetic intent?
+   * Pacing: Can players sustain this load over session?
+   * Player types: Who does this serve/exclude?
+
+3. **Are there load conflicts?**
+   * Multiple systems compound load (total may be overwhelming)
+   * Load types compete (can't focus on decisions if tracking is overwhelming)
+   * Load-aesthetic mismatch (Fellowship + high mechanical load = conflict)
+
+4. **How can load be managed?**
+   * Support necessary load (tools, UI, externalization)
+   * Remove unnecessary load (simplification, automation)
+   * Offload strategically (GM, computer, LLM)
+   * Distribute if multiplayer (cooperative load sharing)
+
+5. **What happens at different skill levels?**
+   * Beginners: Is initial load manageable?
+   * Intermediates: Does load scale with learning?
+   * Experts: Does mastery reduce or reveal load?
+
+**Chapter-specific validation questions:**
+
+**Resources chapter:**
+
+* [ ] How many resources can target audience track simultaneously?
+* [ ] Does each resource justify its cognitive overhead?
+* [ ] Can tracking be offloaded (tokens, sheets, automation)?
+* [ ] Do resource interactions create combinatorial explosion?
+
+**Balance chapter:**
+
+* [ ] Can players perceive the balance without calculators?
+* [ ] Do high-load options feel weaker (execution difficulty cost)?
+* [ ] Is system balanced at multiple skill levels (as load changes)?
+* [ ] Can players evaluate trade-offs during play?
+
+**Aesthetics chapter:**
+
+* [ ] Does each aesthetic have appropriate load profile specified?
+* [ ] Are load-aesthetic conflicts identified?
+* [ ] Do examples include cognitive load analysis?
+
+**Pacing chapter:**
+
+* [ ] Does pacing account for cognitive fatigue?
+* [ ] Are recovery periods cognitive rest (not just resource recovery)?
+* [ ] Does real-time vs. turn-based affect load recommendations?
+
+**LLM Integration chapter:**
+
+* [ ] Which load types does LLM reduce? Increase?
+* [ ] Are hybrid approaches (LLM + system) specified?
+* [ ] Are failure modes and load impacts described?
+
+### When Assumptions Conflict
+
+**Protocol:**
+
+1. **Document the conflict**
+   * Which chapter reveals problem?
+   * What doesn't fit existing framework?
+   * Is it edge case or fundamental issue?
+
+2. **Assess impact**
+   * How many chapters affected?
+   * Is quick fix possible or need reconceptualization?
+   * What's cost of change vs. cost of workaround?
+
+3. **Propose solution**
+   * Extend existing framework (add aesthetic, paradigm, etc.)
+   * Refine definitions (clarify boundaries)
+   * Replace framework (if fundamentally broken)
+
+4. **Validate solution**
+   * Does it solve original problem?
+   * Does it maintain coherence with other chapters?
+   * Does it create new problems?
+
+5. **Implement changes**
+   * Update assumptions document
+   * Create checklist of affected chapters
+   * Make changes systematically
+   * Review for consistency
+
+6. **Document rationale**
+   * Why change was needed
+   * What alternatives were considered
+   * What impact on existing chapters
+   * Date of change for future reference
+
+### Cross-Chapter Consistency Checks
+
+**Regular validation (before publishing):**
+
+**Terminology audit:**
+
+* Search for "aesthetic" - are all references using same 12?
+* Search for "paradigm" - are all references using same 3?
+* Search for "pacing" - is emergent framing maintained?
+* Search for "resource" - is classification consistent?
+
+**Conceptual coherence:**
+
+* Do all chapters treat aesthetics as primary driver?
+* Do all chapters respect paradigm distinctions?
+* Do cross-references make sense bidirectionally?
+
+**Example consistency:**
+
+* Is Dark Souls always Consistency + Challenge?
+* Is Blades always Framework + Narrative?
+* Are examples used consistently across chapters?
+
+**Checklist template:**
+
+```markdown
+# Consistency Check: [Chapter Name]
+
+## Terminology
+- [ ] Uses canonical 12 aesthetics (MDA + 4)
+- [ ] Uses canonical 3 paradigms (Framework, Consistency, Adaptive)
+- [ ] Uses "measurable" not "metric"
+- [ ] Uses "pacing pattern" not "rhythm/flow"
+- [ ] [Add chapter-specific terms]
+
+## Conceptual Alignment
+- [ ] Aesthetics drive design decisions
+- [ ] Paradigm choice explained with aesthetic fit
+- [ ] Pacing treated as emergent (if applicable)
+- [ ] Resources classified consistently (if applicable)
+
+## Cross-References
+- [ ] All forward references exist in target chapters
+- [ ] All backward references accurate
+- [ ] No circular dependency chains
+
+## Examples
+- [ ] Dark Souls = Consistency + Challenge (if used)
+- [ ] Blades = Framework + Narrative (if used)
+- [ ] L4D2 = Adaptive + Fellowship (if used)
+- [ ] Examples not contradicting other chapters
+
+## LLM References (if applicable)
+- [ ] LLM capabilities framed as assistance not replacement
+- [ ] Caveats included (validation, limitations)
+- [ ] Human judgment emphasized
+
+## Completed by: [Name]
+## Date: [Date]
+## Issues found: [List or "None"]
+```
+
+***
+
+## Part 8: Historical and Deep Dive Content
+
+### Placement Guidelines
+
+**Purpose:** Historical evolution and deep theoretical dives provide valuable context but can overwhelm readers seeking practical guidance. These guidelines determine when history belongs in main chapters vs. appendices.
+
+**In Main Chapters (when to include):**
+
+* ✓ History explains why current practice exists (D\&D 4e failure → aesthetic-first design)
+* ✓ Evolution reveals design principles (Civilization city expansion → spatial strategy)
+* ✓ Failure teaches important lesson (genre mismatch examples)
+* ✓ Success demonstrates framework application (Weather Factory loop reuse)
+
+**In Appendices (when to relocate):**
+
+* → Detailed edition-by-edition evolution (D\&D 1e through 5e)
+* → Comprehensive game system histories (Civilization I-VI changes)
+* → Deep academic theory (MDA framework original paper analysis)
+* → Extended historical context (RPG development 1974-present)
+
+**In Footnotes (when to reference):**
+
+* → Interesting but non-essential connections
+* → Academic citations for claims
+* → "For deeper dive, see Appendix X"
+* → Historical trivia that enriches but doesn't inform
+
+### Decision Framework
+
+Ask these questions in order:
+
+1. **Does this history directly support the current point?**
+   * YES → Include in main chapter
+   * NO → Continue to question 2
+
+2. **Would removing this history hurt reader understanding?**
+   * YES → Include in main chapter (but consider condensing)
+   * NO → Continue to question 3
+
+3. **Is this interesting to designers?**
+   * YES → Move to appendix with footnote reference
+   * NO → Consider cutting entirely
+
+4. **Does modern example work better?**
+   * YES → Replace historical with modern
+   * NO → Keep historical but note why (e.g., "best example despite age")
+
+### Writing Historical Content
+
+**In Main Chapters:**
+
+* Maximum 2-3 paragraphs per historical example
+* Focus on lesson/principle, not comprehensive coverage
+* Reference appendix for full detail: "(see Appendix A for complete evolution)"
+* Always connect back to current practice
+
+**In Appendices:**
+
+* Comprehensive coverage acceptable
+* Timeline format helpful for evolution
+* "Why this matters for modern designers" conclusion required
+* Cross-reference to chapters that reference this content
+
+### Examples
+
+**Good Main Chapter Usage:**
+
+```markdown
+D&D 4th Edition (2008) demonstrated that technical excellence doesn't guarantee success. Despite balanced combat and clear roles, players rejected it because it prioritized Challenge aesthetic over Narrative and Fantasy aesthetics that made D&D popular. This teaches a crucial lesson: know your primary aesthetic and serve it consistently. (For detailed 4e analysis, see Appendix A.)
+```
+
+**Should Be Appendix:**
+
+```markdown
+[5 pages detailing every D&D edition from 1974-2024, comparing THAC0 vs. d20 resolution, analyzing skill system evolution, discussing TSR's bankruptcy, Wizards acquisition, edition wars...]
+```
+
+**Acceptable Footnote:**
+
+```markdown
+The MDA framework was published in 2004,[^1] though its concepts influenced design practice earlier through GDC talks and informal circulation.
+
+[^1]: Hunicke, R., LeBlanc, M., Zubek, R. (2004). "MDA: A Formal Approach to Game Design and Game Research"
+```
+
+### Current Status (Post Chapter 1 Rewrite)
+
+Following Chapter 1 rewrite (2025-01):
+
+* **Moved to planned appendices:** D\&D edition evolution, Civilization progression, deep MDA theory, extended historical examples
+* **Retained in Chapter 1:** Weather Factory example (demonstrates components), D\&D 4e lesson (aesthetic coherence), brief MDA origin
+* **Format:** \~80% reduction while preserving key lessons
+
+**Confidence Level:** MEDIUM - These guidelines emerged from Chapter 1 rewrite experience but need validation across other chapters.
+
+***
+
+## Part 8: Game Analysis Repository
+
+### Running List of Analyzed Games
+
+**Maintain master list (separate document) with:**
+
+```markdown
+# Game Analysis Repository
+
+## Format:
+**Game Title** (Year, Platform, Genre)
+- **Primary Aesthetic:** [Aesthetic name]
+- **Secondary Aesthetics:** [2-3 others]
+- **Balance Paradigm:** [Framework/Consistency/Adaptive/Hybrid]
+- **Pacing Pattern:** [Which of 5 patterns]
+- **Key Design Choice:** [1 sentence]
+- **Chapter(s) Analyzing:** [Which chapters discuss this game]
+- **Analysis Depth:** [Brief mention / Medium / Deep / Complete]
+- **Lessons Learned:** [Bullet points]
+- **Status:** [Useful/Dated/Superseded]
+
+### Enhanced Game Analysis Template
+
+For each analyzed game, add these additional analysis dimensions:
+
+**Context Analysis:**
+- Genre: [Load-bearing structural type]
+- Dressing: [Cosmetic layer]
+- Perspective: [Overall feeling/framing maintained]
+- Build/Suggest/Omit ratio: [How details are revealed]
+- How context creates dynamics: [Behavioral emergence from mechanics + context]
+
+**System Function Profile:**
+- Primary functions: [list 2-3 functions this system does exceptionally well]
+- Weak functions: [list functions this system doesn't provide well]
+- Critical for aesthetic: [which functions are make-or-break for this game's aesthetic]
+
+**Configuration Coherence:**
+- Assessment: ✓ Coherent / ⚠️ Partial / ✗ Incoherent
+- Components: [Brief assessment of mechanics, parameters, context, pacing alignment]
+- Coherence notes: [What works? What doesn't?]
+
+**Information Management:**
+- Model: [Traditional RPG / Core-Optional Split / Hybrid / N/A]
+- Critical for aesthetic? [Yes/No]
+- Assessment: [How well does it work?]
+
+**Example Enhanced Entry (Gumshoe):**
+
+**System Function Profile:**
+- Primary functions: Information Management (exceptional core/optional split), Adjudication (automatic core clues)
+- Weak functions: Content Generation (requires prep), Cognitive Encoding (not emphasis)
+- Critical for aesthetic: Information Management, State Persistence
+
+**Configuration Coherence:**
+- Assessment: ✓ Coherent
+- All components serve mystery aesthetic: Investigation mechanics, mystery context, progressive revelation pacing align perfectly
+
+**Information Management:**
+- Model: Core-Optional Split
+- Critical for aesthetic: Yes (mystery requires this)
+- Assessment: Excellent - solves investigation stall problem
+
+
+---
+
+## Fully Analyzed Games
+
+**Blades in the Dark** (2017, Tabletop RPG, Narrative)
+- **Primary Aesthetic:** Narrative
+- **Secondary Aesthetics:** Tension, Fellowship
+- **Balance Paradigm:** Framework (Position/Effect system)
+- **Pacing Pattern:** Wave (score structure: prep → execution → consequences → downtime)
+- **Key Design Choice:** Negotiated stakes make consequences meaningful while keeping story moving forward
+- **Chapter(s) Analyzing:** Balance (Part 2, Part 4)
+- **Analysis Depth:** Deep
+- **Lessons Learned:**
+  - Framework enables unpredictable player creativity
+  - 3 tiers per dimension (Position, Effect) optimal
+  - Partial success (7-9) critical for narrative flow
+  - Stress/Harm separation creates character arc through play
+- **Status:** Useful (canonical Framework example)
+
+**Dark Souls** (2011, Multi-platform, Action RPG)
+- **Primary Aesthetic:** Challenge
+- **Secondary Aesthetics:** Mastery, Tension
+- **Balance Paradigm:** Consistency (fixed enemy stats and patterns)
+- **Pacing Pattern:** Episodic (bonfire-to-bonfire segments) with Attrition overlay (souls/humanity management)
+- **Key Design Choice:** Fixed patterns enable mastery through repetition, high consequence severity makes victories meaningful
+- **Chapter(s) Analyzing:** Balance (Part 2, Part 4, Recipe 1)
+- **Analysis Depth:** Deep
+- **Lessons Learned:**
+  - Consistency requires high consequence severity (mistakes must hurt)
+  - Pattern learning is satisfying but excludes some players
+  - Bonfire placement controls difficulty pacing
+  - Optional summons add bounded adaptive element
+- **Status:** Useful (canonical Consistency example)
+
+**Left 4 Dead 2** (2009, Multi-platform, Co-op FPS)
+- **Primary Aesthetic:** Fellowship
+- **Secondary Aesthetics:** Tension, Challenge
+- **Balance Paradigm:** Adaptive (AI Director manages spawns and items)
+- **Pacing Pattern:** Wave (explicit build-up → peak → relax cycles every 2-3 minutes)
+- **Key Design Choice:** AI Director adjusts difficulty based on team performance while maintaining dramatic pacing
+- **Chapter(s) Analyzing:** Balance (Part 2, Part 4, Recipe 3)
+- **Analysis Depth:** Deep
+- **Lessons Learned:**
+  - Adaptive must be subtle (too obvious feels patronizing/cheating)
+  - Bounds critical (spawn rate 1-10, not 0-100)
+  - Pacing cycles must include relief phases
+  - Cooperation must be mechanically enforced (punish lone wolves)
+- **Status:** Useful (canonical Adaptive example)
+
+**AI Dungeon** (2019, Web, Text Adventure)
+- **Primary Aesthetic:** Discovery (attempted), Narrative (attempted)
+- **Secondary Aesthetics:** Expression (attempted)
+- **Balance Paradigm:** None (pure LLM generation)
+- **Pacing Pattern:** Continuous (intended player-controlled but no structure)
+- **Key Design Choice:** Pure LLM narrative generation without mechanical constraints
+- **Chapter(s) Analyzing:** Balance (Part 4)
+- **Analysis Depth:** Medium (cautionary tale)
+- **Lessons Learned:**
+  - Unconstrained LLM generation leads to stakes evaporation
+  - Mechanical layer mandatory even for narrative games
+  - LLMs don't maintain consistent state (need explicit tracking)
+  - Infinite retries kill stakes
+- **Status:** Useful (what NOT to do, validates framework necessity)
+
+
+**Weather Factory** (2018-2023, PC, Narrative Card Games)
+- **Games Analyzed:** Cultist Simulator (2018), Book of Hours (2023)
+- **Primary Aesthetic:** Discovery + Tension (Cultist Simulator), Submission + Discovery (Book of Hours)
+- **Secondary Aesthetics:** Narrative, Mastery
+- **Balance Paradigm:** Framework (card-based progression with emergent gameplay)
+- **Pacing Pattern:** Continuous with punctuated revelation moments
+- **Genre:** Occult horror (Cultist) vs Cozy restoration (Book of Hours)
+- **Dressing:** Card-based progression, cosmic occult lore
+- **Perspective:** Paranoid investigation vs Peaceful discovery
+- **Build/Suggest/Omit:** Both use high Suggest (fragments in card text); Cultist uses high Omit (horror mystery), Book of Hours lower Omit (cozy reveals more)
+- **Key Design Choice:** Same mechanics + different context = opposite player experiences and behaviors
+- **Chapter(s) Analyzing:** Context Chapter (Part 7 - canonical dynamics demonstration)
+- **Analysis Depth:** Deep
+- **Lessons Learned:**
+  - Context transformation: identical mechanics serve completely different aesthetics
+  - Perspective maintenance: every element reinforces feeling (dread vs comfort)
+  - Build/Suggest/Omit: strategic restraint creates engagement depth
+  - Dynamics: same systems produce different behaviors based on context framing
+  - Genre/dressing: changing context without changing mechanics proves genre is load-bearing
+- **Canonical for:** Context transformation, perspective maintenance, Build/Suggest/Omit framework, dynamics emergence
+- **Status:** Useful (canonical Context example)
+
+**Star Wars Franchise** (1977-present, Films/Shows)
+- **Analyzed Works:** Original Trilogy (1977-1983), Rogue One (2016), Andor (2022)
+- **Primary Use:** Demonstrating genre vs dressing distinction
+- **Genre Analysis:**
+  - Original Trilogy: Hero's journey genre (Campbell structure)
+  - Rogue One: War movie genre (ensemble sacrifice narrative)
+  - Andor: Political thriller genre (espionage, moral complexity)
+- **Dressing:** Star Wars universe (space opera setting, Force mythology, Empire/Rebellion conflict)
+- **Key Insight:** Same dressing + different genres = different required game mechanics
+- **Chapter(s) Analyzing:** Context Chapter (Part 2 - Genre Selection framework)
+- **Analysis Depth:** Medium (illustrative example)
+- **Design Lesson:** "Make a Star Wars game" is insufficient specification - must identify genre first (RPG hero's journey ≠ tactical war game ≠ political intrigue)
+- **Canonical for:** Genre/dressing separation, why same IP needs different system architectures
+- **Status:** Useful (canonical Genre/Dressing example)
+
+**Outer Wilds** (2019, Multi-platform, Space Exploration)
+- **Primary Aesthetic:** Discovery
+- **Secondary Aesthetics:** Narrative, Mastery
+- **Balance Paradigm:** Consistency (physics and planet contents fixed, enabling mastery)
+- **Pacing Pattern:** Episodic with overarching progression (22-minute time loops)
+- **Genre:** Space exploration mystery
+- **Dressing:** Cartoon aesthetic, handcrafted solar system
+- **Perspective:** Cosmic wonder and tragedy
+- **Build/Suggest/Omit:**
+  - Build: Physics rules (always consistent), planet contents (fully explorable), ship logs (explicit knowledge tracking)
+  - Suggest: Nomai story (fragments across planets requiring piecing together), quantum phenomena (experienced not explained)
+  - Omit: Nomai physical appearance, some final cosmic mysteries, easy answers
+- **Key Design Choice:** Time loop enables consequence-free exploration while maintaining cosmic stakes
+- **Chapter(s) Analyzing:** Context Chapter (Build/Suggest/Omit demonstration), Balance Chapter
+- **Analysis Depth:** Medium-Deep
+- **Lessons Learned:**
+  - Strategic restraint: knowing when NOT to show creates engagement
+  - Discovery through synthesis: fragments across space/time reward exploration
+  - Perspective consistency: everything serves "cosmic wonder"
+- **Canonical for:** Discovery aesthetic, Build/Suggest/Omit balance, time-loop structure
+- **Status:** Useful
+
+**Obra Dinn** (2018, Multi-platform, Deductive Mystery)
+- **Primary Aesthetic:** Challenge (deduction), Discovery
+- **Secondary Aesthetics:** Narrative
+- **Balance Paradigm:** Consistency (fixed evidence, repeatable investigation)
+- **Pacing Pattern:** Episodic (death by death investigation)
+- **Genre:** Deductive mystery (logic puzzle)
+- **Dressing:** 1-bit dithered maritime historical setting
+- **Perspective:** Solvable logical puzzle (not unknowable horror)
+- **Build/Suggest/Omit:**
+  - Build: Death scenes (complete sensory evidence), dialogue (what was said), physical evidence  
+  - Suggest: Identities (must be deduced from clues), relationships (inferred from interactions)
+  - Omit: Many faces (forced deduction from other evidence), complete backstories (focus on essential mystery)
+- **Key Design Choice:** All information present, but requires logical deduction to solve
+- **Chapter(s) Analyzing:** Context Chapter (Build/Suggest/Omit demonstration)
+- **Analysis Depth:** Medium
+- **Lessons Learned:**
+  - Omission creates challenge: hiding faces forces name deduction from uniform, role, dialogue
+  - Perspective clarity: "solvable puzzle" vs "unknowable mystery" determines what to omit
+  - Build comprehensive evidence: deduction requires complete (but not obvious) information
+- **Canonical for:** Mystery investigation mechanics, deduction-focused design, strategic omission
+- **Status:** Useful
+
+[Continue with all analyzed games...]
+
+## Partially Analyzed Games (Brief Mentions)
+
+**Hades** (2020, Multi-platform, Roguelike)
+- Used in: Balance chapter for bounded adaptive example
+- Key point: Optional God Mode preserves achievement while providing accessibility
+- Status: Useful for specific lesson
+
+**Slay the Spire** (2019, Multi-platform, Roguelike Deckbuilder)
+- Used in: Balance chapter for bounded complexity example, Resource Management chapter (extensive analysis)
+- Primary Aesthetic: Challenge, Mastery
+- Key Resource Innovation: Composition resource (deck as curated collection, quality > quantity)
+- Key points: 
+  - Hard caps on deck size, energy, HP prevent breaking balance
+  - HP permanent loss within run, but runs are short (bounded consequences)
+  - No persistence between runs enables experimentation (removes FOMO)
+- Status: Useful for composition resources (canonical example)
+
+**Blades in the Dark** (2017, Tabletop RPG)
+- Used in: Balance chapter (Framework paradigm), Resource Management chapter (extensive analysis)
+- Primary Aesthetic: Narrative, Tension, Fellowship
+- Key Resource Innovation: Buffer/consequence separation (stress vs. harm)
+- Key points:
+  - Stress (buffer, fast recovery) vs. Harm (consequence, slow recovery)
+  - Different recovery rates create strategic layers
+  - Creates "grizzled veteran" narrative arc through trauma accumulation
+  - Personal (stress/harm) vs. shared (coin/rep) resource mix
+- Status: Useful for buffer resources, mixed recovery (canonical example)
+
+**Settlers of Catan** (1995, Board Game)
+- Used in: Resource Management chapter (detailed analysis)
+- Primary Aesthetic: Fellowship, Challenge (light)
+- Key Resource Innovation: Forced spending mechanics (hand limit + robber)
+- Key points:
+  - Use-it-or-lose-it pressure prevents hoarding
+  - Simple resources enable socializing (low cognitive load)
+  - Probabilistic production prevents perfect optimization
+  - Rubber-band mechanics (leader is most vulnerable)
+- Status: Useful for anti-hoarding design, Fellowship aesthetic resources (canonical example)
+
+**Heroes of Might and Magic III** (1999, PC Strategy)
+- Used in: Resource Management chapter (detailed analysis)
+- Primary Aesthetic: Challenge, Mastery, Progression
+- Key Resource Innovation: Permanent unit loss creates stakes
+- Key points:
+  - Army units permanent loss (no recovery)
+  - Weekly production creates campaign rhythm
+  - Resource chains (mine → resource → building → unit)
+  - Distinction between consumable (units) and persistent (hero levels)
+- Status: Useful for permanent loss, attrition pacing (canonical example)
+
+**World of Warcraft** (2004-present, MMO)
+- Used in: Resource Management chapter (medium analysis)
+- Primary Aesthetic: Progression, Fellowship, Challenge
+- Key Resource Innovation: Time-gated progression, social dependencies
+- Key points:
+  - Fast HP recovery enables continuous play
+  - Multiple parallel progression systems (currencies, reputation)
+  - Time-gated resources control progression speed (but create FOMO)
+  - Evolution toward accessibility (Classic vs. Modern)
+- Status: Useful for time-gating patterns (both good and bad)
+
+[Continue for all games mentioned...]
+
+## Games Needing Analysis
+
+**Potential candidates for future chapters:**
+- Elden Ring (Consistency + accessibility compared to Dark Souls)
+- Into the Breach (Perfect information + Mastery aesthetic)
+- Monster Hunter (Fellowship + Challenge + Pattern Learning)
+- Disco Elysium (Narrative + Framework but different structure)
+- Celeste (Challenge + Accessibility done right)
+
+## Superseded/Outdated Analyses
+
+[Games whose analysis no longer represents current understanding]
+[Keep for historical reference but mark clearly]
+```
+
+### When Adding New Game Analysis
+
+**Checklist:**
+
+1. [ ] Fill out complete game entry in repository
+2. [ ] Check if game contradicts existing aesthetic/paradigm categorizations
+3. [ ] Identify unique lessons (what does this game teach that others don't?)
+4. [ ] Update affected chapters with new example
+5. [ ] Check for consistency with other examples
+6. [ ] Add to running list of cited games
+
+***
+
+## Part 9: Version Control and Change Log
+
+### Major Revisions Requiring Documentation
+
+**Track in separate CHANGELOG.md:**
+
+```markdown
+# Change Log: Book Structure and Core Concepts
+
+## [Date] - Pacing Integration
+**Type:** Enhancement
+**Impact:** Medium (updated 2 chapters)
+**Changes:**
+- Added 5 pacing patterns to Balance chapter (Part 5)
+- Added 3 pacing measurables (Cycle Length, Recovery Frequency, enhanced Recovery Speed)
+- Updated Recipes (Part 3) with pacing recommendations
+- Integrated pacing into worked scenario
+
+**Rationale:** Pacing was implicit; made explicit and measurable
+
+**Affected Chapters:** Balance (Parts 3, 5), Supplementary
+
+**Migration Notes:** 
+- All "rhythm" references changed to "pacing pattern"
+- Recovery Speed now explicitly determines pacing
+- No breaking changes to existing concepts
+
+---
+
+## [Date] - Aesthetics Expansion (Hypothetical Future)
+**Type:** Core Revision
+**Impact:** HIGH (affects all chapters)
+**Changes:**
+- Added 13th aesthetic: [Name]
+- Revised [Existing Aesthetic] definition
+- Updated all aesthetic-paradigm mappings
+
+**Rationale:** [Why change needed]
+
+**Affected Chapters:** All chapters referencing aesthetics
+
+**Migration Notes:**
+- All chapters must update aesthetic lists
+- Recipes must be checked for new aesthetic fit
+- Examples must be re-categorized if needed
+
+[Continue for each major change...]
+```
+
+### Change Impact Assessment
+
+**Use this framework to assess any major change:**
+
+**Impact Level:**
+
+* **LOW:** Affects single section of single chapter, no concept changes
+* **MEDIUM:** Affects multiple sections or 2-3 chapters, refinement of existing concepts
+* **HIGH:** Affects core concepts, requires updates across 4+ chapters
+* **CRITICAL:** Changes foundational assumptions, requires rewrite of multiple chapters
+
+**Migration Complexity:**
+
+* **SIMPLE:** Find-and-replace terminology
+* **MODERATE:** Rewrite sections with updated concepts
+* **COMPLEX:** Reconceptualize and validate across all chapters
+
+**Before implementing HIGH or CRITICAL changes:**
+
+1. Document complete impact assessment
+2. Create migration plan with chapter-by-chapter checklist
+3. Implement changes systematically (don't leave in half-updated state)
+4. Validate consistency after changes
+5. Update all cross-references
+6. Run consistency checks
+
+***
+
+## Part 10: Handoff Guidelines
+
+### For New Authors/Collaborators
+
+**Onboarding checklist:**
+
+1. **Read Core Concepts (this document Part 1)**
+   * Understand aesthetics (12 total)
+   * Understand paradigms (3 + hybrids)
+   * Understand pacing (emergent, 5 patterns)
+   * Understand resource types
+   * Understand cognitive load
+   * Understand system functions (7 functions)
+   * Understand configuration coherence (5 components)
+   * Understand information management (2 models)
+
+2. **Review Existing Chapters**
+   * Resources chapter (foundation)
+   * Cognitive Load chapter (foundation)
+   * Balance chapter (comprehensive example)
+   * Note: Tone, structure, depth
+
+3. **Study Terminology Standards (this document Part 2)**
+   * Mandatory terms (never substitute)
+   * Preferred terms (use consistently)
+   * Capitalization rules
+   * Abbreviations policy
+
+4. **Review Examples Used**
+   * Read Game Analysis Repository
+   * Understand which games are canonical examples
+   * Note analysis depth for each
+
+5. **Understand Integration Points**
+   * How does new chapter connect to existing?
+   * What assumptions does it rely on?
+   * What new assumptions does it create?
+
+6. **Check Writing Guidelines**
+   * Chapter structure template
+   * Section formatting standards
+   * Example formatting requirements
+   * Tone and voice guidelines
+
+### For Editors/Reviewers
+
+**Review checklist template:**
+
+```markdown
+# Review Checklist: [Chapter Name]
+
+## Content Review
+- [ ] Core concepts clearly explained
+- [ ] Practical application guidance included
+- [ ] Examples appropriate and well-explained
+- [ ] Common pitfalls addressed
+- [ ] Quick reference/summary provided
+
+## Consistency Review
+- [ ] Terminology matches standards (Part 2)
+- [ ] Aesthetics referenced correctly (12 total, proper names)
+- [ ] Paradigms referenced correctly (if applicable)
+- [ ] Examples consistent with other chapters
+- [ ] No contradictions with existing content
+
+## Structural Review
+- [ ] Follows chapter template (or justified deviation)
+- [ ] Headings properly nested (H1 > H2 > H3)
+- [ ] Lists formatted correctly
+- [ ] Tables readable and captioned
+- [ ] Cross-references accurate
+
+## Tone Review
+- [ ] Practical not academic
+- [ ] Appropriate confidence level
+- [ ] Specific not vague
+- [ ] Honest about complexity/limitations
+
+
+## System Analysis Review (if chapter analyzes game systems)
+- [ ] System functions identified (which of 7 functions provided?)
+- [ ] Function priority stated (which critical for this aesthetic?)
+- [ ] Configuration coherence assessed (5 components aligned?)
+- [ ] Information management model identified (if relevant)
+- [ ] Analysis uses standard terminology (functions not "mechanics")
+- [ ] Cross-references to Game System chapter included
+- [ ] Consistent with other system analyses in book
+
+**Common System Analysis Errors:**
+- [ ] Discussing system without identifying functions
+- [ ] Treating coherence as binary (it's assessment: coherent/partial/incoherent)
+- [ ] Not using configuration test (do components serve aesthetic?)
+- [ ] Assuming all functions matter equally (they don't)
+
+## Integration Review
+- [ ] Prerequisites stated
+- [ ] Connections to other chapters explained
+- [ ] Forward/backward references valid
+- [ ] New assumptions documented
+
+## LLM References (if applicable)
+- [ ] Framed as assistance not replacement
+- [ ] Limitations clearly stated
+- [ ] Validation requirements mentioned
+- [ ] Human judgment emphasized
+
+## Resource Management Integration (if chapter discusses resources)
+- [ ] Resources called by correct type (consumable, buffer, accumulation, composition, capacity)
+- [ ] Recovery patterns specified (fast, moderate, slow, none, mixed)
+- [ ] "Constraint" used for cognitive load, time, attention (NOT "resource")
+- [ ] Psychological effects referenced correctly (possession, greed, FOMO)
+- [ ] Resource choice justified by aesthetic goal
+- [ ] Recovery pattern matches intended pacing
+- [ ] No anti-patterns present (or explicitly justified)
+- [ ] Distinction maintained between resources and constraints
+- [ ] Links to Resource Management chapter for details
+- [ ] Aesthetic-resource alignment referenced
+- [ ] Examples consistent with canonical analysis (Blades, Slay the Spire, etc.)
+- [ ] If using D&D investigation, referenced as anti-pattern (AP-RM-1)
+
+**Common Integration Errors:**
+- [ ] Not calling cognitive load a "resource"
+- [ ] Not inventing resource types not in canonical list
+- [ ] Not discussing resources without recovery patterns
+
+## Context Design Integration (if chapter discusses context)
+- [ ] Genre vs Dressing distinction maintained (never just "setting")
+- [ ] Genre (load-bearing) vs Dressing (cosmetic) clearly separated when relevant
+- [ ] Perspective specified for any context discussions
+- [ ] Build/Suggest/Omit framework applied to detail decisions
+- [ ] Dynamics discussed as behavioral emergence (not just mechanics)
+- [ ] Canonical examples used: Weather Factory, Star Wars, Outer Wilds, Obra Dinn
+- [ ] Context-resource fit addressed (resources appropriate for genre)
+- [ ] Context-load relationship noted (genre affects cognitive budget)
+- [ ] Context-paradigm fit noted (genre determines balance paradigm)
+- [ ] Cross-references to Context Chapter included where relevant
+- [ ] No designer name principles (use descriptive names instead)
+- [ ] Examples demonstrate concept across multiple genres
+- [ ] Perspective maintenance validated (does everything serve the feeling?)
+
+**Common Context Errors:**
+- [ ] Using "setting" without distinguishing genre from dressing
+- [ ] Not identifying which element is load-bearing vs cosmetic
+- [ ] Discussing worldbuilding without framing/perspective analysis
+- [ ] Missing Build/Suggest/Omit analysis for detail-heavy designs
+- [ ] Treating dynamics as mechanical layer (should be behavioral)
+- [ ] Using examples inconsistently with Context chapter analysis
+
+- [ ] Not using examples inconsistently with other chapters
+
+## Completeness
+- [ ] All promises in intro delivered
+- [ ] Examples support all major points
+- [ ] Pitfalls include fixes
+- [ ] Next steps provided
+
+## Issues/Questions:
+[List anything needing clarification or revision]
+
+## Reviewer: [Name]
+## Date: [Date]
+## Recommendation: [Approve / Revise / Major revision needed]
+```
+
+***
+
+## Part 11: Living Document Maintenance
+
+### This Guidelines Document
+
+**Update this document when:**
+
+* Core concept added or changed (update Part 1)
+* New terminology becomes standard (update Part 2)
+* Chapter structure evolves (update Part 3)
+* New example patterns emerge (update Part 4)
+* Tone guidelines need refinement (update Part 5)
+* LLM capabilities change significantly (update Part 6)
+* Major assumption challenged (update Part 7)
+* Significant games analyzed (update Part 8 or repository)
+* Major revision made (update Part 9)
+
+**Review frequency:**
+
+* After each new chapter written (check if guidelines still apply)
+* After major revisions (update affected sections)
+* Quarterly (general consistency check)
+
+**Ownership:**
+
+* Primary author maintains
+* Collaborators can propose changes
+* Major changes require validation with existing chapters
+
+### Quick Start for This Document
+
+**New chapter author:**
+
+1. Read Part 1 (Core Concepts) - 15 min
+2. Skim Part 2 (Terminology) - 5 min, reference as needed
+3. Read Part 3 (Structure) - 10 min
+4. Read Part 5 (Tone) - 10 min
+5. Reference Parts 4, 6-10 as needed during writing
+
+**Editor/Reviewer:**
+
+1. Review checklist in Part 10
+2. Reference Parts 1-2 for consistency checks
+3. Use Part 8 for game analysis validation
+
+**Quick reference needed:**
+
+* Part 1: "What are the 12 aesthetics?"
+* Part 2: "How do I refer to X?"
+* Part 3: "What's the chapter structure?"
+* Part 8: "How is Dark Souls categorized?"
+
+***
+
+## Summary: Why These Guidelines Matter
+
+**Coherence at scale:**
+
+* Book will have 10-15 chapters
+* Multiple authors may contribute
+* Revision cycles will span months/years
+* Readers will read non-sequentially
+
+**Without guidelines:**
+
+* ✗ Aesthetics list drifts (8 in one chapter, 12 in another, 15 in another)
+* ✗ Examples contradict (Dark Souls is Challenge here, Mastery there)
+* ✗ Terminology varies ("metric" vs "measurable" confusion)
+* ✗ Structure inconsistent (hard to navigate)
+* ✗ Tone shifts (academic here, casual there)
+* ✗ Assumptions conflict (pacing is emergent vs. pacing is separate system)
+
+**With guidelines:**
+
+* ✓ Consistent conceptual foundation across all chapters
+* ✓ Predictable structure helps readers navigate
+* ✓ Examples reinforce each other instead of contradicting
+* ✓ Terminology enables precise communication
+* ✓ Tone maintains professionalism and clarity
+* ✓ Changes propagate systematically when needed
+
+**This document is the book's DNA** - the encoding of what makes it coherent as it grows.
+
+Use it. Maintain it. Evolve it when necessary. The quality of the final book depends on it.
+
+### Configuration Coherence (From Game System Chapter)
+
+**Core Principle:** A game system's components (mechanics, parameters, context, pacing, configuration) must all serve the same aesthetic goal. Misalignment creates dissonance.
+
+**The Five Components:**
+
+1. **Mechanics** - What players can do (resolution, actions, resources)
+2. **Parameters** - How much, how fast, how scarce (tuning dials)
+3. **Context** - What it means (setting, tone, framing)
+4. **Pacing** - When things happen (rhythm, escalation)
+5. **Configuration** - How components combine (coherence or incoherence)
+
+**Configuration Coherence Test:**
+
+For each component, ask: "Does this serve the target aesthetic?"
+
+* Mechanics serve aesthetic? ✓ / ✗
+* Parameters serve aesthetic? ✓ / ✗
+* Context aligns with mechanics? ✓ / ✗
+* Pacing supports aesthetic? ✓ / ✗
+
+If any component contradicts aesthetic, configuration is incoherent. Players will experience dissonance and follow mechanics over context.
+
+**Validated Example (D\&D for Mystery):**
+
+| Component  | Configuration                | Serves Mystery?                        |
+| ---------- | ---------------------------- | -------------------------------------- |
+| Mechanics  | Combat, tactical positioning | ✗ (rewards violence not investigation) |
+| Parameters | 40% failure rate on rolls    | ✗ (breaks investigation flow)          |
+| Context    | Mystery investigation        | ✓ (correct framing)                    |
+| Pacing     | Stalls on failures           | ✗ (no guaranteed rhythm)               |
+| **Result** | **Incoherent**               | **Failed configuration**               |
+
+**Observed:** Players solved mysteries through violence ("kill suspect, loot clues from corpse") because mechanics rewarded combat over investigation.
+
+**How to Reference:**
+
+```
+✓ Correct: "Checking configuration coherence: do mechanics align with context?"
+✓ Correct: "Configuration test reveals incoherence between mechanics and aesthetic..."
+✗ Wrong: Discussing mechanics without checking alignment with other components
+✗ Wrong: Treating configuration as separate element (it's how components combine)
+```
+
+**Design Implication:**
+
+When analyzing any system:
+
+1. State target aesthetic
+2. List what each component does
+3. Check if all components serve same aesthetic
+4. If misaligned, predict player behavior (they follow mechanics)
+5. This prediction is testable
+
+**When to Revise:**
+
+### Temporal Architecture Framework Validation
+
+**Loop Scale Definitions (Micro/Meso/Macro/Meta):**
+
+* **Status:** STABLE
+* **Validated:** Thousands of games across decades, consistent terminology in industry
+* **Confidence:** High - four scales are well-established
+* **Evidence:** Observable in all games, clear temporal distinctions
+
+**Investment Trajectory Patterns:**
+
+* **Status:** STABLE
+* **Validated:** Patterns observable across successful (Flat Low, Learning Curve, Escalating Depth) and failed (Exponential Trap) games
+* **Confidence:** High - patterns predict player satisfaction and retention
+* **Evidence:** Vampire Survivors (Flat Low success), Destiny 2 (Exponential Trap burnout), Dark Souls (Learning Curve mastery)
+
+**Mastery Reduction Principle:**
+
+* **Status:** STABLE
+* **Validated:** Micro investment decreases in successful skill-based games, stays high in friction-heavy games
+* **Confidence:** High - observable through player skill development
+* **Evidence:** Dark Souls (mastery enables flow), RDR2 (friction persists despite mastery)
+
+**Six Elements of Closure:**
+
+* **Status:** STABLE
+* **Validated:** Good stopping points consistently have all six elements
+* **Confidence:** High - framework tested across many stopping point designs
+* **Evidence:** Vampire Survivors (perfect closure), Civilization VI (missing elements create "one more turn" trap)
+
+**Intrinsic vs. Extrinsic Motivation:**
+
+* **Status:** STABLE
+* **Validated:** Well-established in behavioral psychology, observable in game retention
+* **Confidence:** High - clear distinction between healthy and exploitative retention
+* **Evidence:** Vampire Survivors (intrinsic only), Destiny 2 (extrinsic creates burnout)
+
+**Content Budget Heuristics:**
+
+* **Status:** WORKING HYPOTHESIS
+
+* **Validated:** Practical guidelines (micro repeats 100+ times → needs 5-10 variations)
+
+* **Confidence:** Medium - heuristics useful but context-dependent
+
+* **Evidence:** Needs more formal testing across genres
+
+* If component categories prove insufficient
+
+* If coherence test doesn't predict player behavior
+
+* If additional components identified
+
+**Current Status:** NEWLY ADDED (from Game System chapter, validated by multiple examples)
+
+### Information Management (From Game System Chapter)
+
+**Core Insight:** Information is a resource. Design when it's scarce, abundant, earned, and what it costs.
+
+**Two Models for Critical Information:**
+
+**Traditional RPG Model (D\&D):**
+
+* All information gated by action + rolls
+* Missing information = stalled progress
+* GM must improvise or railroad
+* Problem: Core information can be missed
+
+**Mystery Game Model (Gumshoe):**
+
+* Distinguish core (necessary) from optional (enrichment)
+* Core: Automatic when investigating relevant locations
+* Optional: Requires resource expenditure
+* Solution: Progress guaranteed, challenge shifts to interpretation
+
+**When Each Model Works:**
+
+| Aesthetic                    | Information Model   | Why                                        |
+| ---------------------------- | ------------------- | ------------------------------------------ |
+| Mystery, Horror, Exploration | Core/Optional Split | Can't stall investigation                  |
+| Tactical Combat              | Traditional         | Missing info is tactical choice            |
+| Social Intrigue              | Hybrid              | Some info automatic, some negotiated       |
+| Sandbox                      | Traditional         | Exploration is about finding what's hidden |
+
+**How to Reference:**
+
+```
+✓ Correct: "Using core/optional information model for mystery aesthetic..."
+✓ Correct: "Information management broken: players can miss critical info..."
+✗ Wrong: Not distinguishing core from optional information in mystery/horror
+✗ Wrong: Treating all information as equally gate-able
+```
+
+**Design Questions:**
+
+1. What information is critical for progress?
+2. How do you ensure players can't miss critical information?
+3. What information is enrichment vs. necessary?
+4. How do you make discovery feel earned, not given?
+
+**Test:** If players can miss necessary information and investigation stalls, information management is broken.
+
+**When to Revise:**
+
+* If model proves insufficient for aesthetic
+* If new information architecture identified
+* If distinction between models needs refinement
+
+**Current Status:** NEWLY ADDED (from Game System chapter, validated by Scenario 3)
+
+***
+
+## Part 12: Research Methodology and Confidence Levels
+
+### Framework Development Approach
+
+This book uses scenario-based validation, not pure theory. Principles are:
+
+1. Tested against real design problems (scenarios)
+2. Validated across multiple examples
+3. Documented with confidence levels
+4. Revised when evidence contradicts
+
+### Three Content Categories
+
+**Category A: Validated Principles (Add Immediately)**
+
+* Tested across 3+ scenarios or well-established in literature
+* Can be stated as principles
+* Safe to build on in future chapters
+* Examples: Configuration Coherence, Aesthetic-First Design, MDA Framework
+
+**Category B: Working Hypotheses (Document Transparently)**
+
+* Tested in 1-2 scenarios, seems strong
+* Needs validation across more cases
+* Document as "hypothesis to test"
+* Don't build critical framework elements on these yet
+* Examples: Agency Priority by Aesthetic, Pacing Automation Spectrum
+
+**Category C: Open Questions (Acknowledge Limitations)**
+
+* Important questions without clear answers
+* Require extensive research beyond book scope
+* Document as "open research questions"
+* Be honest about not having solutions
+* Examples: Guaranteed Progress vs. Stakes, LLM Content Quality
+
+### How to Document Each Category
+
+**Validated Principles:**
+
+```markdown
+**Principle:** [Clear statement]
+**Evidence:** [What validates this - multiple examples, scenario testing]
+**Application:** [How to use this]
+**Confidence:** High
+```
+
+**Working Hypotheses:**
+
+```markdown
+**Hypothesis:** [Tentative claim]
+**Evidence so far:** [What supports this, what hasn't been tested]
+**What would validate:** [What evidence needed]
+**What would invalidate:** [What would disprove this]
+**Testing approach:** [How to test]
+**Confidence:** Medium - needs more validation
+```
+
+**Open Questions:**
+
+```markdown
+**Question:** [The problem/uncertainty]
+**Current understanding:** [What we know so far]
+**Why this matters:** [Why it's important]
+**Research needed:** [What would answer this]
+**Confidence:** Low - requires extensive study
+```
+
+### Confidence Level Guidelines
+
+**HIGH confidence (validated principles):**
+
+* State as fact: "Systems require coherent configuration"
+* Build framework elements on these
+* Reference without caveat
+* Examples get confidence from: Multiple validations, established literature, clear evidence
+
+**MEDIUM confidence (working hypotheses):**
+
+* State as hypothesis: "We hypothesize that agency priority varies by aesthetic"
+* Don't build critical framework on these yet
+* Reference with caveat: "Current evidence suggests..."
+* Test before promoting to high confidence
+
+**LOW confidence (open questions):**
+
+* State as question: "It's unclear whether guaranteed progress reduces stakes"
+* Acknowledge limitation: "This requires further research"
+* Don't base recommendations on these
+* Be honest about not knowing
+
+### Example Chapter Sections
+
+**For Validated Principle:**
+
+```markdown
+## Configuration Coherence (Validated)
+
+**Principle:** Game systems require all components (mechanics, parameters, context, pacing) to align toward same aesthetic goal.
+
+**Evidence:** 
+- D&D for mystery: Incoherent configuration (combat mechanics, investigation context) → players solve through violence
+- Gumshoe: Coherent configuration (investigation mechanics, mystery context) → players investigate
+- Weather Factory: Same mechanics, different parameters/context → different aesthetics
+
+**Application:** Use configuration coherence test when selecting/designing systems...
+
+[Continue with details]
+```
+
+**For Working Hypothesis:**
+
+```markdown
+## Agency Priority by Aesthetic (Hypothesis)
+
+**Hypothesis:** Different aesthetics prioritize different agency sources (Interpretation, Scene Selection, Action, Resources).
+
+**Evidence so far:**
+- Mystery aesthetic: Interpretation primary, Scene Selection secondary (validated in Scenario 3)
+- Untested: Other aesthetics (horror, exploration, tactical)
+
+**What would validate:** Pattern holds across 3+ aesthetics with different characteristics
+
+**What would invalidate:** No consistent pattern emerges across aesthetics
+
+**Testing approach:** Analyze Scenarios 1, 4, 5 for agency priorities...
+
+**Current confidence: MEDIUM** - promising pattern but needs more validation
+
+[Can discuss hypothesis but note it's tentative]
+```
+
+**For Open Question:**
+
+```markdown
+## Guaranteed Progress vs. Stakes (Open Question)
+
+**Question:** Does guaranteeing progress (e.g., Gumshoe's automatic core clues) reduce stakes and tension?
+
+**Current understanding:**
+- Some players prefer security of guaranteed progress
+- Some players find it boring (removes uncertainty)
+- Unclear if this is aesthetic-dependent, personality-dependent, or culture-dependent
+
+**Why this matters:** Fundamental question about where uncertainty should live in systems
+
+**Research needed:**
+- Player psychology studies on stake types
+- Cross-aesthetic testing of guaranteed progress
+- Cultural differences in stake preferences
+
+**Current confidence: LOW** - important question without clear answer
+
+**Recommendation:** Design choice depends on target audience preference. Test with your players.
+```
+
+### When to Promote Confidence Levels
+
+**Medium → High:**
+
+* Validated across 3+ diverse scenarios
+* Pattern consistent across different aesthetics
+* No counter-examples found
+* Becomes basis for framework principles
+
+**Low → Medium:**
+
+* Some evidence emerges (1-2 scenarios)
+* Pattern seems plausible
+* Worth testing more
+* Can discuss as hypothesis
+
+**High → Medium (demotion):**
+
+* Counter-example found
+* Pattern breaks in important case
+* Needs refinement
+* Return to hypothesis status
+
+### Using This in Chapters
+
+Every chapter should include:
+
+**"What We Know" section:**
+
+* Lists validated principles used in chapter
+* References with confidence levels
+* Links to supporting evidence
+
+**"What We're Testing" section (optional):**
+
+* Lists working hypotheses explored
+* Explicit about tentative status
+* Invites validation
+
+**"What We Don't Know" section (if relevant):**
+
+* Acknowledges limitations
+* States open questions
+* Honest about uncertainty
+
+**Example:**
+
+```markdown
+## Framework Basis for This Chapter
+
+**Validated Principles (High Confidence):**
+- Configuration Coherence (Game System Chapter)
+- Aesthetic-First Design (MDA Framework)
+- Resource-Aesthetic Alignment (Resource Management Chapter)
+
+**Working Hypotheses (Medium Confidence):**
+- Agency Priority by Aesthetic (needs more validation)
+- Pacing Automation Spectrum (partially tested)
+
+**Open Questions:**
+- Guaranteed Progress vs. Stakes (no clear answer yet)
+
+We build this chapter on validated principles, explore hypotheses where relevant, and acknowledge open questions honestly.
+
+**Context Framework Validation Status:**
+
+**Genre/Dressing Distinction:**
+- **Status:** STABLE
+- **Validated:** Star Wars trilogy examples (different genres, same dressing), Weather Factory (different genres, same mechanics), Blades in the Dark reskins
+- **Confidence:** High - distinction clarifies design decisions and predicts player behavior
+- **May need:** Refinement for edge cases where dressing affects mechanics
+- **Evidence:** Multiple game analyses show genre determines required mechanics while dressing is swappable
+
+**Build/Suggest/Omit Framework:**
+- **Status:** STABLE  
+- **Validated:** Outer Wilds (strategic restraint), Obra Dinn (deduction through omission), Weather Factory (fragments create engagement), Disco Elysium (bounded depth)
+- **Confidence:** High - maps to observable design patterns across multiple genres
+- **May need:** LLM-specific guidance (future chapter integration)
+- **Evidence:** Framework successfully analyzes and predicts engagement patterns in mystery, exploration, and narrative games
+
+**Perspective Maintenance:**
+- **Status:** STABLE
+- **Validated:** Horror (Alien - unknowable threat), Mystery (Obra Dinn - solvable puzzle), Cozy (Book of Hours - safe comfort)
+- **Confidence:** High - explains both success patterns (Weather Factory) and failure patterns (Mass Effect: Andromeda)
+- **May need:** More genre-specific guidance for implementation
+- **Evidence:** Consistent perspective predicts player engagement; broken perspective predicts player confusion/disengagement
+
+**Context-Dynamics Relationship:**
+- **Status:** STABLE
+- **Validated:** Weather Factory proof (same mechanics, different context = different behaviors), Star Wars franchise analysis (genre determines required dynamics)
+- **Confidence:** High - explains behavioral emergence from mechanical + contextual interaction
+- **May need:** More explicit integration with other dynamics sources (resources, balance paradigms)
+- **Evidence:** Demonstrates that player behavior emerges from mechanics AND context, not mechanics alone
+
+```
+
+### Why This Matters
+
+**Scientific integrity:**
+
+* Clear about what's proven vs. tentative vs. unknown
+* Readers can assess reliability
+* Framework evolves based on evidence
+
+**Practical utility:**
+
+* Validated principles are safe to use
+* Hypotheses are interesting but need testing
+* Open questions require experimentation with your own games
+
+**Intellectual honesty:**
+
+* Acknowledges complexity of game design
+* Doesn't overstate certainty
+* Invites collaboration and refinement

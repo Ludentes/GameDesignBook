@@ -1,0 +1,98 @@
+---
+title: archetype-10-auto-battler
+---
+# Archetype 10: Auto-Battler / Auto-Chess
+
+## Overview
+
+Strategy games where combat resolves automatically based on pre-battle setup. Players draft units, position them on a board, and watch battles unfold without direct control. Emphasizes strategic planning, adaptation, and economy management. Sessions 20-60 minutes, games versus 7 other players (typical) in elimination format.
+
+## Primary Aesthetics
+
+* Mastery (learning unit synergies, positioning, economy)
+* Challenge (adapting to RNG, outplaying opponents)
+* Discovery (finding new combinations and strategies)
+* Competition (beating other players)
+
+## Player Profile Match
+
+**Best For:** Strategy-focused, multi-tasking tolerant, adaptation-minded, moderate sessions
+**Works Less Well For:** Action-oriented (no direct control), impatient, anti-RNG players, solo-only
+**Cognitive Load:** High (8-15: unit roster 50-100+, synergies, economy, positioning, opponent scouting, items, meta awareness)
+
+## Temporal Structure
+
+**Architecture Type:** Full Stack with Multiplayer Elimination
+
+* **Micro:** 30-60sec per round (shop phase: buy/sell/arrange, combat phase: watch auto-resolve, results: damage/gold)
+* **Meso:** 5-10 rounds (build toward composition, stabilize health, economic decisions, adaptation)
+* **Macro:** 20-40 rounds per game, 30-60min (8 players to 1 winner, early low stakes, mid commitment, late high stakes)
+  **Pacing:** Round timers create urgency (30-60sec to decide).
+
+## Common Mechanics
+
+1. Shop System (5 random units offered, shared pool among players creating scarcity, reroll costs gold, shop tied to player level)
+2. Economy (passive income + interest on saved gold, win/loss streaks, interest cap at 50 gold)
+3. Unit System (units cost 1-5 gold, 3 copies combine into 2-star, 3 two-stars into 3-star)
+4. Synergies/Traits (units belong to classes/origins, multiple = trait bonus at thresholds 2/4/6)
+5. Positioning (grid-based, front/back line, abilities target based on position, countering matters)
+6. Items (dropped from PvE, combine to create equipment, placed on units)
+7. Health System (start 100, lose when lose combat, 0 = eliminated, last standing wins)
+
+## Resource Patterns
+
+**Primary:** Gold (economic engine, passive per round 5 base + interest + streaks), Experience (buy with gold, level up = more units on board), Health (survival, lose when lose fights, no recovery), Shop slots (5 units, reroll for new)
+**Meta:** Board space (level determines max units), Bench space (hold units 8-9 slots), Items (random drops, 10-12 per game)
+
+## Content Needs
+
+**MVP:** 40-60 units with classes/origins, 8-12 trait types, 20-30 items, basic cosmetics, ranked/casual
+**Sustainable:** 60-100 units, 12-18 traits, 40-60 items, multiple modes (standard, turbo, duos), seasonal patches, battle pass
+**Formula:** 60 units / 8 per comp = 7 base strategies. With overlap: 15-30 viable, meta narrows to 5-10 dominant. Patch every 2-4 weeks shifts meta.
+
+## Platform Considerations
+
+**Best:** PC (mouse optimal for drag-drop), Mobile (touch works well, portable)
+**Weak:** Console (controller too slow for shop/board management)
+**Tech Needs:** Fast matchmaking (8 players), smooth animations (combat readability), clear visual communication, spectator mode, replay system
+
+## Monetization Patterns
+
+**F2P Standard:** Core free, cosmetics only (boards, skins, emotes, arenas), battle pass (seasonal cosmetics), Little Legends/avatars, never pay-to-win (all units free)
+**Success Needs:** Constant updates (new units, balance), seasonal content, competitive scene (tournaments, streamers)
+
+## Social Features
+
+**Core Competitive:** Ranked ladder (divisions), 8-player FFA (anonymous), leaderboards (global, regional)
+**Optional Social:** Duos/teams mode, spectate friends, guilds/clubs, tournament modes
+**Community:** Strong streaming (educational), meta discussions (theorycrafting, tier lists), guide creators
+
+## Success Metrics
+
+1. Average placement: 4.5 is perfect balance (1-8)
+2. Game length: 25-40 minutes ideal
+3. Meta diversity: 10+ viable comps = healthy
+4. Ranked engagement: 60-70% play ranked
+5. Patch anticipation: Player excitement for updates
+
+## Common Variations
+
+* Classic Auto-Chess (Dota Auto Chess, TFT - 8-player FFA)
+* Duos (2v2v2v2 format, coordinate with partner)
+* Turbo Mode (faster rounds, 15-20min games)
+* PvE Mode (fight AI bosses, less competitive)
+
+## Design Pitfalls
+
+Too much RNG (skill doesn't matter), too little RNG (deterministic, solved), poor balance (1-2 comps dominate), unclear feedback (can't tell why lost), slow pacing (games drag 50+ min), too complex (100+ units impossible to learn), stale meta (no patches = solved), confusing UI (can't parse board state)
+
+## Example Games
+
+* Teamfight Tactics (TFT) - League universe, most popular
+* Dota Underlords - Dota 2 universe, original inspiration
+* Hearthstone Battlegrounds - Hearthstone universe, streamlined
+* Super Auto Pets - Simplified, cute animals, accessible
+
+## When This Archetype Fails
+
+Players want direct control, hate RNG (shop luck matters), want fast games (\<20min too short), can't support 8-player matchmaking (small playerbase), can't balance constantly (meta stagnates), mobile-only with complex UI, solo developers (needs ongoing content), players want story/narrative

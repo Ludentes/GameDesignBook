@@ -1,16 +1,7 @@
 {
   "title": "Resource Management",
   "pages": [    
-    "./resource-management-01-introduction",
-    "./resource-management-02-when-to-use",
-    "./resource-management-03-types",
-    "./resource-management-04-scarcity",
-    "./resource-management-05-recovery",
-    "./resource-management-06-spending",       
-    "./resource-management-part-7-psychological-effects",
-    "./resource-management-part-8-anti-patterns",
-    "./resource-management-part-9-decision-framework",
-    "./resource-management-part-10-appendices",
+    "./chapter-3-resources",
     "./supplementary"
 
   ]

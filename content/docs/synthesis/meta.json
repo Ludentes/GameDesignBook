@@ -1,11 +1,16 @@
 {
-  "title": "synthesis",
+  "title": "synthesis (very bad version, WIP, not finished, just a draft)",
   "pages": [
     "./synthesis-chapter-the-design-framework",
-    "synthesis-framework-part1",
-    "synthesis-framework-phase1",
-    "synthesis-framework-phase2",
-    "synthesis-framework-phase3",
+    "./synthesis-framework-part1",
+    "./synthesis-framework-phase1",
+    "./synthesis-framework-phase2",
+    "./synthesis-framework-phase2-revised",
+    "./synthesis-framework-phase3",
+    "./synthesis-framework-phase3-revised",
+    "./synthesis-framework-phase4",
+    "./synthesis-framework-phase5",
+    "./synthesis-framework-quick-reference",    
     "./supplementary"    
   ]
 }

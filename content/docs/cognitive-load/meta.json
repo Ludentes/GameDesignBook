@@ -1,21 +1,7 @@
 {
   "title": "Cognitive Load",
-  "pages": [
-    "./00-index",
-    "./01-foundations",
-    "./02-load-as-design-tool",
-    "./03-load-types-and-examples",
-    "./04-investment-and-load",
-    "./05-load-distribution",
-    "./06-load-appropriateness",
-    "./07-player-types",
-    "./08-load-support-systems",
-    "./09-design-process",
-    "./10-case-study-busy-adults",
-    "./11-case-study-aliens",
-    "./12-connections",
-    "./13-future-research",
-    "./14-summary",
+  "pages": [   
+    "./chapter-4-cognitive-load-rewrite",
     "./supplementary"
   ]
 }

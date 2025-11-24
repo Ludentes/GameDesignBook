@@ -74,7 +74,7 @@ Documentation Contents
       ./left-4-dead-2-analysis
       ./ai-dungeon-analysis
       ./supplementary-worked-scenario
-  ./context-from-setting-to-experience/
+  ./context.-from-setting-to-experience/
 
   From Setting to Experience
     ./context-part-1-introduction
@@ -96,9 +96,57 @@ Documentation Contents
       ./mass-effect-andromeda-context-analysis
       ./obra-dinn-context-analysis
       ./outer-wilds-context-analysis
-      ./nms
-      ./Borderlands Procedural Weapons
+      ./no-man's-sky-validates-"space-coffee"-framework-with-crucial-nuances
+      ./borderlands'-procedural-weapons.-why-"87-bazillion-guns"-succeeded-where-"18-quintillion-planets"-failed
       ./space-coffee-framework
+  ./temporal-architecture/
+
+  temporal-architecture
+    ./part-01-intro-why-time-matters
+    ./part-2-loop-fundamentals
+    ./part-3-loops-as-aesthetic-delivery
+    ./part-4-loop-architecture-patterns
+    ./part-5-investment-escalation
+    ./part-6-flow-management
+    ./part-7-content-and-variety
+    ./part-8-loop-validation
+    ./part-9-common-problems-solutions
+    ./part-10-operationalizing-loops
+    ./part-11-quick-reference
+    ./part-12-conclusion
+    ./supplementary/
+
+    Supplementary
+      ./loop-design-analysis
+  ./synthesis/
+
+  synthesis (very bad version, WIP, not finished, just a draft)
+    ./synthesis-chapter-the-design-framework
+    ./synthesis-framework-part1
+    ./synthesis-framework-phase1
+    ./synthesis-framework-phase2
+    ./synthesis-framework-phase2-revised
+    ./synthesis-framework-phase3
+    ./synthesis-framework-phase3-revised
+    ./synthesis-framework-phase4
+    ./synthesis-framework-phase5
+    ./synthesis-framework-quick-reference
+    ./supplementary/
+
+    Supplementary
+      ./players-and-contexts-section
+      ./synthesis-chapter-bootstrap
+      ./archetype-01-daily-puzzle
+      ./archetype-02-roguelike
+      ./archetype-03-4x-strategy
+      ./archetype-04-cozy-life-sim
+      ./archetype-05-oneshot-ttrpg
+      ./archetype-06-metroidvania
+      ./archetype-07-idle-incremental
+      ./archetype-08-deck-building
+      ./archetype-09-walking-simulator
+      ./archetype-10-auto-battler
+      ./synthesis-framework-appendices-bcd
   ./megabonk-hypothesis/
 
   Megabonk Hypothesis (WIP)

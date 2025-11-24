@@ -1,0 +1,1184 @@
+---
+title: "Resource Validation Playtest Guide"
+---
+# Resource Validation Playtest Guide
+## Testing and Validating Resource Design Decisions
+
+**Purpose:** This guide provides concrete methods for playtesting and validating resource design choices. Use it to test whether your resources create intended experiences and serve your aesthetic goals.
+
+**When to use:**
+- After initial resource design (Step 8 of Chapter 2 decision framework)
+- When resources feel "off" but you can't identify why
+- Before finalizing resource parameters (scarcity, recovery, costs)
+- After making changes to resource systems
+
+**Integration:** This guide complements Chapter 2 (Resource Management) design framework and feeds into Chapter 4 (Balance) numerical validation.
+
+---
+
+## Part 1: Pre-Playtest Setup
+
+### 1.1 Define Success Criteria
+
+Before playtesting, explicitly state what success looks like for each resource.
+
+**Template:**
+
+```
+Resource: [Name]
+Primary Function: [Limiter/Currency/Tracker/Meta-Resource]
+Intended Experience: [What should players feel/do?]
+Success Looks Like: [Observable player behavior]
+Failure Looks Like: [What we're trying to avoid]
+```
+
+**Example - HP in horror game:**
+
+```
+Resource: Health Points
+Primary Function: Limiter (Buffer pattern)
+Intended Experience: Constant dread, every hit matters
+Success Looks Like: 
+  - Players avoid combat when possible
+  - Players use healing items rarely, reluctantly
+  - Players express tension when health is low
+  - Deaths feel fair but scary
+Failure Looks Like:
+  - Players tank damage carelessly
+  - Players hoard healing items unused
+  - Players never worried about HP
+  - Constant deaths from unavoidable damage
+```
+
+**Example - Gold in strategy game:**
+
+```
+Resource: Gold
+Primary Function: Currency (Cyclic pattern)
+Intended Experience: Meaningful economic decisions, opportunity cost
+Success Looks Like:
+  - Players debate what to buy
+  - Players sometimes save for expensive items
+  - Players express "I wish I could afford both"
+  - Different players buy different things
+Failure Looks Like:
+  - Players always buy same things (dominant strategy)
+  - Players have surplus gold with nothing to buy
+  - Players never have enough gold (constant deprivation)
+  - Purchase decisions feel arbitrary
+```
+
+**Exercise:** Write success criteria for EACH resource in your system before playtesting.
+
+### 1.2 Identify Key Questions
+
+For each resource, list 3-5 specific questions playtesting should answer.
+
+**By Resource Function:**
+
+**Limiters:**
+- "Do players make strategic decisions because of this limit?"
+- "Is the scarcity level creating intended tension?"
+- "Are players engaging with the recovery mechanics?"
+- "Does the limit force interesting trade-offs?"
+
+**Currencies:**
+- "Do players face meaningful spending choices?"
+- "Are there multiple viable spending strategies?"
+- "Is the economy balanced (not too scarce, not too abundant)?"
+- "Do players understand relative values of options?"
+
+**Trackers:**
+- "Do players check this tracker regularly?"
+- "Does the tracker provide useful information?"
+- "Is tracking progress satisfying?"
+- "Does the tracker drive player goals?"
+
+**Meta-Resources:**
+- "Do players feel long-term investment building?"
+- "Are players motivated to return between sessions?"
+- "Is permanent progression satisfying?"
+- "Does meta-progression create meaningful build diversity?"
+
+**Exercise:** Write 3-5 testable questions per resource.
+
+### 1.3 Prepare Observation Framework
+
+**What to track during playtests:**
+
+**Behavioral Observations:**
+- What do players do with resources?
+- When do players check resource levels?
+- How often do players spend vs. save?
+- What do players say about resources (unprompted)?
+- What mistakes do players make?
+
+**Emotional Observations:**
+- When do players express tension?
+- When do players express satisfaction?
+- When do players express frustration?
+- When do players express confusion?
+
+**Decision Observations:**
+- How long do spending decisions take?
+- Do players change their minds during decisions?
+- Do different players make different choices?
+- Do players use calculators/spreadsheets?
+
+**Temporal Observations:**
+- When during session do resource issues emerge?
+- How does resource state change over time?
+- When do players run out vs. have surplus?
+
+**Observation Template:**
+
+```
+PLAYTEST SESSION: [Date/Session Number]
+RESOURCE FOCUS: [Which resource testing]
+
+BEHAVIORAL NOTES:
+- [Timestamp] [Player behavior observed]
+- [Timestamp] [Player statement/question]
+
+EMOTIONAL NOTES:
+- [Timestamp] [Player emotional response]
+
+DECISION NOTES:
+- [Timestamp] [Decision made, time taken, reasoning if stated]
+
+TEMPORAL NOTES:
+- [Session point] [Resource state: abundant/balanced/scarce]
+
+RED FLAGS:
+- [Anything clearly not working]
+
+SURPRISES:
+- [Unexpected player behaviors/strategies]
+```
+
+---
+
+## Part 2: Resource-Specific Validation Tests
+
+### 2.1 Scarcity Level Validation
+
+**Goal:** Verify that resource scarcity matches aesthetic intent.
+
+**Test 1: The Surplus/Deficit Tracking**
+
+**Method:**
+1. Track resource levels at 5 key points per session:
+   - Session start
+   - 25% through
+   - 50% through (midpoint)
+   - 75% through
+   - Session end
+2. Record: Full/Comfortable/Low/Critical/Empty
+3. Track across 3+ playtest sessions
+
+**Analysis:**
+
+```
+If consistently FULL → Resource too abundant
+If consistently COMFORTABLE → Working as intended (for comfort aesthetics)
+If consistently LOW → Working as intended (for tension aesthetics)
+If consistently CRITICAL/EMPTY → Resource too scarce
+
+If highly variable → Check if intentional (dynamic scarcity pattern)
+```
+
+**Example - HP tracking for Challenge game:**
+
+```
+Session 1: Start(Full) → 25%(Comfortable) → 50%(Low) → 75%(Critical) → End(Low)
+Session 2: Start(Full) → 25%(Low) → 50%(Critical) → 75%(Low) → End(Comfortable)
+Session 3: Start(Full) → 25%(Comfortable) → 50%(Low) → 75%(Low) → End(Empty/Death)
+
+Analysis: Good variance, players managing HP strategically, reaching low but not always dying. WORKING.
+```
+
+**Example - Ammunition in action game:**
+
+```
+Session 1: Start(Full) → 25%(Full) → 50%(Full) → 75%(Comfortable) → End(Full)
+Session 2: Start(Full) → 25%(Full) → 50%(Comfortable) → 75%(Full) → End(Full)
+Session 3: Start(Full) → 25%(Full) → 50%(Full) → 75%(Full) → End(Full)
+
+Analysis: Players never running low, ammo not creating decisions. TOO ABUNDANT.
+Action: Reduce ammo drops or increase ammo consumption.
+```
+
+**Test 2: The Spending Decision Pause**
+
+**Method:**
+1. Time how long players take to make spending decisions
+2. Note if players verbalize trade-offs
+3. Record what they chose NOT to spend on
+
+**Analysis:**
+
+```
+<5 seconds, no deliberation → Not a real choice (too obvious or too trivial)
+5-30 seconds, visible consideration → Healthy strategic choice
+>30 seconds, analysis paralysis → Too complex or unclear values
+Immediate spending always on same thing → Dominant strategy (false choice)
+```
+
+**Example - Skill point spending:**
+
+```
+Player A: 45 seconds deciding between Fireball and Ice Blast, mentions "fire is better for groups but ice has CC", chooses Fireball
+Player B: 3 seconds, immediately chooses Fireball without looking at Ice Blast
+Player C: 2 minutes calculating DPS, references external guide
+
+Analysis: Player A = healthy strategic choice. Player B = not engaging with choice (dominant strategy?). Player C = unclear values, too complex.
+Action: Rebalance options (buff Ice Blast) and clarify ability values.
+```
+
+**Test 3: The Regret Interview**
+
+**Method:**
+After session, ask players:
+- "What resource decision do you regret?"
+- "What would you do differently next time?"
+- "Was there anything you wanted but couldn't afford?"
+
+**Analysis:**
+
+```
+Many regrets about same decision → Good strategic depth, players learning
+No regrets, players satisfied → Either too easy or good aesthetic match
+Regrets about unpredictable outcomes → Information problem, not scarcity problem
+Regrets about not knowing costs → Communication problem
+```
+
+### 2.2 Recovery Pattern Validation
+
+**Goal:** Verify recovery speed creates intended pacing and behavior.
+
+**Test 4: The Conservation Behavior Test**
+
+**Method:**
+1. Observe when players use consumables vs. save them
+2. Track how much of consumable resource remains at session end
+3. Note player statements about "saving for later"
+
+**Analysis:**
+
+```
+Hoarding (never used, full at end) → Recovery too slow OR consequences too severe
+Aggressive spending (used freely) → Recovery appropriate for aggressive play
+Mid-session depletion panic → Recovery too slow for intended pacing
+Constant comfortable level → Recovery matched to consumption (episodic pacing)
+```
+
+**Example - Healing potions:**
+
+```
+Session 1: Player uses 0 of 5 potions, ends with 5/5, mentions "saving for boss"
+Session 2: Player uses 1 of 5 potions "just to test", ends with 4/5
+Session 3: Player uses 0 of 5 potions, beats boss, says "didn't need them"
+
+Analysis: Severe hoarding behavior. Players afraid to use consumables.
+Action: Either add potion recovery (find more) OR reduce potion power (make less precious) OR signal when potions won't be needed anymore.
+```
+
+**Test 5: The Pacing Rhythm Test**
+
+**Method:**
+1. Map resource levels against session time
+2. Identify peaks (abundance) and valleys (scarcity)
+3. Compare to intended pacing pattern (Attrition/Episodic/Wave/Continuous/Punctuated)
+
+**Analysis:**
+
+```
+INTENDED: Episodic pacing
+OBSERVED: Scarcity during encounters, abundance between encounters → MATCHES
+
+INTENDED: Attrition pacing
+OBSERVED: Slow steady depletion across session → MATCHES
+
+INTENDED: Wave pacing
+OBSERVED: Flat abundance throughout → MISMATCH, recovery too fast
+
+INTENDED: Continuous pacing
+OBSERVED: Spiky peaks and valleys → MISMATCH, recovery too slow or too discrete
+```
+
+**Example - HP in roguelike:**
+
+```
+INTENDED: Episodic (recover between rooms)
+
+OBSERVED:
+Room 1: 100→60 HP
+Between: 60→100 HP (full heal)
+Room 2: 100→40 HP
+Between: 40→100 HP (full heal)
+Room 3: 100→80 HP
+Between: 80→100 HP (full heal)
+
+Analysis: Perfect episodic pattern. Each room self-contained, player resets fully between rooms. WORKING.
+```
+
+**Test 6: The End-State Resource Check**
+
+**Method:**
+Record resource levels at session end across multiple sessions
+
+**Analysis:**
+
+```
+Consistently near-empty → Attrition pacing working (intended pressure)
+Consistently full → Abundant resources, no scarcity pressure
+High variance → Good resource management creating different outcomes
+Same amount every time → Predictable, possibly too static
+```
+
+### 2.3 Cognitive Load Validation
+
+**Goal:** Verify players can track and manage resources without overwhelming cognitive burden.
+
+**Test 7: The Tracking Error Test**
+
+**Method:**
+1. Observe when players forget about resources
+2. Note when players miscalculate resource states
+3. Track how often players ask "how much do I have?"
+
+**Analysis:**
+
+```
+Never forget → Tracking is manageable
+Occasional forget → Acceptable for complex systems
+Frequent forget → Too many resources or too complex
+Forget during critical moments → Cognitive overload during stress
+```
+
+**Example - Multiple currency tracking:**
+
+```
+Playtest observations:
+- Players consistently forget about "Influence" currency
+- Players track Gold and Gems accurately
+- During combat, players forget ALL currencies and focus on HP
+
+Analysis: Influence currency is low-priority (maybe remove?). Combat creates cognitive overload preventing economic thinking (might be intentional).
+```
+
+**Test 8: The Explanation Test**
+
+**Method:**
+Ask players to explain resource system to someone else (after playing, not reading rules)
+
+**Analysis:**
+
+```
+Clear, accurate explanation → Good mental model
+Hesitant but correct → Acceptable complexity
+Errors in explanation → Unclear mechanics or too complex
+Can't explain at all → System too opaque or overwhelming
+```
+
+**Example:**
+
+```
+Player explanation: "Gold is what you buy stuff with. You get it from quests. Gems are for magic items specifically. I think Influence is for... diplomacy? I never used it."
+
+Analysis: Gold and Gems clear. Influence unclear and unused. Either tutorial problem or Influence is unnecessary complexity.
+```
+
+**Test 9: The Decision Time Under Pressure Test**
+
+**Method:**
+1. Time resource decisions during calm moments
+2. Time resource decisions during intense moments
+3. Compare difference
+
+**Analysis:**
+
+```
+Same time calm vs. pressure → Simple, well-internalized system
+2-3x longer under pressure → Normal cognitive load increase
+Unable to make decision under pressure → Too complex for real-time decisions
+```
+
+**Example - Ability resource spending in combat:**
+
+```
+Out of combat: 5-10 seconds to decide ability use
+In combat turn: 30-60 seconds to decide, players visibly stressed
+
+Analysis: Ability economy too complex for real-time tactical decisions. Need simplification OR slow down pacing OR provide decision support (Chapter 3: Cognitive Load solutions).
+```
+
+### 2.4 Strategic Depth Validation
+
+**Goal:** Verify resources create meaningful decisions, not false choices or dominant strategies.
+
+**Test 10: The Strategy Diversity Test**
+
+**Method:**
+1. Track what different players spend resources on
+2. Identify if there's consensus on "best" choices
+3. Check if losing players used different strategies than winning players
+
+**Analysis:**
+
+```
+All players choose same options → Dominant strategy (false choice problem)
+Players split between 2-3 strategies → Healthy diversity
+Many unique strategies → High expression space (good for Mastery)
+Winning strategy always same → Balance problem (one path optimal)
+Multiple viable paths to victory → Good strategic depth
+```
+
+**Example - Build diversity in RPG:**
+
+```
+Session 1 player: Full offensive build, won easily
+Session 2 player: Full defensive build, won easily  
+Session 3 player: Balanced build, won with difficulty
+Session 4 player: Full offensive build, won easily
+Session 5 player: Full utility build, lost
+
+Analysis: Offensive dominant, Balanced weak, Utility unviable. Need rebalancing.
+```
+
+**Test 11: The Opportunity Cost Test**
+
+**Method:**
+Ask players after spending decisions: "What did you NOT buy, and why?"
+
+**Analysis:**
+
+```
+Clear articulation of trade-offs → Meaningful opportunity cost
+"I bought the best one" → Dominant strategy
+"I could afford everything" → No scarcity
+"I didn't understand the options" → Communication problem
+```
+
+**Test 12: The Experimentation Test**
+
+**Method:**
+1. Observe if players try different resource strategies across sessions
+2. Track if players stick to "safe" choices or experiment
+3. Note if players express wanting to try alternative builds
+
+**Analysis:**
+
+```
+Regular experimentation → Good strategic space, safe to try new things
+Never experiment → Either found optimal or afraid of mistakes
+Want to experiment but can't → Respec/reset needed OR choices too permanent
+Experimentation leads to failure → Punishment too harsh for non-optimal choices
+```
+
+### 2.5 Aesthetic Alignment Validation
+
+**Goal:** Verify resources create intended emotional experience.
+
+**Test 13: The Emotional Experience Interview**
+
+**Method:**
+After session, ask players:
+- "How did managing [resource] make you feel?"
+- "Were there moments of tension? When?"
+- "Were there moments of satisfaction? When?"
+- "Did anything feel frustrating?"
+
+**Expected responses by aesthetic:**
+
+```
+CHALLENGE aesthetic:
+- Should feel: Satisfaction when optimizing, tension during tight decisions
+- Should NOT feel: Bored (too easy), helpless (too hard), confused (unclear)
+
+TENSION aesthetic:
+- Should feel: Dread at low resources, relief when recovering, pressure to conserve
+- Should NOT feel: Relaxed (too abundant), panicked constantly (too scarce)
+
+MASTERY aesthetic:
+- Should feel: Pride in optimization, curiosity about builds, "aha!" moments
+- Should NOT feel: Random outcomes dominate, one obvious path
+
+SUBMISSION aesthetic:
+- Should feel: Relaxed, comfortable, progress without stress
+- Should NOT feel: Anxious about resources, pressured, punished
+
+DISCOVERY aesthetic:
+- Should feel: Excitement finding new things, satisfaction completing collections
+- Should NOT feel: Blocked by resource gates, distracted by management
+```
+
+**Test 14: The Deviation from Aesthetic Test**
+
+**Method:**
+Compare intended aesthetic with player-reported experience
+
+**Example - Horror game (Tension aesthetic):**
+
+```
+INTENDED: Dread, vulnerability, every resource precious
+
+PLAYER REPORTS:
+Player A: "I felt stressed at first but then found infinite ammo exploit, became relaxing"
+Player B: "Too scary, I quit when I ran out of healing items"
+Player C: "Loved the tension, constantly worried about resources"
+
+Analysis: 
+- Player A found economy exploit (balance problem)
+- Player B too much scarcity (not just tension, actual blocking)
+- Player C experiencing intended aesthetic
+Result: Fix exploit, slightly increase healing items to prevent blocking while maintaining tension.
+```
+
+---
+
+## Part 3: System-Level Validation
+
+### 3.1 Multi-Resource Interaction Testing
+
+**Test 15: The Resource Competition Test**
+
+**Method:**
+When you have multiple currencies competing for same actions:
+1. Track what players prioritize
+2. Note if certain resources go unused
+3. Check if conversion rates feel balanced
+
+**Analysis:**
+
+```
+All resources used regularly → Good balance
+One resource ignored → Either redundant OR underpowered
+One resource dominates → Overvalued, other resources feel pointless
+Players confused about which to use → Unclear relative values
+```
+
+**Example - Gold vs. Crafting Materials:**
+
+```
+Observation: Players spend gold freely, hoard crafting materials
+Interview: "Gold is everywhere, but materials are rare so I save them"
+Result: Materials too scarce relative to gold, or gold too abundant. Rebalance acquisition rates.
+```
+
+**Test 16: The Conversion Rate Test**
+
+**Method:**
+If resources can convert (e.g., gold → gems):
+1. Track how often players use conversions
+2. Check if conversions feel "worth it"
+3. Note if players do calculations to optimize conversions
+
+**Analysis:**
+
+```
+Never convert → Conversion rate too poor OR unnecessary system
+Always convert → One resource superior to other
+Sometimes convert for specific purposes → Healthy situational use
+Complex calculations required → Too opaque, need clearer values
+```
+
+### 3.2 Resource Scaling Testing
+
+**Test 17: The Early/Mid/Late Game Tracking**
+
+**Method:**
+Track same resource metrics at different game phases:
+- Tutorial/First hour
+- Mid-game (after tutorial, before endgame)
+- Late-game/Endgame
+
+**Analysis:**
+
+```
+PROGRESSION AESTHETIC:
+Early: Scarce → Mid: Moderate → Late: Abundant = INTENDED (power growth)
+
+CONSISTENT CHALLENGE:
+Early: Scarce → Mid: Scarce → Late: Abundant = PROBLEM (difficulty curve breaks)
+
+BROKEN ECONOMY:
+Early: Scarce → Mid: Abundant → Late: Meaningless = PROBLEM (nothing to spend on)
+```
+
+**Test 18: The New Player vs. Expert Test**
+
+**Method:**
+Playtest with both new players and experienced players, compare resource management
+
+**Analysis:**
+
+```
+Both struggle equally → Might be too hard
+Experts thrive, newbies struggle → Mastery curve (might be intended)
+Both find it easy → Might be too simple OR good accessibility
+Newbies thrive, experts bored → Not enough depth
+```
+
+---
+
+## Part 4: Diagnostic Frameworks
+
+### 4.1 When Resources Feel "Wrong"
+
+**Symptom: Players always have full resources**
+
+**Diagnosis:**
+- Scarcity too low (resources too abundant)
+- Costs too low (spending doesn't deplete)
+- Recovery too fast (can't create scarcity)
+- Not enough spending opportunities (nowhere to use resources)
+
+**Tests to run:**
+- Test 1: Surplus/Deficit Tracking
+- Test 2: Spending Decision Pause
+- Test 10: Strategy Diversity
+
+**Solutions:**
+- Reduce resource gain rate
+- Increase costs of valuable actions
+- Slow recovery speed
+- Add more valuable spending options
+
+**Symptom: Players constantly depleted/dead**
+
+**Diagnosis:**
+- Scarcity too high (resources too scarce)
+- Costs too high (single action too expensive)
+- Recovery too slow (can't recover from mistakes)
+- Required spending too frequent (mandatory depletion)
+
+**Tests to run:**
+- Test 1: Surplus/Deficit Tracking
+- Test 6: End-State Resource Check
+- Test 13: Emotional Experience Interview
+
+**Solutions:**
+- Increase resource gain rate
+- Decrease costs
+- Speed recovery
+- Add skill-based alternatives (don't REQUIRE spending)
+
+**Symptom: Players ignore resource entirely**
+
+**Diagnosis:**
+- Resource not connected to core gameplay
+- Resource provides minimal benefit
+- Resource too complex to understand
+- Resource redundant with other systems
+
+**Tests to run:**
+- Test 7: Tracking Error Test
+- Test 8: Explanation Test
+- Test 10: Strategy Diversity Test
+
+**Solutions:**
+- Connect resource to core verbs/mechanics
+- Increase benefit of using resource
+- Simplify mechanics
+- Remove resource (it might not be needed)
+
+**Symptom: Players hoard resources, never spend**
+
+**Diagnosis:**
+- Fear of future scarcity (can't recover)
+- Unclear when/if resource will be needed
+- Spending feels too risky/permanent
+- Optimal strategy is conservation
+
+**Tests to run:**
+- Test 4: Conservation Behavior Test
+- Test 11: Opportunity Cost Test
+- Test 13: Emotional Experience Interview
+
+**Solutions:**
+- Increase recovery rate (make spending safer)
+- Signal when resources won't be needed ("last chance to use this")
+- Make spending reversible or less permanent
+- Create opportunities where spending is clearly optimal
+
+**Symptom: Only one "right" way to spend resources**
+
+**Diagnosis:**
+- Dominant strategy exists
+- False choices (other options too weak)
+- Players solved optimal path
+- Not enough viable alternatives
+
+**Tests to run:**
+- Test 10: Strategy Diversity Test
+- Test 11: Opportunity Cost Test
+- Test 12: Experimentation Test
+
+**Solutions:**
+- Rebalance options (nerf dominant, buff weak)
+- Add situational advantages (make context matter)
+- Create trade-offs (no strictly superior choice)
+- Increase number of viable strategies
+
+### 4.2 Rapid Diagnostic Checklist
+
+**Use this checklist during playtests to quickly identify problems:**
+
+**Resource Visibility:**
+- [ ] Players can easily see current resource levels
+- [ ] Players understand what resources are for
+- [ ] Players check resources at appropriate times
+- [ ] Resource UI is clear and unambiguous
+
+**Scarcity Appropriateness:**
+- [ ] Resource scarcity matches aesthetic intent (abundant for Submission, scarce for Challenge/Tension)
+- [ ] Players face meaningful choices due to scarcity
+- [ ] Scarcity level consistent across sessions (or intentionally variable)
+- [ ] No consistent surplus or depletion
+
+**Strategic Depth:**
+- [ ] Players make different spending decisions
+- [ ] Spending decisions take 5-30 seconds (not instant, not forever)
+- [ ] Multiple viable strategies exist
+- [ ] Players can articulate trade-offs
+
+**Pacing Alignment:**
+- [ ] Recovery speed creates intended pacing pattern
+- [ ] Players behave as intended (aggressive vs. conservative)
+- [ ] Resource state varies appropriately across session
+- [ ] No hoarding unless intentional design
+
+**Cognitive Manageability:**
+- [ ] Players track resources accurately
+- [ ] Players can explain resource system
+- [ ] Players make decisions under pressure without overwhelming stress
+- [ ] Resource count appropriate for player capacity
+
+**Emotional Resonance:**
+- [ ] Resources create intended emotional experience
+- [ ] Players express appropriate feelings (tension, satisfaction, etc.)
+- [ ] No frustration from resource system itself
+- [ ] Aesthetic alignment clear in player feedback
+
+**Any "No" on this checklist indicates area needing investigation.**
+
+---
+
+## Part 5: Iteration Protocols
+
+### 5.1 Single-Variable Testing
+
+**When changing resources after playtest, change ONE thing at a time:**
+
+**Scarcity adjustment:**
+- Change ONLY acquisition rate OR spending costs, not both
+- Test change across 3+ sessions before adjusting again
+- Compare new data to baseline (original playtest)
+
+**Recovery adjustment:**
+- Change ONLY recovery speed, keep scarcity same
+- Observe pacing pattern changes
+- Validate new pattern matches intent
+
+**Cost adjustment:**
+- Change ONLY one cost at a time
+- Observe if spending patterns change
+- Check if strategy diversity improves
+
+**Why:** Changing multiple variables simultaneously makes it impossible to know what caused improvement or degradation.
+
+### 5.2 A/B Testing Resource Configurations
+
+**Method:**
+Test two different resource configurations with different playtest groups
+
+**Example:**
+
+```
+GROUP A: High HP (200), slow recovery (1/minute)
+GROUP B: Low HP (50), fast recovery (10/minute)
+
+Both have same effective HP pool over time, but different pacing:
+- Group A: Attrition pacing (damage persists)
+- Group B: Episodic pacing (recover between fights)
+
+Observe which creates intended aesthetic better.
+```
+
+**When to use:**
+- Fundamental design uncertainty (which approach?)
+- Comparing radically different solutions
+- Testing hypothesis about pacing patterns
+
+### 5.3 The Delta Documentation
+
+**After each change, document:**
+
+```
+CHANGE MADE:
+- What: [Specific parameter changed]
+- Why: [Playtest observation that motivated change]
+- Hypothesis: [What you expect to happen]
+
+PLAYTEST RESULTS:
+- Observation: [What actually happened]
+- Metrics: [Relevant numbers/tracking data]
+- Player feedback: [What players said]
+
+VALIDATION:
+- [ ] Hypothesis confirmed OR [ ] Hypothesis rejected
+- Next steps: [Iterate further OR move to next issue]
+```
+
+**Why:** Creates evidence trail for design decisions, prevents cycling through same changes repeatedly.
+
+---
+
+## Part 6: Session-Specific Playtest Protocols
+
+### 6.1 First Playtest (Baseline Establishment)
+
+**Goals:**
+- Identify major breakages
+- Establish baseline metrics
+- Discover unexpected player behaviors
+
+**Protocol:**
+1. **Observe without intervention** (even if you see problems, let session play out)
+2. **Record baseline data:**
+   - Resource levels at 5 time points
+   - Spending decisions and times
+   - Player statements about resources
+   - Emotional responses
+3. **Post-session interview:**
+   - "What did you think about [resource]?"
+   - "Were any decisions particularly hard?"
+   - "Did anything feel unfair or frustrating?"
+4. **Don't change anything yet** - need multiple sessions to confirm patterns
+
+### 6.2 Subsequent Playtests (Pattern Confirmation)
+
+**Goals:**
+- Confirm first playtest wasn't anomaly
+- Identify consistent patterns
+- Build confidence in observations
+
+**Protocol:**
+1. **Track same metrics as baseline** (allows comparison)
+2. **Note consistency:**
+   - Same behaviors across players?
+   - Same problems emerge?
+   - Same strategies dominate?
+3. **After 3+ consistent sessions, patterns are validated**
+4. **Then prioritize changes** (fix biggest problems first)
+
+### 6.3 Post-Change Validation Playtests
+
+**Goals:**
+- Verify change had intended effect
+- Check for unintended consequences
+- Confirm problem solved without creating new problems
+
+**Protocol:**
+1. **Compare directly to baseline data**
+   - Same metrics, same time points
+   - Document differences
+2. **Watch for new problems:**
+   - Change might solve one issue, create another
+   - Balance shifts might expose new dominant strategies
+3. **Require 2+ sessions confirming improvement** before considering change permanent
+
+---
+
+## Part 7: Integration with Chapter 4 (Balance)
+
+**Resources are parameters that feed into balance frameworks.**
+
+### 7.1 Measurable Resource Parameters
+
+**Extract these from playtests for balance analysis (Chapter 4):**
+
+**Scarcity metrics:**
+- Average resource level across session
+- Variance in resource levels (how much it fluctuates)
+- Percentage of time at full/empty
+- Rate of acquisition vs. rate of spending
+
+**Recovery metrics:**
+- Time to full recovery from empty
+- Recovery per minute/turn/encounter
+- Player behavior during recovery periods
+
+**Cost metrics:**
+- Resource cost per action
+- Actions possible per session with resources available
+- Percentage of resources spent vs. hoarded
+
+**Strategic metrics:**
+- Diversity of spending patterns (how many different strategies observed)
+- Win rate correlation with resource management
+- Skill ceiling (expert vs. novice resource efficiency)
+
+### 7.2 Feeding Playtest Data to Balance Formulas
+
+**Example - Action economy balancing:**
+
+```
+From playtests:
+- Players have 2 action points per turn
+- Combat lasts average 5 turns
+- Players spend 1.8 actions per turn (saving some)
+- Total actions per combat: 9 actions average
+
+From design intent:
+- Want players to kill 1 enemy per turn
+- Enemies have 10 HP
+- Each attack does 6 damage average
+
+Balance check:
+- 9 actions × 6 damage = 54 damage potential
+- Need to kill ~5 enemies per combat (50 HP total)
+- BALANCED (slight surplus is intentional safety margin)
+
+If playtest shows players killing 2-3 enemies:
+- Either damage too low OR enemy HP too high
+- Adjust one parameter, retest
+```
+
+**Chapter 4 provides formulas. Playtests provide the empirical data those formulas need.**
+
+---
+
+## Part 8: Special Considerations
+
+### 8.1 Testing Resources in Multiplayer/Social Games
+
+**Additional observations needed:**
+
+**Shared resources:**
+- Do players negotiate spending?
+- Does one player dominate decisions?
+- Does sharing create cooperation or conflict?
+
+**Individual resources with trading:**
+- Do players trade at all?
+- Are trades balanced or exploitative?
+- Does trading enhance or distract from core gameplay?
+
+**Competitive resource acquisition:**
+- Does competition create tension (good) or frustration (bad)?
+- Are resource denial strategies viable?
+- Can losing players recover or is it runaway leader problem?
+
+**Test protocol additions:**
+- Observe group dynamics during resource decisions
+- Interview about social experience specifically
+- Test with different group compositions (friends vs. strangers)
+
+### 8.2 Testing Meta-Resources (Long-Term Progression)
+
+**Challenge:** Can't evaluate in single session.
+
+**Protocol:**
+1. **Fast-forward simulation:**
+   - Give playtesters "mid-progression" or "late-progression" saves
+   - See if progression feels rewarding
+   - Check if early choices still matter
+
+2. **Multi-session playtesting:**
+   - Same players across 3+ sessions
+   - Track progression satisfaction over time
+   - Interview about investment feeling
+
+3. **Retrospective evaluation:**
+   - After full campaign, ask "Was progression satisfying?"
+   - "Would you make different choices knowing endgame?"
+   - "Did early decisions matter to endgame?"
+
+### 8.3 Testing LLM-Integrated Resource Systems
+
+**[LLM-INTEGRATION-TESTING]**
+
+**Special considerations when resources involve LLM automation:**
+
+**Validation questions:**
+- Does LLM tracking match manual tracking (accuracy)?
+- Does LLM advice improve player decisions?
+- Does LLM interface reduce cognitive load (faster decisions)?
+- Does LLM create new problems (over-reliance, trust issues)?
+
+**Testing protocol:**
+1. **Parallel tracking:** Human tracks resources manually, LLM tracks automatically, compare
+2. **With/without testing:** Same players test with and without LLM assistance, compare experience
+3. **Transparency testing:** Show LLM reasoning, hide LLM reasoning, compare player trust
+
+**Specific metrics:**
+- Decision time with LLM vs. without
+- Decision quality (optimal vs. suboptimal) with vs. without
+- Player satisfaction with automation
+- Bugs/errors in LLM tracking (accuracy rate)
+
+---
+
+## Part 9: Quick Reference - What to Test When
+
+### When Starting Design (Pre-Production)
+
+**Focus:** Validate core resource functions and aesthetic alignment
+**Tests:** 1, 2, 10, 13, 14
+**Goal:** Confirm resources serve intended aesthetic before building full game
+
+### When Prototyping (Early Production)
+
+**Focus:** Test scarcity levels and strategic depth
+**Tests:** 1, 2, 10, 11, 12
+**Goal:** Get resources balanced well enough for content development
+
+### When Balancing (Mid-Production)
+
+**Focus:** Fine-tune numbers and recovery rates
+**Tests:** 1, 4, 5, 6, 17
+**Goal:** Dial in precise parameters for final experience
+
+### When Polishing (Late Production)
+
+**Focus:** Cognitive load and player comprehension
+**Tests:** 7, 8, 9
+**Goal:** Ensure resources are clear and manageable for all players
+
+### When Diagnosing Problems (Anytime)
+
+**Focus:** Identify root cause of "feels wrong"
+**Use:** Section 4.1 diagnostic frameworks
+**Goal:** Targeted fixes rather than random changes
+
+---
+
+## Part 10: Documentation Templates
+
+### Playtest Session Report Template
+
+```markdown
+# Resource Playtest Session [Number]
+
+## Session Info
+- Date: [Date]
+- Playtester: [Name/ID]
+- Build Version: [Version]
+- Session Duration: [Minutes]
+- Resources Being Tested: [List]
+
+## Resource Tracking Data
+
+### [Resource Name 1]
+Time Point | Level | Player State
+-----------|-------|-------------
+Start      | X/Y   | [Full/Comfortable/Low/Critical/Empty]
+25%        | X/Y   | [State]
+50%        | X/Y   | [State]
+75%        | X/Y   | [State]
+End        | X/Y   | [State]
+
+### [Resource Name 2]
+[Same format]
+
+## Behavioral Observations
+- [Timestamp] [What player did]
+- [Timestamp] [What player said]
+
+## Spending Decisions
+Decision | Resources Spent | Time Taken | Alternatives Considered | Outcome
+---------|----------------|------------|----------------------|--------
+[Action] | [Cost]         | [Seconds]  | [What else considered] | [Result]
+
+## Emotional Moments
+- [Timestamp] [Emotion] [Trigger]
+- Example: "15:32 Frustration - Ran out of HP, felt unfair"
+
+## Post-Session Interview Notes
+Q: [Question asked]
+A: [Player response]
+
+## Red Flags
+- [Problem observed]
+- [Player complaint]
+
+## Surprising Behaviors
+- [Unexpected strategy or play pattern]
+
+## Validation Against Success Criteria
+[Resource]: [Did it meet success criteria? Yes/No/Partial]
+Evidence: [What supports this conclusion]
+
+## Recommended Changes
+Priority | Change | Rationale
+---------|--------|----------
+High     | [Change] | [Why needed]
+Medium   | [Change] | [Why needed]
+Low      | [Change] | [Why needed]
+```
+
+### Resource Change Log Template
+
+```markdown
+# Resource Change Log
+
+## Change #[Number]: [Resource Name] - [Date]
+
+### Problem Identified
+**Symptoms:** [What players experienced]
+**Playtest Evidence:** [Sessions where this was observed]
+**Root Cause:** [Diagnosis]
+
+### Change Made
+**Before:** [Old parameter values]
+**After:** [New parameter values]
+**Rationale:** [Why this specific change]
+
+### Hypothesis
+We expect: [Predicted outcome]
+Because: [Theory]
+
+### Validation Playtest Results
+**Sessions Tested:** [How many, with whom]
+**Observations:**
+- [What happened]
+**Metrics:**
+- [Relevant data]
+**Player Feedback:**
+- [What they said]
+
+### Outcome
+- [ ] Hypothesis confirmed - Change successful
+- [ ] Hypothesis rejected - Need different approach
+- [ ] Mixed results - Need iteration
+
+### Next Steps
+[What to do next: keep change, revert, iterate further, move to next issue]
+```
+
+---
+
+## Conclusion
+
+Resource validation is **iterative and evidence-based**. 
+
+**Core principles:**
+1. **Define success criteria before testing** - Know what you're looking for
+2. **Observe actual player behavior** - Not what they say, what they do
+3. **Test one change at a time** - Isolate variables
+4. **Require multiple confirmations** - One session isn't enough
+5. **Document everything** - Build institutional knowledge
+
+**Integration points:**
+- **Chapter 2:** This guide validates the design decisions made using Chapter 2 framework
+- **Chapter 3:** Cognitive load tests validate resource complexity against player capacity
+- **Chapter 4:** Playtest metrics feed into balance formulas and measurables
+- **Chapter 6:** Recovery rate validation confirms pacing patterns match temporal architecture
+
+**Remember:** Playtesting tells you whether your scaffold achieves its purpose. Resources are one component of that scaffold. If resources don't serve your aesthetic, no amount of other design will save the experience.
+
+**When in doubt:** Run the Rapid Diagnostic Checklist (Section 4.2). It catches 80% of resource problems quickly.
+
+Good luck, and playtest early and often.

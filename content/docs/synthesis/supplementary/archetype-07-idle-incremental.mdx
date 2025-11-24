@@ -1,0 +1,100 @@
+---
+title: archetype-07-idle-incremental
+---
+# Archetype 7: Idle/Incremental Game
+
+## Overview
+
+Games that progress with minimal player input, often while not actively playing. Players set systems in motion, periodically check in to optimize and upgrade. Emphasizes exponential growth, optimization, and satisfaction of watching numbers increase. Sessions range from 30 seconds (check-in) to 2+ hours (active optimization).
+
+## Primary Aesthetics
+
+* Power (exponential growth, becoming unfathomably strong)
+* Mastery (optimization, efficient strategies)
+* Completion (milestones, unlocking everything)
+* Optional: Discovery (revealing new systems, prestige layers)
+
+## Player Profile Match
+
+**Best For:** Optimizer-minded (love spreadsheets), passive players, check-in players, number-growth satisfiers
+**Works Less Well For:** Active gameplay seekers, story-focused, skill-based, completion-focused (never truly "done")
+**Cognitive Load:** Low to Moderate (3-6: automated actions, optimization decisions, prestige planning, UI parsing)
+
+## Temporal Structure
+
+**Architecture Type:** Inverted Macro-Heavy
+
+* **Micro:** Instant-passive (resources generate automatically, no input required)
+* **Meso:** 5-30min per session (check in, spend resources, purchase upgrades, adjust automation)
+* **Macro:** Days to weeks (reach soft cap, prestige/reset with permanent bonus, unlock new systems)
+  **Pacing:** Early active clicking, mid-game automation unlocks (passive), late-game periodic optimization.
+
+## Common Mechanics
+
+1. Automatic Resource Generation (accumulates over time, continues offline)
+2. Exponential Growth (each upgrade more expensive but more powerful, numbers reach e+308)
+3. Upgrade Trees (10-50 types, optimization puzzle of what to buy first)
+4. Prestige Systems (reset for permanent bonus, multiple layers, subsequent runs faster)
+5. Automation Unlocks (start manual, unlock auto-clickers, eventually fully automated)
+6. Active Abilities (temporary boosts, short cooldowns, reward engagement, optional)
+
+## Resource Patterns
+
+**Primary (Abundant long-term):** Base currency (exponential), Generator tiers (cascading production, 10-20 tiers), Prestige currency (reset reward, permanent)
+**Meta:** Upgrades (permanent, 50-200 total), Achievements (100-500, often provide bonuses), Time (most valuable - offline progress rewards but diminishing returns)
+
+## Content Needs
+
+**MVP:** 10-15 tiers, 30-50 upgrades, 1-2 prestige layers, 20-40 achievements, 5-10 hours to first prestige, 20-40 hours soft complete
+**Sustainable:** 15-25 tiers, 100-200 upgrades, 3-5 prestige layers, 100-300 achievements, multiple automation systems, 50-200+ hours
+**Formula:** Infinite progression from finite content via prestige loops. Each prestige 10-100x faster than previous.
+
+## Platform Considerations
+
+**Best:** Mobile (ideal check-in gameplay, always accessible), Browser (leave tab open), PC/Steam (background running)
+**Weak:** Console (less natural for passive play)
+**Tech Needs:** Offline progress calculation, cloud save, battery efficient, fast load, notification system
+
+## Monetization Patterns
+
+**F2P Most Common:** Time skips, bonus multipliers (2x for 24hr), cosmetics, remove ads, starter packs
+**Premium Less Common:** $5-15 one-time, no gates, must compete with F2P
+**Balance:** Must not feel required - patience is valid strategy. Boosts save time, don't enable progress.
+
+## Social Features
+
+**Minimal (Usually Solo):** Leaderboards, guilds/clans (shared bonuses), friend bonuses, sharing milestones
+**Why Limited:** Personal progression, no interaction needed, async by nature
+
+## Success Metrics
+
+1. Retention at Day 7: 40-60% strong
+2. Session frequency: 3-10 sessions per day
+3. Session length: 30sec-5min average
+4. Time to first prestige: 4-10 hours
+5. DAU/MAU ratio: 0.6-0.8 (very high daily checking)
+6. ARPDAU: $0.05-0.20 for F2P
+
+## Common Variations
+
+* Pure Idle (Adventure Capitalist - no active gameplay)
+* Active Hybrid (Cookie Clicker - click for boosts)
+* RPG Idle (Idle Heroes - combat and quests)
+* Crafting Idle (Factory Idle - production chains)
+* Minimal Idle (Universal Paperclips - one-page, finite)
+
+## Design Pitfalls
+
+Too slow early (quit before automation), too fast early (reach cap in days), unclear optimization (don't know what to buy), bad offline progress (punishes not playing), pay-to-win (required to progress), no prestige layers (content exhausted), tedious manual actions (clicking required forever), wall hitting (progress stalls)
+
+## Example Games
+
+* Cookie Clicker (original viral idle, cookie production)
+* Adventure Capitalist (business investments, extreme numbers)
+* Antimatter Dimensions (mathematical, multiple prestige layers)
+* Universal Paperclips (minimalist, narrative-driven, finite)
+* Idle Champions (RPG combat, party management)
+
+## When This Archetype Fails
+
+Players want active skill expression, want story/narrative, short-term only (takes days/weeks), no tolerance for waiting, hate big numbers (e+308 confusing), want clear completion, mobile not accessible, can't do notifications

@@ -1,0 +1,527 @@
+---
+title: archetype-01-daily-puzzle
+---
+# Archetype 1: Daily Puzzle Game
+
+## Overview
+
+Games designed for single-session completion with daily refresh. Players solve one challenge per day, often competing against friends or global leaderboards. The archetype prioritizes accessibility, ritual, and social sharing over depth or progression.
+
+## Primary Aesthetics
+
+* **Challenge** (skill-based problem solving within clear constraints)
+* **Completion** (finish today's puzzle, feel accomplished)
+* **Discovery** (light - new puzzle each day provides novelty)
+* Optional: **Fellowship** (sharing results, comparing with friends)
+
+## Player Profile Match
+
+**Best For:**
+
+* **Casual players:** 5-30 minute sessions, low cognitive load
+* **Busy adults:** Fits between obligations, predictable time commitment
+* **Ritual seekers:** Daily habit formation, morning coffee game
+
+**Works Less Well For:**
+
+* **Hardcore players:** Want deeper systems and longer engagement
+* **Binge players:** Want to play multiple hours, not gated by daily refresh
+* **Progression-focused players:** Minimal power growth frustrates them
+
+**Cognitive Load:** Low (3-5 trackable elements maximum)
+
+* Simple rules that become familiar
+* No memory required between days
+* Complete mental reset each session
+
+## Temporal Structure (Loop Architecture)
+
+**Architecture Type:** Compressed (micro + meso only, no macro required)
+
+**Micro Loop (1-3 minutes):**
+
+* Attempt one puzzle
+* Immediate feedback on actions
+* Clear success or failure state
+* Can retry if failed (usually unlimited)
+
+**Meso Loop (5-20 minutes):**
+
+* Complete today's puzzle
+* Achieve daily goal (win, maintain streak, beat personal best)
+* Optional: Share results socially
+* Return tomorrow for new content
+
+**Macro Loop (optional, often absent):**
+
+* Streak tracking (consecutive days played)
+* Statistical history (win rate, average time)
+* Cosmetic unlocks (themes, backgrounds)
+* NO gameplay progression required
+
+**Critical Pacing:**
+
+* Must be completable in single sitting
+* Difficulty should be consistent (or follow weekly pattern)
+* No mid-puzzle save state needed (or auto-save trivial)
+* Daily reset creates natural stopping point
+
+## Common Mechanics
+
+**Core Verbs:**
+
+* **Pattern Recognition:** Wordle (letter patterns), Connections (category grouping)
+* **Spatial Arrangement:** Two Dots (path finding), Sudoku (number placement)
+* **Word Formation:** Spelling Bee (letter combinations), Crosswords (definition solving)
+* **Logic Deduction:** Logic puzzles (constraint satisfaction), Picross (number clues)
+
+**Typical Mechanical Elements:**
+
+* **Constrained Action Space:** Limited moves, limited time, or limited resources
+* **Binary Success:** Clear win/loss state (no partial credit typically)
+* **Retry-Friendly:** Failure costs nothing but time
+* **No Hidden Information:** All rules and constraints visible
+* **Deterministic:** Same puzzle gives same result (no randomness in solving)
+
+**Input Requirements:**
+
+* Simple inputs (tap, swipe, type)
+* No timing precision needed (except in timed variants)
+* One-handed play possible (important for mobile)
+* Pauseable at any moment
+
+## Resource Patterns
+
+**Primary Resources:**
+
+1. **Attempts/Moves (scarce within puzzle):**
+   * Limited per puzzle (e.g., 6 guesses in Wordle, 20 swaps in match-3)
+   * Creates planning requirement and tension
+   * Can be unlimited with time/score penalty instead
+   * Recovery: Complete reset each puzzle
+
+2. **Time (optional pressure):**
+   * Hard time limit (fail if exceeded), OR
+   * Soft time limit (affects score/stars), OR
+   * No time pressure (casual approach)
+   * If used: 3-10 minutes typical range
+
+3. **Daily Attempts (abundant):**
+   * Unlimited retries within the day (most common)
+   * OR limited (3-5 attempts per day with wait timer)
+   * Recovery: Full refresh at midnight (local time)
+
+**Secondary Resources:**
+
+4. **Hints/Skips (very scarce):**
+   * 1-3 per day (renewable)
+   * Shows next move or eliminates wrong options
+   * Monetization vector (premium currency)
+   * Social sharing can earn more
+
+5. **Streak Counter (meta-resource):**
+   * Days played consecutively
+   * Breaking streak feels bad (retention mechanism)
+   * Often displayed socially
+   * No gameplay impact (pure psychological)
+
+**Resources to Avoid:**
+
+* Energy systems (contradicts "complete in one sitting")
+* Complex resource conversion (exceeds cognitive budget)
+* Persistent upgrade systems (creates power creep)
+
+## Content Needs
+
+**Minimum Viable Product:**
+
+* 30 unique puzzles (one month of daily content)
+* Difficulty curve over first week (onboarding)
+* Can repeat after 30 days if designed well
+* Players tolerate repetition after long gaps
+
+**Sustainable Launch:**
+
+* 90-365 puzzles (3 months to 1 year)
+* Enough variety that repeats aren't obvious
+* Procedural generation if possible (extends runway)
+* Clear difficulty tiering
+
+**Content Formula:**
+
+```
+Days of Unique Content = Puzzles Created / Puzzles Per Day
+Minimum: 30 days (monthly cycle acceptable)
+Ideal: 90+ days (quarterly cycle)
+Premium: 365+ days (annual cycle)
+
+With Procedural: 20-50 templates × variations = infinite
+```
+
+**Content Consumption Rate:**
+
+* 1 puzzle per player per day (hard capped by design)
+* Discovery aesthetic satisfied by daily novelty, not volume
+* Replayability comes from temporal gating, not systemic depth
+* Old puzzles can be archived/replayed for practice
+
+**Procedural vs. Authored:**
+
+**Go Procedural When:**
+
+* Puzzle type has clear generation rules (Sudoku, word searches)
+* Can validate solvability algorithmically
+* Need long-term content pipeline
+* Examples: Sudoku generators, crossword builders
+
+**Go Authored When:**
+
+* Puzzle requires human creativity (Connections categories, clever wordplay)
+* Quality threshold is high (every puzzle must be perfect)
+* Smaller content needs (30-90 puzzles manageable)
+* Examples: Wordle word list (curated), themed crosswords
+
+**Hybrid Approach (Common):**
+
+* Hand-craft templates/patterns
+* Procedurally vary parameters
+* Algorithmically validate difficulty
+* Human QA pass on edge cases
+
+## Platform Considerations
+
+**Best Platforms:**
+
+* **Mobile (Primary):** Fits lifestyle, always available, push notifications for daily reminder
+* **Browser (Secondary):** At work/school context, no installation barrier
+* **Desktop/Console:** Works but less natural fit for "quick daily ritual"
+
+**Technical Requirements:**
+
+* **Load time \<3 seconds** (players check quickly)
+* **Offline capable** (download puzzle once, solve without connection)
+* **Minimal data usage** (puzzle is just text/small JSON)
+* **Battery efficient** (no heavy graphics/processing)
+* **Cross-device sync** (start on phone, finish on desktop)
+
+**Interface Needs:**
+
+* Large touch targets (mobile-first)
+* Clear visual hierarchy (goal state obvious)
+* Immediate feedback (actions feel responsive)
+* Progress indication (how close to solution)
+* One-handed operation preferred
+
+## Monetization Patterns
+
+**Free-to-Play (Most Common):**
+
+* Core puzzle always free and unlimited
+* Interstitial ads between attempts (if player fails)
+* Rewarded video for hints (watch ad = earn hint)
+* Premium currency for hints/skips
+* Cosmetic unlocks (themes, tile sets, celebrations)
+* Remove ads subscription ($3-10/month)
+
+**Premium (Less Common):**
+
+* One-time purchase removes all friction ($1-5)
+* All hints/features included
+* Must differentiate from free competitors
+* Often includes puzzle archives (play old puzzles)
+
+**Hybrid:**
+
+* Free version with ads and limited hints
+* Premium unlock for full features
+* Additional puzzle packs for sale
+
+**Monetization Anti-Patterns:**
+
+* Energy systems (breaks "complete daily puzzle" promise)
+* Pay-to-win (undermines Challenge aesthetic)
+* Aggressive ads (breaks calm ritual feeling)
+* Required social sharing (annoying)
+
+## Social Features
+
+**Asynchronous Competition (Core):**
+
+* Daily leaderboards (friends or global)
+* Same puzzle for everyone (fair comparison)
+* Share results without spoiling (Wordle's emoji grid innovation)
+* Compare solve times or scores
+* Streak comparisons and accountability
+
+**Social Sharing Patterns:**
+
+* Spoiler-free result sharing (emoji, colors, symbols)
+* "I got it in X attempts!" (competitive but friendly)
+* Challenge friends to beat your time
+* Group challenges (office competition, family streaks)
+
+**Community Features (Optional):**
+
+* Discussion boards (after puzzle completion)
+* User-generated puzzles (if system supports)
+* Tournament modes (weekend special puzzles)
+* Collaborative streaks (team achievements)
+
+**What to Avoid:**
+
+* Synchronous multiplayer (contradicts solo puzzle-solving)
+* Spoiler-prone sharing (ruins puzzle for others)
+* Required social features (alienates solo players)
+* Toxic competition (negative comparisons)
+
+## Success Metrics
+
+**Core KPIs:**
+
+1. **Daily Active Users (DAU) - Primary Metric:**
+   * Most important for daily games
+   * Target: Grow or maintain
+   * Industry benchmark: 40-60% of installs become daily players
+
+2. **Completion Rate:**
+   * Percentage who complete daily puzzle
+   * Target: 70-90% for casual, 50-70% for harder games
+   * Too high = too easy, too low = too frustrating
+
+3. **Streak Length:**
+   * Average days played consecutively
+   * 3+ days = habit forming
+   * 7+ days = strong retention
+   * 30+ days = core audience
+
+4. **Next-Day Return Rate:**
+   * Percentage who return tomorrow
+   * Target: 60%+ is strong
+   * First week: 70-80%
+   * First month: 50-60%
+
+**Secondary Metrics:**
+
+5. **Time to Complete:**
+   * Tracks difficulty appropriateness
+   * Should match target player profile
+   * Outliers indicate problems (too easy/hard)
+
+6. **Hint Usage Rate:**
+   * High usage = puzzles too hard or unclear
+   * No usage = hints not discoverable or needed
+   * Target: 10-30% of players use hints
+
+7. **Social Share Rate:**
+   * Percentage who share results
+   * Organic growth indicator
+   * Target: 20-40% for successful games
+
+8. **Monetization Metrics:**
+   * ARPDAU (average revenue per daily active user)
+   * Ad revenue vs. IAP revenue split
+   * Subscription conversion and retention
+
+## Common Variations
+
+**Competitive Variant:**
+
+* Timed mode with leaderboards
+* Rewards both speed AND accuracy
+* Appeals to midcore players
+* Example: Mini Crossword has casual and competitive modes
+
+**Narrative Variant:**
+
+* Puzzles unlock story snippets
+* Adds Discovery aesthetic to Challenge
+* Requires more content investment (story writing)
+* Example: Murder mystery daily puzzles
+
+**Collection Variant:**
+
+* Completing puzzles unlocks collectibles
+* Meta-game of completion/collection
+* Extends engagement beyond pure puzzle-solving
+* Example: Two Dots' treasure collection
+
+**Streak Reward Variant:**
+
+* Daily login bonuses
+* Increasing rewards for longer streaks
+* Risk: Feels manipulative if heavy-handed
+* Use sparingly to avoid obligation feeling
+
+**Weekly Challenge Variant:**
+
+* Standard daily puzzles + harder weekend puzzle
+* Ramps difficulty across week
+* Monday = easiest, Saturday = hardest
+* Accommodates different skill levels
+
+**Archive Variant:**
+
+* Play any previous day's puzzle
+* Practice mode or completionist feature
+* Often premium feature
+* Good for new players catching up
+
+## Design Pitfalls to Avoid
+
+**Difficulty Pitfalls:**
+
+**Too Hard:**
+
+* Completion rate \<50% → players quit
+* Must balance challenge with accessibility
+* Provide hint system as safety net
+* Consider difficulty tiers (easy/medium/hard mode)
+
+**Too Easy:**
+
+* Completion rate >95% → no satisfaction
+* Challenge aesthetic not satisfied
+* Players finish in 30 seconds, want more
+* Need variance or progressive difficulty
+
+**Inconsistent Difficulty:**
+
+* Random spikes frustrate ritual players
+* Monday hardest puzzle → players never return that day
+* Prefer: Consistent difficulty OR predictable ramping (easy Monday → hard Saturday)
+
+**Poor Difficulty Signaling:**
+
+* Players don't know if puzzle is supposed to be easy or hard
+* Causes confusion and frustration
+* Solution: Difficulty indicators or tiered options
+
+**Content Pitfalls:**
+
+**Insufficient Variety:**
+
+* Patterns become obvious after 10 puzzles
+* Players solve mechanically, not thoughtfully
+* Discovery aesthetic fails
+* Solution: More templates or better procedural variation
+
+**Overwhelming Volume:**
+
+* "500 puzzles available" feels like homework
+* Daily gate exists for a reason
+* Don't let players binge then burn out
+* Exception: Archive for practice is okay
+
+**Poor Procedural Quality:**
+
+* Generated puzzles feel random or unfair
+* Unsolvable puzzles ship to players
+* Solution: Heavy validation, human QA pass
+
+**Pacing Pitfalls:**
+
+**Too Long:**
+
+* Sessions >30 minutes break casual promise
+* Players start but can't finish
+* Leads to frustration and abandonment
+* Solution: Make puzzles smaller or provide save states
+
+**Too Short:**
+
+* Sessions \<3 minutes feel insubstantial
+* Players want more, gating frustrates
+* Solution: Add optional bonus challenges or variants
+
+**Bad Save States:**
+
+* Can't resume mid-puzzle after interruption
+* Mobile context demands instant pause/resume
+* Solution: Auto-save every action
+
+**Monetization Pitfalls:**
+
+**Too Aggressive:**
+
+* Ads after every action
+* Constant IAP prompts
+* Breaks calm ritual feeling
+* Players flee to competitors
+
+**Pay-to-Win:**
+
+* Premium hints too powerful
+* Free players can't compete
+* Undermines Challenge aesthetic
+* Breeds resentment
+
+**Forced Social:**
+
+* Can't progress without sharing/inviting friends
+* Ruins solo puzzle-solving aesthetic
+* Players resist manipulation
+* Keep social features optional
+
+## Example Games
+
+**Pure Daily Puzzle:**
+
+* **Wordle** - Word guessing, 6 attempts, viral sharing mechanic
+* **Connections** - Category grouping, clear difficulty
+* **Mini Crossword** - Crossword solving, timed leaderboards
+* **Spelling Bee** - Word formation, target score system
+
+**Puzzle with Meta-Progression:**
+
+* **Two Dots** - Dot connecting, level progression + daily challenges
+* **Nonogram/Picross** - Logic puzzles, picture rewards
+
+**Narrative Integration:**
+
+* **Murder Mystery Daily Puzzles** - Story unlocks with completion
+* **Detective Case Files** - Episodic story with daily clues
+
+**Competitive Focus:**
+
+* **Letterpress** - Asynchronous word game, turn-based competition
+* **Trivia Crack** - Daily quiz with leaderboards
+
+## When This Archetype Fails
+
+**Wrong Player Profile:**
+
+* **Hardcore players** want more depth, progression, and control
+* **Very casual players** may not return daily (unpredictable schedules)
+* **Binge players** frustrated by daily gating
+* **Competitive players** want real-time competition, not async leaderboards
+
+**Wrong Aesthetic Goals:**
+
+* **Power Fantasy:** No progression to become stronger
+* **Deep Narrative:** Limited story capacity in brief daily sessions
+* **Mastery:** Resets daily, can't improve at same challenge (unless archive available)
+* **Immersion:** Too brief for deep absorption
+* **Horror:** Hard to sustain dread in 10-minute daily sessions
+
+**Wrong Context:**
+
+* **Unpredictable Schedules:** Daily commitment impossible (busy parents, shift workers)
+* **Poor Internet:** Daily download required, offline not viable
+* **No Push Notifications:** Players forget to return
+* **Saturated Market:** Already playing 2-3 daily puzzle games
+
+**Wrong Implementation:**
+
+* **Technical Issues:** Load times >10 seconds kill the ritual
+* **Unclear Rules:** Players can't figure out what to do
+* **Bad Difficulty Curve:** Too hard too fast, or too easy throughout
+* **Poor Feedback:** Players don't understand why they failed
+* **Aggressive Monetization:** Breaks calm, ritual feeling
+
+**Signs You Should Choose Different Archetype:**
+
+* Players want to play for hours (choose Full Stack loops)
+* Daily return is unrealistic for audience (choose on-demand content)
+* Core mechanic requires long learning curve (choose progression-based)
+* Story is central to experience (choose narrative arc)
+* You can't create 30+ puzzles (choose replayable content)

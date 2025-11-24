@@ -1,0 +1,700 @@
+---
+title: part-9-common-problems-solutions
+---
+# Part 9: Common Loop Problems and Solutions
+
+Even well-intentioned temporal architectures can develop problems that undermine aesthetic delivery or player satisfaction. This section examines the most common loop failures, their symptoms, underlying causes, and proven solutions. Many problems appear across multiple games—recognizing these patterns helps you diagnose and fix issues before they reach players.
+
+## Problem 1: The Missing Middle
+
+### Symptoms
+
+* Players have micro actions and macro goals but no medium-term objectives
+* Sessions feel aimless despite having "things to do"
+* Players ask "What am I supposed to do for 30 minutes?"
+* Progress feels invisible between short actions and long-term goals
+* Common complaint: "I'm just grinding" or "I'm just doing stuff"
+
+### Underlying Cause
+
+Meso loops are absent or too weak. The gap between micro actions (seconds) and macro goals (hours) is too large. Players perform micro actions but can't see how they accumulate toward macro goals. There's no satisfying intermediate milestone.
+
+### Examples
+
+**No Man's Sky (Launch Version):**
+
+* Micro: Mine resources (30 seconds)
+* Meso: Missing—no clear 15-30 minute objectives
+* Macro: Reach center of galaxy (hundreds of hours)
+* Result: Players mine endlessly without sense of progress or purpose
+
+**Early MMOs (Pre-Quest Systems):**
+
+* Micro: Kill monsters (seconds)
+* Meso: Missing—just "kill more monsters"
+* Macro: Reach max level (months)
+* Result: "Grinding" becomes the experience, not a means to an end
+
+### Solutions
+
+**Add Intermediate Objectives (15-30 minute goals):**
+
+* Create sub-goals with clear completion and rewards
+* Examples: "Complete this mission," "Clear this dungeon," "Gather materials for this upgrade"
+* Each should feel accomplishable in one sitting for target audience
+
+**Implement Checkpoint Systems:**
+
+* Break macro goals into visible steps
+* Show progress toward next checkpoint
+* Provide rewards/recognition at checkpoints
+* Example: Hades room clusters (2-3 rooms = checkpoint with reward choice)
+
+**Design Mini-Bosses or Phase Transitions:**
+
+* Major encounters every 15-30 minutes
+* Clear difficulty spikes that provide pacing
+* Serve as natural session breaks
+* Example: Dark Souls mini-bosses between bonfires
+
+**Create Clear Quest/Mission Structure:**
+
+* Quests are pre-packaged meso loops
+* Clear start, middle, end with rewards
+* Multiple quests available (player choice)
+* Example: Modern MMOs, open-world games
+
+**Add Crafting/Upgrade Systems with Clear Steps:**
+
+* "Gather 20 resources → craft upgrade" is a meso goal
+* Progress visible (7/20 resources collected)
+* Completion provides tangible improvement
+* Example: Monster Hunter (hunt → carve → craft → stronger gear)
+
+**Fix Example: No Man's Sky (Updates)**
+Added base building, missions, community events, exocraft quests—all provide 15-30 minute objectives that fill the middle gap between mining and long-term goals.
+
+## Problem 2: The Infinite Grind
+
+### Symptoms
+
+* Loops repeat without progression or meaningful variation
+* Players say "I'm doing the same thing over and over"
+* Numeric progression (levels, stats) without gameplay change
+* Boredom sets in despite "content remaining"
+* Feels like treadmill rather than journey
+
+### Underlying Cause
+
+Loops lack evolution or progression layers. Either content doesn't vary enough (repetition), or player capabilities don't increase meaningfully (hollow progression). Players perform identical actions hour 1 and hour 100 with only numbers changing.
+
+### Examples
+
+**Anthem:**
+
+* Same mission types repeated
+* Loot changes numbers but not playstyle
+* No meaningful progression (bullet sponges just take longer)
+* Result: Initial fun becomes tedious grind
+
+**Mobile Games with Energy Systems:**
+
+* Same levels repeated for resources
+* Energy limits force waiting, not variety
+* Numbers go up but gameplay identical
+* Result: Retention through timers, not fun
+
+### Solutions
+
+**Add Genuine Power Scaling:**
+
+* Not just +5% damage, but new capabilities
+* Unlock new mechanics, abilities, playstyles
+* Example: Metroidvanias (double jump changes traversal fundamentally)
+* Progression should change WHAT you can do, not just HOW MUCH
+
+**Introduce New Mechanics Over Time:**
+
+* Early game: Simple mechanics
+* Mid game: Add complexity layers
+* Late game: Master advanced systems
+* Example: Hades unlocks pact conditions, heat levels, weapon aspects gradually
+
+**Create Prestige/Ascension Systems:**
+
+* Complete game → reset with new challenges/modifiers
+* Same content, different ruleset = fresh experience
+* Example: Slay the Spire ascension levels (20 difficulty tiers)
+* Example: Cookie Clicker prestige system (reset for permanent bonuses)
+
+**Vary Content Based on Progress:**
+
+* Don't repeat exact same content
+* Add remixes, variations, mutations
+* Example: Enter the Gungeon (new enemy types appear as you progress)
+* Example: Dead Cells (later runs have different enemy compositions)
+
+**Add New Enemy Types/Challenges:**
+
+* First hour: Basic enemies
+* Hours 5-10: New enemy types with new patterns
+* Hours 20+: Elite/champion variants
+* Keeps combat fresh through variety
+
+**Implement Evolving Narratives:**
+
+* Story continues across runs/sessions
+* Relationships deepen over time
+* World state changes based on actions
+* Example: Hades (story advances through deaths, relationships grow)
+
+**Fix Example: Vampire Survivors**
+Added weapon evolutions (existing weapons gain new mechanics), new characters with unique playstyles, ascension-style challenges, new stages with different enemy compositions—all multiply content without adding grind.
+
+## Problem 3: The Complexity Cascade
+
+### Symptoms
+
+* Each loop adds new systems until players can't track everything
+* UI becomes overwhelming (too many numbers, meters, currencies)
+* Players experience decision paralysis
+* New players bounce off immediately
+* Tutorials take hours to complete
+* Common complaint: "There's too much going on"
+
+### Underlying Cause
+
+Investment escalation out of control—typically Exponential Trap pattern. Designers kept adding systems without removing or consolidating. Each addition seemed small ("just one more system") but accumulation exceeds player cognitive budget.
+
+### Examples
+
+**Many 4X Strategy Games (Late Game):**
+
+* Early: Manage 1-2 cities
+* Mid: Manage 10+ cities
+* Late: Manage 30+ cities, each with multiple systems
+* Result: Late game becomes tedious micromanagement
+
+**Path of Exile:**
+
+* Deep, complex systems (good for target audience)
+* But massive complexity front-loaded
+* New players face skill tree with thousands of nodes
+* Result: High barrier to entry (acceptable for target hardcore audience, but excludes casuals)
+
+### Solutions
+
+**Consolidate Similar Systems:**
+
+* Do you really need 5 different currencies?
+* Can resources be combined into one type?
+* Example: Simplify to 2-3 key resources instead of 10
+
+**Remove Redundant Loops:**
+
+* If two loops serve same purpose, cut one
+* Better to have fewer, polished loops
+* Example: Remove crafting system that duplicates shop function
+
+**Automate Lower Scales as Players Progress:**
+
+* Early game: Manual micro-management teaches systems
+* Mid game: Automation options unlock
+* Late game: Can automate routine tasks, focus on strategy
+* Example: 4X games with sector governors, auto-explore, production queues
+
+**Make Some Loops Optional:**
+
+* Core loops required for all players
+* Optional loops for players wanting depth
+* Example: Main story accessible without side systems, but side systems add depth
+* Example: Hades (core runs don't require understanding all systems, but mastery players optimize)
+
+**Implement Progressive Disclosure:**
+
+* Hour 1: Only core loop exposed
+* Hour 5: Add first complexity layer
+* Hour 20: Full systems available
+* Don't front-load everything
+
+**Create Difficulty Options that Reduce Complexity:**
+
+* Easy mode: Fewer systems active
+* Normal mode: Full complexity
+* Example: Civilization difficulty affects AI aggression but could also affect system complexity
+
+**Use Clear UI Hierarchy:**
+
+* Critical info prominent
+* Secondary info accessible but hidden
+* Tertiary info in menus
+* Don't show everything always
+
+**Fix Example: Hades**
+Keeps combat simple (attack, dash, special, cast) while adding depth through boon combinations. Meta systems (mirror, weapons, relationships) are separate from run complexity. Can ignore meta and still enjoy runs, or optimize everything for mastery. Complexity is optional, not mandatory.
+
+## Problem 4: The Content Pit
+
+### Symptoms
+
+* Players consume content faster than expected
+* Hit "end of content" walls, nothing new to do
+* Repetition sets in before macro goals complete
+* Common complaint: "I've seen everything already"
+* Especially problematic for Discovery aesthetic
+
+### Underlying Cause
+
+Content creation didn't match consumption rate. Either:
+
+1. Not enough variety at each loop scale
+2. Procedural generation without meaningful variation
+3. Replayability systems insufficient
+4. Player skill/efficiency exceeded design expectations
+
+### Examples
+
+**Early No Man's Sky:**
+
+* 18 quintillion planets (quantity)
+* But all felt similar after first 10 (lack of variety)
+* Procedural without meaningful variation
+* Result: Infinite content that feels finite
+
+**Anthem:**
+
+* Three strongholds at launch
+* Players completed all within days
+* Nothing new after initial content consumed
+* Result: "Content drought" complaints
+
+### Solutions
+
+**Multiply Through Remixing:**
+
+* Use same assets in different combinations
+* Add modifiers/mutations to base content
+* Example: Risk of Rain 2 (same levels, different item/enemy combinations each run)
+* Example: Slay the Spire (same cards, infinite combination possibilities)
+
+**Add Combinatorial Systems:**
+
+* N items × M abilities = N×M possible builds
+* Synergies between elements create exponential variety
+* Example: Hades boons (100+ boons with duo/legendary combinations)
+* Example: Magic: The Gathering (limited cards, infinite deck possibilities)
+
+**Use Procedural Generation Wisely:**
+
+* Not just random—procedural with authored moments
+* Combine procedural layouts with hand-crafted rooms
+* Example: Hades (procedural room selection, authored room designs)
+* Example: Spelunky 2 (procedural layouts, authored room templates)
+
+**Design for Different Playstyles:**
+
+* Speedrun route ≠ exploration route ≠ pacifist route
+* Same content, approached differently
+* Example: Dishonored (ghost/clean hands/high chaos playthroughs)
+* Example: Dark Souls (many build types change playstyle completely)
+
+**Implement Ascension/Challenge Modes:**
+
+* Remix existing content with new modifiers
+* Example: Slay the Spire (20 ascension levels multiply base content)
+* Example: Hades (heat system adds 15+ modifiers to runs)
+
+**Add Randomly Generated Modifiers:**
+
+* Daily challenges with specific modifiers
+* Weekly rotations with different rules
+* Example: Spelunky daily challenges (fixed seed for competition)
+* Example: Dead Cells daily runs (specific mutations)
+
+**Encourage Community Content:**
+
+* Level editors, mod support, sharing systems
+* Example: Mario Maker (infinite community-created levels)
+* Example: Minecraft (mods extend content infinitely)
+
+**Fix Example: Slay the Spire**
+Base game has \~300 cards across 4 characters. Ascension levels (0-20) multiply this content by adding difficulty modifiers that change strategy. Daily climbs add random modifiers. Result: Same base content provides hundreds of hours through remixing.
+
+## Problem 5: Flat Pacing
+
+### Symptoms
+
+* Emotional monotony—same intensity throughout
+* No peaks or valleys
+* Players disengage during middle of sessions
+* Common complaint: "It all feels the same"
+* Fatigue without relief
+
+### Underlying Cause
+
+Pacing pattern inappropriate for aesthetic or poorly implemented. Often Continuous pacing when Wave or Episodic would serve better. No tension/release cycles, no rest points, constant same-level intensity.
+
+### Examples
+
+**Many Idle/Incremental Games After Automation:**
+
+* Initially engaging
+* After automation: Just watching numbers go up
+* No peaks or valleys, constant slow increase
+* Result: Disengagement despite "progress"
+
+**Early Battle Royales:**
+
+* Drop → loot → run → maybe fight → run more
+* Long periods of nothing → sudden combat → nothing again
+* Pacing feels random, not designed
+* Result: Boredom punctuated by chaos
+
+### Solutions
+
+**Implement Wave Pacing:**
+
+* Build → Peak → Release → Repeat
+* Example: Left 4 Dead AI Director (calm → horde → escape → safe room)
+* Cycles every 3-5 minutes create natural rhythm
+
+**Add Rest Points Between Intensity:**
+
+* Safe zones after challenges
+* Social hubs between missions
+* Example: Dark Souls bonfires (earned rest after danger)
+* Example: Hades fountain rooms (guaranteed safe healing room)
+
+**Use Episodic Structure:**
+
+* Clear mission start/end with breaks between
+* Example: Hitman (self-contained missions with planning between)
+* Example: Destiny strikes (15-minute episodes with matchmaking breaks)
+
+**Create Tension Gradients:**
+
+* Start calm → escalate → climax → resolution
+* Example: Alien: Isolation (exploration → detection → chase → escape)
+* Example: Horror games (build tension → jumpscare → relief)
+
+**Implement Dynamic Difficulty:**
+
+* Adaptive systems adjust intensity based on player performance
+* Prevent both boredom (too easy) and frustration (too hard)
+* Example: Resident Evil 4 dynamic difficulty
+* Example: Left 4 Dead AI Director
+
+**Add Mini-Bosses for Peaks:**
+
+* Regular rhythm of challenge spikes
+* Example: Hades biome bosses (every 12-15 minutes)
+* Example: Dark Souls mini-bosses between areas
+
+**Vary Loop Duration:**
+
+* Some micro loops quick, others longer
+* Some meso loops 5 minutes, others 30
+* Variation creates natural rhythm
+
+**Fix Example: Vampire Survivors**
+Creates Wave pacing through enemy density and level-ups. Early game: Sparse enemies, frequent level-ups (gentle waves). Late game: Screen full of enemies, rare level-ups (intense sustained pressure with brief strategic pauses). Power scaling vs enemy scaling creates natural tension gradient.
+
+## Problem 6: Investment Trap
+
+### Symptoms
+
+* Players feel obligated to play, not excited
+* FOMO ("Fear of Missing Out") drives sessions
+* Social guilt (letting team down) creates pressure
+* Checklists replace fun ("must complete dailies/weeklies")
+* Burnout common despite high engagement metrics
+* Players quit suddenly after long investment
+* Common complaint: "Feels like a job"
+
+### Underlying Cause
+
+Meta-loop using Exponential Trap investment pattern (from Part 5). Extrinsic motivators (FOMO, obligation, social pressure) replace intrinsic motivators (fun, curiosity, mastery). Often business-model-driven design prioritizing engagement metrics over player satisfaction.
+
+### Examples
+
+**Destiny 2:**
+
+* Weekly lockouts create deadline pressure
+* Seasonal content deletion creates FOMO
+* Raid teams create social obligation
+* Power treadmill invalidates previous investment
+* Result: High engagement until sudden burnout
+
+**Mobile Games with Daily Streaks:**
+
+* Miss one day = lose streak
+* Energy systems cap (use or lose)
+* Limited-time events with exclusive rewards
+* Result: Daily obligation, resentment builds
+
+### Solutions
+
+**Remove Content Deletion FOMO:**
+
+* Make seasonal content permanent additions
+* No "limited time only" exclusive rewards
+* Allow players to experience content at their pace
+* Example: Warframe (old events become permanent content)
+
+**Eliminate Daily/Weekly Requirements:**
+
+* No daily login rewards that require streaks
+* No weekly checklists that reset (optional goals fine, required bad)
+* Example: Vampire Survivors (no dailies, play whenever)
+
+**Implement Catch-Up Mechanics:**
+
+* Returning players shouldn't be permanently behind
+* Quick power boost to current tier
+* Example: WoW expansions (boost to near-current level)
+
+**Horizontal Progression Instead of Vertical:**
+
+* New options, not higher numbers
+* Previous gear remains viable
+* Example: Guild Wars 2 (level cap stays, new content adds variety not power)
+
+**Remove Social Obligation Structures:**
+
+* Enable solo/matchmaking options for all content
+* No raid lockouts that force scheduled play
+* Example: Deep Rock Galactic (can play solo or team, no schedule required)
+
+**Make Time-Limited Events Return:**
+
+* Seasonal events come back yearly
+* Miss one? Catch next year
+* Removes panic from limited-time
+* Example: Animal Crossing (seasonal events repeat yearly)
+
+**Add "Bad Luck Protection":**
+
+* Guarantee rewards after X attempts
+* Remove pure RNG frustration
+* Example: Slay the Spire rare relic appearance rates increase with bad luck
+
+**Clear Communication About Time Investment:**
+
+* Tell players upfront what time commitment is
+* No hidden escalation of requirements
+* Example: "This event requires \~10 hours across 2 weeks" (player can plan)
+
+**Fix Example: Hades**
+No dailies, no timers, no FOMO, no social obligation. Return because story is interesting, builds are fun to try, mastery is satisfying. Can play one run (40 min) or ten. Can take weeks off without penalty. Pure intrinsic motivation.
+
+## Problem 7: Friction Accumulation
+
+### Symptoms
+
+* Small annoyances add up over time
+* Actions take longer than they should
+* Animation-watching becomes significant percentage of playtime
+* Menus, load screens, forced delays break flow
+* Players complain about "wasting time"
+* Common complaint: "Why does everything take so long?"
+
+### Underlying Cause
+
+Micro-loop investment never decreases (violates Learning Curve pattern from Part 5). Typically animation inflation, menu complexity, or forced delays. Each instance seems small, but frequency × duration = significant time cost.
+
+### Examples
+
+**Red Dead Redemption 2:**
+
+* Looting: 8-second animation × 50 loots per session = 6.6 minutes watching
+* Skinning: 5-second animation × 20 times = 1.6 minutes watching
+* Picking up items: 2-second animation × 100 times = 3.3 minutes
+* Total: 11+ minutes per session watching animations
+* Result: "Realistic" but tedious
+
+**Destiny 2 Orbit System:**
+
+* Activity complete → orbit (loading) → select next activity (menu) → matchmaking (wait) → loading
+* 2-3 minutes between activities
+* Result: 30-40% of playtime is transitions, not gameplay
+
+### Solutions
+
+**Speed Up Frequent Actions:**
+
+* \<10 actions per session: Can have 5+ second animations
+* 10-50 actions per session: Must be \<3 second animations
+* 50+ actions per session: Must be \<1 second animations
+* Example: Fast loot (press button, items collected instantly)
+
+**Allow Animation Canceling:**
+
+* Long animations acceptable if skippable
+* Example: Many action games let you cancel recovery animations
+* Example: Crafting animations can be skipped if player has mastered recipe
+
+**Batch Operations:**
+
+* "Loot all nearby" instead of loot each individually
+* "Sell junk" instead of sell each item
+* Example: Diablo III area loot (vacuum up all drops)
+
+**Reduce Load Times:**
+
+* Technical optimization
+* Background loading during gameplay
+* Seamless transitions
+* Example: Fast travel that's actually fast (\<5 seconds)
+
+**Streamline Menus:**
+
+* Common operations require fewer clicks
+* Keyboard shortcuts for frequent actions
+* Auto-sort, auto-equip options
+* Example: Path of Exile loot filters (hide irrelevant items automatically)
+
+**Remove Forced Delays:**
+
+* If animation is for realism not feedback, make it optional
+* Don't force slow walking during dialogue
+* Example: Many games now let you sprint during conversations
+
+**Automate Mastered Content:**
+
+* After completing something many times, allow auto-complete
+* Example: Skippable cutscenes
+* Example: Auto-battle in JRPGs for random encounters
+
+**Fix Example: Vampire Survivors**
+Zero animation friction. Movement immediate, attacks automatic, leveling instant (pauses game but player-controlled), pickups automatic. Result: Can play entire 30-minute run without any forced delays or animation-watching.
+
+## Problem 8: Unclear Victory Conditions
+
+### Symptoms
+
+* Players don't know when they've "won" or completed objectives
+* No clear completion signals at any loop scale
+* Progress feels ambiguous
+* Common complaint: "Wait, did I beat it?"
+* Players unsure if they can stop or should continue
+
+### Underlying Cause
+
+Weak or missing completion signals. Designers assumed goals were obvious, but players need explicit communication. Often occurs with emergent or sandbox games where "winning" is player-defined but no structure provided.
+
+### Examples
+
+**Minecraft Creative Mode:**
+
+* No defined "win" state (intentional)
+* But also no celebration of milestones
+* Result: Some players feel aimless without structure
+
+**Early Open-World Games:**
+
+* Side quests and main quests mixed without distinction
+* No clear "critical path" to ending
+* Result: Players wander without knowing if they're making progress
+
+### Solutions
+
+**Explicit Objective Communication:**
+
+* UI shows current objective clearly
+* Distinguish main goals from optional goals
+* Example: Main quest vs side quest markers
+* Example: Critical path highlighted
+
+**Clear Completion Signals:**
+
+* Victory screens, fanfares, unlocks shown
+* "Mission Complete" or "Chapter Finished" explicit
+* Example: Hades (clear "Victory!" or death screen)
+* Example: Slay the Spire (heart killed = run complete)
+
+**Progress Bars and Percentages:**
+
+* Show "60% complete" or "5 of 8 objectives"
+* Reduces ambiguity
+* Example: Open-world games with completion percentages
+
+**Milestone Celebrations:**
+
+* Even in sandbox games, celebrate player-set goals
+* Example: "You've built 100 structures!"
+* Example: Achievement notifications
+
+**Multiple Victory Conditions:**
+
+* Different ways to "win" based on playstyle
+* Communicate all options clearly
+* Example: Civilization (science, culture, domination, etc.—all clearly defined)
+
+**Post-Game Content Clearly Labeled:**
+
+* After "beating" game, make it clear what's post-game
+* Example: "New Game Plus" or "Epilogue" labels
+* Example: "You completed the story. Optional challenges remain."
+
+## Summary: Problem Recognition and Response
+
+| Problem                   | Key Symptom                    | Core Cause                         | Primary Solution                      |
+| ------------------------- | ------------------------------ | ---------------------------------- | ------------------------------------- |
+| **Missing Middle**        | "What do I do for 30 minutes?" | No meso loops                      | Add intermediate objectives           |
+| **Infinite Grind**        | Repetition without variety     | No progression depth               | Add genuine power scaling, variety    |
+| **Complexity Cascade**    | Overwhelming systems           | Uncontrolled investment escalation | Consolidate, automate, make optional  |
+| **Content Pit**           | "Seen everything" too soon     | Insufficient content variety       | Remixing, procedural, ascension modes |
+| **Flat Pacing**           | Emotional monotony             | Wrong pacing pattern               | Add wave structure, rest points       |
+| **Investment Trap**       | "Feels like a job"             | Extrinsic motivation               | Remove FOMO, eliminate requirements   |
+| **Friction Accumulation** | "Wasting time"                 | Never-decreasing micro investment  | Speed up frequent actions             |
+| **Unclear Victory**       | "Did I win?"                   | Weak completion signals            | Explicit objectives, clear signals    |
+
+## Diagnostic Process
+
+**When players complain, identify the loop scale:**
+
+1. **Micro-loop complaints** ("Combat feels bad," "Controls are clunky"):
+   * Test juice, clarity, timing
+   * Check animation length vs. action frequency
+   * Verify feedback immediacy
+
+2. **Meso-loop complaints** ("I don't know what to do," "No sense of progress"):
+   * Check goal clarity
+   * Verify completion signals
+   * Test if meso loops connect to macro
+
+3. **Macro-loop complaints** ("Game is too long," "Can't find stopping point"):
+   * Check duration vs. player capacity
+   * Add rest points
+   * Verify closure quality
+
+4. **Meta-loop complaints** ("Feels like obligation," "I'm burned out"):
+   * Check if motivation is intrinsic or extrinsic
+   * Remove FOMO mechanics
+   * Verify progression respects investment
+
+**Fix in order:** Micro → Meso → Macro → Meta. If micro loops don't feel good, fixing meta won't help. Build strong foundation first.
+
+## Prevention > Cure
+
+**Design Practices to Avoid Problems:**
+
+1. **Test early and often** at each loop scale (don't wait for full game)
+2. **Use the frameworks** from Parts 5-6 (investment, stopping points) during design
+3. **Validate configuration coherence** regularly (Part 8)
+4. **Watch for red flags** from Writing Guidelines (FOMO, friction, incoherence)
+5. **Respect player capacity** from Players & Contexts (don't over-engineer)
+6. **Start with aesthetic goals** (purpose-first, not mechanics-first)
+
+Most loop problems come from:
+
+* Adding systems without removing (complexity cascade)
+* Business model overriding aesthetic goals (investment trap)
+* Not testing at scale (micro loops feel good but macro drags)
+* Ignoring player capacity (hardcore design for casual audience)
+
+**Next:** Part 10 provides the operational framework for going from loop architecture decisions to concrete system components—the "now what?" bridge from temporal design to implementation.
+
+***
+
+**Confidence Level: HIGH** - These problems appear repeatedly across game development. Solutions validated through post-mortems, updates that fixed issues, and comparative analysis of successful vs. failed implementations.

@@ -1,9 +1,6 @@
 {
   "title": "Ideas, sketches, and notes",
-  "pages": [
-    "./pacing-integration-plan",
-    "./writing-guidelines-updated",
-    "./proposed-guidelines-changes",
-    "./task-update-writing-guidelines"
+  "pages": [   
+    "./writing-guidelines"    
   ]
 }

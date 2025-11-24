@@ -1,17 +1,7 @@
 {
-  "title": "From Setting to Experience",
+  "title": "Chapter2. Context",
   "pages": [
-    "./context-part-1-introduction",    
-    "./context-part-2-aesthetic-to-genre",
-    "./context-part-3-space-coffee-test",
-    "./context-part-4-maintaining-perspective",
-    "./context-part-5-build-suggest-omit",
-    "./context-part-6-design-document",
-    "./context-part-7-dynamics",
-    "./context-part-8-integration",
-    "./context-part-9-validation",
-    "./context-part-10-pitfalls",
-    "./context-part-11-quick-reference",
+    "./chapter2-context",    
     "./supplementary"    
   ]
 }

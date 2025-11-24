@@ -1,0 +1,1528 @@
+---
+title: "Chapter 3: Resource Management"
+---
+# Chapter 3: Resource Management
+
+In *DOOM* (2016), your health constantly teeters near death. You sprint into demon hordes, chainsawing enemies to spray ammunition everywhere, performing glory kills that shower you with health pickups. It's aggressive, visceral, relentless.
+
+In *Dark Souls*, your health is precious. You sip from an Estus Flask—one of maybe five you have—and the healing is slow, deliberate. Every hit point matters. You play cautiously, learning enemy patterns, because healing resources are scarce and death is costly.
+
+Both games have "health." Both games use it as a resource players manage. But the experiences couldn't be more different.
+
+The difference isn't the mechanic itself—it's the **resource configuration**: how much you have, how you get it, how fast it recovers, and what losing it means. DOOM's health is abundant and fast-recovering, creating aggressive episodic combat. Dark Souls' health is scarce and slow-recovering, creating cautious attrition gameplay.
+
+**Resources aren't just numbers that go up and down.** They're components of your experiential scaffold (Chapter 1, Component 2: Parameters) that shape player behavior, create strategic decisions, and ultimately determine what your game feels like to play.
+
+You've chosen your aesthetics (Chapter 1) and your archetype (Chapter 2). Now you need to design the resources that make your archetype work. Horror investigation needs different resources than tactical combat. Mystery investigation needs different resources than cozy simulation. Archetype and aesthetic together determine what resources are appropriate—this chapter shows you how to design them.
+
+## Resources as Components of Systems
+
+From Chapter 1, we know game systems consist of five components: Mechanics, Parameters, Context, Pacing, and Configuration. **Resources are part of Parameters**—the numerical constraints and quantities that shape how mechanics operate.
+
+### Resources Work With Other Components
+
+**Mechanics (Component 1) determine HOW resources are used:**
+- Mechanics: "You can attack"
+- Resources: "You have 10 ammunition"
+- Together: "You can attack 10 times before reloading"
+
+**Context (Component 3) determines what resources MEAN:**
+- Same mechanic: Depleting buffer resource
+- Different context: "Hit Points" (combat), "Sanity" (horror), "Stress" (social pressure)
+- Same numbers, completely different player emotional response
+- (Chapter 2: Context explains how archetype and setting shape resource presentation and meaning)
+
+**Pacing (Component 4) emerges from resource recovery:**
+- Fast recovery → Episodic pacing (aggressive play)
+- Slow recovery → Attrition pacing (conservative play)
+- No recovery → Maximum tension (every loss permanent)
+- (See Chapter 6: Temporal Architecture for detailed pacing patterns)
+
+**Configuration coherence requires resources serve your aesthetic:**
+- Challenge aesthetic → Scarcity creates meaningful decisions
+- Submission aesthetic → Abundance prevents stress
+- Mastery aesthetic → Optimization space through multiple resources
+- Incoherent configuration: Tense horror game with abundant resources (removes dread)
+
+### Resources vs. Constraints (Critical Distinction)
+
+Before designing resources, understand what resources ARE and ARE NOT.
+
+**Resources are in-game entities that:**
+- Players manage and make strategic decisions about
+- Can be tracked by the game system  
+- Have explicit mechanics for acquisition and spending
+- Create choices through scarcity or abundance
+
+**Examples:** Health Points, ammunition, gold, experience points, spell slots, investigation points, action points, inventory items.
+
+**Constraints are external factors that:**
+- Limit what systems can practically do
+- Affect players but aren't managed in-game
+- Shape design space but aren't mechanics themselves
+- Must be accommodated, not "spent"
+
+**Examples:** Player attention/cognitive load, session length (real time available), group coordination difficulty, player skill level.
+
+**The test:**
+- Can players make strategic choices about allocating it? → **Resource**
+- Does it limit what's feasible in game design? → **Constraint**
+
+**Common confusion:**
+"Player attention is a resource we must manage"
+- ❌ Wrong: Attention can't be "spent" and "recovered" like HP
+- ✅ Right: Attention is a constraint that limits how many resources players can track
+
+**Why this matters:**
+- Resources: Design through scarcity, recovery patterns, spending mechanics
+- Constraints: Design through simplification, clarity, support systems
+- Treating constraints as resources leads to incoherent design
+
+**Cross-reference:** Chapter 4 (Cognitive Load) analyzes player attention as a constraint and provides frameworks for managing complexity budgets.
+
+**Confidence Level:** HIGH - This distinction is validated across decades of design practice and critical for coherent design decisions.
+
+## Resource Functions: What Resources Do
+
+When designing resources, start with **function**: what role does this resource play in your system? This determines which type of resource to use and how to configure it.
+
+### The Four Primary Functions
+
+**Function 1: Limiters (Create Scarcity and Pressure)**
+
+Limiters constrain what players can do, creating tension through potential depletion.
+
+**What they do:**
+- Force prioritization ("Can I afford this action?")
+- Create risk ("Will I survive?")
+- Generate tension through scarcity
+- Reward efficiency and optimization
+
+**Examples:**
+- Health/Lives (survival pressure)
+- Action points (decision constraints)
+- Time limits (urgency)
+- Ammunition (resource management)
+
+**Aesthetic alignment:**
+- ✓ Challenge (meaningful constraints)
+- ✓ Tension (pressure from scarcity)
+- ✓ Mastery (optimization under limits)
+- ✗ Submission (scarcity creates stress)
+
+**Function 2: Currencies (Enable Choices and Trade-offs)**
+
+Currencies are earned and spent, creating economic decisions about allocation.
+
+**What they do:**
+- Enable trade-offs ("Buy this or that?")
+- Reward strategic planning
+- Create long-term goals (saving for big purchase)
+- Generate build diversity (different spending patterns)
+
+**Examples:**
+- Gold/money (economic decisions)
+- Experience points (upgrade choices)
+- Crafting materials (what to build?)
+- Skill points (specialization decisions)
+
+**Aesthetic alignment:**
+- ✓ Challenge (meaningful choices)
+- ✓ Mastery (optimization through spending)
+- ✓ Expression (spending reflects identity)
+- ✓ Progression (accumulation and growth)
+- ~ Discovery (depends on what currency unlocks)
+
+**Function 3: Trackers (Show Progress and State)**
+
+Trackers communicate information to players without creating scarcity or spending decisions.
+
+**What they do:**
+- Show completion progress (how far along?)
+- Communicate game state (what's unlocked?)
+- Provide feedback (what changed?)
+- Enable goal-setting (what's left to find?)
+
+**Examples:**
+- Quest completion markers
+- Map exploration percentage
+- Collection progress (Pokédex)
+- Relationship levels with NPCs
+- Achievement tracking
+
+**Aesthetic alignment:**
+- ✓ Discovery (revealing what's found)
+- ✓ Collection (completion goals)
+- ✓ Progression (visible advancement)
+- ✓ Narrative (tracking story state)
+- ~ Challenge (only if tracking creates decisions)
+
+**Function 4: Meta-Resources (Cross-Session Persistence)**
+
+Meta-resources persist between play sessions, creating long-term investment and progression.
+
+**What they do:**
+- Provide session-to-session continuity
+- Create long-term goals
+- Reward sustained play
+- Enable permanent character development
+
+**Examples:**
+- Character unlocks
+- Permanent upgrades
+- Campaign progress
+- Skill/talent points
+- Collection completion
+
+**Aesthetic alignment:**
+- ✓ Progression (long-term growth)
+- ✓ Mastery (deep character development)
+- ✓ Collection (completing sets)
+- ~ Narrative (if progress tells story)
+
+**Note:** Meta-resources operate at the Meta loop scale (Chapter 6: Temporal Architecture). Not all games need meta loops—casual games often use only micro and meso loops, requiring no meta-resources.
+
+### Choosing Resource Function
+
+**Design question:** "What experience do I want, and what function serves that experience?"
+
+**By aesthetic:**
+- **Challenge aesthetic:** Need Limiters (create meaningful scarcity)
+- **Progression aesthetic:** Need Currencies + Meta-resources (accumulation and permanence)
+- **Discovery aesthetic:** Need Trackers (show what's found) + Currencies (unlock exploration)
+- **Submission aesthetic:** Avoid Limiters (no pressure), light Trackers okay
+- **Mastery aesthetic:** Need Currencies (optimization space) + Limiters (constraints to master)
+
+**By archetype (Chapter 2 provides archetype framework):**
+- **Horror investigation:** Limiters (scarce resources create dread) + Trackers (evidence found)
+- **Mystery investigation:** Trackers (clue progress) + light Currencies (investigation points for optional depth)
+- **Tactical combat:** Limiters (action points, positioning) + Currencies (equipment/upgrades)
+- **Cozy simulation:** Trackers (collection) + abundant Currencies (crops, money)
+- **Power fantasy:** Currencies (growth) + Meta-resources (permanent progression)
+
+**Example - Horror investigation game:**
+- Primary aesthetic: Tension (Chapter 1)
+- Archetype: Horror investigation (Chapter 2)
+- Functions needed: Limiters + Trackers
+- Specific resources: Scarce ammunition (Limiter), limited sanity (Limiter), evidence collected (Tracker)
+- Why: Scarcity creates dread, tracking shows mystery progress without creating stress
+
+**Example - Cozy simulation game:**
+- Primary aesthetic: Submission (Chapter 1)
+- Archetype: Cozy simulation (Chapter 2)
+- Functions needed: Trackers + light Currencies
+- Functions avoided: Harsh Limiters (no death, no failure states)
+- Why: Abundance prevents stress, progress is always forward
+
+**Confidence Level:** HIGH for function categories, MEDIUM for aesthetic mappings (validated across many games but edge cases exist).
+
+## Resource Behavior Patterns: How Resources Work
+
+Within each function, resources exhibit different **behavior patterns** that shape strategic play. Understanding these patterns helps you choose the right implementation for your aesthetic.
+
+### Pattern 1: Consumable (Depletion and Recovery Cycles)
+
+**Behavior:** Resources spent through use, must be replenished or replaced.
+
+**Core dynamic:** "Spend now or save for later?"
+
+**Strategic patterns created:**
+- **Optimization:** "What's the most efficient use?" (calculate expected value)
+- **Conservation:** "Can I afford to spend this now?" (save for later uncertainty)
+- **Attrition:** "Resources dwindle over time" (pressure mounts as depletion continues)
+
+**Examples:**
+- *D&D* spell slots (slow recovery, attrition pressure)
+- *DOOM 2016* ammunition (fast recovery through glory kills, aggressive play)
+- *Dead Cells* healing charges (no recovery per run, permanent loss creates caution)
+
+**Recovery speed determines pacing pattern (Chapter 6):**
+- **No recovery** → Conservative play, maximum tension
+  - Example: *XCOM* soldier wounds (permanent until healed between missions)
+- **Slow recovery** → Attrition pacing, strategic resource management
+  - Example: *Old-school D&D* HP (rest only in safe locations, rare)
+- **Moderate recovery** → Episodic pacing, per-encounter tactics
+  - Example: *Hades* death defiances (recover between chambers)
+- **Fast recovery** → Aggressive play, constant pressure
+  - Example: *Vampire Survivors* passive HP regeneration
+
+**Aesthetic alignment:**
+- ✓ Best for: Challenge, Tension, Mastery (optimization under scarcity)
+- ✗ Poor for: Submission (depletion creates stress)
+- ~ Depends: Narrative (works if depletion tells story—Blades harm)
+
+**Design consideration:** Recovery rate fundamentally changes player psychology. Fast recovery encourages experimentation and aggression. Slow recovery encourages hoarding and conservative play.
+
+**Confidence Level:** HIGH - Recovery speed → pacing pattern relationship validated across hundreds of games.
+
+### Pattern 2: Buffer (Protection from Consequences)
+
+**Behavior:** Resources that absorb costs rather than enable actions. They protect against bad outcomes.
+
+**Core dynamic:** "How much safety margin do I maintain?"
+
+**Strategic patterns created:**
+- **Risk Management:** "How much buffer is enough?" (balance offense vs. defense)
+- **Push-Your-Luck:** "Can I go one more round?" (tension between greed and safety)
+- **Preparation:** "Build buffer before danger" (insurance mindset)
+
+**Examples:**
+- *Halo* shields (fast-regenerating buffer, creates episodic combat rhythm)
+- *Monster Hunter* armor (preparation-based buffer, gear choices matter)
+- *Blades in the Dark* stress (separated buffer—see below)
+
+**Key innovation: Separated buffers (Blades in the Dark)**
+
+Traditional HP conflates two functions:
+- Protection capacity AND health state
+- As HP depletes, you're "less healthy" narratively but mechanically unchanged until 0 HP
+
+*Blades in the Dark* separates these:
+- **Stress:** Protection capacity (can spend to resist consequences)
+- **Harm:** Actual injury (narrative + mechanical penalties)
+- **Different recovery rates:** Stress recovers fast (downtime), harm recovers slow (campaign-scale)
+
+**What this creates:**
+- **Agency:** Choose whether to accept harm or spend stress to resist
+- **Narrative arc:** Accumulate harm over campaign (veteran scars)
+- **Tactical depth:** Two resources to manage instead of one
+
+✅ **Validated innovation:** Stress/harm separation creates meaningfully different play experience from traditional HP.
+
+**Aesthetic alignment:**
+- ✓ Best for: Tension (buffer depletion creates pressure), Challenge (risk management)
+- ✓ Narrative (when buffer loss tells story—stress representing psychological toll)
+- ✗ Poor for: Submission (anxiety from buffer depletion), Discovery (buffer management distracts)
+
+**Design consideration - Buffer visibility:**
+- **Visible** (*D&D* HP): Players can calculate risk precisely
+- **Hidden** (horror games): Unknown danger level creates fear
+- Trade-off: Strategic play vs. emotional tension
+
+**Confidence Level:** HIGH for buffer concept, MEDIUM for separated buffer pattern (validated in Blades but needs more widespread adoption to confirm generalizability).
+
+### Pattern 3: Accumulation (Growth Over Time)
+
+**Behavior:** Resources primarily gained and increased over time, rarely or never spent. Growth is the point.
+
+**Core dynamic:** "Progress through collection"
+
+**Strategic patterns created:**
+- **Progression:** "I'm getting stronger" (power fantasy through accumulation)
+- **Collection:** "Gotta catch 'em all" (completionism drive)
+- **Investment:** "Building toward goal" (delayed gratification)
+- **Specialization:** "Choosing my path" (spend on specific upgrades)
+
+**Examples:**
+- Experience points/levels (pure accumulation, permanent)
+- *Pokémon* Pokédex progress (collection goal)
+- *Outer Wilds* knowledge accumulation (no mechanical benefit, pure Discovery aesthetic)
+- *Dark Souls* souls (accumulation with risk—lose on death, creates tension)
+
+**Accumulation vs. Consumption:**
+- **Accumulation:** Grows over time, rarely depletes (power curve)
+- **Consumption:** Cycles through earn-and-spend (strategic choices)
+- **Both valuable:** Different purposes, different aesthetics
+
+**Example - Experience vs. Gold:**
+- Experience: Pure accumulation (never spend XP, only gain)
+- Gold: Consumable currency (earn and spend in cycles)
+- Same numerical tracking, completely different strategic patterns
+
+**Aesthetic alignment:**
+- ✓ Best for: Progression (that's the point), Collection (completion goals)
+- ✓ Mastery (building optimal progression path), Fantasy (becoming powerful)
+- ✗ Poor for: Challenge (if too easy, trivializes difficulty), Tension (steady growth reduces pressure)
+- ~ Depends: Narrative (works if progression tells story)
+
+**Design considerations:**
+
+**Growth curve:**
+- Linear: Steady power increase (predictable, measurable)
+- Exponential: Snowballing power (satisfying but can break balance)
+- Trade-off: Consistent challenge (Chapter 5: Balance) vs. power fantasy
+
+**Permanence:**
+- Permanent choices: Decisions matter forever (weight, commitment)
+- Respeccable: Can change later (experimentation-friendly)
+- Trade-off: Meaningful decisions vs. freedom to experiment
+
+**Caps:**
+- Capped: Eventually "max out" (completion goal, definite endpoint)
+- Uncapped: Infinite progression (endless engagement, no closure)
+- Trade-off: Sense of completion vs. always more to do
+
+**Confidence Level:** HIGH - Accumulation pattern well-established across RPGs and progression-based games.
+
+### Pattern 4: Composition (Synergy Over Quantity)
+
+**Behavior:** Resources where combination and arrangement matter more than quantity. Quality and curation over accumulation.
+
+**Core dynamic:** "Curation over collection"
+
+**Strategic patterns created:**
+- **Synergy Building:** "How do pieces work together?" (whole greater than sum)
+- **Curation:** "Less is more" (knowing when NOT to add)
+- **Build Diversity:** "Many paths to success" (replayability through variety)
+- **Long-term Planning:** "Building toward archetype" (early choices shape later options)
+
+**Examples:**
+- *Slay the Spire* deck (specific cards matter, thin deck often better than fat deck)
+- *Destiny 2* loadouts (equipment synergies matter more than quantity)
+- *Pokémon* team composition (type coverage, role balance)
+
+**Composition vs. Accumulation - Critical difference:**
+- Accumulation: **More is better** (collect everything)
+- Composition: **Better is better** (curate carefully)
+
+**Example - Slay the Spire deck building:**
+- NOT about having most cards
+- About having RIGHT cards that work together
+- Adding powerful card can make deck WORSE if it doesn't fit strategy
+- Curation is the skill being tested
+
+**Aesthetic alignment:**
+- ✓ Best for: Mastery (optimization through curation), Challenge (meaningful long-term decisions)
+- ✓ Expression (build reflects player identity), Discovery (finding synergies)
+- ✗ Poor for: Submission (requires planning and thought)
+- ✗ Collection (if goal is possessing everything—contradicts curation)
+- ~ Depends: Narrative (can work if build tells story), Progression (different from pure accumulation)
+
+**Design considerations:**
+
+**Can players undo choices?**
+- Irreversible: Commitment (heavy decision weight)
+- Reversible: Experimentation (freedom to try builds)
+- Costly to reverse: Middle ground (commitment with escape hatch)
+- Trade-off: Decision weight vs. experimentation encouragement
+
+**Viable composition count:**
+- Few viable builds: Optimization puzzle (find the best)
+- Many viable builds: Expression space (choose your style)
+- Trade-off: Depth (mastering one approach) vs. Accessibility (many valid paths)
+
+**Anti-synergy severity:**
+- Strong anti-synergy: Curation is critical (wrong choices actively hurt)
+- Weak anti-synergy: Just avoid best synergies (more forgiving)
+- Trade-off: Skill reward vs. punishment for mistakes
+
+**Confidence Level:** HIGH for composition as distinct from accumulation, MEDIUM for optimal anti-synergy levels (needs more testing).
+
+### Pattern 5: Capacity (Enabling Limits)
+
+**Behavior:** Resources that determine limits on other systems. They gate what's possible rather than being directly spent.
+
+**Core dynamic:** "Expanding what you can do"
+
+**Strategic patterns created:**
+- **Constraint Management:** "What fits within limits?" (prioritization)
+- **Expansion Investment:** "Buy capacity vs. use it" (long-term vs. immediate value)
+- **Optimization Puzzle:** "Maximum value per slot" (efficiency in limited space)
+
+**Examples:**
+- *Resident Evil* inventory slots (tight limits create tension)
+- *Darkest Dungeon* party size (forces strategic composition choices)
+- *Slay the Spire* potion capacity (usually 3 slots—which potions to keep?)
+
+**Capacity enables, doesn't provide:**
+- Capacity resource: Inventory slots (can carry X items)
+- Consumable resource: The items themselves
+- Different strategic layers: "What to carry?" vs. "When to use?"
+
+**Aesthetic alignment:**
+- ✓ Best for: Mastery (optimization within constraints), Challenge (meaningful limits)
+- ✓ Progression (expanding capacity feels like growth)
+- ✗ Poor for: Submission (managing capacity adds complexity)
+- ~ Neutral for most aesthetics (depends on how intrusive management is)
+
+**Design considerations:**
+
+**Fixed vs. expandable:**
+- Fixed capacity: Permanent constraint (must optimize within limits)
+- Expandable capacity: Can invest to increase (progression satisfaction)
+- Trade-off: Constant puzzle vs. growth reward
+
+**Limit tightness:**
+- Very tight: Constant constraint (always matters, frequent decisions)
+- Generous: Rarely binding (matters only sometimes, occasional pruning)
+- Trade-off: Continuous engagement vs. low cognitive overhead
+
+**Confidence Level:** HIGH - Capacity as distinct resource type validated across inventory systems, party limits, equipment slots.
+
+## Hybrid Resources and Resource Interactions
+
+Many resources exhibit multiple patterns simultaneously. Understanding which aspects dominate helps design coherently.
+
+### Example: HP as Buffer + Consumable
+
+**Buffer aspect:**
+- Protects from death (absorption function)
+- Higher HP = more safety margin
+- Creates risk management decisions
+
+**Consumable aspect:**
+- Depletes through damage
+- Recovers through healing (consumption of healing resources or time)
+- Recovery rate determines pacing
+
+**Design implication:** Tuning HP affects BOTH buffer depth AND consumption rate. Fast recovery emphasizes buffer function (Halo shields). Slow recovery emphasizes consumable scarcity (Dark Souls Estus).
+
+### Example: Souls in Dark Souls (Currency + Meta-Resource + Risk Mechanic)
+
+**Currency function:**
+- Earned through defeating enemies
+- Spent on levels and upgrades
+- Creates economic decisions
+
+**Meta-resource function:**
+- Persists between deaths
+- Enables long-term character progression
+- Accumulation across many sessions
+
+**Risk mechanic:**
+- Lost on death (dropped at death location)
+- Can be recovered (return to death spot)
+- Lost permanently if die again before recovery
+- Creates tension: "Risk souls to get more? Or spend safely?"
+
+**Why this works:**
+- Multiple functions reinforce core aesthetic (Tension + Challenge + Progression)
+- Risk mechanic transforms simple currency into moment-to-moment decisions
+- Configuration coherence: All aspects serve same aesthetic goals
+
+### Resource Interactions Create Strategic Depth
+
+**Converting resources:**
+- *Dark Souls:* Souls → Levels (currency converts to permanent stat increase)
+- *Civilization:* Gold → Production (economic resource accelerates building)
+- Trade-off: Spend on immediate need vs. long-term investment
+
+**Resources limiting other resources:**
+- *Slay the Spire:* Energy limits card plays (capacity gates spending)
+- *XCOM:* Action points limit ability use (limiter constrains currencies)
+- Creates layered decision-making
+
+**Resources competing for same currency:**
+- *D&D:* Gold buys equipment OR consumables OR services (opportunity cost)
+- *Path of Exile:* Skill points choose passive tree path (specialization through exclusion)
+- Forces meaningful trade-offs
+
+**Design consideration:** Resource interactions multiply complexity. Each additional resource and interaction increases cognitive load (Chapter 4). Balance strategic depth against tracking burden.
+
+**[LLM-INTEGRATION-OPPORTUNITY: Automated resource tracking systems could manage complex resource interactions (conversions, limits, competitions) without increasing player cognitive load. LLMs could calculate optimal conversions, track complex interactions, and present simplified choices to players while maintaining deep strategic space. See Chapter 4 for cognitive load management and future LLM integration discussion.]**
+
+**Confidence Level:** HIGH for basic interactions, MEDIUM for complex multi-resource economies (validated in complex games but difficult to balance—see Chapter 5).
+
+## Scarcity, Abundance, and Strategic Choice
+
+Resource quantity isn't absolute—it's relative to demand. Scarcity exists when players want more than they have. Abundance exists when players have more than they need.
+
+**The critical insight:** Scarcity creates decisions. Abundance removes decisions.
+
+### The Scarcity Spectrum
+
+**Extreme Scarcity (Constant Deprivation):**
+- Players almost never have enough
+- Every single use feels costly
+- Creates high tension but can frustrate
+
+**Example:** *Resident Evil* (1996) limited ammunition and saves
+- Creates constant tension and dread
+- Serves horror aesthetic through resource anxiety
+- Risk: Can block progress if too scarce
+
+**Strategic Scarcity (Meaningful Trade-offs):**
+- Players have enough to function but must choose carefully
+- Can't do everything, must prioritize
+- Sweet spot for strategic gameplay
+
+**Example:** *XCOM 2* action points
+- Can act multiple times but not unlimited
+- Must choose: Move or shoot? Use ability or save for next turn?
+- Creates Challenge aesthetic through meaningful constraints
+
+**Comfortable Abundance (Rare Constraints):**
+- Players usually have enough
+- Occasional scarcity for specific expensive actions
+- Low stress, accessible
+
+**Example:** *Stardew Valley* energy
+- Can farm most of day without running out
+- Limits only prevent doing literally everything in one day
+- Serves Submission aesthetic (relaxing, not pressuring)
+
+**Extreme Abundance (No Meaningful Constraint):**
+- Players always have more than they need
+- Resource tracking becomes pointless
+- Question: Why is this a resource?
+
+**Example - Common mistake:** Gold in late-game RPGs when nothing left to buy
+- Resource exists but serves no function
+- Should either increase gold sinks or stop tracking
+
+### Finding Your Scarcity Sweet Spot
+
+**Design question:** "What level of scarcity serves my aesthetic?"
+
+**Challenge aesthetic → Strategic scarcity required:**
+- Must force meaningful trade-offs
+- Players should regularly face "can't do both" decisions
+- Scarcity creates the challenge
+
+**Tension aesthetic → Strategic to extreme scarcity:**
+- Pressure from limited resources
+- Constant worry about running out
+- Scarcity creates the tension
+
+**Submission aesthetic → Comfortable abundance required:**
+- Avoid resource anxiety
+- Players should feel safe, not stressed
+- Abundance enables relaxation
+
+**Mastery aesthetic → Strategic scarcity optimal:**
+- Enough resources to experiment with builds
+- But tight enough that optimization matters
+- Scarcity creates optimization space
+
+**Discovery aesthetic → Varies by implementation:**
+- Abundant resources: Focus on exploration not survival
+- Scarce resources: Create survival tension alongside discovery
+- Choice depends on whether Discovery is primary or combined with Challenge/Tension
+
+**Progression aesthetic → Abundance that grows:**
+- Start scarce, become abundant through growth
+- Demonstrates progression through reduced resource pressure
+- Late abundance is the reward
+
+### Multiple Demands: Creating Opportunity Cost
+
+Scarcity alone doesn't create interesting decisions. **Scarcity + Multiple Demands = Strategic Choices.**
+
+**Single demand (weak):**
+- Resource: Ammunition
+- Only use: Shooting enemies
+- Decision: "Do I have enough bullets?" (calculation, not strategy)
+
+**Multiple demands (strong):**
+- Resource: Action points
+- Uses: Move, attack, use ability, interact with environment
+- Decision: "What's most important THIS turn?" (strategic priority)
+
+**Example - Path of Exile skill tree:**
+- Resource: Passive skill points (limited)
+- Demands: Damage nodes, defense nodes, utility nodes, travel nodes
+- Creates meaningful build decisions through competing priorities
+
+**Example - Civilization gold:**
+- Resource: Gold per turn
+- Demands: Military units, buildings, tile purchases, diplomacy, unit upgrades
+- Opportunity cost: Spending on military means not spending on economy
+
+**Design principle:** Resource becomes strategic when it has 3+ competing uses of roughly equal value. If one use dominates, resource becomes a "false choice" (obvious best use).
+
+**Confidence Level:** HIGH - Multiple demands as requirement for strategic depth validated across strategy games, RPGs, and tactical games.
+
+### Dynamic Scarcity: Changing Over Time
+
+Scarcity doesn't have to be static. Changing scarcity creates different experiences at different stages.
+
+**Pattern 1: Increasing Abundance (Progression Fantasy)**
+- Start scarce → Become abundant through advancement
+- Creates satisfaction through reduced pressure
+- Common in RPGs (early struggle → late-game power)
+
+**Example:** *Diablo* series
+- Early: Every gold piece matters, careful loot choices
+- Late: Gold abundant, only best items worth picking up
+- Demonstrates character progression through economic freedom
+
+**Pattern 2: Increasing Scarcity (Mounting Pressure)**
+- Start abundant → Become scarce as game progresses
+- Creates rising tension
+- Common in survival horror archetype
+
+**Example:** *Frostpunk*
+- Early: Coal and food manageable with good planning
+- Late: Increasingly harsh conditions, impossible to satisfy all needs
+- Creates Tension aesthetic through deteriorating situation
+
+**Pattern 3: Cyclical Scarcity (Wave Pattern)**
+- Alternating abundance and scarcity
+- Creates rhythm and pacing
+- Common in roguelikes and wave defense
+
+**Example:** *Hades*
+- Between chambers: Abundant health recovery options
+- During chambers: Scarce, must manage carefully
+- Creates episodic rhythm (Chapter 6: Wave pacing pattern)
+
+**Pattern 4: Player-Driven Scarcity**
+- Players choose their scarcity level
+- Risk/reward through self-imposed constraints
+- Common in difficulty settings and optional challenges
+
+**Example:** *Dark Souls* Covenant of Champions
+- Optional covenant increases difficulty
+- Removes summoning help (increases scarcity of assistance resource)
+- Creates Challenge aesthetic for players who want it
+
+**Design consideration:** Dynamic scarcity must be intentional and serve aesthetic. Accidental abundance (broken economy) or accidental scarcity (impossible challenges) breaks the experiential scaffold.
+
+**Confidence Level:** HIGH for patterns, MEDIUM for optimal implementation (easy to get balance wrong—see Chapter 5: Balance).
+
+## Resource Design and Cognitive Load
+
+Every resource you add creates cognitive overhead. Players must:
+- Track current quantity
+- Understand acquisition mechanics  
+- Evaluate spending decisions
+- Monitor scarcity/abundance state
+- Remember resources exist during relevant decisions
+
+**The cognitive load hierarchy (from least to most demanding):**
+
+1. **Trackers (Lowest Load):** "Just goes up" - collection progress, exploration percentage
+2. **Accumulation Resources (Low Load):** Usually just increases - XP, levels
+3. **Consumable Resources (Moderate Load):** Earn and spend, but single-purpose
+4. **Capacity Resources (Moderate-High Load):** Must manage what fits in limits
+5. **Composition Resources (Highest Load):** Must evaluate synergies and interactions
+
+**Design principle:** Match cognitive load to player capacity and aesthetic needs.
+
+**Casual players / Submission aesthetic:**
+- Maximum 2-4 resources
+- Prefer Trackers and Accumulation (low load)
+- Avoid Composition (high load)
+- Clear, simple acquisition and spending
+
+**Midcore players / Challenge aesthetic:**
+- 3-5 resources comfortable
+- Mix of Consumables and Currencies
+- Limited Composition for build decisions
+- Strategic scarcity creates decisions
+
+**Hardcore players / Mastery aesthetic:**
+- 4-6+ resources manageable
+- Composition resources appropriate
+- Complex interactions acceptable
+- Deep optimization rewarding
+
+**Common mistake: Too many resources**
+
+*Path of Exile* currency system has 20+ different currency types:
+- Chromatic Orbs, Orbs of Fusing, Jeweller's Orbs, Orbs of Alchemy, Chaos Orbs, Exalted Orbs...
+- Each has specific use and value
+- Creates extremely high cognitive load
+- Serves hardcore Mastery aesthetic but excludes casual players
+- Appropriate for target audience but illustrates load problem
+
+**Design question:** "Is tracking this resource worth the cognitive overhead?"
+
+**Test:** Remove the resource. Does the game still work? If yes, consider whether the strategic depth it adds justifies the tracking burden.
+
+**Cross-reference:** Chapter 4 (Cognitive Load) provides detailed frameworks for managing complexity budgets, working memory load, and decision overhead. The cognitive cost of resources is one component of total system complexity.
+
+**[LLM-INTEGRATION-OPPORTUNITY: LLM-powered resource management could present simplified interfaces while maintaining deep resource systems. For example, Path of Exile could use LLM to recommend "here are the three currency types that matter for your current goal" while tracking all currencies in background. Reduces cognitive load without reducing strategic depth. Potential for automated resource advisors that explain complex economies in natural language.]**
+
+**Confidence Level:** HIGH for load hierarchy, MEDIUM for specific thresholds (varies by individual players and game context).
+
+## Resource-Aesthetic Mappings
+
+Different aesthetics require different resource configurations. Here are validated patterns for major aesthetics.
+
+### Challenge: Scarcity Creates Meaningful Decisions
+
+**Resource requirements:**
+- Strategic scarcity (not extreme, not abundant)
+- Multiple competing demands (opportunity cost)
+- Clear feedback on resource state
+- Consequences for poor resource management
+
+**Typical resource set:**
+- 2-3 Limiters (HP, action points, time)
+- 1-2 Currencies (choose what to buy/upgrade)
+- Usually NOT Trackers (tracking doesn't create challenge)
+
+**Example - XCOM 2:**
+- Action points (Limiter): 2 per turn, must choose move vs. shoot vs. ability
+- Soldier health (Buffer): Injury consequences, must manage risk
+- Resources (Currency): Limited materials for equipment, must prioritize
+- Creates constant strategic decisions through scarcity
+
+**Anti-pattern:** Abundant resources that remove decisions
+- If players always have enough HP, healing items, ammunition
+- No meaningful resource management required
+- Challenge aesthetic undermined
+
+### Discovery: Tracking Progress, Not Managing Scarcity
+
+**Resource requirements:**
+- Trackers showing what's been found
+- Light resource management (don't distract from exploration)
+- Currencies only if they unlock new areas/abilities
+
+**Typical resource set:**
+- 1-3 Trackers (map completion, collectibles found)
+- 0-1 Limiters (mild, like stamina that prevents infinite sprinting)
+- 1 Currency if needed (to unlock progression gates)
+
+**Example - Outer Wilds:**
+- Knowledge (Tracker): What you've discovered, pure information
+- Ship log (Tracker): Connections between discoveries
+- NO resource management: Fuel unlimited, health meaningless (time loop resets)
+- Pure Discovery aesthetic, resources would distract
+
+**Example - Breath of the Wild:**
+- Map completion (Tracker): Shrines found, towers unlocked
+- Stamina (Light Limiter): Prevents infinite climbing, creates minor routing decisions
+- Hearts (Buffer): Generous, rarely constraining
+- Serves Discovery primary, Challenge secondary through combat
+
+**Anti-pattern:** Harsh resource scarcity in exploration games
+- If survival resources dominate attention
+- Exploration becomes secondary to resource gathering
+- Discovery aesthetic undermined by management demands
+
+### Mastery: Optimization Space Through Resources
+
+**Resource requirements:**
+- Complex resource systems with interactions
+- Composition resources (build optimization)
+- Multiple viable resource strategies
+- Deep optimization potential
+
+**Typical resource set:**
+- 4-6 resources (can handle higher complexity)
+- Composition resources essential (deck, loadout, skill tree)
+- Currencies for permanent progression
+- Limiters to create optimization challenges
+
+**Example - Slay the Spire:**
+- Deck (Composition): Core optimization puzzle
+- Energy (Limiter): Constrains card plays per turn
+- Relics (Accumulation): Permanent build modifiers
+- Gold (Currency): Choose which cards/relics to acquire
+- Creates deep optimization through resource interaction
+
+**Anti-pattern:** Too simple or too abundant
+- If resources always plentiful, no optimization needed
+- If only one viable strategy, no mastery demonstration
+- Mastery aesthetic requires constrained optimization space
+
+### Narrative: Minimal Resources, Maximum Story
+
+**Resource requirements:**
+- Minimal resource tracking (don't distract from story)
+- Resources that tell story when they exist
+- Avoid optimization/calculation gameplay
+
+**Typical resource set:**
+- 0-2 Trackers (story progress, relationship status)
+- 0-1 Light Limiter (if creates narrative tension)
+- NO complex resource management
+
+**Example - The Last of Us:**
+- Health (Buffer): Light management, creates tension during combat
+- Ammo (Limiter): Scarcity creates horror atmosphere
+- Crafting materials (Light Currency): Minimal complexity
+- Resources serve Narrative aesthetic, don't dominate
+
+**Example - Disco Elysium:**
+- Health/Morale (Buffer): Extremely generous, rarely a constraint
+- Skill points (Currency): Minimal (only at level-up)
+- Money (Light Currency): Usually abundant
+- Resources nearly invisible, story primary
+
+**Anti-pattern:** Complex resource management in story-focused games
+- If players spend more time managing inventory than engaging with narrative
+- If resource optimization becomes the game
+- Narrative aesthetic undermined by mechanical demands
+
+### Fellowship: Shared Resources or Individual Simplicity
+
+**Resource requirements:**
+- Either shared resources (creates cooperation) OR individual resources (simple to avoid bookkeeping overhead)
+- Clear, easy-to-communicate state
+- Avoid complex individual tracking in social context
+
+**Typical resource set (shared):**
+- 2-3 shared Limiters (party health pool, shared action points)
+- 1-2 shared Currencies (group funds, collective resources)
+
+**Typical resource set (individual):**
+- 1-2 simple individual Limiters (own HP, own energy)
+- Avoid individual Composition resources (too much cognitive load during social interaction)
+
+**Example - It Takes Two:**
+- Individual lives (simple Buffer)
+- Shared progress (Tracker)
+- No resource management complexity
+- Focus on cooperation, not resource optimization
+
+**Example - Board games like Pandemic:**
+- Shared diseases (Limiter): Collective problem
+- Individual action points (Limiter): Personal contribution
+- Shared cards (Currency): Group resource allocation
+- Creates cooperation through shared resources
+
+**Anti-pattern:** Complex individual resources in multiplayer
+- If each player manages 5+ resources
+- Social interaction slowed by bookkeeping
+- Fellowship aesthetic undermined by cognitive overhead
+
+### Submission: Abundance Prevents Stress
+
+**Resource requirements:**
+- Abundant or auto-managing resources
+- No harsh penalties for depletion
+- Trackers showing progress (satisfying, not stressful)
+
+**Typical resource set:**
+- 1-2 generous Limiters (energy that prevents literally infinite actions)
+- 1-3 Trackers (collection progress, completion percentage)
+- 0-1 abundant Currency (can buy most things comfortably)
+
+**Example - Animal Crossing:**
+- Bells (Currency): Abundant enough to buy what you want
+- Tool durability (Limiter): Annoying but rarely blocking
+- Collection trackers (fish, bugs, fossils caught)
+- Resources present but never stressful
+
+**Example - Vampire Survivors:**
+- Health (Buffer): Generous, regenerates
+- XP (Accumulation): Automatic collection, constant growth
+- No resource management decisions required
+- Pure Submission aesthetic (turn brain off)
+
+**Anti-pattern:** Harsh scarcity or complex management
+- If resources create anxiety
+- If depletion has severe consequences
+- Submission aesthetic requires abundance and safety
+
+**Confidence Level:** HIGH for general patterns, MEDIUM for specific implementations (aesthetic combinations create nuance).
+
+## Common Patterns and Anti-Patterns
+
+### What Works: Validated Resource Design Patterns
+
+**Pattern: Separated Concerns (Blades in the Dark stress/harm)**
+- Separate fast-recovering buffer from slow-recovering consequences
+- Creates agency (choose which to suffer)
+- Adds tactical depth without excessive complexity
+- Applicable to any game with health/damage
+
+**Pattern: Dynamic Recovery (Left 4 Dead AI Director)**
+- Adjust resource availability based on player performance
+- Struggling players get more health pickups
+- Skilled players get less support
+- Maintains appropriate challenge level (Chapter 5: Adaptive Balance)
+
+**Pattern: Opportunity Cost Economy (Civilization gold)**
+- Single currency, multiple valuable uses
+- Can't afford everything, must prioritize
+- Creates strategic decisions without complexity
+- More engaging than multiple currencies
+
+**Pattern: Risk/Reward Resource (Dark Souls souls)**
+- Valuable currency that can be lost
+- Tension between spending safely vs. risking for more
+- Transforms simple accumulation into moment-to-moment decisions
+- Serves Tension aesthetic
+
+**Pattern: Composition Matters (Slay the Spire deck)**
+- Quality over quantity explicitly
+- Removing bad options is valuable
+- Synergy rewards system knowledge
+- Serves Mastery aesthetic
+
+### What Fails: Common Anti-Patterns
+
+**Anti-Pattern: Progress Blocking Resources**
+- Resource scarcity can prevent story/content progression
+- Players stuck because not enough [resource] to continue
+- Breaks narrative flow, creates frustration
+
+**Example - Bad design:**
+- Must collect 50 MacGuffins to proceed to next area
+- MacGuffins are rare random drops
+- Players grind for hours hoping for RNG
+
+**Solution:** Core progression should never be gated by scarce random resources. Use deterministic acquisition or abundant resources for critical path.
+
+**Anti-Pattern: Meaningless Accumulation**
+- Resources that only increase, never spend or deplete
+- No decisions to make about them
+- Just tracking for tracking's sake
+
+**Example - Bad design:**
+- "Prestige Points" that accumulate but have no use
+- Collection percentage that doesn't unlock anything
+- Score that doesn't affect gameplay
+
+**Solution:** If resource doesn't create decisions or show meaningful progress, remove it. Trackers should track things players care about.
+
+**Anti-Pattern: Complexity Overload**
+- Too many resources for player capacity
+- Complex conversion mechanics
+- Hidden optimal strategies
+
+**Example - Path of Exile currency types:**
+- 20+ different currency types with different uses
+- Complex conversion rates between currencies
+- Optimal strategy requires spreadsheet calculations
+- Appropriate for hardcore audience but excludes others
+
+**Solution:** Match resource complexity to player capacity (casual/midcore/hardcore). Consider whether complexity serves aesthetic or just exists.
+
+**Anti-Pattern: False Choices**
+- Multiple options but one obviously best
+- Resource spending decisions with dominant strategies
+- Illusion of choice without actual strategy
+
+**Example - Bad design:**
+- Skill tree where one path is 50% stronger than alternatives
+- "Choose weapon A (10 damage) or weapon B (100 damage)"
+- Currency that can buy useful items or cosmetics (useful always wins)
+
+**Solution:** Ensure competing resource uses are roughly balanced. If one option dominates, it's not a choice—it's a test of player knowledge.
+
+**Anti-Pattern: Broken Economy (Late-game Abundance)**
+- Early game: Resources scarce, decisions matter
+- Late game: Resources abundant, nothing to spend on
+- Resource system becomes pointless
+
+**Example - Common RPG problem:**
+- Gold scarce early, must choose equipment carefully
+- Gold abundant late, bought everything, huge surplus
+- Should either create gold sinks or stop tracking
+
+**Solution:** Either maintain scarcity through increasing costs, or embrace abundance as progression reward and stop emphasizing resource. Don't track meaningless numbers.
+
+**Anti-Pattern: Hidden Information Scarcity**
+- Players can't see how much resource they have
+- Can't make informed decisions
+- Frustration from invisible constraints
+
+**Example - Bad design:**
+- Stamina system that doesn't show current value
+- "You're too tired" message with no warning
+- Players can't plan actions appropriately
+
+**Solution:** If scarcity creates decisions, players must see resource state clearly. Exception: Intentional mystery in horror/discovery games (but then scarcity isn't the decision point).
+
+**Confidence Level:** HIGH for anti-patterns (extensively documented failures), MEDIUM for solutions (context-dependent).
+
+## Psychological Effects of Resources
+
+Resources create psychological responses beyond their mechanical functions. Understanding these helps design experiences intentionally.
+
+### Possession Effect: "Having" Creates Value
+
+**Phenomenon:** Players value resources they possess more than identical resources they might acquire.
+
+**Design implications:**
+- Loss feels worse than equivalent gain feels good
+- Taking away resources creates stronger reaction than not giving resources
+- Generous starting resources feel better than earning same amount
+
+**Example - Endowment effect in action:**
+- Starting with 10 HP then losing 5 feels worse than starting with 5 HP
+- Even though end state identical (5 HP)
+- Players perceive loss more strongly than absence
+
+**Use intentionally:**
+- **Progression games:** Start generous, let players feel loss of resources creates stakes
+- **Tension games:** Take away safety (dwindling ammunition in horror)
+- **Avoid accidentally:** Don't remove player resources without purpose (frustrating, not engaging)
+
+### Loss Aversion: Fear of Losing Creates Tension
+
+**Phenomenon:** Players fear losing resources more than they desire gaining resources.
+
+**Design implications:**
+- Risk of loss creates tension even with abundant resources
+- Permanent loss creates strongest response
+- Reversible loss creates less tension but safer design
+
+**Example - XCOM Ironman mode:**
+- Soldier death is permanent
+- Creates extreme tension even though soldiers are "just resources"
+- Fear of loss drives cautious, strategic play
+- Serves Challenge + Tension aesthetics perfectly
+
+**Use intentionally:**
+- **Tension aesthetic:** Make loss consequential and permanent
+- **Challenge aesthetic:** Loss punishes poor decisions, rewards good planning
+- **Avoid for Submission:** Loss aversion creates stress, opposite of relaxation
+
+### Hoarding/Conservation: "Saving for the Boss"
+
+**Phenomenon:** Players save consumable resources for future need, often never using them.
+
+**Causes:**
+- Uncertainty about future resource availability
+- Fear of being unprepared for difficult situations
+- One-time use items feel "too valuable" to use
+
+**Example - Classic RPG problem:**
+- Player finishes game with 99 Megalixirs, never used any
+- Saved them all "for the final boss"
+- Then final boss was easy, saved resources wasted
+
+**Design solutions:**
+- **Fast recovery:** Reduces hoarding (if it recovers quickly, use freely)
+- **Clear signaling:** Show when resources won't be needed again
+- **Forced spending:** Resources that expire if not used
+- **Regenerating slots:** Limited capacity forces using old to get new (*Slay the Spire* potions)
+
+**Example - Hades death defiances:**
+- Recover between chambers
+- Can't save them for later
+- Encourages using them tactically rather than hoarding
+
+### FOMO (Fear of Missing Out): Time-Limited Resources
+
+**Phenomenon:** Players feel compelled to acquire resources that will become unavailable.
+
+**Design implications:**
+- Time-limited resources create urgency
+- Can drive engagement through anxiety
+- Ethical concerns about exploitative design
+
+**Example - Battle pass systems:**
+- Season-limited rewards
+- "Get it now or never"
+- Creates engagement through FOMO
+- Often combined with paid currency (monetization)
+
+**Use carefully:**
+- Can serve Tension aesthetic (urgency creates pressure)
+- Can serve Collection aesthetic (completionism drive)
+- Risks creating stress for wrong reasons (not serving core aesthetic)
+- Consider ethical implications of manipulative urgency
+
+**Alternative: Non-exploitative urgency:**
+- *Outer Wilds* 22-minute time loop
+- Creates urgency but no FOMO (can repeat infinitely)
+- Urgency serves Discovery and Tension aesthetics
+- Not manipulative, purely mechanical
+
+### Greed and Overextension: One More Turn
+
+**Phenomenon:** Players pursue additional resources even when unnecessary, taking excessive risks.
+
+**Causes:**
+- Accumulation feels good (progression satisfaction)
+- Always want more even when have enough
+- Risk/reward calculation biased toward reward
+
+**Example - Dark Souls souls gathering:**
+- Have enough souls to level up
+- Keep fighting to get "just a bit more"
+- Die, lose everything
+- Greed-driven overextension
+
+**Design use:**
+- **Tension aesthetic:** Greed creates player-driven risk
+- **Challenge aesthetic:** Self-imposed difficulty through overextension
+- **Intentional risk/reward:** System rewards greed sometimes, punishes sometimes
+
+**Example - Hades room rewards:**
+- Show next room's reward before entering
+- Players push further than safe because "good reward next room"
+- Creates push-your-luck dynamic
+- Greed is part of the design, not accident
+
+**Confidence Level:** HIGH for psychological phenomena (well-documented), MEDIUM for specific design solutions (context-dependent effectiveness).
+
+## Design Decision Framework
+
+Step-by-step process for designing resources that serve your aesthetic goals.
+
+### Step 1: Define Primary Aesthetic
+
+**Question:** "What experience do I want players to have?"
+
+Refer to Chapter 1 (Aesthetics Framework). Choose 1-2 primary aesthetics.
+
+**Examples:**
+- Challenge + Mastery (tactical depth)
+- Discovery + Narrative (exploration story)
+- Tension + Challenge (survival pressure)
+- Submission (relaxation)
+
+**This determines everything else about resource design.**
+
+### Step 2: Identify Required Functions
+
+**Question:** "What resource functions does my aesthetic need?"
+
+**Aesthetic → Function mapping:**
+- Challenge → Limiters (create meaningful constraints)
+- Tension → Limiters (scarcity creates pressure)
+- Discovery → Trackers (show what's found)
+- Mastery → Currencies + Composition (optimization space)
+- Progression → Currencies + Meta-resources (growth)
+- Narrative → Minimal resources (don't distract from story)
+- Submission → Trackers only (avoid stress-inducing resources)
+- Fellowship → Shared resources OR simple individual resources
+
+**Archetype → Function mapping (from Chapter 2 Context):**
+- **Horror investigation:** Limiters (ammunition, sanity) + Trackers (evidence)
+- **Mystery investigation:** Trackers (clues) + light Currencies (investigation points)
+- **Tactical combat:** Limiters (action points) + Currencies (equipment)
+- **Cozy simulation:** Trackers (collection) + Currencies (crops)
+- **Heist planning:** Currencies (gear, intel) + Limiters (heat/attention)
+- **Political intrigue:** Trackers (relationships, intel) + Currencies (favors, resources)
+
+**Why archetype matters:** Archetype (Chapter 2) tells you what resources are structurally appropriate. Horror investigation needs scarcity to create dread. Mystery investigation needs evidence tracking, not combat resources. Archetype determines which functions to use.
+
+**Output:** List of 2-5 resource functions needed.
+
+### Step 3: Choose Resource Types and Patterns
+
+**Question:** "What behavior pattern serves each function?"
+
+For each required function, choose pattern:
+
+**Limiters:**
+- Consumable (depletion/recovery cycles) for ongoing pressure
+- Buffer (protection) for risk management
+- Capacity (enable/constrain) for strategic space
+
+**Currencies:**
+- Accumulation (growth) for progression satisfaction
+- Composition (synergy) for optimization depth
+- Cyclic (earn/spend) for economic decisions
+
+**Trackers:**
+- Simple counters (collection progress)
+- State tracking (quest completion)
+- Relationship systems (NPC disposition)
+
+**Meta-resources:**
+- Permanent unlocks
+- Skill/talent progression
+- Collection completion
+
+**Output:** Specific resource list with types and patterns.
+
+### Step 4: Set Scarcity Levels
+
+**Question:** "How scarce should each resource be?"
+
+**Aesthetic → Scarcity mapping:**
+- Challenge/Tension → Strategic to extreme scarcity
+- Mastery → Strategic scarcity (optimization matters)
+- Submission → Comfortable abundance (no stress)
+- Progression → Start scarce, grow abundant
+- Discovery → Varies (abundant if exploration focus, scarce if survival element)
+
+**For each resource:**
+- Extreme scarcity: Constant deprivation
+- Strategic scarcity: Meaningful trade-offs
+- Comfortable abundance: Rare constraints
+- Extreme abundance: No constraint (question: why track this?)
+
+**Output:** Scarcity level for each resource.
+
+### Step 5: Design Recovery Patterns
+
+**Question:** "How fast should resources recover?"
+
+**Recovery speed → Pacing pattern (Chapter 6):**
+- No recovery → Conservative play, permanent loss tension
+- Slow recovery (session/campaign) → Attrition pacing
+- Moderate recovery (per encounter) → Episodic pacing
+- Fast recovery (constant) → Aggressive play, constant pressure
+
+**Match recovery to aesthetic:**
+- Challenge: Moderate to slow (creates resource management decisions)
+- Tension: Slow to none (maintains pressure)
+- Submission: Fast to moderate (prevents stress)
+- Mastery: Varies by loop scale (micro fast, macro slow for progression)
+
+**Output:** Recovery pattern for each consumable/buffer resource.
+
+### Step 6: Design Spending Mechanics
+
+**Question:** "How do players use resources, and what decisions does this create?"
+
+**Key principle:** Resources create strategy through competing demands.
+
+**For each currency/consumable:**
+- Identify 3+ valuable uses of roughly equal value
+- Ensure opportunity cost (can't do everything)
+- Avoid dominant strategies (one obviously best choice)
+
+**For composition resources:**
+- Define synergies (what works well together?)
+- Define anti-synergies (what conflicts?)
+- Create multiple viable builds
+
+**Output:** Spending mechanics and decision points.
+
+### Step 7: Validate Cognitive Load
+
+**Question:** "Can players track these resources given their capacity?"
+
+**Check against player profile:**
+- Casual: 2-4 resources max, prefer simple (Trackers, Accumulation)
+- Midcore: 3-5 resources, can handle moderate complexity
+- Hardcore: 4-6+ resources, can handle Composition and interactions
+
+**Check against total system complexity:**
+- Resources are ONE component of cognitive load
+- Add to: Mechanics complexity, decision overhead, context tracking
+- See Chapter 4 for full complexity budget analysis
+
+**If overload:**
+- Remove resources (fewer is better than overwhelming)
+- Simplify patterns (Accumulation instead of Composition)
+- Automate tracking (Chapter 4: system support)
+
+**Output:** Validated resource set within cognitive budget.
+
+### Step 8: Test Configuration Coherence
+
+**Question:** "Do all resource choices serve the same aesthetic?"
+
+**Configuration coherence test (Chapter 1):**
+- Does each resource create experiences aligned with primary aesthetic?
+- Do resource scarcity levels match aesthetic needs?
+- Do recovery patterns create intended pacing?
+- Do spending decisions support desired dynamics?
+
+**Red flags:**
+- Scarce resources in Submission game (creates stress)
+- Abundant resources in Challenge game (removes decisions)
+- Complex Composition in Narrative game (distracts from story)
+- No Limiters in Tension game (no pressure)
+
+**If incoherent:**
+- Revise resource to serve aesthetic OR
+- Remove resource entirely
+
+**Output:** Coherent resource configuration serving primary aesthetic.
+
+### Worked Example: Designing Resources for Mystery Investigation Game
+
+**Step 1: Primary aesthetic**
+- Discovery (finding clues and making connections)
+- Challenge (deduction, not randomness)
+
+**Step 2: Required functions**
+- Trackers (show investigation progress)
+- Light Limiter (create prioritization, not block progress)
+
+**Step 3: Choose types**
+- Evidence Tracker (shows clues found)
+- Time Limiter (abstract pressure, not counted precisely)
+- Optional: Investigation Points Currency (for depth clues, not core clues)
+
+**Step 4: Scarcity levels**
+- Evidence: Abundant (all core clues findable)
+- Time: Strategic scarcity (can't investigate everything exhaustively)
+- Investigation Points: Comfortable (can get most depth clues)
+
+**Step 5: Recovery patterns**
+- Evidence: N/A (accumulates only)
+- Time: No recovery (session-limited)
+- Investigation Points: Moderate (recover between scenes)
+
+**Step 6: Spending mechanics**
+- Evidence: Not spent, used for deduction
+- Time: Spent on investigation actions (competing demands: interview witness vs. search location vs. analyze evidence)
+- Investigation Points: Spent on optional depth clues (competing demands: which leads to pursue deeply?)
+
+**Step 7: Cognitive load validation**
+- 3 resources, all simple tracking
+- Evidence = Tracker (low load)
+- Time = Abstract Limiter (low load, GM-managed)
+- Investigation Points = Simple Currency (moderate load)
+- Total: Appropriate for midcore players
+
+**Step 8: Configuration coherence**
+- Evidence Tracker: Serves Discovery (shows progress finding clues)
+- Time Limiter: Serves Challenge (forces prioritization decisions)
+- Investigation Points: Serves Discovery (enables optional depth)
+- All coherent with Discovery + Challenge aesthetics
+
+**Result:** Coherent resource set serving intended aesthetics without overwhelming players.
+
+**Confidence Level:** HIGH for framework steps, MEDIUM for specific applications (requires playtesting validation).
+
+## Looking Forward: Resources in the Larger System
+
+Resources don't exist in isolation. They're one component of your experiential scaffold that interacts with everything else.
+
+### Resources and Cognitive Load (Chapter 4)
+
+Resources create cognitive overhead through:
+- **Tracking load:** Remembering current quantities
+- **Decision load:** Evaluating spending choices
+- **Interaction load:** Understanding resource conversions and limits
+
+**Key insight:** Composition resources create highest load (synergy evaluation). Trackers create lowest load (just goes up).
+
+**Forward reference:** Chapter 4 provides detailed frameworks for:
+- Calculating total cognitive budget
+- Managing working memory load
+- Supporting players through clarity and feedback
+- When complexity serves aesthetics vs. when it overwhelms
+
+**[LLM-INTEGRATION-OPPORTUNITY: Chapter 4 will explore how LLM interfaces can manage complex resource tracking while presenting simplified player-facing choices, potentially enabling deeper resource systems without cognitive overload.]**
+
+### Resources and Balance (Chapter 5)
+
+Resource scarcity levels are **concrete measurables** for balance work.
+
+**Key questions answered in Chapter 5:**
+- "How do I know if resources are too scarce or too abundant?" (Playtesting metrics)
+- "What numbers should I use for HP, damage, costs?" (Balance formulas)
+- "How do I maintain balance as players progress?" (Scaling systems)
+
+**Forward reference:** Chapter 5 provides:
+- Three balance paradigms (Framework, Consistency, Adaptive)
+- Concrete numerical frameworks and formulas
+- Playtesting protocols for resource validation
+- Dynamic difficulty adjustment patterns (Left 4 Dead AI Director example)
+
+**Example of integration:** XCOM 2 action point economy
+- Resource: 2 action points per turn (Chapter 3: Limiter function)
+- Balance question: "Can players kill one enemy per turn on average?" (Chapter 5: measurable)
+- Cognitive question: "Can players evaluate action point spending in less than 10 seconds?" (Chapter 4: decision load)
+
+### Resources and Context (Chapter 2)
+
+**How you present resources is a Context decision** - and archetype determines what resources are structurally appropriate.
+
+**Archetype determines resource appropriateness (from Chapter 2):**
+- **Horror investigation archetype:** Scarce resources create dread (ammunition, saves, sanity)
+- **Mystery investigation archetype:** Evidence trackers, not combat limiters
+- **Tactical combat archetype:** Action points, positioning resources
+- **Cozy simulation archetype:** Abundant currencies, collection trackers
+
+**Resource presentation carries contextual meaning (Setting layer):**
+Same mechanical resource, different narrative framing:
+- "Hit Points" (combat focus, mechanical)
+- "Vitality" (life force, fantasy setting)
+- "Grit" (determination, western setting)
+- "Stress" (psychological pressure, noir setting)
+- "Resolve" (willpower, gothic horror setting)
+
+**Key insight:** Context transforms mechanical resources into meaningful experiences. Archetype (Chapter 2) determines which resources to use structurally, and setting determines how to present them narratively.
+
+**Example:** Blades in the Dark stress vs. traditional HP
+- Mechanically similar: Buffer that depletes
+- Contextually different: Psychological toll (fits heist archetype + noir setting) vs. physical damage (fits combat archetype + fantasy setting)
+- Archetype-appropriate: Stress fits heist archetype (Chapter 2), creates different player decisions: "Take stress to succeed" feels different than "Lose HP"
+
+**Cross-reference:** Chapter 2 provides archetype framework, setting guidance, Build/Suggest/Omit framework, and perspective maintenance principles that shape how resources should be presented and what resources are structurally appropriate.
+
+### Resources and Temporal Architecture (Chapter 6)
+
+**Resources operate at different loop scales:**
+
+**Micro loop resources (seconds to minutes):**
+- Ammunition in shooters
+- Energy/action points per turn
+- Cooldowns on abilities
+- Need: Instant visibility, fast adjudication
+
+**Meso loop resources (minutes to half hour):**
+- HP per encounter
+- Spell slots per fight
+- Resources per mission
+- Need: Clear feedback on depletion/recovery
+
+**Macro loop resources (session to run):**
+- Experience points per session
+- Campaign resources
+- Long-term equipment upgrades
+- Need: Visible progression, satisfying growth
+
+**Meta loop resources (between sessions):**
+- Character unlocks
+- Permanent upgrades
+- Collection progress
+- Need: Persistence, return motivation
+
+**Key insight:** Recovery speed determines pacing pattern (Attrition, Episodic, Wave, Continuous, Punctuated).
+
+**Forward reference:** Chapter 6 provides:
+- Detailed loop scale frameworks
+- Investment trajectory patterns (how cognitive load changes across scales)
+- Stopping point design (session closure)
+- Hook mechanics (return motivation)
+- Operationalizing loops (from architecture to implementation)
+
+**Example:** Hades resource architecture across scales
+- Micro: Health per room (fast visibility, episodic per room)
+- Meso: Boons per run (build composition, run-level strategy)
+- Macro: Darkness/Keys per run (currency for meta progression)
+- Meta: Unlocked weapons, mirror talents (permanent progression)
+- Each scale has appropriate resources with correct recovery patterns
+
+**Confidence Level:** HIGH for integration concepts, specific implementations require synthesis across chapters.
+
+## Chapter Summary
+
+### Core Principles
+
+**Resources are components of your experiential scaffold.** They're part of Parameters (Chapter 1, Component 2) that shape player behavior and create strategic decisions. Resources work with Mechanics, Context, Pacing, and Configuration to produce experiences.
+
+**Design from purpose, not convention.** Start with "What experience do I want?" then design resources to create that experience. Choose archetype that serves aesthetic, then design resources appropriate for that archetype. Don't copy conventions without understanding whether they serve your aesthetic and archetype.
+
+**Function determines form.** Choose resource function first (Limiter, Currency, Tracker, Meta-resource), then choose behavior pattern (Consumable, Buffer, Accumulation, Composition, Capacity).
+
+**Scarcity creates strategy.** Resources become meaningful through scarcity and multiple competing demands. Abundance removes decisions. Match scarcity level to aesthetic needs.
+
+**Recovery speed determines pacing.** Fast recovery creates aggressive episodic play. Slow recovery creates attrition pressure. No recovery creates maximum tension. This is the primary bridge between resources and temporal architecture.
+
+**Cognitive load matters.** Every resource creates tracking overhead. Match complexity to player capacity. Composition resources demand most cognition, Trackers demand least.
+
+**Configuration coherence is critical.** All resource choices must serve the same primary aesthetic. Incoherent resources create friction players feel even if they can't articulate it.
+
+**Psychological effects are real.** Players hoard consumables, fear loss, feel FOMO, and overextend through greed. Design with these responses in mind, use them intentionally.
+
+### The Resource Design Process
+
+1. **Define primary aesthetic** (what experience?)
+2. **Identify required functions** (Limiters? Currencies? Trackers? Meta-resources?)
+3. **Choose resource types and patterns** (Consumable? Buffer? Accumulation? Composition? Capacity?)
+4. **Set scarcity levels** (extreme, strategic, comfortable, or abundant?)
+5. **Design recovery patterns** (none, slow, moderate, or fast?)
+6. **Design spending mechanics** (what competing demands create decisions?)
+7. **Validate cognitive load** (can players track this?)
+8. **Test configuration coherence** (does everything serve same aesthetic?)
+
+### Integration Across Chapters
+
+**Resources connect to everything:**
+- **Chapter 1:** Resources are Parameters, one of five components
+- **Chapter 2:** Archetype determines structurally appropriate resources (horror investigation needs scarcity + trackers, mystery investigation needs trackers + light currencies)
+- **Chapter 4:** Resources create cognitive load through tracking and decision demands
+- **Chapter 5:** Resource scarcity is key measurable for balance work
+- **Chapter 6:** Resources operate at different loop scales with different recovery patterns
+
+### Common Mistakes to Avoid
+
+- ❌ Too many resources (cognitive overload)
+- ❌ Resources without competing demands (false choices)
+- ❌ Broken economies (abundance makes resources meaningless)
+- ❌ Progress-blocking scarcity (frustration, not challenge)
+- ❌ Incoherent configuration (scarce resources in Submission game)
+- ❌ Hidden resource state (players can't make informed decisions)
+
+### What's Next
+
+Chapter 4 explores **Cognitive Load**—how players think about your game, what creates mental overhead, and how to manage complexity budgets. Resources are one source of cognitive load; Chapter 4 shows how to evaluate total system complexity and design support systems that maintain strategic depth without overwhelming players.
+
+The journey from aesthetic goals to playable systems requires managing both what players do (resources) and how they think about doing it (cognitive load). Together, these shape whether your experiential scaffold achieves its purpose.
+
+**Confidence Level for Chapter Overall:** HIGH for established concepts (resource types, scarcity patterns, recovery → pacing), MEDIUM for aesthetic mappings (validated but context-dependent), LOW for untested integrations (LLM opportunities, some psychological effect solutions require more validation).
+
+---
+
+*Next: Chapter 4 - Cognitive Load and Game System Design*

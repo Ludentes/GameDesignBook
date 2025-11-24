@@ -1,0 +1,406 @@
+---
+title: part-2-loop-fundamentals
+---
+# Part 2: Loop Fundamentals
+
+## What Is a Loop?
+
+A loop is a repeating cycle of player action and system response that creates the moment-to-moment experience of play. At its most basic, a loop consists of:
+
+1. **Action** (player does something)
+2. **Feedback** (system responds)
+3. **Decision** (player chooses next action based on feedback)
+4. **Resolution** (cycle completes or continues)
+
+This cycle repeats at different time scales, creating nested structures where smaller loops fit inside larger ones. Understanding these scales and how they interact is fundamental to temporal architecture design.
+
+## The Four Scales of Engagement
+
+Games operate across four distinct temporal scales, each serving different psychological needs and aesthetic purposes. Not every game needs all four scales—the right architecture depends on your aesthetic goals and target audience.
+
+### Micro Loops (Seconds to Minutes)
+
+**Duration:** 1-60 seconds per cycle
+**Cognitive Load:** Low (1-2 simple decisions)
+**Purpose:** Immediate engagement, moment-to-moment flow
+**Completion Signal:** Visual/audio feedback, small state change
+
+**Examples:**
+
+* **Tetris**: See piece (0.5s) → rotate/position (2s) → place (0.5s) → clear lines (1s) → see next piece
+* **DOOM**: See demon (0.5s) → aim (1s) → shoot (0.5s) → demon dies (0.5s) → find next demon
+* **Wordle**: Think word (10s) → type guess (5s) → see colored feedback (2s) → adjust strategy (10s)
+* **Vampire Survivors**: Move (continuous) → auto-attacks trigger (continuous) → enemies die (continuous) → XP pickups (continuous)
+
+**Design Principle:** Micro loops create flow state. When smooth, players lose track of time. When rough, every moment feels laborious. The micro loop is your most-repeated interaction—it must feel good hundreds or thousands of times per session.
+
+### Meso Loops (Minutes to Half Hour)
+
+**Duration:** 2-30 minutes per cycle
+**Cognitive Load:** Medium (tactical planning, resource management)
+**Purpose:** Create satisfying chunks of progress, provide structure
+**Completion Signal:** Clear victory/completion, significant reward
+**Session Structure:** Multiple meso loops per session
+
+**Examples:**
+
+* **Monster Hunter**: Accept quest (1 min) → prepare loadout (2 min) → hunt monster (10-15 min) → carve materials (1 min) → craft upgrades (2 min)
+* **Civilization VI**: Found city → build improvements → research technology → expand territory → encounter rivals → resolve conflicts (20-50 turns, 10-30 minutes)
+* **Hades**: Clear room cluster (2-3 min) → choose boon reward (30s) → clear next cluster (2-3 min) → reach mid-boss (5 min) → choose major reward (1 min)
+* **Slay the Spire**: Enter encounter (10s) → play cards (2-5 min) → resolve combat → choose reward → modify deck → enter next encounter (15-20 minutes per floor)
+
+**Design Principle:** The meso loop defines what the game "is about." Ask someone what they do in a game, and they'll usually describe the meso loop. It should feel complete enough to be satisfying but connected enough to create forward momentum.
+
+### Macro Loops (Session to Run)
+
+**Duration:** 30 minutes to 3 hours per cycle
+**Cognitive Load:** High (strategic planning, long-term goals)
+**Purpose:** Provide closure, major achievement, session-appropriate endpoint
+**Completion Signal:** Major milestone, victory/defeat, story beat
+**Session Structure:** 1-3 macro loops per extended session
+
+**Examples:**
+
+* **Dark Souls**: Explore area → die to boss → learn patterns → defeat boss → unlock new area → face harder boss (2-6 hours per area)
+* **Vampire Survivors**: Start run (instant) → survive and power up (15-30 min) → death or 30-minute timer → run complete
+* **Pokémon**: Catch pokémon → train team → defeat gym → earn badge → access new area (4-8 hours per badge)
+* **XCOM 2**: Complete mission → earn resources → research technology → upgrade soldiers → unlock harder missions → advance story (1-2 hours per story beat)
+
+**Design Principle:** The macro loop provides purpose and progression. It's the answer to "what did you accomplish this session?" Players should feel they achieved something meaningful, even if the larger game continues.
+
+### Meta Loops (Between Sessions)
+
+**Duration:** Days to months
+**Cognitive Load:** Low between sessions, high during planning
+**Purpose:** Long-term investment, player retention, mastery development
+**Completion Signal:** Permanent unlocks, social recognition, skill milestones
+**Session Structure:** Progress across many sessions
+
+**Examples:**
+
+* **Hades**: Complete runs → unlock weapons/upgrades → advance relationships → reveal story → master all content (20-60 hours)
+* **Destiny 2**: Weekly reset → complete milestones → earn powerful gear → increase power level → unlock new activities (perpetual, 10-15 hours per week)
+* **Slay the Spire**: Beat game → unlock ascension levels → unlock new cards → master higher difficulties (40-100 hours)
+* **Civilization VI**: Complete game → try different civilization → master new strategy → increase difficulty (hundreds of hours)
+
+**Design Principle:** Meta loops provide reasons to return. They should be driven by intrinsic motivation (curiosity, mastery, story) rather than extrinsic pressure (FOMO, obligation, social guilt).
+
+## Not All Games Need All Scales
+
+The right loop architecture depends entirely on your aesthetic goals and target player capacity. More loops aren't better—appropriate loops are better.
+
+### Compressed Architecture Examples
+
+**Wordle:**
+
+* **Micro loops:** Essentially absent (single guesses, not repetitive micro-actions)
+* **Meso loop:** THE GAME (solve puzzle in 6 guesses, 3-5 minutes)
+* **Macro loop:** Intentionally broken (one puzzle per day, forces stopping)
+* **Meta loop:** Minimal (streak tracking, social sharing)
+
+**Why it works:** Casual players (5-30 minute capacity) get complete experience in one meso loop. No micro complexity, no macro commitment, optional meta engagement. Perfect for busy adults who want daily ritual without investment escalation.
+
+**Fruit Ninja:**
+
+* **Micro loop:** IS THE GAME (slice fruit, 0.5s per action)
+* **Meso loop:** Minimal (60-second runs)
+* **Macro loop:** Absent (no progression within session)
+* **Meta loop:** Light (high score chasing)
+
+**Why it works:** Mobile/casual context. Pure flow through micro loops, complete "runs" in 60 seconds, can play one round and feel satisfied. Matches platform (touch, interruption-prone) and audience (casual, short attention windows).
+
+### Full Stack Architecture Examples
+
+**Civilization VI:**
+
+* **Micro loops:** Move units, manage cities (30-120 seconds per turn)
+* **Meso loops:** Complete wonders, research eras, wage wars (20-50 turns, 10-30 minutes)
+* **Macro loops:** Win game (100-500 turns, 4-12 hours)
+* **Meta loops:** Try civilizations, master strategies, increase difficulty (hundreds of hours)
+
+**Why it works:** Hardcore/strategy audience (20+ hours per week capacity) expects and enjoys complexity at all scales. Deep systems justify investment. Self-paced nature respects player autonomy despite long sessions.
+
+**Hades:**
+
+* **Micro loops:** Combat encounters (5-30 seconds per enemy wave)
+* **Meso loops:** Room progression, boon choices (1-3 minutes per room cluster)
+* **Macro loops:** Escape attempt (20-40 minutes per run)
+* **Meta loops:** Story progression, weapon unlocks, relationship advancement (ongoing)
+
+**Why it works:** Midcore audience (10-20 hours per week). Each scale perfectly tuned: micro creates flow, meso provides choice, macro provides closure (death or victory), meta provides long-term hooks. Can play "just one run" (40 minutes) and feel satisfied, or binge for hours.
+
+## The Lesson: Build Only What Serves Your Goals
+
+**Match loop architecture to aesthetic requirements:**
+
+* **Discovery** needs variety at each scale (new things to find)
+* **Challenge** needs consistent micro loops (pattern learning) with escalating difficulty
+* **Mastery** needs depth at all scales (optimization opportunities)
+* **Submission** needs minimal loops (low cognitive investment, gentle rhythm)
+* **Fellowship** needs synchronization points (team coordination)
+* **Narrative** needs pacing that matches story beats (tension and release)
+
+**Match loop architecture to player capacity:**
+
+* **Casual players** (5-30 min sessions): Compressed architecture (1-2 scales), complete in short time
+* **Midcore players** (30-90 min sessions): Moderate architecture (2-3 scales), clear stopping points
+* **Hardcore players** (2+ hours sessions): Full stack acceptable if desired, but still need rest points
+
+**Red flags for over-engineering:**
+
+* Mobile game with complex meta-progression (exceeds casual cognitive budget)
+* Casual puzzle game with elaborate macro loops (exceeds time budget)
+* "One more turn" syndrome (macro loops too long, no good stopping points)
+* Overwhelming new players (all four scales active from minute one)
+
+## How Pacing Emerges from Loop Structures
+
+Pacing isn't a separate system you add—it emerges from how your loops interact with parameters and context. Understanding pacing patterns helps you design temporal structures that create intended emotional rhythms.
+
+### The Five Pacing Patterns
+
+These patterns describe how intensity and pressure vary over time. They emerge from loop architecture combined with parameter choices (recovery rates, resource scarcity, difficulty escalation).
+
+**1. Attrition Pacing**
+
+* **Pattern:** Gradual pressure buildup, slow resource depletion, decisions compound
+* **Loop structure:** Long macro loops, slow recovery, consequences accumulate
+* **Emotional arc:** Growing tension, strategic decisions matter more over time
+* **Examples:** Old-school D\&D (daily spell slots, slow healing), XCOM campaigns (soldier losses accumulate), Dark Souls areas (no healing until bonfire)
+* **Best for:** Challenge (strategic), Tension, Mastery (long-term planning)
+* **Feel:** "Being ground down, every decision matters, pressure mounting"
+
+**2. Episodic Pacing**
+
+* **Pattern:** Self-contained scenes, resources reset each encounter, fresh start each time
+* **Emotional arc:** Tension builds and releases within episodes, no accumulation
+* **Examples:** Modern D\&D (short rests between encounters), most FPS levels, Hades rooms
+* **Best for:** Challenge (tactical), Narrative (scene-based), Fellowship (team encounters)
+* **Feel:** "Each encounter is new opportunity, failure doesn't compound"
+
+**3. Wave Pacing**
+
+* **Pattern:** Alternating intensity cycles: build-up → climax → recovery → repeat
+* **Loop structure:** Multiple cycles per session, clear peaks and valleys
+* **Emotional arc:** Rhythmic tension and release, natural breathing room
+* **Examples:** Blades in the Dark scores (setup → execution → downtime), Left 4 Dead AI Director (horde → respite → horde), Hades biome structure
+* **Best for:** Most aesthetics (engagement management), Narrative (dramatic structure)
+* **Feel:** "Natural rhythm, tension rises and falls, satisfying peaks"
+
+**4. Continuous Pacing**
+
+* **Pattern:** Steady state without clear breaks, constant engagement
+* **Loop structure:** Seamless micro loops, no forced pauses
+* **Emotional arc:** Sustained flow state, "in the zone" feeling
+* **Examples:** Tetris (pieces never stop), Vampire Survivors (constant action), real-time strategy (always managing), action games (combat flow)
+* **Best for:** Challenge (execution), Flow state focus, Submission (meditative)
+* **Feel:** "In the zone, can't put it down, time disappears"
+
+**5. Punctuated Pacing**
+
+* **Pattern:** Long calm periods interrupted by sudden intense moments
+* **Loop structure:** Exploration/preparation dominates, sudden encounters break calm
+* **Emotional arc:** Calm exploration, sudden adrenaline spikes, back to calm
+* **Examples:** Horror games (exploration → jumpscare → calm), Subnautica (peaceful gathering → leviathan encounter), open-world discovery
+* **Best for:** Discovery, Tension (anticipation), Horror (sudden fear)
+* **Feel:** "Calm exploration then sudden terror, tension through anticipation"
+
+### How Loop Architecture Creates Pacing
+
+Pacing emerges from the interaction of:
+
+* **Loop duration:** How long between intensity changes
+* **Recovery rate:** How quickly resources/safety return (PRIMARY DRIVER)
+* **Escalation rate:** How difficulty increases over time
+* **Constraint pressure:** When time/resource limits create urgency
+
+**Example: Attrition Pacing in Dark Souls**
+
+* **Macro loop:** Bonfire to boss (30-60 minutes)
+* **Meso loop:** Area section (10-15 minutes)
+* **Micro loop:** Combat encounter (30-60 seconds)
+* **Parameters:** Slow healing (Estus limited), checkpoints sparse, death costs progress
+* **Result:** Pressure builds over 30+ minutes, each decision matters more, relief only at bonfire
+
+**Example: Continuous Pacing in Vampire Survivors**
+
+* **Macro loop:** 30-minute run
+* **Meso loop:** Level-ups (every 60-90 seconds)
+* **Micro loop:** Continuous movement and auto-attack
+* **Parameters:** Instant feedback, constant enemies, no recovery needed (no damage recovery mechanic)
+* **Result:** Unbroken flow for 30 minutes, brief pauses at level-ups
+
+**Example: Wave Pacing in Hades**
+
+* **Macro loop:** Full run (30-40 minutes)
+* **Meso loop:** Room cluster → reward choice (3-5 minutes)
+* **Micro loop:** Combat waves (30-60 seconds)
+* **Parameters:** Fast combat, clear room transitions, reward pauses create valleys
+* **Result:** Combat intensity → brief strategic pause → combat intensity (cycles every 3-5 minutes)
+
+### Paradigms and Pacing
+
+Your balance paradigm (from Chapter 4: Balance) influences natural pacing patterns:
+
+* **Framework paradigm** (negotiated stakes) often creates **Wave pacing** (negotiation → resolution → consequence → recovery)
+* **Consistency paradigm** (learnable patterns) often creates **Episodic** or **Continuous** pacing (encounter-based or seamless execution)
+* **Adaptive paradigm** (dynamic difficulty) explicitly manages **Wave pacing** (Director builds/releases tension)
+
+### Measurable Pacing Parameters
+
+For numerical targets and detailed measurement, see **Chapter 4: Balance, Part 5 (Measurables Catalog)**. Key temporal measurables include:
+
+* **Cycle Length:** Duration of one pacing cycle (micro to macro)
+* **Recovery Speed:** How quickly resources restore (PRIMARY pacing determinant)
+* **Recovery Frequency:** How often relief periods occur
+* **Tension Gradient:** How intensity varies over time
+* **Decision Frequency:** How often meaningful choices occur
+
+This chapter defines the patterns conceptually. The Balance chapter provides the numbers.
+
+## Flow State and Loop Design
+
+Flow state (Csikszentmihalyi, 1990) occurs when challenge perfectly matches skill—the "zone" where players lose track of time in total absorption. Different aesthetics require different flow profiles, and your loop architecture must support the right flow state for your goals.
+
+### Flow Requirements by Aesthetic
+
+**Challenge aesthetic:** Frequent flow at edge of ability
+
+* Micro loops must be tight (immediate action-feedback)
+* Difficulty must scale with player skill
+* Failure must teach without frustrating
+* Example: Dark Souls combat (consistent loops enable pattern learning)
+
+**Fellowship aesthetic:** Flow through social engagement, not mechanical challenge
+
+* Micro loops must have low mechanical load (allows conversation)
+* Coordination creates flow, not execution difficulty
+* Example: Keep Talking and Nobody Explodes (simple actions, complex coordination)
+
+**Submission aesthetic:** Gentle, predictable flow (meditation-like state)
+
+* Micro loops must be soothing, not demanding
+* Continuous flow for extended periods (30+ minutes)
+* No disruption from difficulty spikes
+* Example: Vampire Survivors after first 5 minutes (meditative slaughter)
+
+**Mastery aesthetic:** Flow emerges as load decreases with practice
+
+* Micro loops should feel hard initially, automatic later
+* Depth reveals over time (new optimization opportunities)
+* Flow channel widens as player internalizes systems
+* Example: Fighting games (execution becomes muscle memory, strategy remains engaging)
+
+**Discovery aesthetic:** Flow breaks deliberately for revelation
+
+* Constant flow would prevent noticing discoveries
+* Surprise interruptions are feature, not bug
+* Micro loops support exploration, not absorption
+* Example: Outer Wilds (movement flow → discovery moment breaks flow → contemplation)
+
+### Loop Speed and Flow
+
+**Fast micro loops** (sub-second feedback) create visceral flow:
+
+* Shooting games (trigger → hit → damage number)
+* Rhythm games (note → press → perfect/good/miss)
+* Action games (attack → impact → enemy reaction)
+
+**Medium micro loops** (1-5 second cycles) create tactical flow:
+
+* Strategy games (issue order → see result → next decision)
+* Puzzle games (try solution → see if it works → adjust)
+* Card games (play card → resolve effect → next card)
+
+**Slow micro loops** (10+ seconds) risk breaking flow:
+
+* Must provide thinking time (strategy justifies slowness)
+* Or must have other engagement (narrative during wait)
+* Without justification, feels sluggish
+
+**Red flag:** If micro loops take >10 seconds but don't require strategic thinking, you've created dead time that breaks flow.
+
+## Loop Nesting and Coherence
+
+Loops must nest cleanly—each larger scale should contain multiple iterations of smaller scales. Poor nesting creates confusion about goals and progress.
+
+### Good Nesting Examples
+
+**Vampire Survivors:**
+
+* Micro loops (movement + auto-attack) happen continuously
+* Meso loops (level-ups) happen every 60-90 seconds (contains \~60-90 seconds of micro loops)
+* Macro loop (run) contains 15-20 level-ups (15-20 meso loops)
+* Clean nesting: 90 seconds × 20 level-ups ≈ 30 minutes
+
+**Hades:**
+
+* Micro loops (combat encounters) take 30-60 seconds
+* Meso loops (room clusters) contain 2-4 encounters (2-4 micro loops)
+* Macro loop (full run) contains \~40-50 rooms in 10-12 clusters (10-12 meso loops)
+* Clean nesting: multiple micro per meso, multiple meso per macro
+
+### Poor Nesting Examples
+
+**Early No Man's Sky (launch version):**
+
+* Micro loops: Mine resources (seconds)
+* Meso loops: Missing—no clear intermediate goals
+* Macro loops: Reach center of galaxy (hundreds of hours)
+* Broken nesting: Micro loops don't build to anything, macro goal too distant
+
+**Problem:** The "missing middle" leaves players without medium-term objectives. Micro actions feel pointless because they don't accumulate toward visible meso goals.
+
+### Configuration Coherence Across Scales
+
+Just as Chapter 1's Configuration Coherence Test asks "Do all five components serve the same aesthetic?", we now ask: **"Do all loop scales serve the same aesthetic?"**
+
+**Test your temporal configuration:**
+
+* ✓ Do micro loops create the right flow profile for your aesthetic?
+* ✓ Do meso loops provide appropriate goals (variety for Discovery, consistency for Mastery)?
+* ✓ Do macro loops match expected session length and provide closure?
+* ✓ Do meta loops use intrinsic motivation aligned with aesthetic?
+
+**Example: Hades passes the test**
+
+* Micro: Fast combat (serves Challenge aesthetic)
+* Meso: Build variety through boon choices (serves Discovery/Mastery)
+* Macro: Death provides narrative progression (serves Narrative aesthetic)
+* Meta: Relationship advancement (serves Narrative/Progression)
+* All loops reinforce Challenge + Narrative + Progression
+
+**Example: Anthem fails the test**
+
+* Micro: Flying combat feels great (serves Challenge/Fantasy)
+* Meso: Repetitive missions (fights Discovery/Narrative)
+* Macro: Unclear progression (fights Progression aesthetic)
+* Meta: Disconnected loot grind (doesn't serve core aesthetics)
+* Loops fight each other—configuration incoherence
+
+## Summary: Loop Fundamentals
+
+**A loop is:** A repeating cycle of action-feedback-decision that creates play experience
+
+**Four scales exist:**
+
+* Micro (seconds): Moment-to-moment, creates flow
+* Meso (minutes): Provides structure and goals
+* Macro (session): Provides closure and achievement
+* Meta (between sessions): Provides long-term investment
+
+**Not all games need all scales:** Match architecture to aesthetic goals and player capacity
+
+**Pacing emerges from loops:** Five patterns (Attrition, Episodic, Wave, Continuous, Punctuated) emerge from loop structure + parameters
+
+**Flow profiles vary by aesthetic:** Different aesthetics require different flow states and loop speeds
+
+**Loops must nest cleanly:** Each scale contains multiple iterations of smaller scales
+
+**Configuration coherence extends to time:** All loop scales must serve your aesthetic goals
+
+**Next:** Part 3 examines how specific aesthetics map to loop requirements, with validated patterns for Discovery, Challenge, Mastery, and other goals.
+
+***
+
+**Confidence Level: HIGH** - Loop scale definitions and nesting principles are well-validated across thousands of games. Pacing pattern definitions are STABLE (integrated from Balance chapter). Flow state principles are established (Csikszentmihalyi research + game design practice).

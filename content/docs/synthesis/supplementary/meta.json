@@ -2,7 +2,17 @@
   "title": "Supplementary",
   "pages": [
     "./players-and-contexts-section",
-    "./synthesis-chapter-bootstrap",
-    "./all"    
+    "./synthesis-chapter-bootstrap",    
+    "./archetype-01-daily-puzzle",
+    "./archetype-02-roguelike",
+    "./archetype-03-4x-strategy",
+    "./archetype-04-cozy-life-sim",
+    "./archetype-05-oneshot-ttrpg",
+    "./archetype-06-metroidvania",
+    "./archetype-07-idle-incremental",
+    "./archetype-08-deck-building",
+    "./archetype-09-walking-simulator",
+    "./archetype-10-auto-battler",
+    "./synthesis-framework-appendices-bcd"
   ]
 }

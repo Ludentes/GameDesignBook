@@ -1,0 +1,839 @@
+---
+title: synthesis-framework-phase3-revised
+---
+# Phase 3: System Specification - What Are the Actual Rules?
+
+## Overview
+
+Phase 3 defines the concrete system elements that players interact with - the rules, resources, and parameters that bring your scaffold to life. This is where we move from architecture to implementation.
+
+**Critical terminology clarification:**
+
+* **System Elements** = The designed rules and procedures (what MDA calls "mechanics")
+* **Core Verbs** = What players actually DO
+* **Dynamics** = Patterns that emerge from system elements + player agency (predicted in Phase 5)
+* **Resources** = Trackable quantities players manage
+* **Parameters** = Numeric values and ranges
+
+We're NOT yet predicting dynamics (emergent patterns) - that comes in Phase 5. Here we're designing the system elements that will create those dynamics.
+
+***
+
+## Step 3.1: Define Core Verbs
+
+### What Are Core Verbs?
+
+Core verbs are what players actually DO in your game. Not the rules that govern those actions, but the actions themselves.
+
+**Examples:**
+
+* Shoot, dodge, jump (action game)
+* Investigate, interrogate, deduce (mystery game)
+* Build, harvest, craft (crafting game)
+* Bid, trade, negotiate (economic game)
+* Match, swap, clear (puzzle game)
+
+### Identifying Your Core Verbs
+
+**From your aesthetic profile:**
+
+* **Challenge aesthetic** → Decision-making verbs (choose, evaluate, optimize)
+* **Discovery aesthetic** → Information-gathering verbs (explore, examine, uncover)
+* **Mastery aesthetic** → Skill-execution verbs (aim, time, combo)
+* **Expression aesthetic** → Creative verbs (build, design, customize)
+* **Fellowship aesthetic** → Social verbs (cooperate, communicate, coordinate)
+* **Narrative aesthetic** → Choice verbs (decide, confront, respond)
+* **Horror aesthetic** → Vulnerability verbs (hide, escape, endure)
+
+**From your scaffold architecture:**
+
+* **Loop-based** → Repeated action verbs (what micro loop does)
+* **Narrative arc** → Interaction verbs (what beats consist of)
+* **Puzzle** → Problem-solving verbs (manipulate, solve, deduce)
+* **Exploration** → Navigation verbs (move, discover, unlock)
+
+### How Many Core Verbs?
+
+**Guideline: 3-7 core verbs maximum**
+
+Too few (\<3): Game feels shallow, limited
+Too many (>7): Cognitive overload, unclear focus
+
+**Complexity by player profile:**
+
+* Casual: 3-4 core verbs
+* Midcore: 4-6 core verbs
+* Hardcore: 5-7 core verbs (can handle more)
+
+### Worked Example: Murder Mystery TTRPG
+
+**From Aesthetics:**
+
+* Discovery → information-gathering verbs
+* Challenge (deduction) → reasoning verbs
+* Fellowship → social verbs
+
+**Core Verbs Identified:**
+
+1. **Investigate** - Search locations for physical evidence
+2. **Interview** - Question witnesses and suspects
+3. **Deduce** - Connect clues and form theories
+4. **Challenge** - Confront lies with evidence
+5. **Theorize** - Discuss with other players (collaborate)
+
+**Why these five:**
+
+* Cover all aspects of investigation
+* Support Discovery aesthetic (1, 2, 3)
+* Support Challenge aesthetic (3, 4)
+* Support Fellowship aesthetic (5)
+* Manageable number (5 = good for adults)
+
+**What we didn't include:**
+
+* Combat/fighting (not investigation-focused)
+* Skill checks (system verb, not player verb)
+* Resource management (no crafting/economy)
+
+***
+
+## Step 3.2: Design System Elements
+
+### What Are System Elements?
+
+System elements are the designed rules that govern how core verbs work. They're what you program (in video games) or write down (in tabletop games).
+
+**System elements answer:**
+
+* HOW do players perform core verbs?
+* WHAT happens when they do?
+* WHAT constraints exist?
+* WHAT feedback occurs?
+
+### Mapping Aesthetics to System Elements
+
+Different aesthetics require different system elements:
+
+**Challenge Aesthetic Needs:**
+
+* Meaningful decisions (multiple viable options)
+* Clear consequences (choices matter)
+* Skill differentiation (better play = better outcomes)
+* Fair failure (lose because of decisions, not randomness)
+
+**Discovery Aesthetic Needs:**
+
+* Hidden information (things to find)
+* Revelation systems (how information is uncovered)
+* Surprising connections (aha! moments)
+* Breadcrumb trails (one discovery leads to another)
+
+**Mastery Aesthetic Needs:**
+
+* Skill curves (easy to learn, hard to master)
+* Tight feedback (responsive controls)
+* Optimization space (multiple paths to mastery)
+* Visible improvement (can see yourself getting better)
+
+**Horror Aesthetic Needs:**
+
+* Vulnerability systems (player can be harmed/lose)
+* Dread mechanics (anticipation of consequences)
+* Limited control (can't solve everything)
+* Consequences that matter (permanent or costly)
+
+**Narrative Aesthetic Needs:**
+
+* Choice points (player agency)
+* Consequence tracking (choices remembered)
+* Character systems (who are you?)
+* Relationship systems (how NPCs react)
+
+### System Element Design Principles
+
+**1. Serve Your Aesthetics**
+Every system element must justify itself by serving primary aesthetics. If it doesn't, cut it.
+
+**2. Minimize Complexity**
+Simpler systems create space for aesthetic experience. Complex systems compete with aesthetics for cognitive load.
+
+**3. Make Consequences Clear**
+Players should understand what their actions do. Mystery in outcomes is usually bad (unless Discovery aesthetic).
+
+**4. Avoid False Choices**
+Every option should be potentially valid. "Obvious best choice" is a failed system element.
+
+**5. Support Player Intent**
+System should help players do what they want, not fight them.
+
+### Worked Example: Murder Mystery System Elements
+
+**Core Verb: Investigate (search location for evidence)**
+
+**System Element Design:**
+
+**Automatic Clue Discovery:**
+
+* IF player searches relevant location
+* THEN they find core clues (no roll required)
+* Specificity affects detail, not success
+
+**Why:**
+
+* Discovery aesthetic: Finding clues is the game
+* Challenge aesthetic: Deduction is challenge, not finding
+* Avoids frustration: Can't get stuck because missed roll
+* Serves investigation focus: System doesn't block story
+
+**Implementation:**
+
+```
+Player: "I search the desk."
+GM: "You find threatening letters signed 'M' and a ledger showing payments."
+[No roll needed - they searched desk, clues are there]
+
+Player: "I examine the letters more closely."
+GM: "The handwriting is elegant, feminine. The paper is expensive."
+[Still no roll - examining what they found]
+
+Player: "I check if there are any hidden compartments in the desk."
+GM: "Good thinking. Roll Investigation."
+[Roll for HIDDEN clue, not core clue]
+```
+
+**Core Verb: Interview (question suspects)**
+
+**System Element: Layered Secrets**
+
+Each NPC has multiple layers:
+
+* **Public Story:** What they claim openly
+* **First Secret:** What they're hiding (revealed when caught in lie)
+* **Second Secret:** Deeper truth (revealed with more evidence)
+* **The Truth:** Actual involvement
+
+**Why:**
+
+* Discovery aesthetic: Peeling back layers is revealing
+* Challenge aesthetic: Must catch lies with evidence
+* Supports complexity: Everyone has secrets (not just killer)
+* Creates fair play: Each layer has evidence trail
+
+**Implementation:**
+
+```
+Public Story (automatic):
+GM (as Mrs. Pemberton): "I was in my room reading all evening."
+
+First Secret (revealed when contradicted):
+Player: "But the maid says she didn't see you after 7pm."
+GM: "Very well. I went to the study at 8:30. But he was already dead!"
+
+Second Secret (revealed with more evidence):
+Player: "We found love letters signed M.P. That's you."
+GM: [Breaks down] "Yes, we had an affair. I needed those letters back."
+
+The Truth (revealed with full evidence):
+Player: "The butler saw you leaving at 8:45, but the body was warm at 9pm."
+GM: "Oh thank god. Yes, I left him alive. Someone else killed him after I left."
+```
+
+**Core Verb: Challenge (confront with evidence)**
+
+**System Element: Evidence-Based Confrontation**
+
+* Players can challenge any NPC statement
+* IF have contradicting evidence THEN NPC must respond
+* NPC responses: Admit and explain, revise story, or double down
+* No roll to challenge (you either have evidence or don't)
+
+**Why:**
+
+* Challenge aesthetic: Logic and evidence, not dice
+* Discovery aesthetic: Pursuing truth, not persuading
+* Player agency: System doesn't decide if they "succeed"
+* Fair play: Evidence works or it doesn't
+
+**Implementation:**
+
+```
+Player: "You said you were in the garden at 9pm."
+NPC: "Yes, that's correct."
+
+Player: "But the footprints in the garden are size 10 boots. You wear size 7."
+[This is evidence - system forces response]
+
+GM (as NPC): [Must choose response based on character psychology]
+Option A: "You're right, I wasn't in the garden. I lied because..."
+Option B: "I was there earlier, someone else made those prints later."
+Option C: "Those are my husband's boots, I borrowed them because..."
+
+[No roll - logic determines outcome]
+```
+
+**System Element: Time Pressure (Abstract)**
+
+* Investigation has limited time (abstract, not counted precisely)
+* Some actions "take time" (forces prioritization)
+* Creates decision: Interview suspect A OR search location B?
+
+**Why:**
+
+* Challenge aesthetic: Resource scarcity creates decisions
+* Pacing tool: Prevents exhaustive searching of everything
+* Maintains tension: Can't do everything perfectly
+* Not punitive: Time is flexible, GM-managed
+
+**Implementation:**
+
+```
+GM: "You have the evening to investigate before the killer escapes."
+
+Player: "I want to interview all five suspects in detail."
+GM: "That would take hours. You probably have time for two or three in depth, 
+or quick questions with all of them. What's your priority?"
+
+[Forces meaningful choice without precise time tracking]
+```
+
+### Choosing Between System Elements
+
+**When you have multiple options, choose based on:**
+
+**1. Which serves aesthetics better?**
+Example: Roll to find clues vs. automatic finding
+
+* Roll = Challenge through randomness (not what we want)
+* Automatic = Challenge through deduction (matches aesthetic)
+  → Choose automatic
+
+**2. Which is simpler?**
+Example: Complex lie detection vs. evidence-based challenge
+
+* Complex = Track suspicion levels, roll vs. NPC's deception
+* Simple = Have evidence or don't, NPC responds logically
+  → Choose simple (unless complexity serves aesthetic)
+
+**3. Which gives players more agency?**
+Example: GM decides if you find clue vs. players always find if they look
+
+* GM decides = Players feel powerless
+* Players find = Players feel competent
+  → Choose player agency (for Discovery aesthetic)
+
+**4. Which is more transparent?**
+Example: Hidden formulas vs. visible calculations
+
+* Hidden = Players can't predict outcomes
+* Visible = Players can plan strategically
+  → Choose visible (unless surprise is the point)
+
+***
+
+## Step 3.3: Design Resource Systems
+
+### What Are Resources?
+
+Resources are trackable quantities that players manage. They can be:
+
+* **Tangible:** HP, mana, gold, items
+* **Abstract:** Time, reputation, suspicion
+* **Informational:** Clues, knowledge, relationships
+
+Reference the Resource Management chapters for detailed treatment.
+
+### Resource Types and Functions
+
+**Limiters (Create Scarcity and Tension):**
+
+* Health/lives (can you survive?)
+* Action points/moves (can you do enough?)
+* Time (can you finish in time?)
+
+**Currencies (Enable Choice and Trade-offs):**
+
+* Money (what to buy?)
+* Experience (what to upgrade?)
+* Materials (what to craft?)
+
+**Trackers (Show Progress and State):**
+
+* Quest completion (how far along?)
+* Map exploration (where have I been?)
+* Relationship levels (who trusts me?)
+
+**Meta-Resources (Cross-Session Persistence):**
+
+* Unlocks (what's available?)
+* Skill points (how am I specialized?)
+* Collection progress (what have I found?)
+
+### How Many Resources?
+
+**Golden Rule: 3-5 resources maximum**
+
+Why?
+
+* Fewer = easy to track, but limited decisions
+* More = rich decisions, but cognitive overload
+
+**By player profile:**
+
+* Casual: 2-4 resources (simple tracking)
+* Midcore: 3-5 resources (moderate complexity)
+* Hardcore: 4-6 resources (can handle more)
+
+**By aesthetic:**
+
+* Challenge: Need meaningful scarcity (multiple limiting resources)
+* Discovery: Fewer resources, more information tracking
+* Mastery: Resources for optimization and builds
+* Narrative: Minimal resources, focus on story
+
+### Resource Design Questions
+
+For each resource, define:
+
+**1. What is it?**
+
+* Tangible or abstract?
+* Measured in numbers or states?
+
+**2. What's its function?**
+
+* Limiter, currency, tracker, or meta?
+* What decisions does it create?
+
+**3. How scarce/abundant?**
+
+* Always limited (creates tension)?
+* Renewable (can recover)?
+* Permanent (no recovery)?
+
+**4. How does it flow?**
+
+* How gained?
+* How spent?
+* How lost?
+
+**5. How does it interact with other resources?**
+
+* Can convert A to B?
+* Does A limit B?
+* Independent or linked?
+
+### Worked Example: Murder Mystery Resources
+
+**Resource Count: 3 (minimal - investigation is the content)**
+
+**Resource 1: Time (Abstract Pressure)**
+
+* **Type:** Limiter (abstract)
+* **Function:** Forces prioritization
+* **Scarcity:** Limited but not counted precisely
+* **Flow:**
+  * Start: "You have the evening to investigate"
+  * Spent: Some actions "take significant time"
+  * Lost: Can't do everything exhaustively
+* **Interaction:** Affects which leads you can follow
+
+**Why this works:**
+
+* Creates Challenge (must prioritize)
+* Doesn't distract from Discovery (not tracking numbers)
+* GM-managed (flexible to story needs)
+
+**Resource 2: Evidence (Accumulating Knowledge)**
+
+* **Type:** Currency/Tracker hybrid
+* **Function:** Enables confrontations, shows progress
+* **Scarcity:** Abundant (want players to find clues)
+* **Flow:**
+  * Gained: Through investigation
+  * Spent: Used to challenge lies
+  * Persists: Clues don't disappear
+* **Interaction:** More evidence = more options for challenges
+
+**Why this works:**
+
+* Supports Discovery (finding is rewarding)
+* Supports Challenge (evidence creates logic puzzles)
+* Tangible (physical cards players can examine)
+
+**Resource 3: Leads (Directional Tracker)**
+
+* **Type:** Tracker
+* **Function:** Shows investigation paths
+* **Scarcity:** Generated by discoveries
+* **Flow:**
+  * Gained: Each clue suggests new leads
+  * Spent: Following a lead (time cost)
+  * Some close: Dead ends revealed as dead ends
+* **Interaction:** Time limits which leads you pursue
+
+**Why this works:**
+
+* Prevents aimless wandering (always have direction)
+* Creates decisions (which lead to follow?)
+* Supports Discovery (breadcrumb trail)
+
+**Resources We Didn't Include:**
+
+**No HP/Health:**
+
+* Not a combat game
+* Not survival horror
+* Would distract from investigation
+
+**No Character Stats:**
+
+* Not a progression game
+* One-shot means no advancement
+* Investigation is about clues, not character ability
+
+**No Money/Economy:**
+
+* No purchasing decisions
+* Would add complexity without serving aesthetic
+
+**No Relationship Points:**
+
+* NPC reactions are played, not calculated
+* Tracking numbers would make it gamey
+* GM judges based on player approach
+
+***
+
+## Step 3.4: Set Initial Parameters
+
+### What Are Parameters?
+
+Parameters are the numeric values and ranges that define your system:
+
+* HP amounts, damage values
+* Action costs, resource limits
+* Probabilities, success thresholds
+* Timing values, duration lengths
+
+Reference "From Principles to Numbers" chapters for detailed measurables.
+
+### From Aesthetics to Numbers
+
+Your aesthetic goals map to target numbers:
+
+**Challenge Aesthetic:**
+
+* Target win rate (50-80% depending on desired difficulty)
+* Failure tolerance (how many mistakes allowed?)
+* Decision count per session (meaningful choices)
+* Time pressure (if applicable)
+
+**Discovery Aesthetic:**
+
+* Content variety (how many unique discoveries?)
+* Revelation pacing (how often do players discover something?)
+* Hidden percentage (what % of content is secret?)
+* Breadcrumb density (how often does one clue lead to another?)
+
+**Mastery Aesthetic:**
+
+* Skill ceiling (how much room to improve?)
+* Mastery time (hours to achieve competency)
+* Optimization space (how many viable builds/strategies?)
+
+**Completion Aesthetic:**
+
+* Session length (can complete in available time?)
+* Progress visibility (how often do players see advancement?)
+* Goal clarity (how obvious is the objective?)
+
+### Parameter Setting Process
+
+**Step 1: Identify Measurables**
+What numbers does your game need?
+
+**Step 2: Map Aesthetics to Targets**
+What should those numbers be to create desired experience?
+
+**Step 3: Set Initial Values**
+Educated guesses based on aesthetic targets
+
+**Step 4: Define Tuning Ranges**
+Min/max acceptable values for later iteration
+
+### Worked Example: Murder Mystery Parameters
+
+**For TTRPG Investigation (Fewer Numeric Parameters):**
+
+**Scene Structure Parameters:**
+
+**Crime Scene Clues:**
+
+* Core clues: 5-7 (must be findable)
+* Supporting clues: 2-3 (add depth)
+* Hidden clues: 1-2 (optional, for thorough investigation)
+* Total per location: 7-12 clues
+
+**Why these numbers:**
+
+* 5-7 core = enough to solve, not overwhelming
+* 2-3 supporting = adds richness without bloat
+* 1-2 hidden = rewards thoroughness, not required
+
+**Per Suspect:**
+
+* Secrets: 2-3 layers (Public → First → Second → Truth)
+* Evidence pieces: 3-5 (enough to build case)
+* Contradictions: 1-2 (ways to catch them lying)
+
+**Why these numbers:**
+
+* 2-3 secrets = depth without confusion
+* 3-5 evidence = need multiple pieces to convict
+* 1-2 contradictions = catchable but not obvious
+
+**Total Suspects:**
+
+* Minimum: 3 (need multiple possibilities)
+* Ideal: 4-5 (interesting but trackable)
+* Maximum: 6 (more = too complex for one session)
+
+**Why these numbers:**
+
+* \<3 = too obvious
+* 4-5 = sweet spot for adult mystery fans
+* > 6 = cognitive overload, can't track everyone
+
+**Timeline Parameters:**
+
+**Investigation Window:**
+
+* Key events: 5-7 critical moments
+* Time window: 2-3 hours (before/during/after murder)
+* Suspect movements: Account for each suspect during window
+
+**Why these numbers:**
+
+* 5-7 events = complex enough for mystery
+* 2-3 hours = trackable by players
+* Full accounting = fair play (all alibis checkable)
+
+**Difficulty Calibration:**
+
+**For Adult Mystery Fans (Medium-Hard Difficulty):**
+
+* Red herrings: 2-3 total (interesting, not padding)
+* Misdirections: 1-2 (make wrong suspect viable)
+* Confirming clues for truth: 5-7 (need multiple to be certain)
+* Difficulty: Should take 60-80% of available session time
+
+**Why these numbers:**
+
+* 2-3 red herrings = enough to mislead, not frustrate
+* 1-2 misdirections = makes mystery interesting
+* 5-7 confirming = high confidence when solved
+* 60-80% time = feels challenging but achievable
+
+**Roll Probabilities (When Used):**
+
+**2d6 System:**
+
+* 10+ (Full Success): 28% probability
+* 7-9 (Success with complication): 44% probability
+* 6- (Failure/complication): 28% probability
+
+**Why this curve:**
+
+* Most outcomes (72%) are success or partial success
+* Failure possible (28%) but not punishing
+* Supports Discovery (usually find something)
+* Adds interest (complications create story)
+
+**When Rolls Happen:**
+
+* Core clues: Never (automatic)
+* Supporting details: Rarely (only if time-limited)
+* Hidden clues: Sometimes (bonus content)
+* Speed/depth: Occasionally (how long does this take?)
+
+***
+
+## Step 3.5: System Completeness Check
+
+Before moving to Phase 4, verify your system is complete:
+
+### Core Verbs Coverage
+
+* [ ] Every primary aesthetic has supporting verbs
+* [ ] Verbs cover all player actions in scaffold architecture
+* [ ] No verb is redundant (each serves unique purpose)
+* [ ] Players can intuit verbs from game context
+* [ ] Verb count within cognitive budget (3-7 max)
+
+### System Elements Coverage
+
+* [ ] Every core verb has governing system elements
+* [ ] System elements serve aesthetics (not arbitrary complexity)
+* [ ] Elements are as simple as possible while serving goals
+* [ ] Consequences are clear (players know what actions do)
+* [ ] No false choices (multiple viable approaches)
+
+### Resource System Coverage
+
+* [ ] Resource count within guidelines (3-5 for most games)
+* [ ] Each resource serves clear purpose (limiter, currency, tracker)
+* [ ] Resource scarcity/abundance matches aesthetic goals
+* [ ] Resources interact meaningfully (if they interact)
+* [ ] No resources that just add bookkeeping without decisions
+
+### Parameter Coverage
+
+* [ ] All necessary numeric values defined
+* [ ] Values mapped to aesthetic targets
+* [ ] Tuning ranges identified (min/max acceptable)
+* [ ] Difficulty appropriate for player profile
+* [ ] If using dice/probability: Outcomes support aesthetics
+
+### Common Issues to Catch
+
+**"System Bloat" Problem:**
+
+* Too many system elements competing for attention
+* Solution: Cut anything not directly serving primary aesthetic
+
+**"Missing Feedback" Problem:**
+
+* Players don't know if their actions worked
+* Solution: Add clear outcome indicators for each verb
+
+**"Resource Overload" Problem:**
+
+* More than 5-7 resources to track
+* Solution: Combine similar resources or cut non-essential ones
+
+**"Parameter Guessing" Problem:**
+
+* No rationale for numeric values chosen
+* Solution: Map parameters to aesthetic goals, use measurables
+
+**"Complexity Without Purpose" Problem:**
+
+* System elements are intricate but don't enhance experience
+* Solution: Simplify or cut - complexity must earn its cost
+
+***
+
+## Special Considerations by Medium
+
+### Video Games
+
+* System elements must be programmable (precise rules)
+* Feedback must be immediate (visual/audio)
+* Parameters need precise numeric values
+* Can handle more complexity (computer calculates)
+
+### Tabletop RPGs
+
+* System elements must be human-executable
+* GM interprets and adapts rules
+* Parameters can be ranges (GM judgment)
+* Must be simple enough to remember
+
+### Board Games
+
+* System elements must be physically representable
+* Components and space are constraints
+* Parameters must work with discrete pieces
+* No hidden information calculation (players see everything)
+
+***
+
+## Output from Phase 3
+
+You should now have:
+
+**Complete System Specification:**
+
+1. **Core Verbs** (3-7 verbs)
+   * Listed explicitly
+   * Mapped to aesthetics
+   * Within cognitive budget
+
+2. **System Elements**
+   * Rules for each core verb
+   * How actions resolve
+   * Constraints and limitations
+   * Feedback mechanisms
+
+3. **Resources** (3-5 resources)
+   * Type and function of each
+   * Scarcity/abundance
+   * Flow (gain/spend/lose)
+   * Interactions between resources
+
+4. **Parameters**
+   * Numeric values or ranges
+   * Mapped to aesthetic targets
+   * Tuning ranges identified
+   * Difficulty calibrated
+
+**Example Complete Phase 3 Output:**
+
+```
+MURDER MYSTERY TTRPG - SYSTEM SPECIFICATION
+
+Core Verbs (5):
+1. Investigate - Search locations for evidence
+2. Interview - Question suspects/witnesses  
+3. Deduce - Connect clues and form theories
+4. Challenge - Confront lies with evidence
+5. Theorize - Collaborate with other players
+
+System Elements:
+- Automatic clue discovery (no rolls for core clues)
+- Layered secrets (Public → Secret 1 → Secret 2 → Truth)
+- Evidence-based confrontation (have proof = NPC must respond)
+- Time pressure (abstract, forces prioritization)
+- GM interprets NPC psychology (not mechanical)
+
+Resources (3):
+1. Time (abstract limiter) - Forces choices, not counted precisely
+2. Evidence (accumulating currency) - Physical cards, used to challenge
+3. Leads (directional tracker) - Investigation paths, some dead ends
+
+Parameters:
+- Suspects: 4-5 total
+- Secrets per suspect: 2-3 layers
+- Crime scene clues: 5-7 core, 2-3 supporting
+- Evidence per suspect: 3-5 pieces
+- Timeline: 2-3 hour window, 5-7 key events
+- Red herrings: 2-3 total
+- Session length: 4-6 hours
+- Difficulty: Medium-Hard (60-80% of time to solve)
+
+Dice (minimal use):
+- 2d6 for hidden clues or complications
+- 10+ = full success, 7-9 = success with complication, 6- = complication
+- Never roll for core clues (always found)
+```
+
+***
+
+## Moving to Phase 4
+
+With your system elements, resources, and parameters defined, you're ready to specify content requirements and integrate thematic context.
+
+Phase 4 will determine:
+
+* How much content you need (quantity calculation)
+* How to create that content (procedural vs. authored)
+* How to integrate theme/setting (Build/Suggest/Omit)
+* What information architecture players need
+
+Your Phase 3 decisions inform Phase 4:
+
+* Your core verbs determine what content you need (locations to investigate, NPCs to interview)
+* Your resources determine content consumption rate (how fast do players burn through content?)
+* Your parameters give you target quantities (how many suspects? how many clues?)
+
+Proceed to Phase 4 when ready.

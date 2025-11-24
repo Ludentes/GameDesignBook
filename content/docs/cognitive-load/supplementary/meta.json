@@ -1,7 +1,8 @@
 {
   "title": "Supplementary",
-  "pages": [
+  "pages": [   
+    "./cognitive-load-validation-playtest-guide",
     "./cognitive-load-game-analysis",
-    "./aliens-horror-game-design"    
+    "./aliens-horror-game-design"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "title": "Supplementary",
   "pages": [
+    "./context-validation-framework",
     "./weather-factory-context-analysis",
     "./disco-elysium-context-analysis",    
     "./mass-effect-andromeda-context-analysis",
