@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[28310,["/GameDesignBook/_next/static/chunks/1d371ad5cb0dd746.js","/GameDesignBook/_next/static/chunks/69f1c6419e6f4c84.js"],"default"]
 3:I[79595,["/GameDesignBook/_next/static/chunks/1d371ad5cb0dd746.js","/GameDesignBook/_next/static/chunks/69f1c6419e6f4c84.js"],"default"]
-0:{"buildId":"Z_Hcl1ppUCI0cnPYMZdlg","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"cK0fknfcXZQ6PlwuwjQ1Q","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
