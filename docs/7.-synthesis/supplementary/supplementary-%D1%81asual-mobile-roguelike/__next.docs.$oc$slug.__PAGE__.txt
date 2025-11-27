@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+3:I[34236,["/GameDesignBook/_next/static/chunks/1d371ad5cb0dd746.js","/GameDesignBook/_next/static/chunks/69f1c6419e6f4c84.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"Z_Hcl1ppUCI0cnPYMZdlg","rsc":["$","$1","c",{"children":["$L2",[["$","script","script-0",{"src":"/GameDesignBook/_next/static/chunks/31f30cd2987f6251.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+2:E{"digest":"NEXT_HTTP_ERROR_FALLBACK;404"}
+5:E{"digest":"NEXT_HTTP_ERROR_FALLBACK;404"}
