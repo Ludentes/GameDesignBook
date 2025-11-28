@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[28310,["/GameDesignBook/_next/static/chunks/ed93b10ac99eb1c4.js","/GameDesignBook/_next/static/chunks/69f1c6419e6f4c84.js","/GameDesignBook/_next/static/chunks/18af28875b9ea5e3.js","/GameDesignBook/_next/static/chunks/304cbb9e9f4a5ad1.js","/GameDesignBook/_next/static/chunks/8145af0200b53788.js"],"default"]
 3:I[79595,["/GameDesignBook/_next/static/chunks/ed93b10ac99eb1c4.js","/GameDesignBook/_next/static/chunks/69f1c6419e6f4c84.js","/GameDesignBook/_next/static/chunks/18af28875b9ea5e3.js","/GameDesignBook/_next/static/chunks/304cbb9e9f4a5ad1.js","/GameDesignBook/_next/static/chunks/8145af0200b53788.js"],"default"]
-0:{"buildId":"LBAYk2qc0ZnGeiF8YW1EV","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"WpzDlwx-PhUfiB1Q_JUGI","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
